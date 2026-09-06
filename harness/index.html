@@ -388,6 +388,12 @@ function donut(p,c,label,sub){
 function render(){
   if(!S) return;
   const work=(S.room&&S.room.working)||[];
+  const liveEl=document.querySelector('.live');
+  const example=/example/i.test(S.scream||'') || /vercel\.app|github\.io/.test(location.host);
+  if(liveEl){
+    liveEl.innerHTML=example?'<b></b>EXAMPLE':'<b></b>MESH';
+    liveEl.style.color=example?'var(--warn)':'';
+  }
   document.getElementById('kMaster').textContent=(S.master||[]).length;
   const ocList=(S.room&&S.room.oc_agents)||[];
   document.getElementById('kAg').textContent=`OC ${ocList.length} · BOT ${(S.room&&S.room.bots)||0}`;
