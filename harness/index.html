@@ -139,6 +139,7 @@ header{
       <div>MASTER<strong id="kMaster">0</strong></div>
       <div>C DESK PAPER<strong id="kEq">—</strong></div>
       <div>AGENTS / HUMANS<strong id="kAg">0 / 1</strong></div>
+      <div>AGE<strong id="kAge">—</strong></div>
       <div>CLOCK<strong id="kClk">--:--:--</strong></div>
     </div>
   </header>
@@ -389,11 +390,16 @@ function render(){
   if(!S) return;
   const work=(S.room&&S.room.working)||[];
   const liveEl=document.querySelector('.live');
-  const example=/example/i.test(S.scream||'') || /vercel\.app|github\.io/.test(location.host);
+  const ageMs=S.updated_at? (Date.now()-Date.parse(S.updated_at)) : 9e9;
+  const ageS=Math.max(0, Math.floor(ageMs/1000));
+  const fresh=ageS<45 || S.mesh_live;
+  const example=/example/i.test(S.scream||'') && !S.mesh_live;
   if(liveEl){
-    liveEl.innerHTML=example?'<b></b>EXAMPLE':'<b></b>MESH';
-    liveEl.style.color=example?'var(--warn)':'';
+    liveEl.innerHTML=example?'<b></b>EXAMPLE':(fresh?'<b></b>LIVE':'<b></b>STALE');
+    liveEl.style.color=example||!fresh?'var(--warn)':'';
   }
+  const kAge=document.getElementById('kAge');
+  if(kAge) kAge.textContent=ageS<90? ageS+'s' : (ageS<3600? Math.floor(ageS/60)+'m' : Math.floor(ageS/3600)+'h');
   document.getElementById('kMaster').textContent=(S.master||[]).length;
   const ocList=(S.room&&S.room.oc_agents)||[];
   document.getElementById('kAg').textContent=`OC ${ocList.length} · BOT ${(S.room&&S.room.bots)||0}`;
@@ -454,15 +460,22 @@ function stateUrl(){
   return p+'state.json?t='+Date.now();
 }
 async function boot(){
-  try{
-    const r=await fetch(stateUrl(),{cache:'no-store'});
-    if(!r.ok) throw new Error('HTTP '+r.status);
-    S=await r.json();
-    resize(); render();
-  }catch(e){
-    const b=document.getElementById('mbanner');
-    if(b) b.textContent='STATE FAIL · '+e;
+  const urls=[];
+  if(/vercel\.app|github\.io/.test(location.host)) urls.push('/api/state?t='+Date.now());
+  urls.push(stateUrl());
+  let lastErr=null;
+  for(const u of urls){
+    try{
+      const r=await fetch(u,{cache:'no-store'});
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      S=await r.json();
+      if(!S || typeof S!=='object') throw new Error('bad json');
+      resize(); render();
+      return;
+    }catch(e){ lastErr=e; }
   }
+  const b=document.getElementById('mbanner');
+  if(b) b.textContent='STATE FAIL · '+lastErr;
 }
 function clock(){
   const d=new Date();
