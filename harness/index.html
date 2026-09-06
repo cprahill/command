@@ -352,8 +352,26 @@ function drawNodes(){
     }
   });
 }
+let lastSpawn=0;
+function keepJobs(ts){
+  if(!S) return;
+  if(ts-lastSpawn<1600) return;
+  if(jobs.filter(j=>!j.dead).length>=3) return;
+  lastSpawn=ts;
+  const Pths=pathMap();
+  const pulse=(S.pulse||[]);
+  let key='first';
+  if(pulse.includes('imsg')) key='imsg';
+  else if(pulse.includes('bot')||pulse.includes('build')) key='first';
+  else if(pulse.includes('paper')||pulse.includes('oc')) key='clock';
+  const path=(Pths[key]||FALLBACK.first).filter(n=>N[n]);
+  if(path.length<2) return;
+  jobs.push({path, t:0, v:0.0038, col:COL[path[0]]||COL.build});
+}
 function frame(ts){
   T=ts/1000;
+  if(W<20||H<20) resize();
+  keepJobs(ts);
   X.clearRect(0,0,W,H);
   drawWires(); drawJobs(); drawNodes();
   requestAnimationFrame(frame);
@@ -423,11 +441,22 @@ function render(){
     jobs.push({path, t:0, v:0.004, col:COL[path[0]]||'#3ce7ff'});
   });
 }
+function stateUrl(){
+  let p=location.pathname||'/';
+  if(/\/[^/]+\.[A-Za-z0-9]+$/.test(p)) p=p.replace(/[^/]+$/,'');
+  else if(!p.endsWith('/')) p=p+'/';
+  return p+'state.json?t='+Date.now();
+}
 async function boot(){
   try{
-    S=await (await fetch('state.json?t='+Date.now(),{cache:'no-store'})).json();
+    const r=await fetch(stateUrl(),{cache:'no-store'});
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    S=await r.json();
     resize(); render();
-  }catch(e){}
+  }catch(e){
+    const b=document.getElementById('mbanner');
+    if(b) b.textContent='STATE FAIL · '+e;
+  }
 }
 function clock(){
   const d=new Date();
