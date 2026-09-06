@@ -5,179 +5,134 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <meta name="robots" content="noindex"/>
 <title>HARNESS</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
 <style>
 :root{
   --bg:#070b12; --panel:#0c121c; --line:#1b2738; --muted:#6d7d93;
   --text:#d7e6f5; --cyan:#3ce7ff; --mint:#3dffc7; --gold:#ffb020;
-  --pink:#ff4d8d; --violet:#8b7cff; --green:#3dff9a; --warn:#ffb020; --bad:#ff3864;
+  --pink:#ff4d8d; --violet:#8b7cff; --green:#3dff9a;
 }
 *{box-sizing:border-box}
 html,body{margin:0;height:100%;background:var(--bg);color:var(--text);overflow:hidden;
   font-family:"IBM Plex Mono",ui-monospace,monospace;}
-.app{height:100%;display:grid;grid-template-rows:42px 36px 1fr minmax(170px,22%);gap:8px;padding:8px 10px 10px;}
-header{
-  display:flex;align-items:center;gap:16px;padding:0 8px;
-  border-bottom:1px solid var(--line);
+.app{
+  height:100%;display:grid;
+  grid-template-rows:48px 1fr 168px;
+  gap:0;
 }
-.brand{font-family:"Barlow Condensed",sans-serif;font-weight:700;letter-spacing:.18em;font-size:18px;color:#fff;}
+header{
+  display:flex;align-items:center;gap:14px;
+  padding:0 16px;border-bottom:1px solid var(--line);
+  background:#080e16;
+}
+.brand{font-family:"Barlow Condensed",sans-serif;font-weight:700;letter-spacing:.2em;font-size:17px;color:#fff;}
 .brand i{color:var(--cyan);font-style:normal}
-.sub{font-size:10px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
-.live{margin-left:8px;display:flex;align-items:center;gap:6px;font-size:10px;letter-spacing:.16em;color:var(--green)}
+.chip{
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  padding:3px 8px;border:1px solid var(--line);border-radius:2px;color:var(--muted);
+}
+.chip.paper{color:var(--gold);border-color:#5a4318}
+.live{display:flex;align-items:center;gap:6px;font-size:10px;letter-spacing:.16em;color:var(--green)}
 .live b{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);display:block;animation:blink 1.6s infinite}
 @keyframes blink{50%{opacity:.35}}
-.kpis{margin-left:auto;display:flex;gap:22px;font-size:11px;color:var(--muted)}
-.kpis strong{display:block;color:#fff;font-family:"Space Grotesk",sans-serif;font-size:14px}
-.bot{display:grid;grid-template-columns:1.1fr 1fr;gap:8px;min-height:0}
-.panel{
-  background:var(--panel);border:1px solid var(--line);border-radius:4px;
-  padding:10px 12px 8px;min-height:0;overflow:hidden;position:relative;
+.kpis{margin-left:auto;display:flex;gap:20px;font-size:10px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.kpis strong{display:block;color:#fff;font-family:"Space Grotesk",sans-serif;font-size:15px;letter-spacing:0;text-transform:none;margin-top:1px}
+.tok{
+  display:flex;align-items:center;gap:10px;min-width:220px;max-width:340px;
+  font-size:10px;color:var(--muted);
 }
-.ph{
-  font-family:"Barlow Condensed",sans-serif;font-size:12px;letter-spacing:.2em;
-  color:var(--muted);display:flex;justify-content:space-between;margin-bottom:6px;
-}
-.ph span{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.12em}
-.hero{font-family:"Space Grotesk",sans-serif;font-size:42px;font-weight:700;line-height:1;color:#fff;letter-spacing:-.02em}
-.hero small{font-size:18px;color:var(--muted);margin-left:6px}
-.delta{font-size:11px;margin-top:4px}
-.delta.up{color:var(--green)} .delta.dn{color:var(--bad)}
-.bars{display:flex;flex-direction:column;gap:5px;margin-top:8px}
-.tokrow{display:grid;grid-template-columns:78px 1fr 64px;gap:8px;align-items:center;font-size:10px}
-.tokrow b{font-family:"Barlow Condensed",sans-serif;letter-spacing:.08em}
-.tokrow .track{height:8px;background:#152033;overflow:hidden}
-.tokrow .track i{display:block;height:100%}
-.tokbar{
-  display:flex;align-items:center;gap:14px;padding:6px 12px;
-  background:var(--panel);border:1px solid var(--line);border-radius:4px;
-}
-.tokstack{flex:1;height:12px;display:flex;background:#152033;overflow:hidden}
+.tokstack{flex:1;height:6px;display:flex;background:#152033;border-radius:2px;overflow:hidden}
 .tokstack i{height:100%;min-width:0}
-.tokleg{display:flex;gap:14px;font-size:10px;color:var(--muted);white-space:nowrap}
-.tokleg b{color:var(--text);font-weight:600}
-.spark{position:absolute;left:12px;right:12px;bottom:8px;height:70px;pointer-events:none}
-.launches{display:flex;flex-direction:column;gap:4px;height:calc(100% - 22px);overflow:hidden}
-.ln{display:grid;grid-template-columns:64px 1fr 78px 48px;align-items:center;gap:8px;font-size:11px}
-.ln b{font-family:"Barlow Condensed",sans-serif;letter-spacing:.12em;font-weight:600}
-.wave{height:18px}
-.pill{font-size:9px;letter-spacing:.1em;padding:2px 6px;border:1px solid;text-align:center}
-.pill.ok{color:var(--cyan);border-color:var(--cyan)}
-.pill.hot{color:var(--gold);border-color:var(--gold);box-shadow:0 0 8px rgba(255,176,32,.35)}
-.pill.warn{color:var(--warn);border-color:#5a4a20}
-.pill.bad{color:var(--pink);border-color:var(--pink)}
-.pct{text-align:right;color:var(--muted)}
-.pct.up{color:var(--green)} .pct.dn{color:var(--pink)}
-.gates{display:flex;justify-content:space-around;align-items:center;height:58%;gap:6px}
-.donut{
-  width:92px;height:92px;border-radius:50%;display:grid;place-items:center;position:relative;
-  background:conic-gradient(var(--c) calc(var(--p) * 1%), #182233 0);
-}
-.donut em{
-  position:absolute;inset:12px;border-radius:50%;background:var(--panel);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  font-style:normal;font-family:"Space Grotesk",sans-serif;font-size:16px;font-weight:700;
-}
-.donut em s{font-size:8px;letter-spacing:.12em;color:var(--muted);text-decoration:none;font-family:"Barlow Condensed",sans-serif}
-.gmeta{font-size:10px;color:var(--muted);display:flex;justify-content:space-between;margin-top:8px}
 .mesh{
-  background:linear-gradient(180deg,#081018 0%,#0a1422 100%);
-  border:1px solid var(--line);border-radius:4px;position:relative;min-height:0;overflow:hidden;
+  position:relative;min-height:0;overflow:hidden;
+  background:radial-gradient(1200px 480px at 50% 40%, #0d1828 0%, #070b12 70%);
 }
 .mesh canvas{position:absolute;inset:0;width:100%;height:100%}
 .mbanner{
-  position:absolute;left:50%;top:8px;transform:translateX(-50%);z-index:3;
-  font-family:"Barlow Condensed",sans-serif;letter-spacing:.22em;font-size:11px;
-  background:#0b1520;border:1px solid #1e3a4a;color:var(--cyan);padding:4px 12px;
+  position:absolute;left:16px;top:12px;z-index:3;
+  font-family:"Barlow Condensed",sans-serif;letter-spacing:.18em;font-size:11px;
+  color:var(--muted);
 }
 .call{
-  position:absolute;z-index:4;transform:translate(-50%,-130%);
+  position:absolute;z-index:4;transform:translate(-50%,-140%);
   background:#101820;border:1px solid var(--cyan);color:#e8fff9;
-  font-size:10px;padding:4px 8px;white-space:nowrap;pointer-events:none;
-  box-shadow:0 0 16px rgba(60,231,255,.2);
+  font-size:10px;padding:3px 7px;white-space:nowrap;pointer-events:none;
 }
-.room-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:3px;margin-top:4px}
-.room-grid b{display:block;aspect-ratio:1;border-radius:1px;background:#1a2433}
-.room-grid b.on{background:var(--mint);box-shadow:0 0 6px var(--mint)}
-.room-grid b.hot{background:var(--gold);box-shadow:0 0 6px var(--gold)}
-.room-grid b.bot{background:#2a1f55}
-.room-grid b.bot.on{background:var(--violet);box-shadow:0 0 6px var(--violet)}
-.oc-seats{display:grid;grid-template-columns:1fr 1fr;gap:1px 12px;max-height:58%;overflow:auto;margin:2px 0 8px}
-.oc-seats .s{display:grid;grid-template-columns:1fr auto auto;gap:6px;align-items:center;
-  font-size:10px;padding:2px 0;border-bottom:1px solid #152033;color:var(--muted)}
-.oc-seats .s b{color:var(--text);font-weight:500;letter-spacing:.04em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.oc-seats .s.hot b{color:var(--gold)}
-.oc-seats .s.hot{color:var(--gold)}
-.oc-seats .s.silent{opacity:.4}
-.oc-seats .s .m{color:var(--cyan);font-size:9px}
-.looprow{display:flex;gap:3px;margin-top:10px}
-.looprow i{flex:1;height:14px;background:#152033}
-.looprow i.on{background:var(--violet)}
-.feed{display:grid;grid-template-columns:1fr 1fr;gap:2px 16px;font-size:11px;flex:1;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;align-content:start}
+.bot{
+  display:grid;grid-template-columns:1.2fr .8fr;
+  border-top:1px solid var(--line);min-height:0;background:var(--panel);
+}
+.panel{padding:12px 16px;min-height:0;overflow:hidden;display:flex;flex-direction:column}
+.panel + .panel{border-left:1px solid var(--line)}
+.ph{
+  font-family:"Barlow Condensed",sans-serif;font-size:11px;letter-spacing:.2em;
+  color:var(--muted);margin-bottom:8px;
+}
+.feed{font-size:12px;line-height:1.55;flex:1;min-height:0;overflow:auto}
 .feed div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.feed .t{color:var(--muted);margin-right:6px}
-.feed .tag{margin-right:6px;font-size:10px;letter-spacing:.08em}
+.feed .t{color:var(--muted);margin-right:8px}
+.feed .tag{margin-right:8px;font-size:10px;letter-spacing:.08em}
 .feed .tag.ok{color:var(--cyan)} .feed .tag.hot{color:var(--gold)}
-.feed .tag.warn{color:var(--warn)} .feed .tag.bad{color:var(--pink)}
-.docs{display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1;min-height:0;overflow:auto;font-size:11px;line-height:1.45}
-.docs h4{margin:0 0 6px;font-family:"Barlow Condensed",sans-serif;letter-spacing:.16em;color:var(--gold);font-size:12px}
-.docs ul{margin:0;padding-left:16px;color:var(--text)}
-.docs li{margin-bottom:3px}
-.legend{margin-top:8px;flex-shrink:0;font-size:10px;color:var(--muted);letter-spacing:.04em;line-height:1.5}
-.legend i{display:inline-block;width:8px;height:8px;margin:0 4px 0 10px;vertical-align:middle}
-.bot .panel{display:flex;flex-direction:column;min-height:0}
+.feed .tag.warn{color:var(--gold)} .feed .tag.bad{color:var(--pink)}
+.docs{font-size:12px;line-height:1.5;flex:1;min-height:0;overflow:auto;margin:0;padding-left:16px;color:var(--text)}
+.docs li{margin-bottom:4px}
+
+/* mobile align — stack columns; .app scrolls. Build look unchanged. */
+@media (max-width:900px){
+  html,body{height:100%!important;width:100%;overflow:hidden!important;position:fixed!important;inset:0;-webkit-text-size-adjust:100%}
+  .app{
+    height:100dvh!important;max-height:100dvh!important;
+    overflow-x:hidden!important;overflow-y:scroll!important;
+    -webkit-overflow-scrolling:touch;overscroll-behavior-y:contain;touch-action:pan-y;
+    grid-template-rows:auto minmax(240px,42vh) auto!important;
+    gap:0;padding:0 0 calc(16px + env(safe-area-inset-bottom,0px));
+  }
+  header{flex-wrap:wrap;height:auto;padding:10px 12px;gap:8px 12px}
+  .kpis{order:4;flex:1 1 100%;margin-left:0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .tok{order:5;flex:1 1 100%;max-width:none}
+  .mesh{min-height:240px;height:42vh;max-height:48vh;width:100%}
+  .mesh canvas{width:100%!important;height:100%!important}
+  .bot{grid-template-columns:1fr!important;height:auto}
+  .panel + .panel{border-left:none;border-top:1px solid var(--line)}
+  .panel{min-height:160px;overflow:visible}
+  .feed,.docs{overflow:visible;height:auto}
+  .feed div{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.4;padding:3px 0}
+}
+@media (max-width:420px){
+  .mesh{height:36vh;min-height:200px}
+}
+.feed,.docs{overflow:auto;-webkit-overflow-scrolling:touch}
 </style>
 </head>
 <body>
 <div class="app">
   <header>
-    <div class="brand">HARNESS <i>//</i> GROK BUILD</div>
-    <div class="sub">Build ═ Bot · iMessage in/out · lessons + 1st principles before ship</div>
-    <a href="../" style="color:#3ce7ff;text-decoration:none;font-family:Barlow Condensed,sans-serif;letter-spacing:.14em;font-size:11px">COMMAND</a>
-    <a href="../paper/" style="color:#14f195;text-decoration:none;font-family:Barlow Condensed,sans-serif;letter-spacing:.14em;font-size:11px">PAPER</a>
-    <div class="live"><b></b>MESH</div>
+    <div class="brand">HARNESS <i>//</i> BUILD</div>
+    <div class="chip paper" id="scream">PAPER</div>
+    <div class="live"><b></b>LIVE</div>
+    <div class="tok" title="tokens 24h">
+      <div class="tokstack" id="tokstack"></div>
+      <span id="toksum">—</span>
+    </div>
     <div class="kpis">
-      <div>MASTER<strong id="kMaster">0</strong></div>
-      <div>C DESK PAPER<strong id="kEq">—</strong></div>
-      <div>AGENTS / HUMANS<strong id="kAg">0 / 1</strong></div>
-      <div>AGE<strong id="kAge">—</strong></div>
-      <div>CLOCK<strong id="kClk">--:--:--</strong></div>
+      <div>Paper<strong id="kEq">—</strong></div>
+      <div>Master<strong id="kMaster">0</strong></div>
+      <div>Clock<strong id="kClk">--:--:--</strong></div>
     </div>
   </header>
-  <div class="tokbar">
-    <span class="ph" style="margin:0;min-width:92px">TOKENS 24H</span>
-    <div class="tokstack" id="tokstack"></div>
-    <div class="tokleg" id="tokleg"></div>
-  </div>
   <section class="mesh">
-    <div class="mbanner" id="mbanner">HARNESS</div>
+    <div class="mbanner" id="mbanner">MESH</div>
     <canvas id="c"></canvas>
     <div id="calls"></div>
   </section>
   <section class="bot">
     <article class="panel">
-      <div class="ph">LIVING DOCS <span>quality · reliability · optimization · apply before ship</span></div>
-      <div class="docs">
-        <div>
-          <h4>LESSONS</h4>
-          <ul id="lessons"></ul>
-        </div>
-        <div>
-          <h4>1ST PRINCIPLES</h4>
-          <ul id="principles"></ul>
-        </div>
-      </div>
+      <div class="ph">LOG</div>
+      <div class="feed" id="feed"></div>
     </article>
     <article class="panel">
-      <div class="ph">LOG <span>what just happened</span></div>
-      <div class="feed" id="feed"></div>
-      <div class="legend">
-        <i style="background:#ffb020"></i>Grok Build/Bot
-        <i style="background:#8b7cff"></i>wired together
-        <i style="background:#3dffc7"></i>OpenClaw / local
-        <i style="background:#3ce7ff"></i>iMessage in+out
-        <i style="background:#fff"></i>verify/test
-        <i style="background:#ff4d8d"></i>clone to MASTER
-      </div>
+      <div class="ph">LESSONS</div>
+      <ul class="docs" id="lessons"></ul>
     </article>
   </section>
 </div>
@@ -190,30 +145,30 @@ const COL={
   twin:'#7ed0ff', paper:'#ffe08a', review:'#ffb020', verify:'#ffffff', master:'#ff4d8d'
 };
 const N={
-  gemma:{x:.16,y:.18,label:'GEMMA', kind:'ai'},
-  qwen:{x:.16,y:.82,label:'QWEN', kind:'ai'},
-  imsg:{x:.06,y:.50,label:'IMSG', kind:'in'},
-  oc:{x:.18,y:.50,label:'OPENCLAW', kind:'gate'},
-  build:{x:.36,y:.36,label:'BUILD', kind:'ai'},
-  bot:{x:.36,y:.64,label:'BOT', kind:'ai'},
-  review:{x:.54,y:.50,label:'REVIEW', kind:'gate'},
-  verify:{x:.68,y:.50,label:'VERIFY', kind:'gate'},
-  first:{x:.84,y:.18,label:'FIRST', kind:'dest'},
-  baja:{x:.84,y:.38,label:'BAJA', kind:'dest'},
-  twin:{x:.84,y:.62,label:'TWIN', kind:'dest'},
-  paper:{x:.84,y:.82,label:'C DESK', kind:'dest'},
-  master:{x:.96,y:.50,label:'MASTER', kind:'gate'}
+  gemma:{x:.14,y:.22,label:'GEMMA', kind:'ai'},
+  qwen:{x:.14,y:.78,label:'QWEN', kind:'ai'},
+  imsg:{x:.05,y:.50,label:'IMSG', kind:'in'},
+  oc:{x:.22,y:.50,label:'OPENCLAW', kind:'gate'},
+  build:{x:.40,y:.34,label:'BUILD', kind:'ai'},
+  bot:{x:.40,y:.66,label:'BOT', kind:'ai'},
+  review:{x:.58,y:.50,label:'REVIEW', kind:'gate'},
+  verify:{x:.72,y:.50,label:'VERIFY', kind:'gate'},
+  first:{x:.88,y:.18,label:'FIRST', kind:'dest'},
+  baja:{x:.88,y:.39,label:'BAJA', kind:'dest'},
+  twin:{x:.88,y:.61,label:'TWIN', kind:'dest'},
+  paper:{x:.88,y:.82,label:'C DESK', kind:'dest'},
+  master:{x:.97,y:.50,label:'MASTER', kind:'gate'}
 };
 const FALLBACK={
-  first:['build','bot','review','verify','first','master'],
+  first:['build','review','verify','first','master'],
   clock:['oc','review','verify','paper','master'],
-  baja:['build','bot','review','verify','baja','master'],
+  baja:['build','review','verify','baja','master'],
   cheap:['oc','review','verify','paper','master'],
   local:['gemma','oc','review','verify','paper','master'],
   cut:['qwen','oc','review','verify','twin','master'],
-  cloud:['bot','build','review','verify','master'],
+  cloud:['bot','review','verify','master'],
   imsg:['imsg','oc','imsg'],
-  code:['build','bot','review','verify','first','master']
+  code:['build','review','verify','first','master']
 };
 const WIRES=[
   ['imsg','oc'],['oc','imsg'],
@@ -248,17 +203,17 @@ function resize(){
   X.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
 }
 function botFace(x,y,col,on){
-  const s=on?18:15;
+  const s=on?16:13;
   X.save();
-  X.shadowColor=col; X.shadowBlur=on?18:6;
+  X.shadowColor=col; X.shadowBlur=on?16:5;
   X.fillStyle=hexA('#0b1520',.95);
-  X.strokeStyle=col; X.lineWidth=on?2.2:1.4;
+  X.strokeStyle=col; X.lineWidth=on?2:1.3;
   round(x-s,y-s,s*2,s*2,4); X.fill(); X.stroke();
   X.shadowBlur=0;
   X.fillStyle=col;
-  X.beginPath(); X.arc(x-5,y-3,2.1,0,Math.PI*2); X.arc(x+5,y-3,2.1,0,Math.PI*2); X.fill();
-  X.beginPath(); X.moveTo(x-5,y+5); X.quadraticCurveTo(x,y+(on?9:6),x+5,y+5);
-  X.strokeStyle=col; X.lineWidth=1.4; X.stroke();
+  X.beginPath(); X.arc(x-4.5,y-2.5,1.8,0,Math.PI*2); X.arc(x+4.5,y-2.5,1.8,0,Math.PI*2); X.fill();
+  X.beginPath(); X.moveTo(x-4.5,y+4.5); X.quadraticCurveTo(x,y+(on?8:5.5),x+4.5,y+4.5);
+  X.strokeStyle=col; X.lineWidth=1.3; X.stroke();
   X.restore();
 }
 function round(x,y,w,h,r){
@@ -267,29 +222,25 @@ function round(x,y,w,h,r){
   X.arcTo(x,y+h,x,y,r); X.arcTo(x,y,x+w,y,r); X.closePath();
 }
 function drawWires(){
-  // Build ═ Bot — one conductor pair
   const Gb=P('build'), Bt=P('bot');
   const pairOn=isWork('build')||isWork('bot');
   X.setLineDash([]);
-  [[-4,COL.build],[4,COL.bot]].forEach(([off,col])=>{
+  [[-3,COL.build],[3,COL.bot]].forEach(([off,col])=>{
     X.beginPath(); X.moveTo(Gb.x+off, Gb.y); X.lineTo(Bt.x+off, Bt.y);
-    X.strokeStyle=hexA(col, pairOn?.85:.4); X.lineWidth=pairOn?3.2:2; X.shadowColor=col; X.shadowBlur=10; X.stroke();
+    X.strokeStyle=hexA(col, pairOn?.8:.32); X.lineWidth=pairOn?2.8:1.6; X.shadowColor=col; X.shadowBlur=8; X.stroke();
   });
   X.shadowBlur=0;
-  X.font='700 9px Barlow Condensed,sans-serif';
-  X.fillStyle=hexA('#ffb020',.8); X.textAlign='left';
-  X.fillText('WIRED', Gb.x+14, (Gb.y+Bt.y)/2);
   WIRES.forEach(([a,b])=>{
     if((a==='build'&&b==='bot')||(a==='bot'&&b==='build')) return;
     const A=P(a), B=P(b);
     const on=isWork(a)||isWork(b);
     const twoWay=a==='imsg'||b==='imsg';
     X.beginPath();
-    const mx=(A.x+B.x)/2, my=(A.y+B.y)/2 + (A.y<H*.5?-12:12);
+    const mx=(A.x+B.x)/2, my=(A.y+B.y)/2 + (A.y<H*.5?-10:10);
     X.moveTo(A.x,A.y); X.quadraticCurveTo(mx, my, B.x, B.y);
     X.setLineDash(twoWay?[]:[3,6]);
-    X.strokeStyle=hexA(COL[a]||'#3ce7ff', on?.55:.2);
-    X.lineWidth=on?1.8:1.1; X.stroke(); X.setLineDash([]);
+    X.strokeStyle=hexA(COL[a]||'#3ce7ff', on?.5:.16);
+    X.lineWidth=on?1.6:1; X.stroke(); X.setLineDash([]);
   });
 }
 function along(path,t){
@@ -304,66 +255,47 @@ function drawJobs(){
   jobs.forEach(j=>{
     j.t+=j.v; if(j.t>=1) j.dead=true;
     const p=along(j.path,j.t);
-    X.beginPath(); X.arc(p.x,p.y,4.5,0,Math.PI*2);
-    X.fillStyle=j.col; X.shadowColor=j.col; X.shadowBlur=16; X.fill(); X.shadowBlur=0;
+    X.beginPath(); X.arc(p.x,p.y,3.8,0,Math.PI*2);
+    X.fillStyle=j.col; X.shadowColor=j.col; X.shadowBlur=12; X.fill(); X.shadowBlur=0;
   });
 }
 function drawIntake(x,y,col,on){
   X.save();
-  X.shadowColor=col; X.shadowBlur=on?14:4;
+  X.shadowColor=col; X.shadowBlur=on?12:3;
   X.beginPath();
-  X.moveTo(x-16,y); X.lineTo(x-4,y-12); X.lineTo(x-4,y-5); X.lineTo(x+14,y-5);
-  X.lineTo(x+14,y+5); X.lineTo(x-4,y+5); X.lineTo(x-4,y+12); X.closePath();
+  X.moveTo(x-14,y); X.lineTo(x-3,y-10); X.lineTo(x-3,y-4); X.lineTo(x+12,y-4);
+  X.lineTo(x+12,y+4); X.lineTo(x-3,y+4); X.lineTo(x-3,y+10); X.closePath();
   X.fillStyle=hexA('#0b1520',.95); X.fill();
-  X.strokeStyle=col; X.lineWidth=on?2:1.4; X.stroke();
+  X.strokeStyle=col; X.lineWidth=on?2:1.3; X.stroke();
   X.restore();
 }
 function drawNodes(){
   Object.keys(N).forEach(id=>{
     const p=P(id), on=isWork(id), col=COL[id]||'#3ce7ff', kind=N[id].kind||'ai';
     if(on){
-      X.beginPath(); X.arc(p.x,p.y,26+Math.sin(T*4)*3,0,Math.PI*2);
-      X.strokeStyle=hexA(col,.45); X.lineWidth=1.2; X.stroke();
+      X.beginPath(); X.arc(p.x,p.y,22+Math.sin(T*4)*2,0,Math.PI*2);
+      X.strokeStyle=hexA(col,.4); X.lineWidth=1.1; X.stroke();
     }
     if(kind==='in') drawIntake(p.x,p.y,col,on);
     else botFace(p.x,p.y,col,on || id==='review');
     X.font='600 10px Barlow Condensed,sans-serif';
     X.textAlign='center'; X.textBaseline='top';
-    X.fillStyle=on?'#fff':hexA('#d7e6f5',.8);
-    X.fillText(N[id].label, p.x, p.y+18);
-    if(id==='review'){
-      X.font='600 8px IBM Plex Mono,monospace';
-      X.fillStyle=hexA('#ffb020',.75);
-      X.fillText('LESSONS + 1ST PRINCIPLES', p.x, p.y+30);
-    }
-    if(id==='verify'){
-      X.font='600 8px IBM Plex Mono,monospace';
-      X.fillStyle=hexA('#fff',.6);
-      X.fillText('APPLY · TEST', p.x, p.y+30);
-    }
-    if(id==='master'){
-      X.font='600 8px IBM Plex Mono,monospace';
-      X.fillStyle=hexA('#ff4d8d',.75);
-      X.fillText('CLONE', p.x, p.y+30);
-    }
-    if(id==='imsg'){
-      X.font='600 8px IBM Plex Mono,monospace';
-      X.fillStyle=hexA('#3ce7ff',.75);
-      X.fillText('IN + OUT', p.x, p.y+30);
-    }
+    X.fillStyle=on?'#fff':hexA('#d7e6f5',.78);
+    X.fillText(N[id].label, p.x, p.y+16);
   });
 }
 let lastSpawn=0;
 function keepJobs(ts){
   if(!S) return;
-  if(ts-lastSpawn<1600) return;
-  if(jobs.filter(j=>!j.dead).length>=3) return;
+  if(ts-lastSpawn<1800) return;
+  if(jobs.filter(j=>!j.dead).length>=2) return;
   lastSpawn=ts;
   const Pths=pathMap();
   const pulse=(S.pulse||[]);
   let key='first';
   if(pulse.includes('imsg')) key='imsg';
-  else if(pulse.includes('bot')||pulse.includes('build')) key='first';
+  else if(pulse.includes('build')) key=pulse.includes('baja')?'baja':'first';
+  else if(pulse.includes('bot')) key='cloud';
   else if(pulse.includes('paper')||pulse.includes('oc')) key='clock';
   const path=(Pths[key]||FALLBACK.first).filter(n=>N[n]);
   if(path.length<2) return;
@@ -377,63 +309,45 @@ function frame(ts){
   drawWires(); drawJobs(); drawNodes();
   requestAnimationFrame(frame);
 }
-function sinePath(tone){
-  const c=tone==='bad'?'#ff4d8d':tone==='hot'?'#ffb020':tone==='ok'?'#3ce7ff':'#4cc9ff';
-  let d='M0 10';
-  for(let x=0;x<=120;x+=4) d+=` L${x} ${10+Math.sin(x/9)*6}`;
-  return `<svg class="wave" viewBox="0 0 120 20" preserveAspectRatio="none"><path d="${d}" fill="none" stroke="${c}" stroke-width="1.6"/></svg>`;
-}
-function donut(p,c,label,sub){
-  return `<div class="donut" style="--p:${Math.max(0,Math.min(100,p))};--c:${c}"><em>${label}<s>${sub}</s></em></div>`;
+function fmtT(n){
+  n=Number(n)||0;
+  if(n>=1e6) return (n/1e6).toFixed(1)+'M';
+  if(n>=1e3) return (n/1e3).toFixed(1)+'k';
+  return String(n);
 }
 function render(){
   if(!S) return;
-  const work=(S.room&&S.room.working)||[];
-  const liveEl=document.querySelector('.live');
   const ageMs=S.updated_at? (Date.now()-Date.parse(S.updated_at)) : 9e9;
   const ageS=Math.max(0, Math.floor(ageMs/1000));
   const fresh=ageS<45 || S.mesh_live;
   const example=/example/i.test(S.scream||'') && !S.mesh_live;
+  const liveEl=document.querySelector('.live');
   if(liveEl){
     liveEl.innerHTML=example?'<b></b>EXAMPLE':(fresh?'<b></b>LIVE':'<b></b>STALE');
-    liveEl.style.color=example||!fresh?'var(--warn)':'';
+    liveEl.style.color=example||!fresh?'var(--gold)':'';
   }
-  const kAge=document.getElementById('kAge');
-  if(kAge) kAge.textContent=ageS<90? ageS+'s' : (ageS<3600? Math.floor(ageS/60)+'m' : Math.floor(ageS/3600)+'h');
+  const sc=document.getElementById('scream');
+  if(sc) sc.textContent=(S.scream||'PAPER / not live').split('/')[0].trim()||'PAPER';
   document.getElementById('kMaster').textContent=(S.master||[]).length;
-  const ocList=(S.room&&S.room.oc_agents)||[];
-  document.getElementById('kAg').textContent=`OC ${ocList.length} · BOT ${(S.room&&S.room.bots)||0}`;
   const nw=S.net_worth||{};
-  document.getElementById('kEq').textContent=(nw.equity!=null)?nw.equity.toFixed(2):'—';
-  const toks=(S.tokens&&S.tokens.models)||[];
+  document.getElementById('kEq').textContent=(nw.equity!=null)?'$'+nw.equity.toFixed(0):'—';
+  const toks=((S.tokens&&S.tokens.models)||[]).filter(m=>m.meter!=='none');
   const tokTotal=(S.tokens&&S.tokens.total)||0;
-  const fmtT=n=>{
-    n=Number(n)||0;
-    if(n>=1e6) return (n/1e6).toFixed(1)+'M';
-    if(n>=1e3) return (n/1e3).toFixed(1)+'k';
-    return String(n);
-  };
   document.getElementById('tokstack').innerHTML=toks.map(m=>{
-    if(m.meter==='none') return '';
-    const w=tokTotal? Math.max(m.total?1.2:0, (m.total/tokTotal)*100) : 0;
-    return `<i style="width:${w}%;background:${m.color||'#3ce7ff'};opacity:${m.total?1:.25}" title="${m.label} ${fmtT(m.total)}"></i>`;
+    const w=tokTotal? Math.max(m.total?1.5:0, (m.total/tokTotal)*100) : 0;
+    return `<i style="width:${w}%;background:${m.color||'#3ce7ff'};opacity:${m.total?1:.2}" title="${m.label} ${fmtT(m.total)}"></i>`;
   }).join('');
-  document.getElementById('tokleg').innerHTML=toks.map(m=>{
-    const n=m.meter==='none'?'n/a':fmtT(m.total);
-    return `<span title="${m.note||''}"><i style="display:inline-block;width:8px;height:8px;background:${m.color};margin-right:5px"></i>${m.label} <b>${n}</b></span>`;
-  }).join('') + `<span>Σ <b>${fmtT(tokTotal)}</b></span>`;
+  const top=toks.slice().sort((a,b)=>(b.total||0)-(a.total||0))[0];
+  document.getElementById('toksum').textContent=top? fmtT(tokTotal)+' · '+(top.label||'').split(' ')[0] : fmtT(tokTotal);
   const docs=S.docs||{};
-  document.getElementById('lessons').innerHTML=(docs.lessons||[]).map(x=>`<li>${x}</li>`).join('')||'<li>LESSONS.md empty</li>';
-  document.getElementById('principles').innerHTML=(docs.principles||[]).map(x=>`<li>${x}</li>`).join('')||'<li>PRINCIPLES.md empty</li>';
-  const feed=S.feed||[];
-  document.getElementById('feed').innerHTML=feed.slice(-24).reverse().map(r=>
+  document.getElementById('lessons').innerHTML=(docs.lessons||[]).slice(0,6).map(x=>`<li>${x}</li>`).join('')||'<li>LESSONS.md empty</li>';
+  document.getElementById('feed').innerHTML=(S.feed||[]).slice(-12).reverse().map(r=>
     `<div><span class="t">${r.t}</span><span class="tag ${r.tone}">${r.tag}</span>${r.line}</div>`
   ).join('');
-  document.getElementById('mbanner').textContent=
-    `BUILD ═ BOT · REVIEW loads lessons + 1st principles · VERIFY tests · then dest · clone MASTER`;
+  document.getElementById('mbanner').textContent='BUILD → REVIEW · Bot only ALLOW jobs';
   const calls=document.getElementById('calls');
   calls.innerHTML='';
-  (S.callouts||[]).forEach(c=>{
+  (S.callouts||[]).slice(0,3).forEach(c=>{
     if(!N[c.id]) return;
     const p=P(c.id);
     const el2=document.createElement('div');
