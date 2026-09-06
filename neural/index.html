@@ -556,7 +556,8 @@ function stateUrl(){
 }
 async function boot(){
   const urls=[];
-  if(/vercel\.app|github\.io/.test(location.host)) urls.push('/api/state?t='+Date.now());
+  if(/vercel\.app/.test(location.host)) urls.push('/api/state/?t='+Date.now());
+  urls.push('https://grok-command.vercel.app/api/state/?t='+Date.now());
   urls.push(stateUrl());
   let lastErr=null;
   for(const u of urls){
