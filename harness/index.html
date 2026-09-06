@@ -28,9 +28,7 @@ header{
 @keyframes blink{50%{opacity:.35}}
 .kpis{margin-left:auto;display:flex;gap:22px;font-size:11px;color:var(--muted)}
 .kpis strong{display:block;color:#fff;font-family:"Space Grotesk",sans-serif;font-size:14px}
-.top,.bot{display:grid;gap:8px;min-height:0}
-.top{grid-template-columns:1.15fr 1.2fr .95fr}
-.bot{grid-template-columns:.78fr 1.5fr .72fr}
+.bot{display:grid;grid-template-columns:1.1fr 1fr;gap:8px;min-height:0}
 .panel{
   background:var(--panel);border:1px solid var(--line);border-radius:4px;
   padding:10px 12px 8px;min-height:0;overflow:hidden;position:relative;
@@ -114,19 +112,19 @@ header{
 .looprow{display:flex;gap:3px;margin-top:10px}
 .looprow i{flex:1;height:14px;background:#152033}
 .looprow i.on{background:var(--violet)}
-.feed{display:grid;grid-template-columns:1fr 1fr;gap:2px 16px;font-size:11px;height:calc(100% - 22px);overflow:hidden;align-content:start}
+.feed{display:grid;grid-template-columns:1fr 1fr;gap:2px 16px;font-size:11px;flex:1;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;align-content:start}
 .feed div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .feed .t{color:var(--muted);margin-right:6px}
 .feed .tag{margin-right:6px;font-size:10px;letter-spacing:.08em}
 .feed .tag.ok{color:var(--cyan)} .feed .tag.hot{color:var(--gold)}
 .feed .tag.warn{color:var(--warn)} .feed .tag.bad{color:var(--pink)}
-.docs{display:grid;grid-template-columns:1fr 1fr;gap:16px;height:calc(100% - 22px);overflow:auto;font-size:11px;line-height:1.45}
+.docs{display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1;min-height:0;overflow:auto;font-size:11px;line-height:1.45}
 .docs h4{margin:0 0 6px;font-family:"Barlow Condensed",sans-serif;letter-spacing:.16em;color:var(--gold);font-size:12px}
 .docs ul{margin:0;padding-left:16px;color:var(--text)}
 .docs li{margin-bottom:3px}
-.legend{margin-top:8px;font-size:10px;color:var(--muted);letter-spacing:.04em;line-height:1.5}
+.legend{margin-top:8px;flex-shrink:0;font-size:10px;color:var(--muted);letter-spacing:.04em;line-height:1.5}
 .legend i{display:inline-block;width:8px;height:8px;margin:0 4px 0 10px;vertical-align:middle}
-.bot{display:grid;grid-template-columns:1.1fr 1fr;gap:8px;min-height:0}
+.bot .panel{display:flex;flex-direction:column;min-height:0}
 </style>
 </head>
 <body>
@@ -398,7 +396,7 @@ function render(){
   document.getElementById('lessons').innerHTML=(docs.lessons||[]).map(x=>`<li>${x}</li>`).join('')||'<li>LESSONS.md empty</li>';
   document.getElementById('principles').innerHTML=(docs.principles||[]).map(x=>`<li>${x}</li>`).join('')||'<li>PRINCIPLES.md empty</li>';
   const feed=S.feed||[];
-  document.getElementById('feed').innerHTML=feed.slice(-12).reverse().map(r=>
+  document.getElementById('feed').innerHTML=feed.slice(-24).reverse().map(r=>
     `<div><span class="t">${r.t}</span><span class="tag ${r.tone}">${r.tag}</span>${r.line}</div>`
   ).join('');
   document.getElementById('mbanner').textContent=
