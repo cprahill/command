@@ -1,0 +1,149 @@
+{
+  "updated_at": "2026-09-05T19:00:00-05:00",
+  "paper": true,
+  "live": false,
+  "scream": "EXAMPLE / not live",
+  "master_empty": false,
+  "loop": ["learn", "plan", "build", "review", "iterate", "optimize", "master log", "1st principles"],
+  "loop_now": 3,
+  "park": ["Roblox", "Gonzo", "Photos", "portal", "retro", "stranger", "block"],
+  "benefits": {
+    "quality": "verify before PASS",
+    "tokens": "script > gemma > qwen > build > bot",
+    "reliability": "402 circuit-break; hash-unchanged = fail; AI-to-AI review",
+    "creation": "A Baja Grok Build only",
+    "collaboration": "0 new Grok Bots",
+    "collected_note": "$0 live — paper only"
+  },
+  "net_worth": {
+    "label": "AI team paper",
+    "source": "example paper books",
+    "start": 300,
+    "equity": 300,
+    "pnl": 0,
+    "return_pct": 0,
+    "leader": "cutting",
+    "leader_name": "CUTTING",
+    "groups": [
+      {"id": "traditional", "name": "TRADITIONAL", "model": "gemma4:12b", "pnl": 0, "return_pct": 0, "open": 0, "dd_pct": 0, "die_line": 15, "alive": true},
+      {"id": "cutting", "name": "CUTTING", "model": "qwen3.6:27b", "pnl": 0, "return_pct": 0, "open": 0, "dd_pct": 0, "die_line": 15, "alive": true},
+      {"id": "swarm", "name": "SWARM", "model": "host+wallets", "pnl": 0, "return_pct": 0, "open": 0, "dd_pct": 0, "die_line": 15, "alive": false}
+    ]
+  },
+  "ladder": [
+    {"path": "host", "n": 2},
+    {"path": "gemma", "n": 1},
+    {"path": "qwen", "n": 0},
+    {"path": "build", "n": 3},
+    {"path": "bot", "n": 0}
+  ],
+  "tokens": {
+    "window": "24h example",
+    "total": 1000,
+    "models": [
+      {"id": "gemma", "label": "GEMMA 12B", "color": "#3dff9a", "prompt": 180, "completion": 20, "total": 200, "calls": 4, "pct": 20},
+      {"id": "qwen", "label": "QWEN 27B", "color": "#3ce7ff", "prompt": 90, "completion": 10, "total": 100, "calls": 1, "pct": 10},
+      {"id": "build", "label": "GROK BUILD", "color": "#ffb020", "prompt": 650, "completion": 50, "total": 700, "calls": 3, "pct": 70},
+      {"id": "bot", "label": "GROK BOT", "color": "#8b7cff", "prompt": 0, "completion": 0, "total": 0, "calls": 0, "pct": 0}
+    ]
+  },
+  "health": {
+    "level": "ok",
+    "probes": [
+      {"id": "master", "level": "ok", "label": "MASTER 2 lines"},
+      {"id": "pack", "level": "ok", "label": "pack-slice ok"},
+      {"id": "handoff", "level": "ok", "label": "review grok-build→first-architect"},
+      {"id": "build402", "level": "ok", "label": "credit example"},
+      {"id": "oc_roster", "level": "ok", "label": "openclaw 12 agents"}
+    ]
+  },
+  "nodes": {
+    "build": {"title": "Grok Build", "role": "conductor", "why": "Directs Gemma / Qwen / Bot / OpenClaw. Dest code + First.", "active": "LIVE", "token": "build", "health": "ok", "feeds": ["review"], "fed_by": [], "doing": "first · editing", "working": true, "probes": []},
+    "bot": {"title": "Grok Bot", "role": "cloud sparse", "why": "Stamps, hot-wash, YES. Wires into OpenClaw.", "active": "LIVE", "token": "bot", "health": "ok", "feeds": ["review"], "fed_by": ["build"], "doing": "LIVE · roster → OpenClaw", "working": true, "probes": []},
+    "gemma": {"title": "Gemma 12b", "role": "cheap local English", "why": "Paper TRADITIONAL + household.", "active": "idle", "token": "gemma", "health": "ok", "feeds": ["review"], "fed_by": ["build"], "doing": "paper-desk idle", "working": false, "probes": []},
+    "qwen": {"title": "Qwen 27b", "role": "local cutting", "why": "Trade-dev CUTTING + twin ask.py.", "active": "idle", "token": "qwen", "health": "warn", "feeds": ["review"], "fed_by": ["build"], "doing": "trade-dev unused", "working": false, "probes": []},
+    "review": {"title": "REVIEW", "role": "AI-to-AI gate", "why": "No pass, no send.", "active": "LIVE", "token": "script", "health": "ok", "feeds": ["openclaw", "first"], "fed_by": ["build", "bot", "gemma", "qwen"], "doing": "PASS grok-build → first-architect", "working": true, "probes": []},
+    "openclaw": {"title": "OpenClaw", "role": "gateway", "why": "iMessage in. Money desk. Do not replace.", "active": "LIVE", "token": "script", "health": "ok", "feeds": ["paper"], "fed_by": ["review", "imsg"], "doing": "gateway · 12 agents", "working": true, "probes": [{"k": "seats", "v": "12"}]},
+    "first": {"title": "First", "role": "always-on", "why": "Not a dest. Harness / pack / log-job.", "active": "LIVE", "token": "script", "health": "ok", "feeds": ["verify"], "fed_by": ["review"], "doing": "pack first ok", "working": true, "probes": []},
+    "verify": {"title": "VERIFY", "role": "proof", "why": "Hash moved or miss.", "active": "LIVE", "token": "script", "health": "ok", "feeds": ["master"], "fed_by": ["review"], "doing": "PASS first", "working": false, "probes": []},
+    "master": {"title": "MASTER", "role": "spine", "why": "One jsonl every operator writes.", "active": "2 lines", "token": "file", "health": "ok", "feeds": [], "fed_by": ["verify"], "doing": "2 lines", "working": false, "probes": []},
+    "baja": {"title": "A Baja", "role": "creative dest", "why": "Grok Build only.", "active": "idle", "token": "build", "health": "ok", "feeds": ["verify"], "fed_by": ["review"], "doing": "Grok Build only", "working": false, "probes": []},
+    "twin": {"title": "B Twin", "role": "legacy dest", "why": "ask.py local twin. Not the default OpenClaw seat.", "active": "idle", "token": "qwen", "health": "warn", "feeds": ["verify"], "fed_by": ["review"], "doing": "ask.py", "working": false, "probes": []},
+    "paper": {"title": "C Desk", "role": "finance dest", "why": "Paper only. Desk UI is dest C.", "active": "idle", "token": "script", "health": "ok", "feeds": ["verify"], "fed_by": ["openclaw"], "doing": "desk", "working": false, "probes": []}
+  },
+  "paths": {
+    "first": {"nodes": ["build", "review", "first", "verify", "master"], "dest": "first", "why": "Build → REVIEW → First"},
+    "baja": {"nodes": ["build", "review", "baja", "verify", "master"], "dest": "baja", "why": "Build → REVIEW → Baja"},
+    "local": {"nodes": ["gemma", "review", "oc", "paper", "verify", "master"], "dest": "paper", "why": "Gemma → REVIEW → OpenClaw"},
+    "cut": {"nodes": ["qwen", "review", "twin", "verify", "master"], "dest": "twin", "why": "Qwen → REVIEW → twin"},
+    "cloud": {"nodes": ["bot", "review", "oc", "verify", "master"], "dest": "first", "why": "Bot → REVIEW → OpenClaw"},
+    "imsg": {"nodes": ["imsg", "oc", "verify", "master"], "dest": "household", "why": "Human iMessage → OpenClaw"},
+    "cheap": {"nodes": ["oc", "paper", "verify", "master"], "dest": "paper", "why": "Clock tick"}
+  },
+  "events": [
+    {"id": "ex-1", "path": "first", "op": "build", "dest": "first"}
+  ],
+  "pulse": ["build", "bot", "oc", "review", "first"],
+  "doing": {
+    "build": {"working": true, "line": "first · editing"},
+    "bot": {"working": true, "line": "LIVE · roster → OpenClaw"},
+    "oc": {"working": true, "line": "gateway · 12 agents"},
+    "review": {"working": true, "line": "PASS grok-build → first-architect"},
+    "first": {"working": true, "line": "pack first ok"},
+    "gemma": {"working": false, "line": "paper-desk idle"},
+    "qwen": {"working": false, "line": "trade-dev unused"}
+  },
+  "feed": [
+    {"t": "19:00:01", "tag": "PACK", "line": "first exit 0 ok", "tone": "ok"},
+    {"t": "19:00:02", "tag": "REVIEW", "line": "grok-build → first-architect pass", "tone": "ok"},
+    {"t": "19:00:03", "tag": "BUILD", "line": "editing · dest first", "tone": "hot"}
+  ],
+  "gate": {
+    "pack_pct": 100,
+    "pack_label": "pack-slice ok",
+    "review_pct": 100,
+    "review_label": "pass",
+    "risk_pct": 8,
+    "risk_label": "parked dests held",
+    "ttft_ms": 0,
+    "credit_pct": 40,
+    "block": false
+  },
+  "dests": [
+    {"id": "first", "name": "FIRST", "kind": "always-on", "pill": "HOT", "tone": "hot", "line": "pack first ok", "health": "ok"},
+    {"id": "baja", "name": "A BAJA", "kind": "creative", "pill": "ARMED", "tone": "ok", "line": "Grok Build only", "health": "ok"},
+    {"id": "twin", "name": "B TWIN", "kind": "legacy", "pill": "IDLE", "tone": "warn", "line": "ask.py", "health": "warn"},
+    {"id": "paper", "name": "C DESK", "kind": "finance", "pill": "IDLE", "tone": "warn", "line": "paper only", "health": "ok"},
+    {"id": "portal", "name": "PORTAL", "kind": "parked", "pill": "REJECT", "tone": "bad", "line": "Park Law", "health": "bad"}
+  ],
+  "callouts": [
+    {"id": "build", "text": "first · editing"},
+    {"id": "review", "text": "PASS grok-build → first-architect"},
+    {"id": "oc", "text": "gateway · 12 agents"}
+  ],
+  "room": {
+    "bots": 23,
+    "bot_live": true,
+    "working": ["build", "bot", "oc", "review", "first"],
+    "oc_agents": [
+      {"id": "paper-desk", "name": "paper-desk", "model": "gemma", "sess": 0, "working": false, "silent": false, "tone": "idle"},
+      {"id": "trade-dev", "name": "trade-dev", "model": "qwen", "sess": 0, "working": false, "silent": false, "tone": "idle"},
+      {"id": "swarm-mr", "name": "swarm-mr", "model": "gemma", "sess": 0, "working": false, "silent": false, "tone": "idle"},
+      {"id": "swarm-event", "name": "swarm-event", "model": "gemma", "sess": 0, "working": false, "silent": false, "tone": "idle"},
+      {"id": "designer", "name": "designer", "model": "gemma", "sess": 0, "working": false, "silent": false, "tone": "idle"},
+      {"id": "critic", "name": "critic", "model": "gemma", "sess": 0, "working": false, "silent": false, "tone": "idle"},
+      {"id": "legal", "name": "legal", "model": "gemma", "sess": 0, "working": false, "silent": false, "tone": "idle"},
+      {"id": "risk", "name": "risk", "model": "gemma", "sess": 0, "working": false, "silent": false, "tone": "idle"},
+      {"id": "scout", "name": "scout", "model": "gemma", "sess": 0, "working": false, "silent": false, "tone": "idle"},
+      {"id": "first-architect", "name": "first-architect", "model": "gemma", "sess": 0, "working": false, "silent": false, "tone": "idle"},
+      {"id": "revenue-lead", "name": "revenue-lead", "model": "gemma", "sess": 0, "working": false, "silent": false, "tone": "idle"},
+      {"id": "cleaner", "name": "cleaner", "model": "gemma", "sess": 0, "working": false, "silent": false, "tone": "idle"}
+    ]
+  },
+  "activity": [],
+  "lessons": ["token_waste", "no_change", "invent_dest", "paper_not_live", "pack_first", "first_path", "handoff_review"],
+  "master": [
+    {"t": "2026-09-05T15:17:46-05:00", "op": "host", "action": "lesson", "lesson": "harness_pack_prove", "dest": "first", "path": "script", "verified": true, "job_id": "mc1-prove"},
+    {"t": "2026-09-05T17:21:48-05:00", "op": "build", "action": "edit", "lesson": "first_path", "dest": "first", "path": "build", "verified": true, "job_id": "harness-wire-first"}
+  ]
+}
