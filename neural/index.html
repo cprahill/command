@@ -15,11 +15,7 @@
 *{box-sizing:border-box}
 html,body{margin:0;height:100%;background:var(--bg);color:var(--text);overflow:hidden;
   font-family:"IBM Plex Mono",ui-monospace,monospace;}
-.app{
-  height:100%;display:grid;
-  grid-template-rows:48px 1fr 168px;
-  gap:0;
-}
+.app{height:100%;display:grid;grid-template-rows:48px 1fr 168px;gap:0}
 header{
   display:flex;align-items:center;gap:14px;
   padding:0 16px;border-bottom:1px solid var(--line);
@@ -39,10 +35,7 @@ header{
 @keyframes blink{50%{opacity:.35}}
 .kpis{margin-left:auto;display:flex;gap:20px;font-size:10px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
 .kpis strong{display:block;color:#fff;font-family:"Space Grotesk",sans-serif;font-size:15px;letter-spacing:0;text-transform:none;margin-top:1px}
-.tok{
-  display:flex;align-items:center;gap:10px;min-width:220px;max-width:340px;
-  font-size:10px;color:var(--muted);
-}
+.tok{display:flex;align-items:center;gap:10px;min-width:220px;max-width:340px;font-size:10px;color:var(--muted)}
 .tokstack{flex:1;height:6px;display:flex;background:#152033;border-radius:2px;overflow:hidden}
 .tokstack i{height:100%;min-width:0}
 .mesh{
@@ -52,7 +45,8 @@ header{
     radial-gradient(600px 280px at 78% 50%, #1a1030 0%, transparent 55%),
     #03060c;
 }
-.mesh canvas{position:absolute;inset:0;width:100%;height:100%}
+.mesh canvas{position:absolute;inset:0;width:100%;height:100%;cursor:grab;touch-action:none}
+.mesh canvas:active{cursor:grabbing}
 .mbanner{
   position:absolute;left:16px;top:12px;z-index:3;
   font-family:"Barlow Condensed",sans-serif;letter-spacing:.18em;font-size:11px;
@@ -64,16 +58,10 @@ header{
   font-size:10px;padding:3px 7px;white-space:nowrap;pointer-events:none;
   box-shadow:0 0 14px #3ce7ff33;
 }
-.bot{
-  display:grid;grid-template-columns:1.2fr .8fr;
-  border-top:1px solid var(--line);min-height:0;background:var(--panel);
-}
+.bot{display:grid;grid-template-columns:1.2fr .8fr;border-top:1px solid var(--line);min-height:0;background:var(--panel)}
 .panel{padding:12px 16px;min-height:0;overflow:hidden;display:flex;flex-direction:column}
 .panel + .panel{border-left:1px solid var(--line)}
-.ph{
-  font-family:"Barlow Condensed",sans-serif;font-size:11px;letter-spacing:.2em;
-  color:var(--muted);margin-bottom:8px;
-}
+.ph{font-family:"Barlow Condensed",sans-serif;font-size:11px;letter-spacing:.2em;color:var(--muted);margin-bottom:8px}
 .feed{font-size:12px;line-height:1.55;flex:1;min-height:0;overflow:auto}
 .feed div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .feed .t{color:var(--muted);margin-right:8px}
@@ -83,38 +71,29 @@ header{
 .feed .tag.crew{color:var(--mint)}
 .docs{font-size:12px;line-height:1.5;flex:1;min-height:0;overflow:auto;margin:0;padding-left:16px;color:var(--text)}
 .docs li{margin-bottom:4px}
-
-/* mobile align — stack columns; .app scrolls. Build look unchanged. */
 @media (max-width:900px){
   html,body{height:100%!important;width:100%;overflow:hidden!important;position:fixed!important;inset:0;-webkit-text-size-adjust:100%}
-  .app{
-    height:100dvh!important;max-height:100dvh!important;
-    overflow-x:hidden!important;overflow-y:scroll!important;
+  .app{height:100dvh!important;max-height:100dvh!important;overflow-x:hidden!important;overflow-y:scroll!important;
     -webkit-overflow-scrolling:touch;overscroll-behavior-y:contain;touch-action:pan-y;
-    grid-template-rows:auto minmax(240px,42vh) auto!important;
-    gap:0;padding:0 0 calc(16px + env(safe-area-inset-bottom,0px));
-  }
+    grid-template-rows:auto minmax(240px,42vh) auto!important;gap:0;padding:0 0 calc(16px + env(safe-area-inset-bottom,0px))}
   header{flex-wrap:wrap;height:auto;padding:10px 12px;gap:8px 12px}
   .kpis{order:4;flex:1 1 100%;margin-left:0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
   .tok{order:5;flex:1 1 100%;max-width:none}
   .mesh{min-height:240px;height:42vh;max-height:48vh;width:100%}
-  .mesh canvas{width:100%!important;height:100%!important}
   .bot{grid-template-columns:1fr!important;height:auto}
   .panel + .panel{border-left:none;border-top:1px solid var(--line)}
   .panel{min-height:160px;overflow:visible}
   .feed,.docs{overflow:visible;height:auto}
   .feed div{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.4;padding:3px 0}
 }
-@media (max-width:420px){
-  .mesh{height:36vh;min-height:200px}
-}
+@media (max-width:420px){.mesh{height:36vh;min-height:200px}}
 .feed,.docs{overflow:auto;-webkit-overflow-scrolling:touch}
 </style>
 </head>
 <body>
 <div class="app">
   <header>
-    <div class="brand">HARNESS <i>//</i> NEURAL</div>
+    <div class="brand">HARNESS <i>//</i> NEURAL 3D</div>
     <a href="../" style="color:#3ce7ff;text-decoration:none;font-family:Barlow Condensed,sans-serif;letter-spacing:.14em;font-size:11px">COMMAND</a>
     <a href="../harness/" style="color:#ffb020;text-decoration:none;font-family:Barlow Condensed,sans-serif;letter-spacing:.14em;font-size:11px">HARNESS</a>
     <a href="../paper/" style="color:#14f195;text-decoration:none;font-family:Barlow Condensed,sans-serif;letter-spacing:.14em;font-size:11px">PAPER</a>
@@ -133,7 +112,7 @@ header{
     </div>
   </header>
   <section class="mesh">
-    <div class="mbanner" id="mbanner">FIRST GATE</div>
+    <div class="mbanner" id="mbanner">DRAG TO ORBIT</div>
     <canvas id="c"></canvas>
     <div id="calls"></div>
   </section>
@@ -151,29 +130,30 @@ header{
 <script>
 const C=document.getElementById('c'), X=C.getContext('2d');
 let W=0,H=0,T=0,S=null,jobs=[],seen=new Set();
+let yaw=0.55, pitch=0.32, dist=2.15, drag=false, lx=0, ly=0, auto=true;
 const COL={
-  imsg:'#3ce7ff', gemma:'#3dff9a', qwen:'#3ce7ff', host:'#6d7d93',
+  imsg:'#3ce7ff', gemma:'#3dff9a', qwen:'#3ce7ff', host:'#9aa8b8',
   locks:'#8b7cff', build:'#ffb020', bot:'#8b7cff', oc:'#3dffc7',
   first:'#3ce7ff', review:'#ffb020', verify:'#ffffff', master:'#ff4d8d',
   baja:'#ff6a3d', twin:'#7ed0ff', paper:'#ffe08a', park:'#ff4d8d'
 };
 const N={
-  imsg:{x:.07,y:.50,label:'IMSG', kind:'in', sub:'IN + OUT'},
-  gemma:{x:.18,y:.16,label:'GEMMA', kind:'ai'},
-  host:{x:.18,y:.38,label:'HOST', kind:'ai'},
-  qwen:{x:.18,y:.62,label:'QWEN', kind:'ai'},
-  locks:{x:.18,y:.84,label:'LOCKS', kind:'gate'},
-  build:{x:.33,y:.20,label:'BUILD', kind:'ai'},
-  oc:{x:.42,y:.50,label:'OPENCLAW', kind:'gate'},
-  bot:{x:.33,y:.80,label:'BOT', kind:'ai'},
-  first:{x:.54,y:.50,label:'FIRST', kind:'hex', sub:'GATE'},
-  review:{x:.68,y:.26,label:'REVIEW', kind:'gate', sub:'LESSONS'},
-  verify:{x:.68,y:.74,label:'VERIFY', kind:'gate', sub:'APPLY·TEST'},
-  baja:{x:.84,y:.16,label:'A BAJA', kind:'dest'},
-  twin:{x:.84,y:.38,label:'B TWIN', kind:'dest'},
-  paper:{x:.84,y:.62,label:'C DESK', kind:'dest'},
-  park:{x:.84,y:.84,label:'PARKED', kind:'park'},
-  master:{x:.95,y:.50,label:'MASTER', kind:'hex', sub:'CLONE'}
+  imsg:{x:.10,y:.50,z:-.42,label:'IMSG', kind:'ai', sub:'OC CHANNEL'},
+  gemma:{x:.18,y:.16,z:-.38,label:'GEMMA', kind:'ai', sub:'12B'},
+  host:{x:.18,y:.40,z:-.38,label:'HOST', kind:'ai', sub:'0-LLM CLOCK'},
+  qwen:{x:.18,y:.64,z:-.38,label:'QWEN', kind:'ai', sub:'27B'},
+  locks:{x:.18,y:.86,z:-.32,label:'LOCKS', kind:'gate', sub:'DISK'},
+  build:{x:.34,y:.18,z:.04,label:'BUILD', kind:'ai', sub:'CONDUCTOR'},
+  oc:{x:.44,y:.50,z:.08,label:'OPENCLAW', kind:'gate', sub:'GATEWAY'},
+  bot:{x:.34,y:.84,z:.04,label:'BOT', kind:'ai', sub:'ALLOW'},
+  first:{x:.56,y:.50,z:.32,label:'FIRST', kind:'hex', sub:'GATE'},
+  review:{x:.70,y:.24,z:.52,label:'REVIEW', kind:'gate', sub:'LESSONS'},
+  verify:{x:.70,y:.76,z:.52,label:'VERIFY', kind:'gate', sub:'APPLY·TEST'},
+  baja:{x:.86,y:.14,z:.76,label:'A BAJA', kind:'dest'},
+  twin:{x:.86,y:.38,z:.76,label:'B TWIN', kind:'dest'},
+  paper:{x:.86,y:.62,z:.76,label:'C DESK', kind:'dest'},
+  park:{x:.86,y:.86,z:.76,label:'PARKED', kind:'park'},
+  master:{x:.96,y:.50,z:.98,label:'MASTER', kind:'hex', sub:'CLONE'}
 };
 const FALLBACK={
   gate:['locks','first','build','review','verify','first','master'],
@@ -185,10 +165,10 @@ const FALLBACK={
   local:['first','gemma','oc','review','verify','paper','first','master'],
   cut:['first','qwen','oc','review','verify','twin','first','master'],
   cloud:['first','bot','review','verify','first','master'],
-  imsg:['imsg','oc','imsg']
+  imsg:['imsg','oc']
 };
 const WIRES=[
-  {a:'imsg',b:'oc', kind:'socket'},
+  {a:'imsg',b:'oc', kind:'plug'},
   {a:'gemma',b:'oc', kind:'plug'},
   {a:'qwen',b:'oc', kind:'plug'},
   {a:'host',b:'oc', kind:'plug'},
@@ -212,13 +192,11 @@ const WIRES=[
   {a:'paper',b:'first', kind:'back'},
   {a:'park',b:'first', kind:'reject'}
 ];
-const SPARK=Array.from({length:48},()=>({x:Math.random(),y:Math.random(),v:.001+Math.random()*.002,a:Math.random()*Math.PI*2}));
 function pathMap(){
   const o={...FALLBACK};
   if(S&&S.paths) Object.keys(S.paths).forEach(k=>{ if(S.paths[k].nodes) o[k]=S.paths[k].nodes.filter(n=>N[n]); });
   return o;
 }
-function P(id){const n=N[id]; return {x:n.x*W,y:n.y*H,id};}
 function hexA(h,a){const n=h.replace('#','');return `rgba(${parseInt(n.slice(0,2),16)},${parseInt(n.slice(2,4),16)},${parseInt(n.slice(4,6),16)},${a})`;}
 function live(id){
   const map={oc:'openclaw'};
@@ -235,199 +213,180 @@ function resize(){
   C.style.width=W+'px'; C.style.height=H+'px';
   X.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
 }
+function project(id){
+  const n=N[id];
+  let x=(n.x-0.5)*2.05, y=(n.y-0.5)*1.65, z=n.z;
+  const cy=Math.cos(yaw), sy=Math.sin(yaw), cp=Math.cos(pitch), sp=Math.sin(pitch);
+  let x1=x*cy-z*sy, z1=x*sy+z*cy;
+  let y1=y*cp-z1*sp, z2=y*sp+z1*cp;
+  const f=dist, s=f/(f+z2+0.55);
+  return {x:W*0.50+x1*s*W*0.40, y:H*0.50+y1*s*H*0.46, s, z:z2, id};
+}
+function P(id){return project(id);}
 function hexagon(x,y,r){
   X.beginPath();
   for(let i=0;i<6;i++){
     const a=Math.PI/6+i*Math.PI/3;
-    const px=x+Math.cos(a)*r, py=y+Math.sin(a)*r;
-    if(i) X.lineTo(px,py); else X.moveTo(px,py);
+    if(i) X.lineTo(x+Math.cos(a)*r, y+Math.sin(a)*r);
+    else X.moveTo(x+Math.cos(a)*r, y+Math.sin(a)*r);
   }
   X.closePath();
 }
-function neuron(x,y,col,on){
-  const r=on?14:11;
+function neuron(p,col,on){
+  const r=(on?13:10)*p.s;
   X.save();
-  X.shadowColor=col; X.shadowBlur=on?22:7;
-  X.beginPath(); X.arc(x,y,r,0,Math.PI*2);
+  X.shadowColor=col; X.shadowBlur=on?18*p.s:6*p.s;
+  X.beginPath(); X.arc(p.x,p.y,r,0,Math.PI*2);
   X.fillStyle=hexA('#050b14',.94); X.fill();
-  X.strokeStyle=col; X.lineWidth=on?2.2:1.2; X.stroke();
+  X.strokeStyle=col; X.lineWidth=on?2.1:1.15; X.stroke();
   X.shadowBlur=0;
-  X.globalAlpha=on?0.95:0.4;
-  X.beginPath(); X.arc(x,y,r*0.32,0,Math.PI*2); X.fillStyle=col; X.fill();
+  X.globalAlpha=on?0.95:0.45;
+  X.beginPath(); X.arc(p.x,p.y,r*0.32,0,Math.PI*2); X.fillStyle=col; X.fill();
   X.globalAlpha=1;
   for(let i=0;i<6;i++){
-    const a=T*0.5+i*Math.PI/3;
+    const a=T*0.55+i*Math.PI/3;
     X.beginPath();
-    X.moveTo(x+Math.cos(a)*r, y+Math.sin(a)*r);
-    X.lineTo(x+Math.cos(a)*(r+5.5), y+Math.sin(a)*(r+5.5));
-    X.strokeStyle=hexA(col,on?0.75:0.22); X.lineWidth=1; X.stroke();
+    X.moveTo(p.x+Math.cos(a)*r, p.y+Math.sin(a)*r);
+    X.lineTo(p.x+Math.cos(a)*(r+5*p.s), p.y+Math.sin(a)*(r+5*p.s));
+    X.strokeStyle=hexA(col,on?0.7:0.22); X.lineWidth=1; X.stroke();
   }
   X.restore();
 }
-function diamond(x,y,s,col,on){
+function diamond(p,s,col,on){
+  const k=s*p.s;
   X.save();
-  X.shadowColor=col; X.shadowBlur=on?16:5;
+  X.shadowColor=col; X.shadowBlur=on?14:4;
   X.beginPath();
-  X.moveTo(x,y-s); X.lineTo(x+s*0.85,y); X.lineTo(x,y+s); X.lineTo(x-s*0.85,y); X.closePath();
+  X.moveTo(p.x,p.y-k); X.lineTo(p.x+k*0.85,p.y); X.lineTo(p.x,p.y+k); X.lineTo(p.x-k*0.85,p.y); X.closePath();
   X.fillStyle=hexA('#050b14',.94); X.fill();
-  X.strokeStyle=col; X.lineWidth=on?2:1.2; X.stroke();
+  X.strokeStyle=col; X.lineWidth=on?2:1.15; X.stroke();
   X.restore();
 }
-function drawIntake(x,y,col,on){
+function drawHexGate(p,col,on,big){
+  const r=(big?(on?24:20):(on?15:12))*p.s;
   X.save();
-  X.shadowColor=col; X.shadowBlur=on?12:3;
-  X.beginPath();
-  X.moveTo(x-14,y); X.lineTo(x-3,y-10); X.lineTo(x-3,y-4); X.lineTo(x+12,y-4);
-  X.lineTo(x+12,y+4); X.lineTo(x-3,y+4); X.lineTo(x-3,y+10); X.closePath();
-  X.fillStyle=hexA('#0b1520',.95); X.fill();
-  X.strokeStyle=col; X.lineWidth=on?2:1.3; X.stroke();
-  X.restore();
-}
-function drawHexGate(x,y,col,on,big){
-  const r=big?(on?26:22):(on?16:13);
-  X.save();
-  X.shadowColor=col; X.shadowBlur=on?28:8;
-  hexagon(x,y,r);
+  X.shadowColor=col; X.shadowBlur=on?24:7;
+  hexagon(p.x,p.y,r);
   X.fillStyle=hexA('#050b14',.95); X.fill();
-  X.strokeStyle=col; X.lineWidth=on?2.6:1.5; X.stroke();
+  X.strokeStyle=col; X.lineWidth=on?2.4:1.4; X.stroke();
   X.shadowBlur=0;
-  hexagon(x,y,r*0.55);
+  hexagon(p.x,p.y,r*0.55);
   X.strokeStyle=hexA(col,on?0.7:0.25); X.lineWidth=1; X.stroke();
   X.restore();
 }
-function drawField(){
+function drawFloor(){
   X.save();
-  X.strokeStyle='rgba(60,231,255,0.05)'; X.lineWidth=1;
-  const g=36;
-  for(let x=0;x<W;x+=g){ X.beginPath(); X.moveTo(x,0); X.lineTo(x,H); X.stroke(); }
-  for(let y=0;y<H;y+=g){ X.beginPath(); X.moveTo(0,y); X.lineTo(W,y); X.stroke(); }
-  SPARK.forEach(p=>{
-    p.x+=Math.cos(p.a)*p.v; p.y+=Math.sin(p.a)*p.v;
-    if(p.x<0||p.x>1) p.a=Math.PI-p.a;
-    if(p.y<0||p.y>1) p.a=-p.a;
-    X.fillStyle=hexA('#3ce7ff',0.18+Math.sin(T*2+p.a)*0.08);
-    X.beginPath(); X.arc(p.x*W,p.y*H,1.2,0,Math.PI*2); X.fill();
-  });
+  for(let i=-5;i<=5;i++){
+    for(let j=-5;j<=5;j++){
+      const a=projectPt(i*0.18, 0.92, j*0.16);
+      const b=projectPt((i+1)*0.18, 0.92, j*0.16);
+      const c=projectPt(i*0.18, 0.92, (j+1)*0.16);
+      if(!a||!b) continue;
+      X.strokeStyle='rgba(60,231,255,0.06)'; X.lineWidth=1;
+      X.beginPath(); X.moveTo(a.x,a.y); X.lineTo(b.x,b.y); X.stroke();
+      if(c){ X.beginPath(); X.moveTo(a.x,a.y); X.lineTo(c.x,c.y); X.stroke(); }
+    }
+  }
   X.restore();
 }
-function drawProjects(){
-  const ids=['baja','twin','paper','park'];
-  const ps=ids.map(P);
-  const pad=28;
-  const x0=Math.min(...ps.map(p=>p.x))-pad, y0=Math.min(...ps.map(p=>p.y))-pad;
-  const x1=Math.max(...ps.map(p=>p.x))+pad, y1=Math.max(...ps.map(p=>p.y))+22;
-  X.save();
-  X.setLineDash([5,6]);
-  X.strokeStyle=hexA('#3dffc7',.35); X.lineWidth=1.2;
-  X.strokeRect(x0,y0,x1-x0,y1-y0);
-  X.setLineDash([]);
-  X.font='700 11px Barlow Condensed,sans-serif';
-  X.fillStyle=hexA('#3dffc7',.7); X.textAlign='center';
-  X.fillText('PROJECTS', (x0+x1)/2, y0-8);
-  X.restore();
+function projectPt(x,y,z){
+  const cy=Math.cos(yaw), sy=Math.sin(yaw), cp=Math.cos(pitch), sp=Math.sin(pitch);
+  let x1=x*cy-z*sy, z1=x*sy+z*cy;
+  let y1=y*cp-z1*sp, z2=y*sp+z1*cp;
+  const f=dist, s=f/(f+z2+0.55);
+  if(s<=0) return null;
+  return {x:W*0.50+x1*s*W*0.40, y:H*0.50+y1*s*H*0.46, s, z:z2};
 }
-function cable(A,B,col,on,dash,width,bend){
-  X.beginPath();
-  const mx=(A.x+B.x)/2+(bend||0), my=(A.y+B.y)/2;
-  X.moveTo(A.x,A.y); X.quadraticCurveTo(mx, my, B.x, B.y);
+function cable3(A,B,col,on,dash,width){
+  const a=Math.max(0.2, Math.min(1, (A.s+B.s)/2));
+  X.beginPath(); X.moveTo(A.x,A.y); X.lineTo(B.x,B.y);
   X.setLineDash(dash||[]);
-  if(dash&&dash.length) X.lineDashOffset=-(T*24);
-  X.strokeStyle=hexA(col, on?0.9:0.38);
-  X.lineWidth=on?(width||2.2):(width?width*0.7:1.3);
-  X.shadowColor=on?col:'transparent'; X.shadowBlur=on?10:0;
+  if(dash&&dash.length) X.lineDashOffset=-(T*22);
+  X.strokeStyle=hexA(col, (on?0.88:0.36)*a);
+  X.lineWidth=(on?(width||2.1):1.15)*a;
+  X.shadowColor=on?col:'transparent'; X.shadowBlur=on?8:0;
   X.stroke();
   X.setLineDash([]); X.lineDashOffset=0; X.shadowBlur=0;
 }
-function tag(txt,x,y,col,on){
-  X.font='700 10px Barlow Condensed,sans-serif';
+function tag3(txt,p,col,on,oy){
+  X.font=`700 ${Math.max(8,10*p.s)|0}px Barlow Condensed,sans-serif`;
   X.textAlign='center'; X.textBaseline='middle';
-  X.fillStyle=hexA(col, on?1:.55);
-  X.fillText(txt, x, y);
+  X.fillStyle=hexA(col, on?0.95:0.5);
+  X.fillText(txt, p.x, p.y+(oy||0)*p.s);
 }
 function drawWires(){
   const Gb=P('build'), Bt=P('bot'), Oc=P('oc'), Ft=P('first'), Ms=P('master');
   const pairOn=isWork('build')||isWork('bot');
   const crewOn=isWork('build')||isWork('oc');
   const gateOn=isWork('first');
-  // Build ═ Bot — left of OC so it does not run through OpenClaw
-  const pairX=Math.min(Gb.x,Bt.x)-28;
   [[-3,COL.build],[3,COL.bot]].forEach(([off,col])=>{
-    X.beginPath();
-    X.moveTo(Gb.x+off, Gb.y);
-    X.bezierCurveTo(pairX+off, Gb.y, pairX+off, Bt.y, Bt.x+off, Bt.y);
-    X.strokeStyle=hexA(col, pairOn?.85:.4); X.lineWidth=pairOn?2.6:1.5;
-    X.shadowColor=col; X.shadowBlur=pairOn?10:0; X.stroke();
+    cable3({x:Gb.x+off,y:Gb.y,s:Gb.s},{x:Bt.x+off,y:Bt.y,s:Bt.s}, col, pairOn, [], 2.4);
   });
-  X.shadowBlur=0;
-  tag('WIRED', pairX, Gb.y+36, '#ffb020', pairOn);
-  // Build ═ OC crew
+  tag3('WIRED', {x:(Gb.x+Bt.x)/2-18, y:(Gb.y+Bt.y)/2, s:(Gb.s+Bt.s)/2}, '#ffb020', pairOn, 0);
   [[-2,COL.build],[2,COL.oc]].forEach(([off,col])=>{
-    cable({x:Gb.x+off,y:Gb.y}, {x:Oc.x+off,y:Oc.y}, col, crewOn, [], 2.8, 10);
+    cable3({x:Gb.x+off,y:Gb.y,s:Gb.s},{x:Oc.x+off,y:Oc.y,s:Oc.s}, col, crewOn, [], 2.6);
   });
-  tag('CREW', (Gb.x+Oc.x)/2+8, (Gb.y+Oc.y)/2-10, '#3dffc7', crewOn);
-  // First ═ MASTER gate
+  tag3('CREW', {x:(Gb.x+Oc.x)/2, y:(Gb.y+Oc.y)/2, s:(Gb.s+Oc.s)/2}, '#3dffc7', crewOn, -10);
   [[-3,COL.first],[3,COL.master]].forEach(([off,col])=>{
-    cable({x:Ft.x+off,y:Ft.y}, {x:Ms.x+off,y:Ms.y}, col, gateOn, [], 3, 0);
+    cable3({x:Ft.x+off,y:Ft.y,s:Ft.s},{x:Ms.x+off,y:Ms.y,s:Ms.s}, col, gateOn, [], 2.8);
   });
-  tag('CLONE', (Ft.x+Ms.x)/2, (Ft.y+Ms.y)/2-12, '#3ce7ff', gateOn);
+  tag3('CLONE', {x:(Ft.x+Ms.x)/2, y:(Ft.y+Ms.y)/2, s:(Ft.s+Ms.s)/2}, '#3ce7ff', gateOn, -12);
   const style={
-    socket:{dash:[], w:2.2, bend:0},
-    plug:{dash:[4,5], w:1.6, bend:14},
-    gate:{dash:[], w:1.8, bend:-12},
-    review:{dash:[], w:2, bend:16},
-    verify:{dash:[], w:2, bend:0},
-    ship:{dash:[5,6], w:1.6, bend:10},
-    back:{dash:[], w:1.5, bend:-14},
-    reject:{dash:[2,8], w:1.1, bend:8}
+    plug:{dash:[4,5], w:1.5},
+    gate:{dash:[], w:1.7},
+    review:{dash:[], w:2},
+    verify:{dash:[], w:2},
+    ship:{dash:[5,6], w:1.5},
+    back:{dash:[], w:1.4},
+    reject:{dash:[2,8], w:1.05}
   };
-  WIRES.forEach((w,i)=>{
+  WIRES.forEach(w=>{
     const A=P(w.a), B=P(w.b);
-    const on=isWork(w.a)||isWork(w.b);
+    const on=(isWork(w.a)||isWork(w.b)) && w.kind!=='reject';
     const st=style[w.kind]||style.plug;
-    const bend=(st.bend||0)*((i%2)?1:-1);
-    cable(A,B, COL[w.a]||'#3ce7ff', on && w.kind!=='reject', st.dash, st.w, bend);
+    cable3(A,B, COL[w.a]||'#3ce7ff', on, st.dash, st.w);
   });
-  tag('IN/OUT', (P('imsg').x+Oc.x)/2, Oc.y-16, COL.imsg, isWork('imsg')||isWork('oc'));
-  tag('REVIEW', (P('review').x+Ft.x)/2, P('review').y-14, COL.review, isWork('review')||isWork('first'));
-  tag('VERIFY', (P('verify').x+Ft.x)/2, P('verify').y+14, '#fff', isWork('verify'));
+  tag3('REVIEW', P('review'), COL.review, isWork('review')||isWork('first'), -22);
+  tag3('VERIFY', P('verify'), '#fff', isWork('verify'), 22);
 }
 function along(path,t){
   const segs=Math.max(1,path.length-1), f=Math.min(segs-.0001,Math.max(0,t)*segs), i=Math.floor(f), u=f-i;
   const a=path[i], b=path[i+1]||path[i];
-  if(!N[a]||!N[b]) return {x:0,y:0};
+  if(!N[a]||!N[b]) return {x:0,y:0,s:1};
   const A=P(a), B=P(b);
-  return {x:A.x+(B.x-A.x)*u, y:A.y+(B.y-A.y)*u};
+  return {x:A.x+(B.x-A.x)*u, y:A.y+(B.y-A.y)*u, s:(A.s+B.s)/2};
 }
 function drawJobs(){
   jobs=jobs.filter(j=>!j.dead);
   jobs.forEach(j=>{
     j.t+=j.v; if(j.t>=1) j.dead=true;
     const p=along(j.path,j.t);
-    X.beginPath(); X.arc(p.x,p.y,3.6,0,Math.PI*2);
-    X.fillStyle=j.col; X.shadowColor=j.col; X.shadowBlur=14; X.fill(); X.shadowBlur=0;
+    X.beginPath(); X.arc(p.x,p.y,3.2*(p.s||1),0,Math.PI*2);
+    X.fillStyle=j.col; X.shadowColor=j.col; X.shadowBlur=12; X.fill(); X.shadowBlur=0;
   });
 }
 function drawNodes(){
-  Object.keys(N).forEach(id=>{
-    const p=P(id), on=isWork(id), col=COL[id]||'#3ce7ff', kind=N[id].kind||'ai';
+  Object.keys(N).map(id=>{
+    const p=P(id); p._id=id; return p;
+  }).sort((a,b)=>a.z-b.z).forEach(p=>{
+    const id=p._id, on=isWork(id), col=COL[id]||'#3ce7ff', kind=N[id].kind||'ai';
     if(on){
-      X.beginPath(); X.arc(p.x,p.y,(kind==='hex'?32:22)+Math.sin(T*4)*2,0,Math.PI*2);
-      X.strokeStyle=hexA(col,.35); X.lineWidth=1.1; X.stroke();
+      X.beginPath(); X.arc(p.x,p.y,(kind==='hex'?28:18)*p.s+Math.sin(T*4)*2,0,Math.PI*2);
+      X.strokeStyle=hexA(col,.32); X.lineWidth=1.1; X.stroke();
     }
-    if(kind==='in') drawIntake(p.x,p.y,col,on);
-    else if(kind==='hex') drawHexGate(p.x,p.y,col,on,id==='first');
-    else if(kind==='dest') diamond(p.x,p.y,on?13:11,col,on);
-    else if(kind==='park') diamond(p.x,p.y,10,col,false);
-    else if(kind==='gate') drawHexGate(p.x,p.y,col,on,false);
-    else neuron(p.x,p.y,col,on);
-    X.font='600 10px Barlow Condensed,sans-serif';
+    if(kind==='hex') drawHexGate(p,col,on,id==='first');
+    else if(kind==='dest') diamond(p,on?12:10,col,on);
+    else if(kind==='park') diamond(p,9,col,false);
+    else if(kind==='gate') drawHexGate(p,col,on,false);
+    else neuron(p,col,on);
+    X.font=`600 ${Math.max(8,10*p.s)|0}px Barlow Condensed,sans-serif`;
     X.textAlign='center'; X.textBaseline='top';
-    X.fillStyle=on?'#fff':hexA('#d7e6f5', id==='park'?.4:.78);
-    X.fillText(N[id].label, p.x, p.y+(kind==='hex'?26:16));
+    X.fillStyle=on?'#fff':hexA('#d7e6f5', id==='park'?.4:.8);
+    X.fillText(N[id].label, p.x, p.y+(kind==='hex'?24:15)*p.s);
     if(N[id].sub){
-      X.font='600 8px IBM Plex Mono,monospace';
+      X.font=`600 ${Math.max(7,8*p.s)|0}px IBM Plex Mono,monospace`;
       X.fillStyle=hexA(col, on?.8:.45);
-      X.fillText(N[id].sub, p.x, p.y+(kind==='hex'?38:28));
+      X.fillText(N[id].sub, p.x, p.y+(kind==='hex'?36:27)*p.s);
     }
   });
 }
@@ -450,13 +409,9 @@ function keepJobs(ts){
     jobs.push({path:['first','master'], t:0, v:0.007, col:COL.first});
     jobs.push({path:['locks','first'], t:0, v:0.007, col:COL.locks});
   }
-  if(pulse.includes('build') && liveN<4){
-    jobs.push({path:['build','review','verify'], t:0, v:0.006, col:COL.build});
-  }
-  if(pulse.includes('oc') && !crewOn && liveN<4){
-    jobs.push({path:['oc','review','verify'], t:0, v:0.006, col:COL.oc});
-  }
-  if(pulse.includes('imsg')) jobs.push({path:['imsg','oc','imsg'], t:0, v:0.01, col:COL.imsg});
+  if(pulse.includes('build') && liveN<4) jobs.push({path:['build','review','verify'], t:0, v:0.006, col:COL.build});
+  if(pulse.includes('oc') && !crewOn && liveN<4) jobs.push({path:['oc','review','verify'], t:0, v:0.006, col:COL.oc});
+  if(pulse.includes('imsg')) jobs.push({path:['imsg','oc'], t:0, v:0.01, col:COL.imsg});
   let key='gate';
   if(crewOn) key='crew';
   else if(pulse.includes('imsg')) key='imsg';
@@ -469,10 +424,11 @@ function keepJobs(ts){
 }
 function frame(ts){
   T=ts/1000;
+  if(auto) yaw+=0.00115;
   if(W<20||H<20) resize();
   keepJobs(ts);
   X.clearRect(0,0,W,H);
-  drawField(); drawProjects(); drawWires(); drawJobs(); drawNodes();
+  drawFloor(); drawWires(); drawJobs(); drawNodes();
   requestAnimationFrame(frame);
 }
 function fmtT(n){
@@ -514,8 +470,8 @@ function render(){
   const crew=pulse.includes('build')&&pulse.includes('oc');
   const gate=pulse.includes('first');
   document.getElementById('mbanner').textContent=gate
-    ?(crew?'FIRST GATE · BUILD ═ OPENCLAW → MASTER':'FIRST GATE · before + after → MASTER')
-    :(crew?'BUILD ═ OPENCLAW · via FIRST':'FIRST GATE · lessons on every hop');
+    ?(crew?'3D · FIRST GATE · BUILD ═ OC':'3D · FIRST GATE · drag to orbit')
+    :(crew?'3D · BUILD ═ OPENCLAW':'3D NEURAL · drag to orbit');
   const chip=document.getElementById('crewchip');
   if(chip){
     chip.textContent=crew?'BUILD ═ OC':'CREW';
@@ -578,6 +534,15 @@ function clock(){
   const z=n=>String(n).padStart(2,'0');
   document.getElementById('kClk').textContent=`${z(d.getHours())}:${z(d.getMinutes())}:${z(d.getSeconds())}`;
 }
+C.addEventListener('pointerdown', e=>{ drag=true; auto=false; lx=e.clientX; ly=e.clientY; try{C.setPointerCapture(e.pointerId)}catch(err){} });
+C.addEventListener('pointermove', e=>{
+  if(!drag) return;
+  yaw+=(e.clientX-lx)*0.006;
+  pitch=Math.max(-0.7, Math.min(0.85, pitch+(e.clientY-ly)*0.005));
+  lx=e.clientX; ly=e.clientY;
+});
+C.addEventListener('pointerup', ()=>{ drag=false; });
+C.addEventListener('wheel', e=>{ e.preventDefault(); dist=Math.max(1.35, Math.min(3.4, dist+e.deltaY*0.002)); }, {passive:false});
 addEventListener('resize', ()=>{ resize(); render(); });
 setInterval(boot, 4000);
 setInterval(clock, 1000);
