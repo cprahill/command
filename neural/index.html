@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <meta name="robots" content="noindex"/>
-<title>NEURAL</title>
+<title>HARNESS</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
 <style>
 :root{
@@ -88,6 +88,32 @@ header{
 }
 @media (max-width:420px){.mesh{height:36vh;min-height:200px}}
 .feed,.docs{overflow:auto;-webkit-overflow-scrolling:touch}
+
+/* mobile align — stack columns; .app scrolls. Build look unchanged. */
+@media (max-width:900px){
+  html,body{height:100%!important;width:100%;overflow:hidden!important;position:fixed!important;inset:0;-webkit-text-size-adjust:100%}
+  .app{
+    height:100dvh!important;max-height:100dvh!important;
+    overflow-x:hidden!important;overflow-y:scroll!important;
+    -webkit-overflow-scrolling:touch;overscroll-behavior-y:contain;touch-action:pan-y;
+    grid-template-rows:auto minmax(240px,42vh) auto!important;
+    gap:0;padding:0 0 calc(16px + env(safe-area-inset-bottom,0px));
+  }
+  header{flex-wrap:wrap;height:auto;padding:10px 12px;gap:8px 12px}
+  .kpis{order:4;flex:1 1 100%;margin-left:0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .tok{order:5;flex:1 1 100%;max-width:none}
+  .mesh{min-height:240px;height:42vh;max-height:48vh;width:100%}
+  .mesh canvas{width:100%!important;height:100%!important}
+  .bot{grid-template-columns:1fr!important;height:auto}
+  .panel + .panel{border-left:none;border-top:1px solid var(--line)}
+  .panel{min-height:160px;overflow:visible}
+  .feed,.docs{overflow:visible;height:auto}
+  .feed div{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.4;padding:3px 0}
+}
+@media (max-width:420px){
+  .mesh{height:36vh;min-height:200px}
+}
+.feed,.docs{overflow:auto;-webkit-overflow-scrolling:touch}
 </style>
 </head>
 <body>
@@ -149,10 +175,10 @@ const N={
   first:{x:.56,y:.50,z:.32,label:'FIRST', kind:'hex', sub:'GATE'},
   review:{x:.70,y:.24,z:.52,label:'REVIEW', kind:'gate', sub:'LESSONS'},
   verify:{x:.70,y:.76,z:.52,label:'VERIFY', kind:'gate', sub:'APPLY·TEST'},
-  baja:{x:.86,y:.14,z:.76,label:'A BAJA', kind:'dest'},
-  twin:{x:.86,y:.38,z:.76,label:'B TWIN', kind:'dest'},
-  paper:{x:.86,y:.62,z:.76,label:'C DESK', kind:'dest'},
-  park:{x:.86,y:.86,z:.76,label:'PARKED', kind:'park'},
+  baja:{x:.78,y:.10,z:.55,label:'A BAJA', kind:'dest'},
+  twin:{x:.92,y:.32,z:.72,label:'B TWIN', kind:'dest'},
+  paper:{x:.86,y:.58,z:.88,label:'C DESK', kind:'dest'},
+  park:{x:.92,y:.88,z:.90,label:'PARKED', kind:'park'},
   master:{x:.96,y:.50,z:.98,label:'MASTER', kind:'hex', sub:'CLONE'}
 };
 const FALLBACK={
@@ -274,6 +300,13 @@ function drawHexGate(p,col,on,big){
   X.strokeStyle=hexA(col,on?0.7:0.25); X.lineWidth=1; X.stroke();
   X.restore();
 }
+function projectPt(x,y,z){
+  const cy=Math.cos(yaw), sy=Math.sin(yaw), cp=Math.cos(pitch), sp=Math.sin(pitch);
+  let x1=x*cy-z*sy, z1=x*sy+z*cy;
+  let y1=y*cp-z1*sp, z2=y*sp+z1*cp;
+  const f=dist, s=f/(f+z2+0.55);
+  return {x:W*0.50+x1*s*W*0.40, y:H*0.50+y1*s*H*0.46, s, z:z2};
+}
 function drawFloor(){
   X.save();
   for(let i=-5;i<=5;i++){
@@ -288,14 +321,6 @@ function drawFloor(){
     }
   }
   X.restore();
-}
-function projectPt(x,y,z){
-  const cy=Math.cos(yaw), sy=Math.sin(yaw), cp=Math.cos(pitch), sp=Math.sin(pitch);
-  let x1=x*cy-z*sy, z1=x*sy+z*cy;
-  let y1=y*cp-z1*sp, z2=y*sp+z1*cp;
-  const f=dist, s=f/(f+z2+0.55);
-  if(s<=0) return null;
-  return {x:W*0.50+x1*s*W*0.40, y:H*0.50+y1*s*H*0.46, s, z:z2};
 }
 function cable3(A,B,col,on,dash,width){
   const a=Math.max(0.2, Math.min(1, (A.s+B.s)/2));
@@ -394,33 +419,42 @@ let lastSpawn=0;
 function keepJobs(ts){
   if(!S) return;
   if(ts-lastSpawn<900) return;
-  const liveN=jobs.filter(j=>!j.dead).length;
-  if(liveN>=4) return;
   lastSpawn=ts;
   const Pths=pathMap();
   const pulse=(S.pulse||[]);
   const crewOn=pulse.includes('build')&&pulse.includes('oc');
   const gateOn=pulse.includes('first');
-  if(crewOn){
+  const bajaOn=pulse.includes('baja');
+  let liveN=jobs.filter(j=>!j.dead).length;
+  if(bajaOn && liveN<6){
+    jobs.push({path:['first','build','review','verify','baja'], t:0, v:0.005, col:COL.baja});
+    jobs.push({path:['verify','baja'], t:0, v:0.008, col:COL.build});
+    jobs.push({path:['baja','first','master'], t:0, v:0.006, col:COL.baja});
+    liveN+=3;
+  }
+  if(liveN>=5 && !bajaOn) return;
+  if(crewOn && liveN<6){
     jobs.push({path:['build','oc'], t:0, v:0.008, col:COL.build});
     jobs.push({path:['oc','build'], t:0, v:0.008, col:COL.oc});
+    liveN+=2;
   }
-  if(gateOn && liveN<3){
+  if(gateOn && liveN<5){
     jobs.push({path:['first','master'], t:0, v:0.007, col:COL.first});
     jobs.push({path:['locks','first'], t:0, v:0.007, col:COL.locks});
+    liveN+=2;
   }
-  if(pulse.includes('build') && liveN<4) jobs.push({path:['build','review','verify'], t:0, v:0.006, col:COL.build});
-  if(pulse.includes('oc') && !crewOn && liveN<4) jobs.push({path:['oc','review','verify'], t:0, v:0.006, col:COL.oc});
+  if(pulse.includes('build') && liveN<6) jobs.push({path:['build','review','verify'], t:0, v:0.006, col:COL.build});
+  if(pulse.includes('oc') && !crewOn && liveN<6) jobs.push({path:['oc','review','verify'], t:0, v:0.006, col:COL.oc});
   if(pulse.includes('imsg')) jobs.push({path:['imsg','oc'], t:0, v:0.01, col:COL.imsg});
   let key='gate';
-  if(crewOn) key='crew';
+  if(bajaOn) key='baja';
+  else if(crewOn) key='crew';
   else if(pulse.includes('imsg')) key='imsg';
-  else if(pulse.includes('baja')) key='baja';
   else if(pulse.includes('build')) key='gate';
   else if(pulse.includes('bot')) key='cloud';
   else if(pulse.includes('paper')||pulse.includes('oc')) key='clock';
   const path=(Pths[key]||FALLBACK.gate).filter(n=>N[n]);
-  if(path.length>=2 && liveN<3) jobs.push({path, t:0, v:0.0036, col:COL[path[0]]||COL.first});
+  if(path.length>=2 && liveN<6) jobs.push({path, t:0, v:0.0036, col:COL[path[0]]||COL.first});
 }
 function frame(ts){
   T=ts/1000;
@@ -469,9 +503,12 @@ function render(){
   const pulse=(S.pulse||[]);
   const crew=pulse.includes('build')&&pulse.includes('oc');
   const gate=pulse.includes('first');
-  document.getElementById('mbanner').textContent=gate
-    ?(crew?'3D · FIRST GATE · BUILD ═ OC':'3D · FIRST GATE · drag to orbit')
-    :(crew?'3D · BUILD ═ OPENCLAW':'3D NEURAL · drag to orbit');
+  const baja=pulse.includes('baja');
+  document.getElementById('mbanner').textContent=baja
+    ?'3D · A BAJA · playable in-flight'
+    :(gate
+      ?(crew?'3D · FIRST GATE · BUILD ═ OC':'3D · FIRST GATE · drag to orbit')
+      :(crew?'3D · BUILD ═ OPENCLAW':'3D NEURAL · drag to orbit'));
   const chip=document.getElementById('crewchip');
   if(chip){
     chip.textContent=crew?'BUILD ═ OC':'CREW';
@@ -482,7 +519,7 @@ function render(){
   const calls=document.getElementById('calls');
   calls.innerHTML='';
   let callList=(S.callouts||[]).slice();
-  const want=['first','build','oc'];
+  const want=['baja','first','build','oc'];
   callList=[...callList.filter(c=>want.includes(c.id)), ...callList.filter(c=>!want.includes(c.id)&&c.id!=='bot')];
   callList.slice(0,3).forEach(c=>{
     if(!N[c.id]) return;
