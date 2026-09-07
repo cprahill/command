@@ -1,6 +1,10 @@
 {
   "cleanUrls": true,
   "trailingSlash": true,
+  "redirects": [
+    { "source": "/harness", "destination": "/neural/", "permanent": true },
+    { "source": "/harness/(.*)", "destination": "/neural/", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",
