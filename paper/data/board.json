@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-07T09:21:29-0500",
+  "updated_at": "2026-09-07T09:25:34-0500",
   "duel": {
     "ends_at": "2026-09-11T16:00:00-04:00",
     "metric": "return_pct",
@@ -190,11 +190,11 @@
     "mode": "PAPER",
     "starting_cash_usd": 100.0,
     "cash_usd": 91.9826,
-    "equity_usd": 109.0039,
-    "day_pnl_usd": 0.0,
-    "total_pnl_usd": 9.0039,
-    "return_pct": 9.0039,
-    "open_positions": 1,
+    "equity_usd": 91.9826,
+    "day_pnl_usd": -8.0,
+    "total_pnl_usd": -8.0174,
+    "return_pct": -8.0174,
+    "open_positions": 0,
     "live_wallets": false,
     "gate": {
       "open": true
@@ -205,6 +205,22 @@
       "next": "FADE \u00b7 eq $400.4822 \u00b7 P&L $0.4822 \u00b7 LIVE DENY"
     },
     "recent_fills": [
+      {
+        "id": "TDFC008",
+        "ts": "2026-09-07T09:25:09-0500",
+        "venue": "kalshi_demo",
+        "symbol": "KXHIGHNY-26SEP06-B73.5",
+        "side": "sell",
+        "qty": 17.021277,
+        "px": 0.0,
+        "notional_usd": 0.0,
+        "edge": "td-settle",
+        "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXHIGHNY-26SEP06-B73.5",
+        "urls": [
+          "https://api.elections.kalshi.com/trade-api/v2/markets/KXHIGHNY-26SEP06-B73.5",
+          "https://kalshi.com/markets/kxhighny/kxhighny-26sep06"
+        ]
+      },
       {
         "id": "TDF003",
         "ts": "2026-09-06T14:33:11-0500",
@@ -317,40 +333,9 @@
           "https://api.coinbase.com/v2/prices/ETH-USD/spot",
           "https://www.coinbase.com/price/bitcoin"
         ]
-      },
-      {
-        "id": "TDFC004",
-        "ts": "2026-09-06T11:11:25-0500",
-        "venue": "crypto",
-        "symbol": "ETH-USD",
-        "side": "sell",
-        "qty": 0.00322619,
-        "px": 2479.695,
-        "notional_usd": 8.0,
-        "edge": "td-rotate",
-        "url": "https://api.coinbase.com/v2/prices/ETH-USD/spot",
-        "urls": [
-          "https://api.coinbase.com/v2/prices/ETH-USD/spot",
-          "https://www.coinbase.com/price/bitcoin"
-        ]
       }
     ],
-    "open": [
-      {
-        "venue": "kalshi_demo",
-        "symbol": "KXHIGHNY-26SEP06-B73.5",
-        "qty": 17.021277,
-        "avg": 0.47,
-        "mark": 1.0,
-        "upnl": 9.0213,
-        "notional": 17.0213,
-        "edge": "E3",
-        "url": "https://kalshi.com/markets/kxhighny/kxhighny-26sep06",
-        "urls": [
-          "https://kalshi.com/markets/kxhighny/kxhighny-26sep06"
-        ]
-      }
-    ],
+    "open": [],
     "style": "vwap_fade",
     "parked": false,
     "last_scan": {
@@ -642,7 +627,7 @@
   },
   "signals": {
     "main": "yellow",
-    "trade_dev": "yellow",
+    "trade_dev": "green",
     "swarm": "green",
     "grok": "green",
     "duel": "green"
