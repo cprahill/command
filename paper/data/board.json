@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-07T05:01:07-0500",
+  "updated_at": "2026-09-07T05:16:13-0500",
   "duel": {
     "ends_at": "2026-09-11T16:00:00-04:00",
     "metric": "return_pct",
@@ -190,10 +190,10 @@
     "mode": "PAPER",
     "starting_cash_usd": 400.0,
     "cash_usd": 360.0938,
-    "equity_usd": 400.1459,
-    "day_pnl_usd": 0.0519,
-    "total_pnl_usd": 0.1459,
-    "return_pct": 0.0365,
+    "equity_usd": 400.1544,
+    "day_pnl_usd": 0.0604,
+    "total_pnl_usd": 0.1544,
+    "return_pct": 0.0386,
     "open_positions": 1,
     "live_wallets": false,
     "gate": {
@@ -202,7 +202,7 @@
     "confidence": {
       "score": 40,
       "live_ready": false,
-      "next": "FADE \u00b7 eq $400.1459 \u00b7 P&L $0.1459 \u00b7 LIVE DENY"
+      "next": "FADE \u00b7 eq $400.1544 \u00b7 P&L $0.1544 \u00b7 LIVE DENY"
     },
     "recent_fills": [
       {
@@ -336,9 +336,9 @@
         "symbol": "BTC-USD",
         "qty": 0.0005046,
         "avg": 79271.135,
-        "mark": 79374.005,
-        "upnl": 0.0519,
-        "notional": 40.0521,
+        "mark": 79390.775,
+        "upnl": 0.0604,
+        "notional": 40.0606,
         "edge": "fade-vwap",
         "url": "https://www.coinbase.com/price/bitcoin",
         "urls": [
@@ -349,19 +349,19 @@
     "style": "vwap_fade",
     "parked": false,
     "last_scan": {
-      "at": "2026-09-07T05:01:06-0500",
+      "at": "2026-09-07T05:16:12-0500",
       "names": [
         {
           "symbol": "BTC-USD",
-          "px": 79374.005,
-          "vwap": 79682.21,
-          "dev_pct": -0.3868
+          "px": 79390.775,
+          "vwap": 79669.34,
+          "dev_pct": -0.3497
         },
         {
           "symbol": "ETH-USD",
-          "px": 2488.155,
-          "vwap": 2498.77,
-          "dev_pct": -0.4248
+          "px": 2488.395,
+          "vwap": 2498.44,
+          "dev_pct": -0.4022
         }
       ]
     }
@@ -645,7 +645,7 @@
   "disclaimer": "Paper trading trial demo only. Fake money, real competition. Not financial advice. No live funds. No personal data.",
   "one_print": {
     "style": "nws_kalshi_one_bucket",
-    "knyc_max_f": 71.1,
+    "knyc_max_f": 69.1,
     "nws_f": 79,
     "floor": 79,
     "cap": 80,
