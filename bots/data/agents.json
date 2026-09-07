@@ -1,0 +1,105 @@
+{
+  "updated_at": "2026-09-06T23:25:37-0500",
+  "mode": "PAPER_OPS",
+  "live": "DENY",
+  "cap_living": 4,
+  "laws": {
+    "birth": "two_top_performers_only",
+    "death": "low_kpi_terminate",
+    "no_invent_bots": true
+  },
+  "kpi_doc": "KPI.md",
+  "living": 4,
+  "dead": 0,
+  "births_total": 0,
+  "agents": [
+    {
+      "id": "OC-paper-desk",
+      "seat": "paper-desk",
+      "role": "Desk surface + board truth",
+      "skills": [
+        "board",
+        "publish",
+        "plain-status"
+      ],
+      "status": "alive",
+      "generation": 0,
+      "parent_ids": [],
+      "born_at": "2026-09-06T23:13:41-0500",
+      "score": 64.93,
+      "verify_green_streak": 1,
+      "jobs_pass_7d": 1,
+      "jobs_total_7d": 1,
+      "idle_hours": 0.2,
+      "scored_at": "2026-09-06T23:25:37-0500",
+      "terminate_strikes": 0
+    },
+    {
+      "id": "OC-trade-dev",
+      "seat": "trade-dev",
+      "role": "Paper edge clips + wallet proof",
+      "skills": [
+        "edges",
+        "wallet-write",
+        "verify"
+      ],
+      "status": "alive",
+      "generation": 0,
+      "parent_ids": [],
+      "born_at": "2026-09-06T23:13:41-0500",
+      "score": 42.69,
+      "verify_green_streak": 1,
+      "jobs_pass_7d": 1,
+      "jobs_total_7d": 1,
+      "idle_hours": 0.2,
+      "scored_at": "2026-09-06T23:25:37-0500",
+      "terminate_strikes": 0
+    },
+    {
+      "id": "OC-swarm-mr",
+      "seat": "swarm-mr",
+      "role": "ETF / mean-reversion sleeve",
+      "skills": [
+        "vwap",
+        "marks",
+        "lessons"
+      ],
+      "status": "alive",
+      "generation": 0,
+      "parent_ids": [],
+      "born_at": "2026-09-06T23:13:41-0500",
+      "score": 47.27,
+      "verify_green_streak": 1,
+      "jobs_pass_7d": 1,
+      "jobs_total_7d": 1,
+      "idle_hours": 0.2,
+      "scored_at": "2026-09-06T23:25:37-0500",
+      "terminate_strikes": 0
+    },
+    {
+      "id": "OC-swarm-event",
+      "seat": "swarm-event",
+      "role": "Kalshi event / weather sleeve",
+      "skills": [
+        "kalshi",
+        "nws",
+        "event-journal"
+      ],
+      "status": "alive",
+      "generation": 0,
+      "parent_ids": [],
+      "born_at": "2026-09-06T23:13:41-0500",
+      "score": 40.93,
+      "jobs_pass_7d": 1,
+      "jobs_total_7d": 1,
+      "verify_green_streak": 1,
+      "idle_hours": 0.2,
+      "scored_at": "2026-09-06T23:25:37-0500"
+    }
+  ],
+  "last_score": {
+    "at": "2026-09-06T23:25:37-0500",
+    "killed": [],
+    "birth_offer": null
+  }
+}

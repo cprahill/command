@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>Workforce · OpenClaw</title>
+<style>
+:root{--bg:#070b0a;--fg:#d7ffe9;--mut:#7a9a8c;--ok:#14f195;--dead:#ff5d6c;--hy:#f5c542}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.4 "IBM Plex Mono",ui-monospace,monospace}
+header{padding:16px 18px;border-bottom:1px solid #1c2e26;display:flex;gap:16px;flex-wrap:wrap;align-items:baseline}
+header b{font-size:22px;letter-spacing:.08em}
+.kpi{display:flex;gap:18px;flex-wrap:wrap;padding:12px 18px;color:var(--mut)}
+.kpi span strong{color:var(--fg);font-size:18px;display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;padding:18px}
+.card{border:1px solid #1c2e26;border-radius:8px;padding:12px;background:#0c1411}
+.card.dead{opacity:.55;border-color:#402028}
+.card .id{color:var(--ok);letter-spacing:.06em}
+.card.dead .id{color:var(--dead)}
+.bar{height:6px;background:#13201a;border-radius:3px;margin-top:8px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ok)}
+.hy{color:var(--hy);font-size:11px}
+a{color:var(--ok)}
+</style>
+</head>
+<body>
+<header>
+  <b>WORKFORCE</b>
+  <span style="color:var(--mut)">OpenClaw swarm · birth=top2 · death=low KPI</span>
+  <a href="/">command</a> · <a href="/paper/">paper</a>
+</header>
+<div class="kpi" id="kpi"></div>
+<div class="grid" id="grid"></div>
+<script>
+async function load(){
+  const urls=['data/agents.json?t='+Date.now()];
+  let d=null;
+  for(const u of urls){ try{ const r=await fetch(u,{cache:'no-store'}); if(r.ok){ d=await r.json(); break; } }catch(e){} }
+  if(!d){ document.getElementById('kpi').textContent='no AGENTS.json'; return; }
+  const agents=d.agents||[];
+  const living=agents.filter(a=>a.status!=='dead');
+  const dead=agents.filter(a=>a.status==='dead');
+  const hybrids=agents.filter(a=>(a.parent_ids||[]).length>=2);
+  document.getElementById('kpi').innerHTML=
+    `<span><strong>${living.length}</strong>living</span>`+
+    `<span><strong>${dead.length}</strong>dead</span>`+
+    `<span><strong>${hybrids.length}</strong>hybrids</span>`+
+    `<span><strong>${d.births_total||0}</strong>births</span>`+
+    `<span><strong>${d.cap_living||'—'}</strong>cap</span>`;
+  const grid=document.getElementById('grid');
+  grid.innerHTML='';
+  agents.slice().sort((a,b)=>(b.score||0)-(a.score||0)).forEach(a=>{
+    const el=document.createElement('div');
+    el.className='card'+(a.status==='dead'?' dead':'');
+    const sc=Math.max(0,Math.min(100,Number(a.score)||0));
+    const hy=(a.parent_ids&&a.parent_ids.length>=2)?`<div class="hy">hybrid ← ${(a.parent_ids||[]).join(' × ')}</div>`:'';
+    el.innerHTML=`<div class="id">${a.id}</div><div>${a.role||a.seat||''}</div>
+      <div style="color:var(--mut);font-size:12px;margin-top:6px">${(a.skills||[]).join(' · ')}</div>
+      ${hy}<div class="bar"><i style="width:${sc}%"></i></div>
+      <div style="color:var(--mut);font-size:11px;margin-top:4px">score ${sc} · gen ${a.generation||0} · ${a.status}</div>`;
+    grid.appendChild(el);
+  });
+}
+load(); setInterval(load,15000);
+</script>
+</body>
+</html>
