@@ -1,27 +1,27 @@
 {
-  "updated_at": "2026-09-08T12:30:00-0500",
+  "updated_at": "2026-09-08T12:30:04-0500",
   "duel": {
     "ends_at": "2026-09-11T16:00:00-04:00",
     "metric": "return_pct",
     "leader": "main",
     "stakes": "$500 \u2192 $2,500 min \u00b7 $5k stretch \u00b7 live DENY until YES",
-    "main_return_pct": -23.6914,
+    "main_return_pct": -28.9488,
     "trade_dev_return_pct": 0,
     "swarm_return_pct": 0,
     "timeline": "Labor Day \u2192 Friday close",
     "mode": "ONE PRINT",
     "reset_at": null,
-    "friday_close": null
+    "friday_close": "2026-09-11T16:00:00-04:00"
   },
   "main": {
     "label": "ONE PRINT",
     "mode": "PAPER",
     "starting_cash_usd": 500.0,
     "cash_usd": 144.9611,
-    "equity_usd": 381.5431,
-    "day_pnl_usd": -75.0052,
-    "total_pnl_usd": -118.4569,
-    "return_pct": -23.6914,
+    "equity_usd": 355.2562,
+    "day_pnl_usd": -101.2921,
+    "total_pnl_usd": -144.7438,
+    "return_pct": -28.9488,
     "open_positions": 1,
     "live_wallets": false,
     "gate": {
@@ -30,7 +30,7 @@
     "confidence": {
       "score": 40,
       "live_ready": false,
-      "next": "ONE PRINT \u00b7 eq $381.5431 \u00b7 P&L $-118.4569 \u00b7 min $2500 \u00b7 stretch $5000 \u00b7 LIVE DENY"
+      "next": "ONE PRINT \u00b7 eq $355.2562 \u00b7 P&L $-144.7438 \u00b7 min $2500 \u00b7 stretch $5000 \u00b7 LIVE DENY"
     },
     "recent_fills": [
       {
@@ -176,9 +176,9 @@
         "symbol": "KXHIGHNY-26SEP08-B82.5",
         "qty": 876.2295,
         "avg": 0.3556,
-        "mark": 0.27,
-        "upnl": -75.0052,
-        "notional": 236.582,
+        "mark": 0.24,
+        "upnl": -101.2921,
+        "notional": 210.2951,
         "edge": "one-print",
         "url": "https://kalshi.com/markets/kxhighny/kxhighny-26sep08",
         "urls": [
@@ -190,13 +190,13 @@
   "trade_dev": {
     "label": "FADE",
     "mode": "PAPER",
-    "starting_cash_usd": 100.0,
-    "cash_usd": 91.9826,
-    "equity_usd": 91.9826,
-    "day_pnl_usd": -8.0,
-    "total_pnl_usd": -8.0174,
-    "return_pct": -8.0174,
-    "open_positions": 0,
+    "starting_cash_usd": 400.0,
+    "cash_usd": 361.2574,
+    "equity_usd": 401.3261,
+    "day_pnl_usd": 0.0687,
+    "total_pnl_usd": 1.3261,
+    "return_pct": 0.3315,
+    "open_positions": 1,
     "live_wallets": false,
     "gate": {
       "open": true
@@ -204,156 +204,170 @@
     "confidence": {
       "score": 40,
       "live_ready": false,
-      "next": "FADE \u00b7 eq $401.2629 \u00b7 P&L $1.2629 \u00b7 LIVE DENY"
+      "next": "FADE \u00b7 eq $401.3261 \u00b7 P&L $1.3261 \u00b7 LIVE DENY"
     },
     "recent_fills": [
       {
-        "id": "TDFC008",
-        "ts": "2026-09-07T09:25:09-0500",
-        "venue": "kalshi_demo",
-        "symbol": "KXHIGHNY-26SEP06-B73.5",
-        "side": "sell",
-        "qty": 17.021277,
-        "px": 0.0,
-        "notional_usd": 0.0,
-        "edge": "td-settle",
-        "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXHIGHNY-26SEP06-B73.5",
-        "urls": [
-          "https://api.elections.kalshi.com/trade-api/v2/markets/KXHIGHNY-26SEP06-B73.5",
-          "https://kalshi.com/markets/kxhighny/kxhighny-26sep06"
-        ]
-      },
-      {
-        "id": "TDF003",
-        "ts": "2026-09-06T14:33:11-0500",
-        "venue": "kalshi_demo",
-        "symbol": "KXHIGHNY-26SEP06-B73.5",
-        "side": "buy",
-        "qty": 17.021277,
-        "px": 0.47,
-        "notional_usd": 8.0,
-        "edge": "E3",
-        "url": "https://api.weather.gov/gridpoints/OKX/34,45/forecast",
-        "urls": [
-          "https://api.weather.gov/gridpoints/OKX/34,45/forecast",
-          "https://api.elections.kalshi.com/trade-api/v2/markets/KXHIGHNY-26SEP06-B73.5",
-          "https://kalshi.com/markets/kxhighny/kxhighny-26sep06"
-        ]
-      },
-      {
-        "id": "TDFC007",
-        "ts": "2026-09-06T14:33:11-0500",
-        "venue": "crypto",
+        "id": "FD038",
+        "ts": "2026-09-08T10:43:26-0500",
+        "venue": "coinbase_paper",
         "symbol": "ETH-USD",
         "side": "sell",
-        "qty": 0.003209,
-        "px": 2491.835,
-        "notional_usd": 7.9963,
-        "edge": "cook-dead",
-        "url": "https://api.coinbase.com/v2/prices/ETH-USD/spot",
+        "qty": 0.01602757,
+        "px": 2495.7,
+        "notional_usd": 40.0,
+        "edge": "fade-vwap",
+        "url": "https://www.coinbase.com/price/ethereum",
         "urls": [
-          "https://api.coinbase.com/v2/prices/ETH-USD/spot",
-          "https://www.coinbase.com/price/bitcoin"
+          "https://www.coinbase.com/price/ethereum",
+          "https://finance.yahoo.com/"
         ]
       },
       {
-        "id": "TDFC006",
-        "ts": "2026-09-06T14:33:11-0500",
-        "venue": "crypto",
-        "symbol": "ETH-USD",
-        "side": "sell",
-        "qty": 0.0032262,
-        "px": 2491.835,
-        "notional_usd": 8.0392,
-        "edge": "cook-dead",
-        "url": "https://api.coinbase.com/v2/prices/ETH-USD/spot",
-        "urls": [
-          "https://api.coinbase.com/v2/prices/ETH-USD/spot",
-          "https://www.coinbase.com/price/bitcoin"
-        ]
-      },
-      {
-        "id": "TDFC001",
-        "ts": "2026-09-06T14:33:11-0500",
-        "venue": "crypto",
-        "symbol": "ETH-USD",
-        "side": "sell",
-        "qty": 0.0016131,
-        "px": 2491.835,
-        "notional_usd": 4.0196,
-        "edge": "cook-dead",
-        "url": "https://api.coinbase.com/v2/prices/ETH-USD/spot",
-        "urls": [
-          "https://api.coinbase.com/v2/prices/ETH-USD/spot",
-          "https://www.coinbase.com/price/bitcoin"
-        ]
-      },
-      {
-        "id": "TDF012",
-        "ts": "2026-09-06T12:50:12-0500",
-        "venue": "crypto",
+        "id": "FD037",
+        "ts": "2026-09-08T10:43:26-0500",
+        "venue": "coinbase_paper",
         "symbol": "ETH-USD",
         "side": "buy",
-        "qty": 0.003209,
-        "px": 2492.985,
-        "notional_usd": 8.0,
-        "edge": "TD-wknd-crypto",
-        "url": "https://api.coinbase.com/v2/prices/ETH-USD/spot",
+        "qty": 0.01614221,
+        "px": 2495.7,
+        "notional_usd": 40.2861,
+        "edge": "fade-stop",
+        "url": "https://www.coinbase.com/price/ethereum",
         "urls": [
-          "https://api.coinbase.com/v2/prices/ETH-USD/spot",
-          "https://www.coinbase.com/price/bitcoin"
+          "https://www.coinbase.com/price/ethereum",
+          "https://finance.yahoo.com/"
         ]
       },
       {
-        "id": "TDFC005",
-        "ts": "2026-09-06T12:50:12-0500",
-        "venue": "crypto",
+        "id": "FD036",
+        "ts": "2026-09-08T09:30:04-0500",
+        "venue": "coinbase_paper",
         "symbol": "ETH-USD",
         "side": "sell",
-        "qty": 0.0016131,
-        "px": 2492.985,
-        "notional_usd": 4.0214,
-        "edge": "td-rotate",
-        "url": "https://api.coinbase.com/v2/prices/ETH-USD/spot",
+        "qty": 0.01614221,
+        "px": 2477.975,
+        "notional_usd": 40.0,
+        "edge": "fade-vwap",
+        "url": "https://www.coinbase.com/price/ethereum",
         "urls": [
-          "https://api.coinbase.com/v2/prices/ETH-USD/spot",
-          "https://www.coinbase.com/price/bitcoin"
+          "https://www.coinbase.com/price/ethereum",
+          "https://finance.yahoo.com/"
         ]
       },
       {
-        "id": "TDF010",
-        "ts": "2026-09-06T11:11:25-0500",
-        "venue": "crypto",
+        "id": "FD035",
+        "ts": "2026-09-08T09:12:48-0500",
+        "venue": "coinbase_paper",
+        "symbol": "ETH-USD",
+        "side": "sell",
+        "qty": 0.01635651,
+        "px": 2474.055,
+        "notional_usd": 40.4669,
+        "edge": "fade-target",
+        "url": "https://www.coinbase.com/price/ethereum",
+        "urls": [
+          "https://www.coinbase.com/price/ethereum",
+          "https://finance.yahoo.com/"
+        ]
+      },
+      {
+        "id": "FD034",
+        "ts": "2026-09-08T08:42:35-0500",
+        "venue": "coinbase_paper",
         "symbol": "ETH-USD",
         "side": "buy",
-        "qty": 0.0032262,
-        "px": 2479.695,
-        "notional_usd": 8.0,
-        "edge": "TD-wknd-crypto",
-        "url": "https://api.coinbase.com/v2/prices/ETH-USD/spot",
+        "qty": 0.01635651,
+        "px": 2445.51,
+        "notional_usd": 40.0,
+        "edge": "fade-vwap",
+        "url": "https://www.coinbase.com/price/ethereum",
         "urls": [
-          "https://api.coinbase.com/v2/prices/ETH-USD/spot",
+          "https://www.coinbase.com/price/ethereum",
+          "https://finance.yahoo.com/"
+        ]
+      },
+      {
+        "id": "FD033",
+        "ts": "2026-09-08T08:42:35-0500",
+        "venue": "coinbase_paper",
+        "symbol": "ETH-USD",
+        "side": "sell",
+        "qty": 0.01620256,
+        "px": 2445.51,
+        "notional_usd": 39.6235,
+        "edge": "fade-stop",
+        "url": "https://www.coinbase.com/price/ethereum",
+        "urls": [
+          "https://www.coinbase.com/price/ethereum",
+          "https://finance.yahoo.com/"
+        ]
+      },
+      {
+        "id": "FD032",
+        "ts": "2026-09-08T08:30:01-0500",
+        "venue": "coinbase_paper",
+        "symbol": "ETH-USD",
+        "side": "buy",
+        "qty": 0.01620256,
+        "px": 2468.745,
+        "notional_usd": 40.0,
+        "edge": "fade-vwap",
+        "url": "https://www.coinbase.com/price/ethereum",
+        "urls": [
+          "https://www.coinbase.com/price/ethereum",
+          "https://finance.yahoo.com/"
+        ]
+      },
+      {
+        "id": "FD031",
+        "ts": "2026-09-08T08:00:01-0500",
+        "venue": "coinbase_paper",
+        "symbol": "BTC-USD",
+        "side": "sell",
+        "qty": 0.00051076,
+        "px": 78401.525,
+        "notional_usd": 40.0444,
+        "edge": "fade-target",
+        "url": "https://www.coinbase.com/price/bitcoin",
+        "urls": [
           "https://www.coinbase.com/price/bitcoin"
         ]
       }
     ],
-    "open": [],
+    "open": [
+      {
+        "venue": "coinbase_paper",
+        "symbol": "ETH-USD",
+        "qty": 0.01602757,
+        "avg": 2495.7,
+        "mark": 2491.415,
+        "upnl": 0.0687,
+        "notional": 39.9313,
+        "edge": "fade-vwap",
+        "url": "https://www.coinbase.com/price/ethereum",
+        "urls": [
+          "https://www.coinbase.com/price/ethereum",
+          "https://finance.yahoo.com/"
+        ]
+      }
+    ],
     "style": "vwap_fade",
     "parked": false,
     "last_scan": {
-      "at": "2026-09-08T12:14:52-0500",
+      "at": "2026-09-08T12:30:04-0500",
       "names": [
         {
           "symbol": "BTC-USD",
-          "px": 78681.455,
-          "vwap": 78307.86,
-          "dev_pct": 0.4771
+          "px": 78583.425,
+          "vwap": 78311.74,
+          "dev_pct": 0.3469
         },
         {
           "symbol": "ETH-USD",
-          "px": 2495.355,
-          "vwap": 2476.07,
-          "dev_pct": 0.7789
+          "px": 2491.415,
+          "vwap": 2476.17,
+          "dev_pct": 0.6157
         }
       ]
     }
@@ -460,10 +474,10 @@
     "mode": "PAPER",
     "starting_cash_usd": 500.0,
     "cash_usd": 144.9611,
-    "equity_usd": 381.5431,
-    "day_pnl_usd": -75.0052,
-    "total_pnl_usd": -118.4569,
-    "return_pct": -23.6914,
+    "equity_usd": 355.2562,
+    "day_pnl_usd": -101.2921,
+    "total_pnl_usd": -144.7438,
+    "return_pct": -28.9488,
     "open_positions": 1,
     "live_wallets": false,
     "gate": {
@@ -472,7 +486,7 @@
     "confidence": {
       "score": 40,
       "live_ready": false,
-      "next": "ONE PRINT \u00b7 eq $381.5431 \u00b7 P&L $-118.4569 \u00b7 min $2500 \u00b7 stretch $5000 \u00b7 LIVE DENY"
+      "next": "ONE PRINT \u00b7 eq $355.2562 \u00b7 P&L $-144.7438 \u00b7 min $2500 \u00b7 stretch $5000 \u00b7 LIVE DENY"
     },
     "recent_fills": [
       {
@@ -618,9 +632,9 @@
         "symbol": "KXHIGHNY-26SEP08-B82.5",
         "qty": 876.2295,
         "avg": 0.3556,
-        "mark": 0.27,
-        "upnl": -75.0052,
-        "notional": 236.582,
+        "mark": 0.24,
+        "upnl": -101.2921,
+        "notional": 210.2951,
         "edge": "one-print",
         "url": "https://kalshi.com/markets/kxhighny/kxhighny-26sep08",
         "urls": [
@@ -631,7 +645,7 @@
   },
   "signals": {
     "main": "yellow",
-    "trade_dev": "green",
+    "trade_dev": "yellow",
     "swarm": "green",
     "grok": "green",
     "duel": "green"
