@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-08T10:31:12-0500",
+  "updated_at": "2026-09-08T10:31:22-0500",
   "duel": {
     "ends_at": "2026-09-11T16:00:00-04:00",
     "metric": "return_pct",
@@ -354,7 +354,7 @@
     "style": "vwap_fade",
     "parked": false,
     "last_scan": {
-      "at": "2026-09-08T10:31:11-0500",
+      "at": "2026-09-08T10:31:21-0500",
       "names": [
         {
           "symbol": "BTC-USD",
@@ -366,7 +366,7 @@
           "symbol": "ETH-USD",
           "px": 2482.355,
           "vwap": 2470.39,
-          "dev_pct": 0.4845
+          "dev_pct": 0.4844
         }
       ]
     }
