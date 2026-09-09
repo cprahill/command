@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-09-09T12:24:55-0500",
+  "updated_at": "2026-09-09T12:30:04-0500",
   "duel": {
     "ends_at": "2026-09-11T16:00:00-04:00",
     "metric": "return_pct",
     "leader": "main",
     "stakes": "$500 \u2192 $2,500 min \u00b7 $5k stretch \u00b7 live DENY until YES",
-    "main_return_pct": -64.4562,
+    "main_return_pct": -64.9144,
     "trade_dev_return_pct": 0,
     "swarm_return_pct": 0,
     "timeline": "Labor Day \u2192 Friday close",
@@ -18,10 +18,10 @@
     "mode": "PAPER",
     "starting_cash_usd": 500.0,
     "cash_usd": 79.2003,
-    "equity_usd": 177.7191,
-    "day_pnl_usd": -2.2911,
-    "total_pnl_usd": -322.2809,
-    "return_pct": -64.4562,
+    "equity_usd": 175.428,
+    "day_pnl_usd": -4.5823,
+    "total_pnl_usd": -324.572,
+    "return_pct": -64.9144,
     "open_positions": 1,
     "live_wallets": false,
     "gate": {
@@ -30,7 +30,7 @@
     "confidence": {
       "score": 40,
       "live_ready": false,
-      "next": "ONE PRINT \u00b7 eq $177.7191 \u00b7 P&L $-322.2809 \u00b7 min $2500 \u00b7 stretch $5000 \u00b7 LIVE DENY"
+      "next": "ONE PRINT \u00b7 eq $175.428 \u00b7 P&L $-324.572 \u00b7 min $2500 \u00b7 stretch $5000 \u00b7 LIVE DENY"
     },
     "recent_fills": [
       {
@@ -176,9 +176,9 @@
         "symbol": "KXHIGHNY-26SEP10-B85.5",
         "qty": 229.1136,
         "avg": 0.44,
-        "mark": 0.43,
-        "upnl": -2.2911,
-        "notional": 98.5188,
+        "mark": 0.42,
+        "upnl": -4.5823,
+        "notional": 96.2277,
         "edge": "one-print",
         "url": "https://kalshi.com/markets/kxhighny/kxhighny-26sep10",
         "urls": [
@@ -192,10 +192,10 @@
     "mode": "PAPER",
     "starting_cash_usd": 400.0,
     "cash_usd": 361.7631,
-    "equity_usd": 402.1218,
-    "day_pnl_usd": 0.3587,
-    "total_pnl_usd": 2.1218,
-    "return_pct": 0.5304,
+    "equity_usd": 402.1389,
+    "day_pnl_usd": 0.3758,
+    "total_pnl_usd": 2.1389,
+    "return_pct": 0.5347,
     "open_positions": 1,
     "live_wallets": false,
     "gate": {
@@ -204,7 +204,7 @@
     "confidence": {
       "score": 40,
       "live_ready": false,
-      "next": "FADE \u00b7 eq $402.1218 \u00b7 P&L $2.1218 \u00b7 LIVE DENY"
+      "next": "FADE \u00b7 eq $402.1389 \u00b7 P&L $2.1389 \u00b7 LIVE DENY"
     },
     "recent_fills": [
       {
@@ -335,9 +335,9 @@
         "symbol": "BTC-USD",
         "qty": 0.00051212,
         "avg": 78106.715,
-        "mark": 78807.155,
-        "upnl": 0.3587,
-        "notional": 40.3587,
+        "mark": 78840.625,
+        "upnl": 0.3758,
+        "notional": 40.3759,
         "edge": "fade-vwap",
         "url": "https://www.coinbase.com/price/bitcoin",
         "urls": [
@@ -348,19 +348,19 @@
     "style": "vwap_fade",
     "parked": false,
     "last_scan": {
-      "at": "2026-09-09T12:24:54-0500",
+      "at": "2026-09-09T12:30:03-0500",
       "names": [
         {
           "symbol": "BTC-USD",
-          "px": 78807.155,
-          "vwap": 78926.56,
-          "dev_pct": -0.1513
+          "px": 78840.625,
+          "vwap": 78923.86,
+          "dev_pct": -0.1055
         },
         {
           "symbol": "ETH-USD",
-          "px": 2495.785,
-          "vwap": 2498.73,
-          "dev_pct": -0.1177
+          "px": 2496.625,
+          "vwap": 2498.66,
+          "dev_pct": -0.0815
         }
       ]
     }
@@ -467,10 +467,10 @@
     "mode": "PAPER",
     "starting_cash_usd": 500.0,
     "cash_usd": 79.2003,
-    "equity_usd": 177.7191,
-    "day_pnl_usd": -2.2911,
-    "total_pnl_usd": -322.2809,
-    "return_pct": -64.4562,
+    "equity_usd": 175.428,
+    "day_pnl_usd": -4.5823,
+    "total_pnl_usd": -324.572,
+    "return_pct": -64.9144,
     "open_positions": 1,
     "live_wallets": false,
     "gate": {
@@ -479,7 +479,7 @@
     "confidence": {
       "score": 40,
       "live_ready": false,
-      "next": "ONE PRINT \u00b7 eq $177.7191 \u00b7 P&L $-322.2809 \u00b7 min $2500 \u00b7 stretch $5000 \u00b7 LIVE DENY"
+      "next": "ONE PRINT \u00b7 eq $175.428 \u00b7 P&L $-324.572 \u00b7 min $2500 \u00b7 stretch $5000 \u00b7 LIVE DENY"
     },
     "recent_fills": [
       {
@@ -625,9 +625,9 @@
         "symbol": "KXHIGHNY-26SEP10-B85.5",
         "qty": 229.1136,
         "avg": 0.44,
-        "mark": 0.43,
-        "upnl": -2.2911,
-        "notional": 98.5188,
+        "mark": 0.42,
+        "upnl": -4.5823,
+        "notional": 96.2277,
         "edge": "one-print",
         "url": "https://kalshi.com/markets/kxhighny/kxhighny-26sep10",
         "urls": [
