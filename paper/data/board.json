@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-09T10:08:54-0500",
+  "updated_at": "2026-09-09T10:24:02-0500",
   "duel": {
     "ends_at": "2026-09-11T16:00:00-04:00",
     "metric": "return_pct",
@@ -191,11 +191,11 @@
     "label": "FADE",
     "mode": "PAPER",
     "starting_cash_usd": 400.0,
-    "cash_usd": 362.1872,
-    "equity_usd": 402.0023,
-    "day_pnl_usd": -0.1847,
-    "total_pnl_usd": 2.0023,
-    "return_pct": 0.5006,
+    "cash_usd": 361.7631,
+    "equity_usd": 401.7631,
+    "day_pnl_usd": 0.0,
+    "total_pnl_usd": 1.7631,
+    "return_pct": 0.4408,
     "open_positions": 1,
     "live_wallets": false,
     "gate": {
@@ -204,9 +204,39 @@
     "confidence": {
       "score": 40,
       "live_ready": false,
-      "next": "FADE \u00b7 eq $402.0023 \u00b7 P&L $2.0023 \u00b7 LIVE DENY"
+      "next": "FADE \u00b7 eq $401.7631 \u00b7 P&L $1.7631 \u00b7 LIVE DENY"
     },
     "recent_fills": [
+      {
+        "id": "FD058",
+        "ts": "2026-09-09T10:24:02-0500",
+        "venue": "coinbase_paper",
+        "symbol": "BTC-USD",
+        "side": "buy",
+        "qty": 0.00051212,
+        "px": 78106.715,
+        "notional_usd": 40.0,
+        "edge": "fade-vwap",
+        "url": "https://www.coinbase.com/price/bitcoin",
+        "urls": [
+          "https://www.coinbase.com/price/bitcoin"
+        ]
+      },
+      {
+        "id": "FD057",
+        "ts": "2026-09-09T10:24:02-0500",
+        "venue": "coinbase_paper",
+        "symbol": "BTC-USD",
+        "side": "sell",
+        "qty": 0.00050669,
+        "px": 78106.715,
+        "notional_usd": 39.5759,
+        "edge": "fade-stop",
+        "url": "https://www.coinbase.com/price/bitcoin",
+        "urls": [
+          "https://www.coinbase.com/price/bitcoin"
+        ]
+      },
       {
         "id": "FD056",
         "ts": "2026-09-09T09:53:47-0500",
@@ -297,48 +327,17 @@
           "https://www.coinbase.com/price/ethereum",
           "https://finance.yahoo.com/"
         ]
-      },
-      {
-        "id": "FD050",
-        "ts": "2026-09-09T04:51:42-0500",
-        "venue": "coinbase_paper",
-        "symbol": "ETH-USD",
-        "side": "buy",
-        "qty": 0.01602985,
-        "px": 2495.345,
-        "notional_usd": 40.0,
-        "edge": "fade-vwap",
-        "url": "https://www.coinbase.com/price/ethereum",
-        "urls": [
-          "https://www.coinbase.com/price/ethereum",
-          "https://finance.yahoo.com/"
-        ]
-      },
-      {
-        "id": "FD049",
-        "ts": "2026-09-09T04:51:42-0500",
-        "venue": "coinbase_paper",
-        "symbol": "BTC-USD",
-        "side": "buy",
-        "qty": 0.0005019,
-        "px": 79005.215,
-        "notional_usd": 39.6527,
-        "edge": "fade-target",
-        "url": "https://www.coinbase.com/price/bitcoin",
-        "urls": [
-          "https://www.coinbase.com/price/bitcoin"
-        ]
       }
     ],
     "open": [
       {
         "venue": "coinbase_paper",
         "symbol": "BTC-USD",
-        "qty": 0.00050669,
-        "avg": 78943.355,
-        "mark": 78578.785,
-        "upnl": -0.1847,
-        "notional": 39.8151,
+        "qty": 0.00051212,
+        "avg": 78106.715,
+        "mark": 78106.715,
+        "upnl": 0.0,
+        "notional": 40.0,
         "edge": "fade-vwap",
         "url": "https://www.coinbase.com/price/bitcoin",
         "urls": [
@@ -349,19 +348,19 @@
     "style": "vwap_fade",
     "parked": false,
     "last_scan": {
-      "at": "2026-09-09T10:08:54-0500",
+      "at": "2026-09-09T10:24:02-0500",
       "names": [
         {
           "symbol": "BTC-USD",
-          "px": 78578.785,
-          "vwap": 79176.14,
-          "dev_pct": -0.7545
+          "px": 78106.715,
+          "vwap": 79083.43,
+          "dev_pct": -1.235
         },
         {
           "symbol": "ETH-USD",
-          "px": 2491.0,
-          "vwap": 2505.86,
-          "dev_pct": -0.593
+          "px": 2472.8,
+          "vwap": 2503.29,
+          "dev_pct": -1.2181
         }
       ]
     }
