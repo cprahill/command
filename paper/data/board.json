@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-09T08:08:03-0500",
+  "updated_at": "2026-09-09T08:23:09-0500",
   "duel": {
     "ends_at": "2026-09-11T16:00:00-04:00",
     "metric": "return_pct",
@@ -177,10 +177,10 @@
     "mode": "PAPER",
     "starting_cash_usd": 400.0,
     "cash_usd": 361.9979,
-    "equity_usd": 401.9598,
-    "day_pnl_usd": -0.0384,
-    "total_pnl_usd": 1.9598,
-    "return_pct": 0.4899,
+    "equity_usd": 401.956,
+    "day_pnl_usd": -0.0422,
+    "total_pnl_usd": 1.956,
+    "return_pct": 0.489,
     "open_positions": 1,
     "live_wallets": false,
     "gate": {
@@ -189,7 +189,7 @@
     "confidence": {
       "score": 40,
       "live_ready": false,
-      "next": "FADE \u00b7 eq $401.9598 \u00b7 P&L $1.9598 \u00b7 LIVE DENY"
+      "next": "FADE \u00b7 eq $401.956 \u00b7 P&L $1.956 \u00b7 LIVE DENY"
     },
     "recent_fills": [
       {
@@ -322,9 +322,9 @@
         "symbol": "BTC-USD",
         "qty": 0.00050347,
         "avg": 79449.285,
-        "mark": 79525.54,
-        "upnl": -0.0384,
-        "notional": 40.0387,
+        "mark": 79533.015,
+        "upnl": -0.0422,
+        "notional": 40.0425,
         "edge": "fade-vwap",
         "url": "https://www.coinbase.com/price/bitcoin",
         "urls": [
@@ -335,19 +335,19 @@
     "style": "vwap_fade",
     "parked": false,
     "last_scan": {
-      "at": "2026-09-09T08:08:03-0500",
+      "at": "2026-09-09T08:23:08-0500",
       "names": [
         {
           "symbol": "BTC-USD",
-          "px": 79525.54,
-          "vwap": 79257.08,
-          "dev_pct": 0.3387
+          "px": 79533.015,
+          "vwap": 79268.4,
+          "dev_pct": 0.3338
         },
         {
           "symbol": "ETH-USD",
-          "px": 2510.505,
-          "vwap": 2505.34,
-          "dev_pct": 0.206
+          "px": 2513.135,
+          "vwap": 2505.57,
+          "dev_pct": 0.3018
         }
       ]
     }
@@ -618,7 +618,7 @@
   "disclaimer": "Paper trading trial demo only. Fake money, real competition. Not financial advice. No live funds. No personal data.",
   "one_print": {
     "style": "nws_kalshi_one_bucket",
-    "knyc_max_f": 72.0,
+    "knyc_max_f": 73.9,
     "nws_f": null,
     "floor": null,
     "cap": null,
