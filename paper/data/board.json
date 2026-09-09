@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-09T07:07:39-0500",
+  "updated_at": "2026-09-09T07:22:45-0500",
   "duel": {
     "ends_at": "2026-09-11T16:00:00-04:00",
     "metric": "return_pct",
@@ -321,19 +321,19 @@
     "style": "vwap_fade",
     "parked": false,
     "last_scan": {
-      "at": "2026-09-09T07:07:38-0500",
+      "at": "2026-09-09T07:22:44-0500",
       "names": [
         {
           "symbol": "BTC-USD",
-          "px": 79351.735,
-          "vwap": 79182.1,
-          "dev_pct": 0.2142
+          "px": 79409.595,
+          "vwap": 79194.11,
+          "dev_pct": 0.2721
         },
         {
           "symbol": "ETH-USD",
-          "px": 2501.295,
-          "vwap": 2504.73,
-          "dev_pct": -0.137
+          "px": 2502.0,
+          "vwap": 2504.89,
+          "dev_pct": -0.1155
         }
       ]
     }
@@ -604,7 +604,7 @@
   "disclaimer": "Paper trading trial demo only. Fake money, real competition. Not financial advice. No live funds. No personal data.",
   "one_print": {
     "style": "nws_kalshi_one_bucket",
-    "knyc_max_f": 73.9,
+    "knyc_max_f": 72.0,
     "nws_f": null,
     "floor": null,
     "cap": null,
