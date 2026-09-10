@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-10T11:50:01-0500",
+  "updated_at": "2026-09-10T12:00:01-0500",
   "duel": {
     "ends_at": "2026-09-11T16:00:00-04:00",
     "metric": "return_pct",
@@ -11,7 +11,7 @@
     "timeline": "Labor Day \u2192 Friday close",
     "mode": "ONE PRINT",
     "reset_at": null,
-    "friday_close": "2026-09-11T16:00:00-04:00"
+    "friday_close": null
   },
   "main": {
     "label": "ONE PRINT",
@@ -190,13 +190,13 @@
   "trade_dev": {
     "label": "FADE",
     "mode": "PAPER",
-    "starting_cash_usd": 400.0,
-    "cash_usd": 362.5038,
-    "equity_usd": 402.5038,
-    "day_pnl_usd": 0.0,
-    "total_pnl_usd": 2.5038,
-    "return_pct": 0.626,
-    "open_positions": 1,
+    "starting_cash_usd": 100.0,
+    "cash_usd": 91.9826,
+    "equity_usd": 91.9826,
+    "day_pnl_usd": -8.0,
+    "total_pnl_usd": -8.0174,
+    "return_pct": -8.0174,
+    "open_positions": 0,
     "live_wallets": false,
     "gate": {
       "open": true
@@ -208,147 +208,136 @@
     },
     "recent_fills": [
       {
-        "id": "FD080",
-        "ts": "2026-09-10T11:50:01-0500",
-        "venue": "coinbase_paper",
-        "symbol": "ETH-USD",
+        "id": "TDFC008",
+        "ts": "2026-09-07T09:25:09-0500",
+        "venue": "kalshi_demo",
+        "symbol": "KXHIGHNY-26SEP06-B73.5",
         "side": "sell",
-        "qty": 0.0163383,
-        "px": 2448.235,
-        "notional_usd": 40.0,
-        "edge": "fade-vwap",
-        "url": "https://www.coinbase.com/price/ethereum",
+        "qty": 17.021277,
+        "px": 0.0,
+        "notional_usd": 0.0,
+        "edge": "td-settle",
+        "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXHIGHNY-26SEP06-B73.5",
         "urls": [
-          "https://www.coinbase.com/price/ethereum",
-          "https://finance.yahoo.com/"
+          "https://api.elections.kalshi.com/trade-api/v2/markets/KXHIGHNY-26SEP06-B73.5",
+          "https://kalshi.com/markets/kxhighny/kxhighny-26sep06"
         ]
       },
       {
-        "id": "FD079",
-        "ts": "2026-09-10T11:50:01-0500",
-        "venue": "coinbase_paper",
-        "symbol": "BTC-USD",
-        "side": "sell",
-        "qty": 0.00052043,
-        "px": 77159.375,
-        "notional_usd": 40.1561,
-        "edge": "fade-target",
-        "url": "https://www.coinbase.com/price/bitcoin",
-        "urls": [
-          "https://www.coinbase.com/price/bitcoin"
-        ]
-      },
-      {
-        "id": "FD078",
-        "ts": "2026-09-10T11:19:46-0500",
-        "venue": "coinbase_paper",
-        "symbol": "BTC-USD",
+        "id": "TDF003",
+        "ts": "2026-09-06T14:33:11-0500",
+        "venue": "kalshi_demo",
+        "symbol": "KXHIGHNY-26SEP06-B73.5",
         "side": "buy",
-        "qty": 0.00052043,
-        "px": 76859.035,
-        "notional_usd": 40.0,
-        "edge": "fade-vwap",
-        "url": "https://www.coinbase.com/price/bitcoin",
+        "qty": 17.021277,
+        "px": 0.47,
+        "notional_usd": 8.0,
+        "edge": "E3",
+        "url": "https://api.weather.gov/gridpoints/OKX/34,45/forecast",
         "urls": [
+          "https://api.weather.gov/gridpoints/OKX/34,45/forecast",
+          "https://api.elections.kalshi.com/trade-api/v2/markets/KXHIGHNY-26SEP06-B73.5",
+          "https://kalshi.com/markets/kxhighny/kxhighny-26sep06"
+        ]
+      },
+      {
+        "id": "TDFC007",
+        "ts": "2026-09-06T14:33:11-0500",
+        "venue": "crypto",
+        "symbol": "ETH-USD",
+        "side": "sell",
+        "qty": 0.003209,
+        "px": 2491.835,
+        "notional_usd": 7.9963,
+        "edge": "cook-dead",
+        "url": "https://api.coinbase.com/v2/prices/ETH-USD/spot",
+        "urls": [
+          "https://api.coinbase.com/v2/prices/ETH-USD/spot",
           "https://www.coinbase.com/price/bitcoin"
         ]
       },
       {
-        "id": "FD077",
-        "ts": "2026-09-10T10:27:27-0500",
-        "venue": "coinbase_paper",
+        "id": "TDFC006",
+        "ts": "2026-09-06T14:33:11-0500",
+        "venue": "crypto",
+        "symbol": "ETH-USD",
+        "side": "sell",
+        "qty": 0.0032262,
+        "px": 2491.835,
+        "notional_usd": 8.0392,
+        "edge": "cook-dead",
+        "url": "https://api.coinbase.com/v2/prices/ETH-USD/spot",
+        "urls": [
+          "https://api.coinbase.com/v2/prices/ETH-USD/spot",
+          "https://www.coinbase.com/price/bitcoin"
+        ]
+      },
+      {
+        "id": "TDFC001",
+        "ts": "2026-09-06T14:33:11-0500",
+        "venue": "crypto",
+        "symbol": "ETH-USD",
+        "side": "sell",
+        "qty": 0.0016131,
+        "px": 2491.835,
+        "notional_usd": 4.0196,
+        "edge": "cook-dead",
+        "url": "https://api.coinbase.com/v2/prices/ETH-USD/spot",
+        "urls": [
+          "https://api.coinbase.com/v2/prices/ETH-USD/spot",
+          "https://www.coinbase.com/price/bitcoin"
+        ]
+      },
+      {
+        "id": "TDF012",
+        "ts": "2026-09-06T12:50:12-0500",
+        "venue": "crypto",
         "symbol": "ETH-USD",
         "side": "buy",
-        "qty": 0.01637174,
-        "px": 2432.665,
-        "notional_usd": 39.827,
-        "edge": "fade-target",
-        "url": "https://www.coinbase.com/price/ethereum",
+        "qty": 0.003209,
+        "px": 2492.985,
+        "notional_usd": 8.0,
+        "edge": "TD-wknd-crypto",
+        "url": "https://api.coinbase.com/v2/prices/ETH-USD/spot",
         "urls": [
-          "https://www.coinbase.com/price/ethereum",
-          "https://finance.yahoo.com/"
-        ]
-      },
-      {
-        "id": "FD076",
-        "ts": "2026-09-10T10:00:04-0500",
-        "venue": "coinbase_paper",
-        "symbol": "ETH-USD",
-        "side": "sell",
-        "qty": 0.01637174,
-        "px": 2443.235,
-        "notional_usd": 40.0,
-        "edge": "fade-vwap",
-        "url": "https://www.coinbase.com/price/ethereum",
-        "urls": [
-          "https://www.coinbase.com/price/ethereum",
-          "https://finance.yahoo.com/"
-        ]
-      },
-      {
-        "id": "FD075",
-        "ts": "2026-09-10T09:30:04-0500",
-        "venue": "coinbase_paper",
-        "symbol": "BTC-USD",
-        "side": "sell",
-        "qty": 0.00051991,
-        "px": 77270.215,
-        "notional_usd": 40.1736,
-        "edge": "fade-target",
-        "url": "https://www.coinbase.com/price/bitcoin",
-        "urls": [
+          "https://api.coinbase.com/v2/prices/ETH-USD/spot",
           "https://www.coinbase.com/price/bitcoin"
         ]
       },
       {
-        "id": "FD074",
-        "ts": "2026-09-10T09:18:48-0500",
-        "venue": "coinbase_paper",
-        "symbol": "BTC-USD",
+        "id": "TDFC005",
+        "ts": "2026-09-06T12:50:12-0500",
+        "venue": "crypto",
+        "symbol": "ETH-USD",
+        "side": "sell",
+        "qty": 0.0016131,
+        "px": 2492.985,
+        "notional_usd": 4.0214,
+        "edge": "td-rotate",
+        "url": "https://api.coinbase.com/v2/prices/ETH-USD/spot",
+        "urls": [
+          "https://api.coinbase.com/v2/prices/ETH-USD/spot",
+          "https://www.coinbase.com/price/bitcoin"
+        ]
+      },
+      {
+        "id": "TDF010",
+        "ts": "2026-09-06T11:11:25-0500",
+        "venue": "crypto",
+        "symbol": "ETH-USD",
         "side": "buy",
-        "qty": 0.00051991,
-        "px": 76936.5,
-        "notional_usd": 40.0,
-        "edge": "fade-vwap",
-        "url": "https://www.coinbase.com/price/bitcoin",
+        "qty": 0.0032262,
+        "px": 2479.695,
+        "notional_usd": 8.0,
+        "edge": "TD-wknd-crypto",
+        "url": "https://api.coinbase.com/v2/prices/ETH-USD/spot",
         "urls": [
+          "https://api.coinbase.com/v2/prices/ETH-USD/spot",
           "https://www.coinbase.com/price/bitcoin"
-        ]
-      },
-      {
-        "id": "FD073",
-        "ts": "2026-09-10T09:00:04-0500",
-        "venue": "coinbase_paper",
-        "symbol": "ETH-USD",
-        "side": "sell",
-        "qty": 0.01652305,
-        "px": 2434.505,
-        "notional_usd": 40.2254,
-        "edge": "fade-target",
-        "url": "https://www.coinbase.com/price/ethereum",
-        "urls": [
-          "https://www.coinbase.com/price/ethereum",
-          "https://finance.yahoo.com/"
         ]
       }
     ],
-    "open": [
-      {
-        "venue": "coinbase_paper",
-        "symbol": "ETH-USD",
-        "qty": 0.0163383,
-        "avg": 2448.235,
-        "mark": 2448.235,
-        "upnl": 0.0,
-        "notional": 40.0,
-        "edge": "fade-vwap",
-        "url": "https://www.coinbase.com/price/ethereum",
-        "urls": [
-          "https://www.coinbase.com/price/ethereum",
-          "https://finance.yahoo.com/"
-        ]
-      }
-    ],
+    "open": [],
     "style": "vwap_fade",
     "parked": false,
     "last_scan": {
@@ -642,7 +631,7 @@
   },
   "signals": {
     "main": "yellow",
-    "trade_dev": "yellow",
+    "trade_dev": "green",
     "swarm": "green",
     "grok": "green",
     "duel": "green"
