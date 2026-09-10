@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-09-10T14:51:20-0500",
+  "updated_at": "2026-09-10T15:00:06-0500",
   "duel": {
     "ends_at": "2026-09-11T16:00:00-04:00",
     "metric": "return_pct",
     "leader": "main",
     "stakes": "$500 \u2192 $2,500 min \u00b7 $5k stretch \u00b7 live DENY until YES",
-    "main_return_pct": -43.5334,
+    "main_return_pct": -39.7667,
     "trade_dev_return_pct": 0,
     "swarm_return_pct": 0,
     "timeline": "Labor Day \u2192 Friday close",
@@ -17,11 +17,11 @@
     "label": "ONE PRINT",
     "mode": "PAPER",
     "starting_cash_usd": 500.0,
-    "cash_usd": 53.1903,
-    "equity_usd": 282.3328,
-    "day_pnl_usd": 102.298,
-    "total_pnl_usd": -217.6672,
-    "return_pct": -43.5334,
+    "cash_usd": 132.5165,
+    "equity_usd": 301.1665,
+    "day_pnl_usd": 0.0,
+    "total_pnl_usd": -198.8335,
+    "return_pct": -39.7667,
     "open_positions": 1,
     "live_wallets": false,
     "gate": {
@@ -30,9 +30,43 @@
     "confidence": {
       "score": 40,
       "live_ready": false,
-      "next": "ONE PRINT \u00b7 eq $282.3328 \u00b7 P&L $-217.6672 \u00b7 min $2500 \u00b7 stretch $5000 \u00b7 LIVE DENY"
+      "next": "ONE PRINT \u00b7 eq $301.1665 \u00b7 P&L $-198.8335 \u00b7 min $2500 \u00b7 stretch $5000 \u00b7 LIVE DENY"
     },
     "recent_fills": [
+      {
+        "id": "OP023",
+        "ts": "2026-09-10T15:00:06-0500",
+        "venue": "kalshi_demo",
+        "symbol": "KXHIGHNY-26SEP11-B79.5",
+        "side": "buy",
+        "qty": 337.3,
+        "px": 0.5,
+        "notional_usd": 168.65,
+        "edge": "one-print",
+        "url": "https://api.weather.gov/gridpoints/OKX/34,45/forecast",
+        "urls": [
+          "https://api.weather.gov/gridpoints/OKX/34,45/forecast",
+          "https://api.elections.kalshi.com/trade-api/v2/markets/KXHIGHNY-26SEP11-B79.5",
+          "https://kalshi.com/markets/kxhighny/kxhighny-26sep11"
+        ]
+      },
+      {
+        "id": "OP022",
+        "ts": "2026-09-10T15:00:05-0500",
+        "venue": "kalshi_demo",
+        "symbol": "KXHIGHNY-26SEP10-B85.5",
+        "side": "sell",
+        "qty": 313.8939,
+        "px": 0.79,
+        "notional_usd": 247.9762,
+        "edge": "one-print-cut",
+        "url": "https://api.weather.gov/stations/KNYC/observations?limit=12",
+        "urls": [
+          "https://api.weather.gov/stations/KNYC/observations?limit=12",
+          "https://api.elections.kalshi.com/trade-api/v2/markets/KXHIGHNY-26SEP10-B85.5",
+          "https://kalshi.com/markets/kxhighny/kxhighny-26sep10"
+        ]
+      },
       {
         "id": "OP021",
         "ts": "2026-09-10T14:06:00-0500",
@@ -134,55 +168,21 @@
           "https://api.elections.kalshi.com/trade-api/v2/markets/KXHIGHNY-26SEP08-B82.5",
           "https://kalshi.com/markets/kxhighny/kxhighny-26sep08"
         ]
-      },
-      {
-        "id": "OP015",
-        "ts": "2026-09-08T03:55:39-0500",
-        "venue": "kalshi_demo",
-        "symbol": "KXHIGHNY-26SEP08-B82.5",
-        "side": "buy",
-        "qty": 96.875,
-        "px": 0.24,
-        "notional_usd": 23.25,
-        "edge": "one-print-size",
-        "url": "https://api.weather.gov/gridpoints/OKX/34,45/forecast",
-        "urls": [
-          "https://api.weather.gov/gridpoints/OKX/34,45/forecast",
-          "https://api.elections.kalshi.com/trade-api/v2/markets/KXHIGHNY-26SEP08-B82.5",
-          "https://kalshi.com/markets/kxhighny/kxhighny-26sep08"
-        ]
-      },
-      {
-        "id": "OP014",
-        "ts": "2026-09-08T03:25:25-0500",
-        "venue": "kalshi_demo",
-        "symbol": "KXHIGHNY-26SEP08-B82.5",
-        "side": "buy",
-        "qty": 24.8947,
-        "px": 0.38,
-        "notional_usd": 9.46,
-        "edge": "one-print-size",
-        "url": "https://api.weather.gov/gridpoints/OKX/34,45/forecast",
-        "urls": [
-          "https://api.weather.gov/gridpoints/OKX/34,45/forecast",
-          "https://api.elections.kalshi.com/trade-api/v2/markets/KXHIGHNY-26SEP08-B82.5",
-          "https://kalshi.com/markets/kxhighny/kxhighny-26sep08"
-        ]
       }
     ],
     "open": [
       {
         "venue": "kalshi_demo",
-        "symbol": "KXHIGHNY-26SEP10-B85.5",
-        "qty": 313.8939,
-        "avg": 0.4041,
-        "mark": 0.73,
-        "upnl": 102.298,
-        "notional": 229.1425,
+        "symbol": "KXHIGHNY-26SEP11-B79.5",
+        "qty": 337.3,
+        "avg": 0.5,
+        "mark": 0.5,
+        "upnl": 0.0,
+        "notional": 168.65,
         "edge": "one-print",
-        "url": "https://kalshi.com/markets/kxhighny/kxhighny-26sep10",
+        "url": "https://kalshi.com/markets/kxhighny/kxhighny-26sep11",
         "urls": [
-          "https://kalshi.com/markets/kxhighny/kxhighny-26sep10"
+          "https://kalshi.com/markets/kxhighny/kxhighny-26sep11"
         ]
       }
     ]
@@ -192,10 +192,10 @@
     "mode": "PAPER",
     "starting_cash_usd": 400.0,
     "cash_usd": 362.1249,
-    "equity_usd": 402.2981,
-    "day_pnl_usd": 0.1732,
-    "total_pnl_usd": 2.2981,
-    "return_pct": 0.5745,
+    "equity_usd": 402.283,
+    "day_pnl_usd": 0.1581,
+    "total_pnl_usd": 2.283,
+    "return_pct": 0.5707,
     "open_positions": 1,
     "live_wallets": false,
     "gate": {
@@ -204,7 +204,7 @@
     "confidence": {
       "score": 40,
       "live_ready": false,
-      "next": "FADE \u00b7 eq $402.2981 \u00b7 P&L $2.2981 \u00b7 LIVE DENY"
+      "next": "FADE \u00b7 eq $402.283 \u00b7 P&L $2.283 \u00b7 LIVE DENY"
     },
     "recent_fills": [
       {
@@ -339,9 +339,9 @@
         "symbol": "ETH-USD",
         "qty": 0.01618499,
         "avg": 2471.425,
-        "mark": 2460.725,
-        "upnl": 0.1732,
-        "notional": 39.8268,
+        "mark": 2461.655,
+        "upnl": 0.1581,
+        "notional": 39.8419,
         "edge": "fade-vwap",
         "url": "https://www.coinbase.com/price/ethereum",
         "urls": [
@@ -353,19 +353,19 @@
     "style": "vwap_fade",
     "parked": false,
     "last_scan": {
-      "at": "2026-09-10T14:51:19-0500",
+      "at": "2026-09-10T15:00:04-0500",
       "names": [
         {
           "symbol": "BTC-USD",
-          "px": 77056.335,
-          "vwap": 77109.26,
-          "dev_pct": -0.0686
+          "px": 77100.91,
+          "vwap": 77104.89,
+          "dev_pct": -0.0052
         },
         {
           "symbol": "ETH-USD",
-          "px": 2460.725,
-          "vwap": 2437.0,
-          "dev_pct": 0.9736
+          "px": 2461.655,
+          "vwap": 2437.18,
+          "dev_pct": 1.0042
         }
       ]
     }
@@ -471,11 +471,11 @@
     "label": "ONE PRINT",
     "mode": "PAPER",
     "starting_cash_usd": 500.0,
-    "cash_usd": 53.1903,
-    "equity_usd": 282.3328,
-    "day_pnl_usd": 102.298,
-    "total_pnl_usd": -217.6672,
-    "return_pct": -43.5334,
+    "cash_usd": 132.5165,
+    "equity_usd": 301.1665,
+    "day_pnl_usd": 0.0,
+    "total_pnl_usd": -198.8335,
+    "return_pct": -39.7667,
     "open_positions": 1,
     "live_wallets": false,
     "gate": {
@@ -484,9 +484,43 @@
     "confidence": {
       "score": 40,
       "live_ready": false,
-      "next": "ONE PRINT \u00b7 eq $282.3328 \u00b7 P&L $-217.6672 \u00b7 min $2500 \u00b7 stretch $5000 \u00b7 LIVE DENY"
+      "next": "ONE PRINT \u00b7 eq $301.1665 \u00b7 P&L $-198.8335 \u00b7 min $2500 \u00b7 stretch $5000 \u00b7 LIVE DENY"
     },
     "recent_fills": [
+      {
+        "id": "OP023",
+        "ts": "2026-09-10T15:00:06-0500",
+        "venue": "kalshi_demo",
+        "symbol": "KXHIGHNY-26SEP11-B79.5",
+        "side": "buy",
+        "qty": 337.3,
+        "px": 0.5,
+        "notional_usd": 168.65,
+        "edge": "one-print",
+        "url": "https://api.weather.gov/gridpoints/OKX/34,45/forecast",
+        "urls": [
+          "https://api.weather.gov/gridpoints/OKX/34,45/forecast",
+          "https://api.elections.kalshi.com/trade-api/v2/markets/KXHIGHNY-26SEP11-B79.5",
+          "https://kalshi.com/markets/kxhighny/kxhighny-26sep11"
+        ]
+      },
+      {
+        "id": "OP022",
+        "ts": "2026-09-10T15:00:05-0500",
+        "venue": "kalshi_demo",
+        "symbol": "KXHIGHNY-26SEP10-B85.5",
+        "side": "sell",
+        "qty": 313.8939,
+        "px": 0.79,
+        "notional_usd": 247.9762,
+        "edge": "one-print-cut",
+        "url": "https://api.weather.gov/stations/KNYC/observations?limit=12",
+        "urls": [
+          "https://api.weather.gov/stations/KNYC/observations?limit=12",
+          "https://api.elections.kalshi.com/trade-api/v2/markets/KXHIGHNY-26SEP10-B85.5",
+          "https://kalshi.com/markets/kxhighny/kxhighny-26sep10"
+        ]
+      },
       {
         "id": "OP021",
         "ts": "2026-09-10T14:06:00-0500",
@@ -588,55 +622,21 @@
           "https://api.elections.kalshi.com/trade-api/v2/markets/KXHIGHNY-26SEP08-B82.5",
           "https://kalshi.com/markets/kxhighny/kxhighny-26sep08"
         ]
-      },
-      {
-        "id": "OP015",
-        "ts": "2026-09-08T03:55:39-0500",
-        "venue": "kalshi_demo",
-        "symbol": "KXHIGHNY-26SEP08-B82.5",
-        "side": "buy",
-        "qty": 96.875,
-        "px": 0.24,
-        "notional_usd": 23.25,
-        "edge": "one-print-size",
-        "url": "https://api.weather.gov/gridpoints/OKX/34,45/forecast",
-        "urls": [
-          "https://api.weather.gov/gridpoints/OKX/34,45/forecast",
-          "https://api.elections.kalshi.com/trade-api/v2/markets/KXHIGHNY-26SEP08-B82.5",
-          "https://kalshi.com/markets/kxhighny/kxhighny-26sep08"
-        ]
-      },
-      {
-        "id": "OP014",
-        "ts": "2026-09-08T03:25:25-0500",
-        "venue": "kalshi_demo",
-        "symbol": "KXHIGHNY-26SEP08-B82.5",
-        "side": "buy",
-        "qty": 24.8947,
-        "px": 0.38,
-        "notional_usd": 9.46,
-        "edge": "one-print-size",
-        "url": "https://api.weather.gov/gridpoints/OKX/34,45/forecast",
-        "urls": [
-          "https://api.weather.gov/gridpoints/OKX/34,45/forecast",
-          "https://api.elections.kalshi.com/trade-api/v2/markets/KXHIGHNY-26SEP08-B82.5",
-          "https://kalshi.com/markets/kxhighny/kxhighny-26sep08"
-        ]
       }
     ],
     "open": [
       {
         "venue": "kalshi_demo",
-        "symbol": "KXHIGHNY-26SEP10-B85.5",
-        "qty": 313.8939,
-        "avg": 0.4041,
-        "mark": 0.73,
-        "upnl": 102.298,
-        "notional": 229.1425,
+        "symbol": "KXHIGHNY-26SEP11-B79.5",
+        "qty": 337.3,
+        "avg": 0.5,
+        "mark": 0.5,
+        "upnl": 0.0,
+        "notional": 168.65,
         "edge": "one-print",
-        "url": "https://kalshi.com/markets/kxhighny/kxhighny-26sep10",
+        "url": "https://kalshi.com/markets/kxhighny/kxhighny-26sep11",
         "urls": [
-          "https://kalshi.com/markets/kxhighny/kxhighny-26sep10"
+          "https://kalshi.com/markets/kxhighny/kxhighny-26sep11"
         ]
       }
     ]
@@ -652,11 +652,11 @@
   "one_print": {
     "style": "nws_kalshi_one_bucket",
     "knyc_max_f": 82.9,
-    "nws_f": 86,
-    "floor": 85,
-    "cap": 86,
-    "symbol": "KXHIGHNY-26SEP10-B85.5",
-    "event": "KXHIGHNY-26SEP10",
+    "nws_f": 80,
+    "floor": 79,
+    "cap": 80,
+    "symbol": "KXHIGHNY-26SEP11-B79.5",
+    "event": "KXHIGHNY-26SEP11",
     "friday_close": "2026-09-11T16:00:00-04:00",
     "desk_open": true,
     "live_wallets": false
