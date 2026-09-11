@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-11T08:43:48-0500",
+  "updated_at": "2026-09-11T08:58:54-0500",
   "duel": {
     "ends_at": "2026-09-11T16:00:00-04:00",
     "metric": "return_pct",
@@ -191,11 +191,11 @@
     "label": "FADE",
     "mode": "PAPER",
     "starting_cash_usd": 400.0,
-    "cash_usd": 362.7905,
-    "equity_usd": 402.6541,
-    "day_pnl_usd": -0.1364,
-    "total_pnl_usd": 2.6541,
-    "return_pct": 0.6635,
+    "cash_usd": 361.129,
+    "equity_usd": 401.129,
+    "day_pnl_usd": 0.0,
+    "total_pnl_usd": 1.129,
+    "return_pct": 0.2823,
     "open_positions": 1,
     "live_wallets": false,
     "gate": {
@@ -204,9 +204,41 @@
     "confidence": {
       "score": 40,
       "live_ready": false,
-      "next": "FADE \u00b7 eq $402.6541 \u00b7 P&L $2.6541 \u00b7 LIVE DENY"
+      "next": "FADE \u00b7 eq $401.129 \u00b7 P&L $1.129 \u00b7 LIVE DENY"
     },
     "recent_fills": [
+      {
+        "id": "FD098",
+        "ts": "2026-09-11T08:58:53-0500",
+        "venue": "coinbase_paper",
+        "symbol": "ETH-USD",
+        "side": "sell",
+        "qty": 0.01529836,
+        "px": 2614.66,
+        "notional_usd": 40.0,
+        "edge": "fade-vwap",
+        "url": "https://www.coinbase.com/price/ethereum",
+        "urls": [
+          "https://www.coinbase.com/price/ethereum",
+          "https://finance.yahoo.com/"
+        ]
+      },
+      {
+        "id": "FD097",
+        "ts": "2026-09-11T08:58:53-0500",
+        "venue": "coinbase_paper",
+        "symbol": "ETH-USD",
+        "side": "buy",
+        "qty": 0.01593381,
+        "px": 2614.66,
+        "notional_usd": 41.6615,
+        "edge": "fade-stop",
+        "url": "https://www.coinbase.com/price/ethereum",
+        "urls": [
+          "https://www.coinbase.com/price/ethereum",
+          "https://finance.yahoo.com/"
+        ]
+      },
       {
         "id": "FD096",
         "ts": "2026-09-11T08:00:01-0500",
@@ -302,49 +334,17 @@
           "https://www.coinbase.com/price/ethereum",
           "https://finance.yahoo.com/"
         ]
-      },
-      {
-        "id": "FD090",
-        "ts": "2026-09-11T03:41:43-0500",
-        "venue": "coinbase_paper",
-        "symbol": "ETH-USD",
-        "side": "sell",
-        "qty": 0.01614058,
-        "px": 2478.225,
-        "notional_usd": 40.0,
-        "edge": "fade-vwap",
-        "url": "https://www.coinbase.com/price/ethereum",
-        "urls": [
-          "https://www.coinbase.com/price/ethereum",
-          "https://finance.yahoo.com/"
-        ]
-      },
-      {
-        "id": "FD089",
-        "ts": "2026-09-11T03:41:43-0500",
-        "venue": "coinbase_paper",
-        "symbol": "ETH-USD",
-        "side": "buy",
-        "qty": 0.01627104,
-        "px": 2478.225,
-        "notional_usd": 40.3233,
-        "edge": "fade-stop",
-        "url": "https://www.coinbase.com/price/ethereum",
-        "urls": [
-          "https://www.coinbase.com/price/ethereum",
-          "https://finance.yahoo.com/"
-        ]
       }
     ],
     "open": [
       {
         "venue": "coinbase_paper",
         "symbol": "ETH-USD",
-        "qty": 0.01593381,
-        "avg": 2510.385,
-        "mark": 2518.945,
-        "upnl": -0.1364,
-        "notional": 40.1364,
+        "qty": 0.01529836,
+        "avg": 2614.66,
+        "mark": 2614.66,
+        "upnl": 0.0,
+        "notional": 40.0,
         "edge": "fade-vwap",
         "url": "https://www.coinbase.com/price/ethereum",
         "urls": [
@@ -356,19 +356,19 @@
     "style": "vwap_fade",
     "parked": false,
     "last_scan": {
-      "at": "2026-09-11T08:43:47-0500",
+      "at": "2026-09-11T08:58:53-0500",
       "names": [
         {
           "symbol": "BTC-USD",
-          "px": 77849.465,
-          "vwap": 77229.1,
-          "dev_pct": 0.8033
+          "px": 78885.2,
+          "vwap": 77457.19,
+          "dev_pct": 1.8436
         },
         {
           "symbol": "ETH-USD",
-          "px": 2518.945,
-          "vwap": 2483.77,
-          "dev_pct": 1.416
+          "px": 2614.66,
+          "vwap": 2513.25,
+          "dev_pct": 4.0348
         }
       ]
     }
