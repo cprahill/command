@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-11T22:30:02-0500",
+  "updated_at": "2026-09-12T08:00:02-0500",
   "duel": {
     "ends_at": "2026-09-11T16:00:00-04:00",
     "metric": "return_pct",
@@ -176,12 +176,12 @@
     "label": "FADE",
     "mode": "PAPER",
     "starting_cash_usd": 400.0,
-    "cash_usd": 361.5963,
-    "equity_usd": 401.56,
-    "day_pnl_usd": -0.0363,
-    "total_pnl_usd": 1.56,
-    "return_pct": 0.39,
-    "open_positions": 1,
+    "cash_usd": 401.9041,
+    "equity_usd": 401.9041,
+    "day_pnl_usd": 0.0,
+    "total_pnl_usd": 1.9041,
+    "return_pct": 0.476,
+    "open_positions": 0,
     "live_wallets": false,
     "gate": {
       "open": true
@@ -189,9 +189,25 @@
     "confidence": {
       "score": 40,
       "live_ready": false,
-      "next": "FADE \u00b7 eq $401.56 \u00b7 P&L $1.56 \u00b7 LIVE DENY"
+      "next": "FADE \u00b7 eq $401.9041 \u00b7 P&L $1.9041 \u00b7 LIVE DENY"
     },
     "recent_fills": [
+      {
+        "id": "FD107",
+        "ts": "2026-09-12T08:00:01-0500",
+        "venue": "coinbase_paper",
+        "symbol": "ETH-USD",
+        "side": "sell",
+        "qty": 0.01590043,
+        "px": 2535.01,
+        "notional_usd": 40.3077,
+        "edge": "fade-target",
+        "url": "https://www.coinbase.com/price/ethereum",
+        "urls": [
+          "https://www.coinbase.com/price/ethereum",
+          "https://finance.yahoo.com/"
+        ]
+      },
       {
         "id": "FD106",
         "ts": "2026-09-11T17:00:01-0500",
@@ -301,57 +317,25 @@
           "https://www.coinbase.com/price/ethereum",
           "https://finance.yahoo.com/"
         ]
-      },
-      {
-        "id": "FD099",
-        "ts": "2026-09-11T10:59:43-0500",
-        "venue": "coinbase_paper",
-        "symbol": "ETH-USD",
-        "side": "buy",
-        "qty": 0.01529836,
-        "px": 2554.895,
-        "notional_usd": 39.0857,
-        "edge": "fade-target",
-        "url": "https://www.coinbase.com/price/ethereum",
-        "urls": [
-          "https://www.coinbase.com/price/ethereum",
-          "https://finance.yahoo.com/"
-        ]
       }
     ],
-    "open": [
-      {
-        "venue": "coinbase_paper",
-        "symbol": "ETH-USD",
-        "qty": 0.01590043,
-        "avg": 2515.655,
-        "mark": 2513.375,
-        "upnl": -0.0363,
-        "notional": 39.9637,
-        "edge": "fade-vwap",
-        "url": "https://www.coinbase.com/price/ethereum",
-        "urls": [
-          "https://www.coinbase.com/price/ethereum",
-          "https://finance.yahoo.com/"
-        ]
-      }
-    ],
+    "open": [],
     "style": "vwap_fade",
     "parked": false,
     "last_scan": {
-      "at": "2026-09-11T22:30:01-0500",
+      "at": "2026-09-12T08:00:01-0500",
       "names": [
         {
           "symbol": "BTC-USD",
-          "px": 77282.875,
-          "vwap": 77234.16,
-          "dev_pct": 0.0631
+          "px": 77321.36,
+          "vwap": 77287.78,
+          "dev_pct": 0.0435
         },
         {
           "symbol": "ETH-USD",
-          "px": 2513.375,
-          "vwap": 2523.47,
-          "dev_pct": -0.3999
+          "px": 2535.01,
+          "vwap": 2527.54,
+          "dev_pct": 0.2955
         }
       ]
     }
@@ -614,7 +598,7 @@
   },
   "signals": {
     "main": "yellow",
-    "trade_dev": "yellow",
+    "trade_dev": "green",
     "swarm": "green",
     "grok": "green",
     "duel": "green"
@@ -622,7 +606,7 @@
   "disclaimer": "Paper trading trial demo only. Fake money, real competition. Not financial advice. No live funds. No personal data.",
   "one_print": {
     "style": "nws_kalshi_one_bucket",
-    "knyc_max_f": 78.1,
+    "knyc_max_f": 73.0,
     "nws_f": null,
     "floor": null,
     "cap": null,
