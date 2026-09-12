@@ -1,23 +1,41 @@
 {
-  "generated_at": "2026-09-12T21:58:13.861177Z",
-  "updated_at_ct": "2026-09-12T16:58:13-0500",
+  "kernel": "grok",
+  "generated_at": "2026-09-12T22:01:42.928351Z",
+  "updated_at_ct": "2026-09-12T17:01:42-0500",
   "host": {
-    "name": "Jimothys-Mac-mini-2",
-    "role": "Mission Control"
+    "name": "Jimothys-Mac-mini-2.local",
+    "role": "Grok Mini"
+  },
+  "com": {
+    "inbound": "grok",
+    "bot": "primary",
+    "build": "secondary",
+    "imessage_inbound": "closed",
+    "imessage_outbound": "yes-gated",
+    "router": [
+      "host",
+      "twin",
+      "gemma",
+      "build",
+      "imsg-out"
+    ]
   },
   "paper": {
     "state": "PAUSED",
     "ticks_enabled": false,
-    "reason": "Phase1 rebuild \u2014 ticks cut"
+    "reason": "paused \u2014 not the harness"
   },
   "openclaw": {
     "seats": 1,
     "seat_cap": 1,
     "gateway_state": "up"
   },
-  "cuts": {
-    "fury": true,
-    "paper": true
+  "money": {
+    "collected_usd": 0,
+    "burn_usd_mo": 500,
+    "lane": "R1",
+    "paper": "PAUSED",
+    "note": "collected is filed $0 \u2014 do not invent P&L"
   },
   "services": [
     {
@@ -27,10 +45,10 @@
       "pid": 64354
     },
     {
-      "name": "mission_control",
+      "name": "harness",
       "http": 8790,
       "state": "up",
-      "pid": 64356
+      "pid": 66329
     },
     {
       "name": "money_desk",
@@ -69,66 +87,9 @@
       "pid": 1261
     }
   ],
-  "com": {
-    "inbound": "grok",
-    "bot": "primary",
-    "build": "secondary",
-    "imessage_inbound": "closed",
-    "imessage_outbound": "yes-gated",
-    "router": [
-      "host-script",
-      "local-model",
-      "oc-seat",
-      "imsg-out"
-    ]
-  },
-  "money": {
-    "collected_usd": 0,
-    "burn_usd_mo": 500,
-    "lane": "R1",
-    "paper": "PAUSED",
-    "note": "collected is filed $0 \u2014 do not invent P&L"
-  },
-  "public": [
-    {
-      "id": "harness",
-      "label": "Harness HTTPS",
-      "url": "https://cprahill.github.io/command/harness/"
-    },
-    {
-      "id": "phone",
-      "label": "Phone HTTPS",
-      "url": "https://cprahill.github.io/command/phone/"
-    },
-    {
-      "id": "bots",
-      "label": "Bots",
-      "url": "https://cprahill.github.io/command/bots/"
-    },
-    {
-      "id": "paper",
-      "label": "Paper",
-      "url": "https://cprahill.github.io/command/paper/"
-    }
-  ],
-  "tailscale": {
-    "online": true,
-    "hostname": "Jimothys-Mac-mini-2",
-    "ip": "100.92.162.78",
-    "lan": "192.168.1.127",
-    "urls": [
-      {
-        "id": "dashboard",
-        "label": "MC LAN",
-        "url": "http://100.92.162.78:8790/"
-      },
-      {
-        "id": "twin",
-        "label": "Twin LAN",
-        "url": "http://100.92.162.78:8787/"
-      }
-    ]
-  },
-  "paper_legacy": "PAUSED",
-  "openclaw_agents_live": 1
+  "cuts": {
+    "crew_seq": true,
+    "fury_pollers": true,
+    "paper_ticks": true
+  }
 }
