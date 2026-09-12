@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="theme-color" content="#09090b"/>
+<title>RH Agentic · Crypto</title>
+<style>
+:root{--bg:#09090b;--card:#131316;--fg:#f4f4f5;--muted:#a1a1aa;--gold:#e0b143;--ok:#8fba84;--bad:#d47878;--cyan:#3ce7ff;--line:rgba(244,244,245,.12)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.4 -apple-system,system-ui,sans-serif;padding:max(12px,env(safe-area-inset-top)) 16px 28px}
+h1{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 10px}
+.big{font-size:26px;font-weight:700;margin:4px 0}
+.gold{color:var(--gold)}.ok{color:var(--ok)}.bad{color:var(--bad)}.cyan{color:var(--cyan)}
+.row{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border:0}.k{color:var(--muted)}.v{font-weight:600;font-variant-numeric:tabular-nums;text-align:right}
+.pill{display:inline-block;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.06em;border:1px solid var(--line);margin:0 6px 6px 0}
+.meta{font-size:12px;color:var(--muted);margin-top:6px}
+ul{margin:6px 0 0;padding-left:18px;color:var(--muted)}
+a{color:var(--cyan)}
+</style>
+</head>
+<body>
+<h1>RH Agentic · Crypto 24/7</h1>
+<div class="card">
+  <div class="k">Account</div>
+  <div class="big cyan" id="acct">Agentic …4103</div>
+  <div><span class="pill gold" id="mode">CRYPTO_24_7</span><span class="pill" id="stocks">STOCKS WAIT</span><span class="pill" id="stop">STOP OFF</span></div>
+  <div class="meta" id="when">loading…</div>
+</div>
+<div class="card">
+  <div class="k">Strategy</div>
+  <div class="v" id="strat" style="text-align:left;margin-top:6px">—</div>
+  <ul id="edges"></ul>
+</div>
+<div class="card">
+  <div class="row"><span class="k">Account value</span><span class="v" id="av">—</span></div>
+  <div class="row"><span class="k">Equity (stocks wait)</span><span class="v" id="eq">—</span></div>
+  <div class="row"><span class="k">Crypto</span><span class="v gold" id="cry">—</span></div>
+  <div class="row"><span class="k">Cash</span><span class="v" id="cash">—</span></div>
+  <div class="row"><span class="k">Caps</span><span class="v" id="caps">≤$100 / −$150 day</span></div>
+</div>
+<div class="card" id="pos"><div class="k">Positions</div></div>
+<div class="card" id="cycles"><div class="k">Cycles / trades</div></div>
+<div class="card">
+  <div class="k">Next</div>
+  <div class="meta" id="next">—</div>
+</div>
+<script>
+async function load(){
+  const d=await (await fetch('board.json?t='+Date.now(),{cache:'no-store'})).json();
+  document.getElementById('acct').textContent=d.account;
+  document.getElementById('mode').textContent=d.mode||'CRYPTO';
+  document.getElementById('stocks').textContent=(d.stocks||'WAIT')==='WAIT'?'STOCKS WAIT':'STOCKS ON';
+  document.getElementById('stop').textContent=d.stop?'STOP ON':'STOP OFF';
+  document.getElementById('stop').className='pill '+(d.stop?'bad':'ok');
+  document.getElementById('when').textContent='Updated '+ (d.updated_at_ct||'') + (d.book&&d.book.as_of?(' · book '+d.book.as_of):'');
+  document.getElementById('strat').textContent=(d.strategy&&d.strategy.summary)||'';
+  document.getElementById('edges').innerHTML=((d.strategy&&d.strategy.edges)||[]).map(e=>'<li>'+e+'</li>').join('');
+  const b=d.book||{};
+  const fmt=n=> n==null?'—':('$'+(Number(n).toLocaleString(undefined,{maximumFractionDigits:2})));
+  document.getElementById('av').textContent=fmt(b.account_value);
+  document.getElementById('eq').textContent=fmt(b.equity);
+  document.getElementById('cry').textContent=fmt(b.crypto);
+  document.getElementById('cash').textContent=fmt(b.cash);
+  const c=d.caps||{};
+  document.getElementById('caps').textContent='≤$'+c.max_order_usd+' / day kill $'+c.day_kill_usd;
+  const pos=document.getElementById('pos');
+  pos.innerHTML='<div class="k">Positions</div>';
+  (b.positions||[]).forEach(p=>{
+    const row=document.createElement('div'); row.className='row';
+    row.innerHTML='<span class="k">'+p.sym+' · '+p.bucket+'</span><span class="v">'+fmt(p.mv)+' <span class="meta">'+p.status+'</span></span>';
+    pos.appendChild(row);
+  });
+  const cy=document.getElementById('cycles');
+  cy.innerHTML='<div class="k">Cycles / trades</div>';
+  (d.cycles||[]).slice().reverse().forEach(x=>{
+    const row=document.createElement('div'); row.className='row';
+    row.innerHTML='<span class="k">#'+x.id+' · '+(x.at||'').slice(0,16)+'</span><span class="v">'+(x.result||'')+' · $'+(x.notional||0)+'</span>';
+    cy.appendChild(row);
+    if(x.reason){ const m=document.createElement('div'); m.className='meta'; m.textContent=x.reason; cy.appendChild(m); }
+  });
+  document.getElementById('next').textContent=d.next||'';
+}
+load().catch(e=>{document.getElementById('when').textContent='board.json missing — fail closed';});
+setInterval(()=>load().catch(()=>{}), 30000);
+</script>
+</body>
+</html>

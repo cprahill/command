@@ -1,0 +1,91 @@
+{
+  "updated_at_ct": "2026-09-12T17:39:44-0500",
+  "account": "Agentic \u20264103",
+  "hands_off": "Individual \u20266578",
+  "mode": "CRYPTO_24_7",
+  "stocks": "WAIT",
+  "closed_pot": true,
+  "caps": {
+    "max_order_usd": 100,
+    "day_kill_usd": -150,
+    "margin": false,
+    "options": false
+  },
+  "stop": false,
+  "strategy": {
+    "name": "Closed-pot crypto first",
+    "summary": "Trade only \u20264103. Stocks wait. Crypto 24/7 under $100/order. Prefer BTC liquidity; no churn; one order per cycle or skip with reason.",
+    "edges": [
+      "Prefer liquid majors already on book (BTC first)",
+      "Consolidate dust only when it frees \u2264$100 useful size",
+      "Skip if no edge \u2014 fills\u2260value",
+      "Day \u2212$150 kill \u2192 STOP new orders"
+    ],
+    "invalidation": "STOP file, day kill, or uncertain fills"
+  },
+  "book": {
+    "as_of": "2026-09-11 connector snapshot \u2014 refresh on next live cycle",
+    "account_value": 2284.35,
+    "equity": 1724.68,
+    "crypto": 559.65,
+    "cash": 0.01,
+    "positions": [
+      {
+        "sym": "TSLA",
+        "qty": 4.0,
+        "mv": 1461.0,
+        "bucket": "equity",
+        "status": "HOLD_WAIT"
+      },
+      {
+        "sym": "NNE",
+        "qty": 9.876,
+        "mv": 163.26,
+        "bucket": "equity",
+        "status": "HOLD_WAIT"
+      },
+      {
+        "sym": "LTBR",
+        "qty": 14.144,
+        "mv": 100.42,
+        "bucket": "equity",
+        "status": "HOLD_WAIT"
+      },
+      {
+        "sym": "BTC",
+        "qty": 0.00722477,
+        "mv": 558.22,
+        "bucket": "crypto",
+        "status": "ACTIVE"
+      },
+      {
+        "sym": "DOGE",
+        "qty": 16.929,
+        "mv": 1.43,
+        "bucket": "crypto",
+        "status": "DUST"
+      }
+    ]
+  },
+  "cycles": [
+    {
+      "id": "001",
+      "at": "2026-09-11T22:44:00-05:00",
+      "result": "NO_ORDER",
+      "reason": "After-hours; no \u2264$100 sensible fill",
+      "notional": 0
+    }
+  ],
+  "ticks": [
+    {
+      "at": "2026-09-12T09:19:21-05:00",
+      "result": "prompt_pasted"
+    },
+    {
+      "at": "2026-09-12T16:54:49-05:00",
+      "result": "prompt_pasted"
+    }
+  ],
+  "next": "Run crypto cycle on grok.com (Mini) \u2014 prefer BTC thesis \u2264$100 or skip with reason; log CYCLE-00N.md",
+  "operator": "Mini grok.com + RH connector \u00b7 LaunchAgent every 6h \u00b7 Grok Bot enforces STOP/logs/dash"
+}
