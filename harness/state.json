@@ -1,7 +1,7 @@
 {
   "kernel": "grok",
-  "generated_at": "2026-09-12T22:17:54.341768Z",
-  "updated_at_ct": "2026-09-12T17:17:54-0500",
+  "generated_at": "2026-09-12T22:30:41.172239Z",
+  "updated_at_ct": "2026-09-12T17:30:41-0500",
   "host": {
     "name": "Jimothys-Mac-mini-2.local",
     "role": "Grok Mini"
@@ -20,11 +20,6 @@
       "imsg-out"
     ]
   },
-  "paper": {
-    "state": "PAUSED",
-    "ticks_enabled": false,
-    "reason": "fake desk \u2014 not the money dest"
-  },
   "openclaw": {
     "seats": 1,
     "seat_cap": 1,
@@ -35,19 +30,25 @@
     "burn_usd_mo": 500,
     "live": "RH Agentic",
     "r1": "draft $0",
-    "paper": "PAUSED",
-    "note": "RH is the YES'd live clock. Paper is fake. R1 has $0 collected."
+    "paper": "KILLED",
+    "note": "Paper desk is dead. Money dests are RH Agentic + R1."
   },
   "dests": [
     {
       "id": "baja",
-      "label": "A Baja",
+      "label": "Baja play",
+      "state": "up",
+      "kind": "games"
+    },
+    {
+      "id": "print",
+      "label": "Baja print",
       "state": "up",
       "kind": "games"
     },
     {
       "id": "twin",
-      "label": "B Twin",
+      "label": "Twin",
       "state": "up",
       "kind": "clone"
     },
@@ -64,10 +65,28 @@
       "kind": "money-biz"
     },
     {
-      "id": "paper",
-      "label": "Paper fake",
-      "state": "paused",
-      "kind": "money-fake"
+      "id": "roblox",
+      "label": "Roblox",
+      "state": "scout",
+      "kind": "games"
+    },
+    {
+      "id": "music",
+      "label": "Music",
+      "state": "empty",
+      "kind": "music"
+    },
+    {
+      "id": "prod",
+      "label": "Productivity",
+      "state": "up",
+      "kind": "productivity"
+    },
+    {
+      "id": "first",
+      "label": "Harness",
+      "state": "up",
+      "kind": "system"
     }
   ],
   "locals": [
@@ -103,13 +122,7 @@
       "name": "harness",
       "http": 8790,
       "state": "up",
-      "pid": 68955
-    },
-    {
-      "name": "money_desk",
-      "http": 8791,
-      "state": "up",
-      "pid": 64358
+      "pid": 71259
     },
     {
       "name": "baja",
@@ -145,6 +158,7 @@
   "cuts": {
     "crew_seq": true,
     "fury_pollers": true,
-    "paper_ticks": true
+    "paper": true,
+    "money_desk_8791": true
   }
 }

@@ -45,7 +45,7 @@ a.nav{color:var(--cyan);text-decoration:none;font-size:11px;letter-spacing:.12em
     <div class="brand">GROK <i>TREE</i></div>
     <a class="nav" href="/">LOCAL</a>
     <div class="chip on">YOU → GROK → GATES → LOCALS → DESTS</div>
-    <div class="chip" id="moneychip">RH · R1 $0 · PAPER OFF</div>
+    <div class="chip" id="moneychip">RH · R1 $0</div>
     <div class="live" id="live"><b></b>LIVE</div>
   </header>
   <section class="mesh">
@@ -66,7 +66,7 @@ a.nav{color:var(--cyan);text-decoration:none;font-size:11px;letter-spacing:.12em
         <li>Trunk split: BOT (primary) · BUILD (secondary)</li>
         <li>Fork: QUALITY · REVIEW · VERIFY</li>
         <li>Crown: HOST · GEMMA 12b · QWEN 27b</li>
-        <li>Leaves: BAJA · TWIN · RH · R1 · PAPER</li>
+        <li>Leaves: Baja play/print · Twin · RH · R1 · Roblox · Music · Prod · Harness</li>
       </ul>
     </article>
   </section>
@@ -81,7 +81,8 @@ const COL={
   router:'#3ce7ff',
   host:'#9aa8b8', gemma:'#3dff9a', qwen:'#7ed0ff',
   oc:'#3dffc7', imsgout:'#6d7d93',
-  baja:'#ff6a3d', twin:'#7ed0ff', rh:'#14f195', r1:'#ffb020', paper:'#5a5340'
+  baja:'#ff6a3d', print:'#ff8a5b', twin:'#7ed0ff', rh:'#14f195', r1:'#ffb020',
+  roblox:'#c084fc', music:'#67e8f9', prod:'#fbbf24', first:'#3ce7ff'
 };
 const META={
   you:{label:'YOU', kind:'hex', sub:'ROOT'},
@@ -96,11 +97,15 @@ const META={
   qwen:{label:'QWEN', kind:'ai', sub:'27B'},
   oc:{label:'OC', kind:'ai', sub:'PIPE'},
   imsgout:{label:'IMSG OUT', kind:'ai', sub:'YES'},
-  baja:{label:'BAJA', kind:'dest', sub:'GAMES'},
+  baja:{label:'BAJA', kind:'dest', sub:'PLAY'},
+  print:{label:'PRINT', kind:'dest', sub:'RC'},
   twin:{label:'TWIN', kind:'dest', sub:'CLONE'},
   rh:{label:'RH', kind:'dest', sub:'LIVE $'},
   r1:{label:'R1', kind:'dest', sub:'B2B $0'},
-  paper:{label:'PAPER', kind:'dest', sub:'FAKE OFF'}
+  roblox:{label:'ROBLOX', kind:'dest', sub:'SCOUT'},
+  music:{label:'MUSIC', kind:'dest', sub:'EMPTY'},
+  prod:{label:'PROD', kind:'dest', sub:'TOOLS'},
+  first:{label:'HARNESS', kind:'dest', sub:'KERNEL'}
 };
 /* 3D tree: Y up, X left/right, Z in/out so limbs don't sit in one plane */
 const TREE={
@@ -114,13 +119,17 @@ const TREE={
   host:[-0.48,0.52,0.32],
   gemma:[0,0.55,0.12],
   qwen:[0.48,0.52,-0.28],
-  oc:[-0.22,0.72,0.48],
-  imsgout:[0.22,0.72,-0.48],
-  baja:[-0.72,0.98,0.42],
-  twin:[0.0,1.02,0.18],
-  rh:[0.55,1.00,-0.15],
-  r1:[0.82,0.92,-0.42],
-  paper:[-0.95,0.78,0.22]
+  oc:[-0.22,0.68,0.48],
+  imsgout:[0.22,0.68,-0.48],
+  baja:[-0.95,1.05,0.50],
+  print:[-0.62,1.08,0.28],
+  twin:[-0.18,1.12,0.10],
+  rh:[0.22,1.12,-0.08],
+  r1:[0.55,1.08,-0.28],
+  roblox:[0.88,1.02,-0.48],
+  music:[-0.95,0.82,0.62],
+  prod:[0.95,0.82,-0.62],
+  first:[0.0,0.88,0.0]
 };
 const N={};
 Object.keys(TREE).forEach(id=>{
@@ -134,7 +143,9 @@ const WIRES=[
   ['quality','router'],['review','router'],['verify','router'],
   ['router','host'],['router','gemma'],['router','qwen'],
   ['host','oc'],['router','imsgout'],
-  ['verify','baja'],['qwen','twin'],['router','rh'],['router','r1'],['oc','paper']
+  ['verify','baja'],['verify','print'],['qwen','twin'],
+  ['router','rh'],['router','r1'],['router','roblox'],
+  ['gemma','music'],['host','prod'],['router','first']
 ];
 function hexA(h,a){const n=h.replace('#','');return `rgba(${parseInt(n.slice(0,2),16)},${parseInt(n.slice(2,4),16)},${parseInt(n.slice(4,6),16)},${a})`;}
 function destState(id){
@@ -151,10 +162,11 @@ function on(id){
   if(id==='oc') return svc('openclaw_gateway');
   if(id==='imsgout') return true;
   if(id==='baja') return destState('baja')==='up'||svc('baja');
+  if(id==='print') return destState('print')==='up';
   if(id==='twin') return destState('twin')==='up'||svc('twin');
   if(id==='rh') return ['up','armed'].includes(destState('rh'));
-  if(id==='r1') return destState('r1')==='draft';
-  if(id==='paper') return false;
+  if(id==='r1'||id==='roblox'||id==='prod'||id==='first') return true;
+  if(id==='music') return destState('music')==='up';
   return false;
 }
 function resize(){
@@ -248,6 +260,7 @@ function keepJobs(ts){
   if(on('baja')) jobs.push({path:['verify','baja'], t:0, v:0.007, col:COL.baja});
   if(on('twin')) jobs.push({path:['qwen','twin'], t:0, v:0.007, col:COL.qwen});
   if(on('rh')) jobs.push({path:['router','rh'], t:0, v:0.006, col:COL.rh});
+  if(on('print')) jobs.push({path:['verify','print'], t:0, v:0.007, col:COL.print});
 }
 function frame(ts){
   T=ts/1000;
@@ -264,7 +277,7 @@ function paint(){
   if(!S) return;
   const m=S.money||{};
   document.getElementById('moneychip').textContent=
-    'RH '+(destSt('rh')||'?')+' · R1 $'+Number(m.collected_usd||0)+' · PAPER OFF';
+    'RH '+(destSt('rh')||'?')+' · R1 $'+Number(m.collected_usd||0);
   const age=S.generated_at?(Date.now()-Date.parse(S.generated_at)):9e9;
   document.getElementById('live').innerHTML=age<120000?'<b></b>LIVE':'<b></b>STALE';
   const rows=[];
