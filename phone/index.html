@@ -5,79 +5,116 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <meta name="theme-color" content="#09090b"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="robots" content="noindex"/>
 <title>Mini · Phone</title>
 <style>
 :root{--bg:#09090b;--card:#131316;--fg:#f4f4f5;--muted:#a1a1aa;--gold:#e0b143;--ok:#8fba84;--bad:#d47878;--line:rgba(244,244,245,.12)}
-*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.4 -apple-system,system-ui,sans-serif}
-body{padding:max(12px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(20px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
-h1{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.45 -apple-system,system-ui,sans-serif}
+body{padding:max(12px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+h1{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+h2{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 10px}
 .big{font-size:28px;font-weight:700;color:var(--gold);margin:4px 0}
 .row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);font-size:15px}
 .row:last-child{border:0}
 .k{color:var(--muted)}.v{font-weight:600;font-variant-numeric:tabular-nums}
-.ok{color:var(--ok)}.bad{color:var(--bad)}.gold{color:var(--gold)}
-a.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border-radius:999px;background:#1a1a1e;border:1px solid var(--line);color:var(--fg);text-decoration:none;font-weight:600;margin-top:8px}
+.ok{color:var(--ok)}.bad{color:var(--bad)}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+a.btn,button.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border-radius:999px;background:#1a1a1e;border:1px solid var(--line);color:var(--fg);text-decoration:none;font-weight:600;font-size:14px}
+button.btn{font:inherit;cursor:pointer}
+.cmd{font-family:ui-monospace,Menlo,monospace;font-size:13px;background:#0c0c0e;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:6px 0;word-break:break-word}
 .meta{font-size:12px;color:var(--muted);word-break:break-all;margin-top:8px}
+.note{font-size:13px;color:var(--muted);margin:0}
 </style>
 </head>
 <body>
-<h1>Christopher Mini · Phone</h1>
+<h1>Grok Bot · Mini control</h1>
 <div class="card">
   <div class="k">Paper</div>
-  <div class="big" id="paper">PAUSED</div>
-  <div class="meta" id="reason">loading…</div>
+  <div class="big" id="paper">…</div>
+  <div class="meta" id="reason">loading status…</div>
 </div>
 <div class="card">
   <div class="row"><span class="k">OpenClaw seats</span><span class="v" id="oc">—</span></div>
   <div class="row"><span class="k">Fury cut</span><span class="v" id="fury">—</span></div>
   <div class="row"><span class="k">Paper ticks cut</span><span class="v" id="pcut">—</span></div>
-  <div class="row"><span class="k">Updated</span><span class="v" id="when">—</span></div>
+  <div class="row"><span class="k">Updated (CT)</span><span class="v" id="when">—</span></div>
 </div>
-<div class="card" id="svc"><div class="k">Services</div></div>
-<div class="card" id="reach"><div class="k">Reach</div></div>
-<a class="btn" href="/neural/">Dashboard</a>
+<div class="card" id="svc"><h2>Services</h2></div>
+<div class="card">
+  <h2>Tell Grok Bot</h2>
+  <p class="note">Christopher talks to Grok Bot. Bot runs these on the Mini. No spend/send.</p>
+  <div class="cmd" data-cmd="status">status</div>
+  <div class="cmd" data-cmd="restart twin">restart twin</div>
+  <div class="cmd" data-cmd="restart mc">restart mission control</div>
+  <div class="cmd" data-cmd="restart oc">restart openclaw</div>
+  <p class="meta">Bot executes <code>phone-ctl.sh status|start|stop|restart &lt;twin|mc|money|oc|rh|keepawake&gt;</code></p>
+</div>
+<div class="card">
+  <h2>HTTPS (this phone)</h2>
+  <div class="btns">
+    <a class="btn" href="/bots/">Bots</a>
+    <a class="btn" href="/paper/">Paper</a>
+    <a class="btn" href="/neural/">Neural</a>
+    <a class="btn" href="/">Home</a>
+  </div>
+  <p class="meta">Tailscale :8790 is Mini/LAN only. Do not use 100.x from cellular.</p>
+</div>
+<div class="card" id="lan">
+  <h2>LAN / Tailscale (Mini only)</h2>
+  <p class="note" id="lan-note">Hidden until status loads.</p>
+</div>
 <p class="meta" id="err"></p>
 <script>
+const PUBLIC = [
+  {label:'Bots', url:'https://grok-command.vercel.app/bots/'},
+  {label:'Paper', url:'https://grok-command.vercel.app/paper/'},
+  {label:'Neural', url:'https://grok-command.vercel.app/neural/'}
+];
 async function load(){
+  const err = document.getElementById('err');
   try{
-    const d=await (await fetch('status.json?t='+Date.now(),{cache:'no-store'})).json();
-    const paper=(d.paper&&d.paper.state)||d.paper||'PAUSED';
-    document.getElementById('paper').textContent=String(paper).toUpperCase();
-    document.getElementById('reason').textContent=(d.paper&&d.paper.reason)||'';
-    const seats=(d.openclaw&&d.openclaw.seats!=null)?d.openclaw.seats:d.openclaw_agents_live;
-    const gw=(d.openclaw&&d.openclaw.gateway_state)||'';
-    document.getElementById('oc').textContent=seats+(gw?' · '+gw:'');
-    document.getElementById('fury').textContent=(d.cuts&&d.cuts.fury)?'YES':'NO';
-    document.getElementById('fury').className='v '+((d.cuts&&d.cuts.fury)?'ok':'bad');
-    document.getElementById('pcut').textContent=(d.cuts&&d.cuts.paper)?'YES':'NO';
-    document.getElementById('when').textContent=d.updated_at_ct||d.generated_at||'';
-    const svc=document.getElementById('svc');
-    svc.innerHTML='<div class="k">Services</div>';
-    (d.services||[]).forEach(s=>{
-      const row=document.createElement('div');
-      row.className='row';
-      const st=String(s.state||'').toLowerCase();
-      const port=s.http!=null?(':'+s.http):'';
-      row.innerHTML='<span class="k">'+s.name+' '+port+'</span><span class="v '+(st==='up'?'ok':'bad')+'">'+String(s.state||'?').toUpperCase()+'</span>';
+    const r = await fetch('/phone/status.json?t='+Date.now(),{cache:'no-store'});
+    if(!r.ok) throw new Error('status '+r.status);
+    const d = await r.json();
+    const paper = (d.paper && d.paper.state) || d.paper || 'PAUSED';
+    document.getElementById('paper').textContent = String(paper).toUpperCase();
+    document.getElementById('reason').textContent = (d.paper && d.paper.reason) || 'fail closed';
+    const seats = (d.openclaw && d.openclaw.seats != null) ? d.openclaw.seats : d.openclaw_agents_live;
+    const gw = (d.openclaw && d.openclaw.gateway_state) || '';
+    document.getElementById('oc').textContent = seats + (gw ? ' · ' + gw : '');
+    document.getElementById('fury').textContent = (d.cuts && d.cuts.fury) ? 'YES' : 'NO';
+    document.getElementById('fury').className = 'v ' + ((d.cuts && d.cuts.fury) ? 'ok' : 'bad');
+    document.getElementById('pcut').textContent = (d.cuts && d.cuts.paper) ? 'YES' : 'NO';
+    document.getElementById('pcut').className = 'v ' + ((d.cuts && d.cuts.paper) ? 'ok' : 'bad');
+    document.getElementById('when').textContent = d.updated_at_ct || d.generated_at || '';
+    const svc = document.getElementById('svc');
+    svc.innerHTML = '<h2>Services</h2>';
+    (d.services || []).forEach(s => {
+      const row = document.createElement('div');
+      row.className = 'row';
+      const st = String(s.state || '').toLowerCase();
+      const port = s.http != null ? (':' + s.http) : '';
+      row.innerHTML = '<span class="k">'+s.name+' '+port+'</span><span class="v '+(st==='up'?'ok':'bad')+'">'+String(s.state||'?').toUpperCase()+'</span>';
       svc.appendChild(row);
     });
-    const reach=document.getElementById('reach');
-    const urls=(d.tailscale&&d.tailscale.urls)||[];
-    reach.innerHTML='<div class="k">Reach · '+(d.tailscale&&d.tailscale.ip?d.tailscale.ip:'')+'</div>';
-    urls.forEach(u=>{
-      const a=document.createElement('a');
-      a.className='btn'; a.href=u.url; a.textContent=u.label||u.url; a.style.display='flex'; a.style.marginTop='8px';
-      reach.appendChild(a);
+    const lan = document.getElementById('lan');
+    const ts = d.tailscale || {};
+    document.getElementById('lan-note').textContent = ts.ip ? ('Mini '+ts.ip+(ts.lan?' · LAN '+ts.lan:'')) : 'Tailscale offline';
+    (ts.urls || []).forEach(u => {
+      const a = document.createElement('a');
+      a.className = 'btn'; a.href = u.url; a.textContent = (u.label||u.id||'link')+' (LAN)';
+      a.style.display = 'flex'; a.style.marginTop = '8px';
+      lan.appendChild(a);
     });
-    document.getElementById('err').textContent='';
+    err.textContent = '';
   }catch(e){
-    document.getElementById('paper').textContent='PAUSED';
-    document.getElementById('reason').textContent='status feed error — fail closed';
-    document.getElementById('err').textContent=String(e&&e.message||e);
+    document.getElementById('paper').textContent = 'PAUSED';
+    document.getElementById('reason').textContent = 'status feed error — fail closed';
+    err.textContent = String(e && e.message || e);
   }
 }
-load(); setInterval(load,15000);
+load(); setInterval(load, 20000);
 </script>
 </body>
 </html>

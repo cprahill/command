@@ -1,6 +1,12 @@
 {
   "cleanUrls": true,
   "trailingSlash": true,
+  "rewrites": [
+    { "source": "/phone", "destination": "/phone/index.html" },
+    { "source": "/phone/", "destination": "/phone/index.html" },
+    { "source": "/ctl", "destination": "/phone/index.html" },
+    { "source": "/ctl/", "destination": "/phone/index.html" }
+  ],
   "redirects": [
     { "source": "/harness", "destination": "/neural/", "permanent": true },
     { "source": "/harness/(.*)", "destination": "/neural/", "permanent": true }
@@ -9,10 +15,7 @@
     {
       "source": "/(.*)",
       "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex"
-        }
+        { "key": "X-Robots-Tag", "value": "noindex" }
       ]
     }
   ],
