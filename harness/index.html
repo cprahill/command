@@ -10,7 +10,7 @@
 :root{--bg:#03060c;--line:#1a2a3e;--muted:#6d7d93;--text:#d7e6f5;--cyan:#3ce7ff;--mint:#3dffc7;--gold:#ffb020;--pink:#ff4d8d;--green:#3dff9a}
 *{box-sizing:border-box}
 html,body{margin:0;height:100%;background:var(--bg);color:var(--text);overflow:hidden;font-family:"IBM Plex Mono",ui-monospace,monospace}
-.app{height:100%;display:grid;grid-template-rows:44px 1fr 118px}
+.app{height:100%;display:grid;grid-template-rows:44px 1fr 132px}
 header{display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid var(--line);z-index:5}
 .brand{font-family:"Barlow Condensed",sans-serif;letter-spacing:.2em;font-size:16px}
 .brand i{color:var(--cyan);font-style:normal}
@@ -19,9 +19,9 @@ header{display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px
 .live{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:10px;letter-spacing:.14em;color:var(--green)}
 .live b{width:7px;height:7px;border-radius:50%;background:var(--green);display:block}
 a.nav{color:var(--cyan);text-decoration:none;font-size:11px;letter-spacing:.12em}
-.mesh{position:relative;min-height:0;background:radial-gradient(900px 500px at 50% 70%,#102032 0%,#03060c 72%)}
-.mesh canvas{position:absolute;inset:0;width:100%;height:100%;cursor:grab;touch-action:none}
-.mbanner{position:absolute;left:12px;top:8px;z-index:3;font-family:"Barlow Condensed",sans-serif;letter-spacing:.16em;font-size:11px;color:var(--cyan)}
+.mesh{position:relative;min-height:0;background:radial-gradient(900px 500px at 50% 78%,#102032 0%,#03060c 72%)}
+.mesh canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
+.mbanner{position:absolute;left:12px;bottom:12px;z-index:3;font-family:"Barlow Condensed",sans-serif;letter-spacing:.16em;font-size:11px;color:var(--cyan)}
 .zoom{position:absolute;right:12px;bottom:12px;z-index:6;display:flex;flex-direction:column;gap:8px}
 .zoom button{min-width:44px;min-height:44px;border-radius:10px;border:1px solid #1a2a3e;background:#0a121c;color:#3ce7ff;font:700 20px/1 Barlow Condensed,sans-serif}
 .bot{display:grid;grid-template-columns:1.3fr .7fr;border-top:1px solid var(--line);background:#070d16}
@@ -32,7 +32,7 @@ a.nav{color:var(--cyan);text-decoration:none;font-size:11px;letter-spacing:.12em
 .ok{color:var(--mint)} .bad{color:var(--pink)} .gold{color:var(--gold)} .dim{color:var(--muted)}
 .docs{margin:0;padding-left:16px;font-size:12px;line-height:1.45}
 @media(max-width:900px){
-  .app{grid-template-rows:auto minmax(280px,56vh) auto;height:100dvh;overflow-y:auto}
+  .app{grid-template-rows:auto minmax(340px,58vh) auto;height:100dvh;overflow-y:auto}
   header{flex-wrap:wrap;height:auto;padding:8px}
   .bot{grid-template-columns:1fr}
   .panel + .panel{border-left:0;border-top:1px solid var(--line)}
@@ -44,12 +44,12 @@ a.nav{color:var(--cyan);text-decoration:none;font-size:11px;letter-spacing:.12em
   <header>
     <div class="brand">GROK <i>TREE</i></div>
     <a class="nav" href="/">LOCAL</a>
-    <div class="chip on">YOU → GROK → GATES → LOCALS → DESTS</div>
+    <div class="chip on">ME → BOT|BUILD → QUALITY+VERIFY → REVIEW → PROJECTS</div>
     <div class="chip" id="moneychip">RH · R1 $0</div>
     <div class="live" id="live"><b></b>LIVE</div>
   </header>
   <section class="mesh">
-    <div class="mbanner" id="mbanner">3D TREE · LIMBS SPREAD · DRAG TO ORBIT · + − ZOOM</div>
+    <div class="mbanner" id="mbanner">FIXED VIEW · FIRST PRINCIPLES REVIEW · + − ZOOM</div>
     <canvas id="c"></canvas>
     <div class="zoom">
       <button type="button" id="zin">+</button>
@@ -60,117 +60,88 @@ a.nav{color:var(--cyan);text-decoration:none;font-size:11px;letter-spacing:.12em
   <section class="bot">
     <article class="panel"><div class="ph">LIVE</div><div class="feed" id="feed"></div></article>
     <article class="panel">
-      <div class="ph">BRANCHES</div>
+      <div class="ph">ROUTE</div>
       <ul class="docs">
-        <li>Root: YOU</li>
-        <li>Trunk split: BOT (primary) · BUILD (secondary)</li>
-        <li>Fork: QUALITY · REVIEW · VERIFY</li>
-        <li>Crown: HOST · GEMMA 12b · QWEN 27b</li>
-        <li>Leaves: Baja play/print · Twin · RH · R1 · Roblox · Music · Prod · Harness</li>
+        <li>You talk to BOT (primary) or BUILD (secondary)</li>
+        <li>Both run QUALITY and VERIFY</li>
+        <li>REVIEW is first principles — every producing dest</li>
+        <li>Projects: Productivity · Games · Business · Music · Film</li>
+        <li>Twin is its own node</li>
+        <li>Print dest is dead</li>
       </ul>
     </article>
   </section>
 </div>
 <script>
 const C=document.getElementById('c'), X=C.getContext('2d');
-let W=0,H=0,T=0,S=null,jobs=[];
-/* look slightly down so the dest RING is readable, not a stacked row */
-let yaw=0.10, pitch=0.30, dist=9.2, zoom=1.0, drag=false, lx=0, ly=0, auto=true;
+let W=0,H=0,T=0,S=null,jobs=[], zoom=1.0;
 const COL={
   you:'#e8f4ff', bot:'#3ce7ff', build:'#ffb020',
-  quality:'#8b7cff', review:'#ffb020', verify:'#ffffff',
-  router:'#3ce7ff',
-  host:'#9aa8b8', gemma:'#3dff9a', qwen:'#7ed0ff',
-  oc:'#3dffc7', imsgout:'#6d7d93',
-  baja:'#ff6a3d', print:'#ff8a5b', twin:'#7ed0ff', rh:'#14f195', r1:'#ffb020',
-  roblox:'#c084fc', music:'#67e8f9', prod:'#fbbf24', first:'#3ce7ff'
+  quality:'#8b7cff', verify:'#ffffff', review:'#ffb020',
+  productivity:'#fbbf24', games:'#ff6a3d', business:'#14f195',
+  music:'#67e8f9', film:'#c084fc', twin:'#7ed0ff'
 };
 const META={
-  you:{label:'YOU', kind:'hex', sub:'ROOT'},
+  you:{label:'YOU', kind:'hex', sub:'ME'},
   bot:{label:'BOT', kind:'hex', sub:'PRIMARY'},
   build:{label:'BUILD', kind:'hex', sub:'SECONDARY'},
   quality:{label:'QUALITY', kind:'ai', sub:'LOCKS'},
-  review:{label:'REVIEW', kind:'ai', sub:'LESSONS'},
   verify:{label:'VERIFY', kind:'ai', sub:'PROOF'},
-  router:{label:'ROUTER', kind:'hex', sub:'PICKS'},
-  host:{label:'HOST', kind:'ai', sub:'SCRIPTS'},
-  gemma:{label:'GEMMA', kind:'ai', sub:'12B'},
-  qwen:{label:'QWEN', kind:'ai', sub:'27B'},
-  oc:{label:'OC', kind:'ai', sub:'PIPE'},
-  imsgout:{label:'IMSG OUT', kind:'ai', sub:'YES'},
-  baja:{label:'BAJA', kind:'dest', sub:'PLAY'},
-  print:{label:'PRINT', kind:'dest', sub:'RC'},
-  twin:{label:'TWIN', kind:'dest', sub:'CLONE'},
-  rh:{label:'RH', kind:'dest', sub:'LIVE $'},
-  r1:{label:'R1', kind:'dest', sub:'B2B $0'},
-  roblox:{label:'ROBLOX', kind:'dest', sub:'SCOUT'},
+  review:{label:'REVIEW', kind:'hex', sub:'1ST PRINCIPLES'},
+  productivity:{label:'PRODUCTIVITY', kind:'dest', sub:'TOOLS'},
+  games:{label:'GAMES', kind:'dest', sub:'BAJA · ROBLOX'},
+  business:{label:'BUSINESS', kind:'dest', sub:'RH · R1'},
   music:{label:'MUSIC', kind:'dest', sub:'EMPTY'},
-  prod:{label:'PROD', kind:'dest', sub:'TOOLS'},
-  first:{label:'HARNESS', kind:'dest', sub:'KERNEL'}
+  film:{label:'FILM', kind:'dest', sub:'PARKED'},
+  twin:{label:'TWIN', kind:'dest', sub:'CLONE'}
 };
-/* View-space candelabra: X = left/right spread, Y = up, Z = depth only.
-   Dests are the outer leaves — not a diagonal row, not a polar ring that
-   collapses onto the trunk from the home camera. */
-const TREE={
-  you:     [ 0.00, -3.20,  0.00],
-  bot:     [-2.50, -1.80,  1.00],
-  build:   [ 2.50, -1.80, -1.00],
-  quality: [-3.40, -0.25,  1.40],
-  review:  [ 0.00, -0.10,  0.55],
-  verify:  [ 3.40, -0.25, -1.40],
-  router:  [ 0.00,  1.30,  0.00],
-  host:    [-2.30,  2.25,  1.15],
-  gemma:   [-0.85,  2.45,  0.75],
-  qwen:    [ 2.15,  2.20, -1.05],
-  oc:      [-3.60,  1.90,  1.50],
-  imsgout: [ 1.20,  0.75, -1.70],
-  music:   [-5.50,  2.85,  1.65],
-  prod:    [-4.50,  4.30, -0.85],
-  roblox:  [-3.00,  4.00,  1.75],
-  twin:    [-1.60,  4.90,  1.05],
-  first:   [ 0.00,  5.45,  0.22],
-  rh:      [ 1.80,  4.95, -1.15],
-  r1:      [ 3.70,  4.35,  1.20],
-  baja:    [ 5.05,  4.55,  0.50],
-  print:   [ 5.65,  2.70, -1.60]
-};
+const ORDER=['you','bot','build','quality','verify','review','productivity','games','business','music','film','twin'];
 const N={};
-Object.keys(TREE).forEach(id=>{
-  const [x,y,z]=TREE[id];
-  N[id]={wx:x, wy:y, wz:z, ...META[id]};
-});
+ORDER.forEach(id=> N[id]={wx:0,wy:0,s:1,z:0,...META[id]});
 const WIRES=[
   ['you','bot'],['you','build'],
-  ['bot','quality'],['bot','review'],
-  ['build','review'],['build','verify'],
-  ['quality','router'],['review','router'],['verify','router'],
-  ['router','host'],['router','gemma'],['router','qwen'],
-  ['host','oc'],['router','imsgout'],
-  ['verify','baja'],['verify','print'],['qwen','twin'],
-  ['router','rh'],['router','r1'],['router','roblox'],
-  ['gemma','music'],['host','prod'],['router','first']
+  ['bot','quality'],['bot','verify'],
+  ['build','quality'],['build','verify'],
+  ['quality','review'],['verify','review'],
+  ['review','productivity'],['review','games'],['review','business'],
+  ['review','music'],['review','film'],['review','twin']
 ];
 function hexA(h,a){const n=h.replace('#','');return `rgba(${parseInt(n.slice(0,2),16)},${parseInt(n.slice(2,4),16)},${parseInt(n.slice(4,6),16)},${a})`;}
 function destState(id){
   const d=(S&&S.dests||[]).find(x=>x.id===id);
   return d?String(d.state).toLowerCase():'';
 }
-function svc(name){
-  const row=(S&&S.services||[]).find(s=>s.name===name);
-  return row && String(row.state).toLowerCase()==='up';
-}
 function on(id){
-  if(!S) return ['you','bot','build','router','quality','review','verify'].includes(id);
-  if(['you','bot','build','router','quality','review','verify','host','gemma','qwen'].includes(id)) return true;
-  if(id==='oc') return svc('openclaw_gateway');
-  if(id==='imsgout') return true;
-  if(id==='baja') return destState('baja')==='up'||svc('baja');
-  if(id==='print') return destState('print')==='up';
-  if(id==='twin') return destState('twin')==='up'||svc('twin');
-  if(id==='rh') return ['up','armed'].includes(destState('rh'));
-  if(id==='r1'||id==='roblox'||id==='prod'||id==='first') return true;
-  if(id==='music') return destState('music')==='up';
+  if(['you','bot','build','quality','verify','review'].includes(id)) return true;
+  const st=destState(id);
+  if(id==='twin') return st==='up';
+  if(id==='games') return st==='up';
+  if(id==='business') return ['up','armed'].includes(st);
+  if(id==='productivity') return st==='up';
+  if(id==='music') return st==='up';
+  if(id==='film') return st==='up';
   return false;
+}
+function layout(){
+  const cx=W*0.5, cy=H*0.5;
+  const z=zoom;
+  function put(id,nx,ny){
+    N[id].wx=cx+(nx-cx)*z;
+    N[id].wy=cy+(ny-cy)*z;
+    N[id].s=z;
+  }
+  const narrow=W<760;
+  N.productivity.label=narrow?'PROD':'PRODUCTIVITY';
+  N.business.label=narrow?'BIZ':'BUSINESS';
+  put('you',     W*0.50, H*0.90);
+  put('bot',     W*0.27, H*0.73);
+  put('build',   W*0.73, H*0.73);
+  put('quality', W*0.27, H*0.54);
+  put('verify',  W*0.73, H*0.54);
+  put('review',  W*0.50, H*0.36);
+  const xs=narrow?[0.09,0.25,0.41,0.57,0.73,0.87]:[0.09,0.25,0.41,0.59,0.75,0.91];
+  const ids=['productivity','games','business','music','film','twin'];
+  ids.forEach((id,i)=> put(id, W*xs[i], H*(narrow?0.13:0.12)));
 }
 function resize(){
   const r=C.parentElement.getBoundingClientRect();
@@ -178,17 +149,9 @@ function resize(){
   C.width=W*devicePixelRatio; C.height=H*devicePixelRatio;
   C.style.width=W+'px'; C.style.height=H+'px';
   X.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+  layout();
 }
-function projectW(x,y,z){
-  y = y - 1.10;
-  const cy=Math.cos(yaw), sy=Math.sin(yaw), cp=Math.cos(pitch), sp=Math.sin(pitch);
-  let x1=x*cy-z*sy, z1=x*sy+z*cy;
-  let y1=y*cp-z1*sp, z2=y*sp+z1*cp;
-  const s=zoom*dist/(dist+z2+2.4);
-  const k=W<800?Math.min(W,H)*0.070:Math.min(W*0.068,H*0.118);
-  return {x:W*0.5+x1*s*k, y:H*0.52-y1*s*k, s, z:z2};
-}
-function P(id){ const n=N[id]; const p=projectW(n.wx,n.wy,n.wz); p.id=id; return p; }
+function P(id){ const n=N[id]; return {x:n.wx, y:n.wy, s:n.s, z:0, id}; }
 function hexagon(x,y,r){
   X.beginPath();
   for(let i=0;i<6;i++){
@@ -198,53 +161,33 @@ function hexagon(x,y,r){
   X.closePath();
 }
 function neuron(p,col,lit){
-  const r=Math.max(7,(lit?13:10)*p.s*zoom*0.9);
+  const r=Math.max(8,(lit?12:10)*p.s);
   X.save(); X.shadowColor=col; X.shadowBlur=lit?16:5;
   X.beginPath(); X.arc(p.x,p.y,r,0,Math.PI*2);
   X.fillStyle=hexA('#050b14',.95); X.fill();
-  X.strokeStyle=col; X.lineWidth=lit?2.1:1.1; X.stroke();
-  X.beginPath(); X.arc(p.x,p.y,r*0.36,0,Math.PI/2*4);
+  X.strokeStyle=col; X.lineWidth=lit?2.2:1.1; X.stroke();
+  X.beginPath(); X.arc(p.x,p.y,r*0.36,0,Math.PI*2);
   X.fillStyle=hexA(col, lit?0.95:0.28); X.fill();
   X.restore();
 }
 function hexn(p,col,lit,big){
-  const r=Math.max(9,(big?20:14)*p.s*zoom*0.9*(lit?1.06:1));
+  const r=Math.max(10,(big?22:15)*p.s*(lit?1.05:1));
   X.save(); X.shadowColor=col; X.shadowBlur=lit?18:5;
   hexagon(p.x,p.y,r); X.fillStyle=hexA('#050b14',.95); X.fill();
-  X.strokeStyle=col; X.lineWidth=lit?2.3:1.2; X.stroke();
+  X.strokeStyle=col; X.lineWidth=lit?2.4:1.2; X.stroke();
   hexagon(p.x,p.y,r*0.5); X.strokeStyle=hexA(col,.4); X.lineWidth=1; X.stroke();
   X.restore();
 }
 function limb(a,b,col,lit){
-  const A=N[a], B=N[b];
-  const A2=P(a), B2=P(b);
-  const ex=A.wx+(B.wx-A.wx)*0.72;
-  const ey=A.wy+(B.wy-A.wy)*0.28;
-  const ez=A.wz+(B.wz-A.wz)*0.72;
-  const E=projectW(ex,ey,ez);
+  const A=P(a), B=P(b);
+  const mx=(A.x+B.x)/2;
+  const my=(A.y+B.y)/2;
   X.beginPath();
-  X.moveTo(A2.x,A2.y);
-  X.quadraticCurveTo(E.x,E.y,B2.x,B2.y);
-  X.strokeStyle=hexA(col, lit?0.72:0.18);
-  X.lineWidth=lit?2.6:1.05;
+  X.moveTo(A.x,A.y);
+  X.quadraticCurveTo(mx, my, B.x, B.y);
+  X.strokeStyle=hexA(col, lit?0.7:0.2);
+  X.lineWidth=lit?2.4:1.05;
   X.stroke();
-}
-function ring(){
-  X.save();
-  X.setLineDash([5,7]);
-  X.strokeStyle='rgba(60,231,255,0.10)';
-  X.lineWidth=1;
-  const pts=[];
-  for(let i=0;i<=48;i++){
-    const t=i/48*Math.PI*2;
-    pts.push(projectW(Math.cos(t)*5.10, 3.60, Math.sin(t)*1.55));
-  }
-  pts.sort((a,b)=>a.z-b.z);
-  X.beginPath();
-  pts.forEach((p,i)=> i?X.lineTo(p.x,p.y):X.moveTo(p.x,p.y));
-  X.stroke();
-  X.setLineDash([]);
-  X.restore();
 }
 function along(path,t){
   const segs=Math.max(1,path.length-1), f=Math.min(segs-.0001,Math.max(0,t)*segs), i=Math.floor(f), u=f-i;
@@ -256,88 +199,84 @@ function drawJobs(){
   jobs.forEach(j=>{
     j.t+=j.v; if(j.t>=1) j.dead=true;
     const p=along(j.path,j.t);
-    X.beginPath(); X.arc(p.x,p.y,Math.max(2.4,2.6*zoom*(p.s||1)),0,Math.PI*2);
+    X.beginPath(); X.arc(p.x,p.y,Math.max(2.6,2.8*zoom),0,Math.PI*2);
     X.fillStyle=j.col; X.shadowColor=j.col; X.shadowBlur=11; X.fill(); X.shadowBlur=0;
   });
 }
 function caption(p,n,col,lit){
-  const cx=W*0.5, cy=H*0.52;
-  const dx=p.x-cx, dy=p.y-cy;
-  const len=Math.hypot(dx,dy)||1;
   const dest=n.kind==='dest';
-  const push=dest?42:24;
-  let lx, ly;
-  if(Math.hypot(n.wx,n.wz)<0.35){
-    lx=p.x; ly=p.y+Math.max(16,20*p.s*zoom);
-  }else{
-    lx=p.x+(dx/len)*push*Math.min(1.25,0.85+zoom*0.2);
-    ly=p.y+(dy/len)*push*Math.min(1.25,0.85+zoom*0.2);
-  }
-  const fs=Math.max(13, Math.min(28, (dest?16:14)*p.s*zoom));
-  X.textAlign='center'; X.textBaseline='middle';
+  const fs=Math.max(13, Math.min(26, (n.label==='REVIEW'?20:dest?15:16)*p.s));
+  const above=dest && p.y<H*0.16;
+  X.textAlign='center';
   X.lineJoin='round';
   X.font=`700 ${fs|0}px Barlow Condensed,sans-serif`;
-  X.strokeStyle='rgba(3,6,12,0.88)'; X.lineWidth=5;
-  X.strokeText(n.label, lx, ly);
-  X.fillStyle=lit?'#fff':hexA('#d7e6f5',.50);
-  X.fillText(n.label, lx, ly);
-  X.font=`600 ${Math.max(10, fs*0.68)|0}px IBM Plex Mono,monospace`;
-  X.strokeText(n.sub, lx, ly+Math.max(12, fs*0.9));
-  X.fillStyle=hexA(col, lit?.9:.38);
-  X.fillText(n.sub, lx, ly+Math.max(12, fs*0.9));
+  X.strokeStyle='rgba(3,6,12,0.9)'; X.lineWidth=5;
+  let ly, sy;
+  if(above){
+    X.textBaseline='bottom';
+    ly=p.y-Math.max(16, 18*p.s);
+    sy=ly-fs*0.85;
+  }else{
+    X.textBaseline='top';
+    ly=p.y+Math.max(20, 22*p.s);
+    sy=ly+fs*0.95;
+  }
+  X.strokeText(n.label, p.x, ly);
+  X.fillStyle=lit?'#fff':hexA('#d7e6f5',.55);
+  X.fillText(n.label, p.x, ly);
+  X.font=`600 ${Math.max(10, fs*0.62)|0}px IBM Plex Mono,monospace`;
+  X.strokeText(n.sub, p.x, sy);
+  X.fillStyle=hexA(col, lit?.9:.4);
+  X.fillText(n.sub, p.x, sy);
 }
 function drawNodes(){
-  Object.keys(N).map(id=>{const p=P(id); p._id=id; return p;})
-    .sort((a,b)=>a.z-b.z)
-    .forEach(p=>{
-      const id=p._id, lit=on(id), col=COL[id]||'#3ce7ff', m=N[id];
-      if(m.kind==='hex') hexn(p,col,lit,id==='you'||id==='router');
-      else neuron(p,col,lit);
-      caption(p,m,col,lit);
-    });
+  ORDER.forEach(id=>{
+    const p=P(id), lit=on(id), col=COL[id], m=N[id];
+    if(m.kind==='hex') hexn(p,col,lit,id==='you'||id==='review');
+    else neuron(p,col,lit);
+    caption(p,m,col,lit);
+  });
 }
 let lastSpawn=0;
 function keepJobs(ts){
   if(!S) return;
-  if(ts-lastSpawn<900) return;
+  if(ts-lastSpawn<1000) return;
   lastSpawn=ts;
-  if(jobs.filter(j=>!j.dead).length>5) return;
-  jobs.push({path:['you','bot','quality','router','host'], t:0, v:0.006, col:COL.bot});
-  jobs.push({path:['you','build','verify','router','qwen'], t:0, v:0.005, col:COL.build});
-  if(on('baja')) jobs.push({path:['verify','baja'], t:0, v:0.007, col:COL.baja});
-  if(on('twin')) jobs.push({path:['qwen','twin'], t:0, v:0.007, col:COL.qwen});
-  if(on('rh')) jobs.push({path:['router','rh'], t:0, v:0.006, col:COL.rh});
-  if(on('print')) jobs.push({path:['verify','print'], t:0, v:0.007, col:COL.print});
+  if(jobs.filter(j=>!j.dead).length>4) return;
+  jobs.push({path:['you','bot','quality','review'], t:0, v:0.006, col:COL.bot});
+  jobs.push({path:['you','build','verify','review'], t:0, v:0.005, col:COL.build});
+  if(on('games')) jobs.push({path:['review','games'], t:0, v:0.007, col:COL.games});
+  if(on('twin')) jobs.push({path:['review','twin'], t:0, v:0.007, col:COL.twin});
+  if(on('business')) jobs.push({path:['review','business'], t:0, v:0.006, col:COL.business});
 }
 function frame(ts){
   T=ts/1000;
-  if(auto) yaw=0.10+0.18*Math.sin(T*0.22);
   if(W<20) resize();
   keepJobs(ts);
   X.clearRect(0,0,W,H);
-  ring();
   WIRES.forEach(([a,b])=> limb(a,b, COL[a]||'#3ce7ff', on(a)&&on(b)));
   drawJobs(); drawNodes();
   requestAnimationFrame(frame);
 }
-function setZoom(z){ zoom=Math.max(0.45, Math.min(14, z)); }
+function setZoom(z){ zoom=Math.max(0.7, Math.min(1.8, z)); layout(); }
 function paint(){
   if(!S) return;
   const m=S.money||{};
+  const biz=destState('business')||'?';
   document.getElementById('moneychip').textContent=
-    'RH '+(destSt('rh')||'?')+' · R1 $'+Number(m.collected_usd||0);
+    'BIZ '+biz+' · R1 $'+Number(m.collected_usd||0);
   const age=S.generated_at?(Date.now()-Date.parse(S.generated_at)):9e9;
   document.getElementById('live').innerHTML=age<120000?'<b></b>LIVE':'<b></b>STALE';
   const rows=[];
   (S.dests||[]).forEach(d=>{
     const ok=['up','armed','draft'].includes(d.state);
-    rows.push(`<div class="${d.state==='paused'?'dim':ok?'ok':'bad'}">${d.label} · ${d.state} · ${d.kind}</div>`);
+    const inn=(d.inside||[]).join(', ');
+    rows.push(`<div class="${d.state==='parked'||d.state==='empty'?'dim':ok?'ok':'bad'}">${d.label} · ${d.state}${inn?' · '+inn:''}</div>`);
   });
   (S.locals||[]).forEach(l=> rows.push(`<div class="ok">${l.id} · ${l.model} · ${l.job}</div>`));
-  rows.push(`<div class="gold">gates · ${(S.gates||[]).join(' → ')}</div>`);
+  rows.push(`<div class="gold">gates · ${(S.gates||[]).join(' → ')} · first principles</div>`);
   document.getElementById('feed').innerHTML=rows.join('');
 }
-function destSt(id){ const d=(S&&S.dests||[]).find(x=>x.id===id); return d&&d.state; }
 async function boot(){
   try{
     let r=await fetch('/state.json?t='+Date.now(),{cache:'no-store'});
@@ -348,22 +287,10 @@ async function boot(){
     document.getElementById('mbanner').textContent='STATE FAIL · '+e.message;
   }
 }
-C.addEventListener('pointerdown', e=>{ drag=true; auto=false; lx=e.clientX; ly=e.clientY; });
-C.addEventListener('pointermove', e=>{
-  if(!drag) return;
-  yaw+=(e.clientX-lx)*0.008;
-  pitch=Math.max(-1.15, Math.min(1.15, pitch+(e.clientY-ly)*0.007));
-  lx=e.clientX; ly=e.clientY;
-});
-C.addEventListener('pointerup', ()=> drag=false);
-C.addEventListener('wheel', e=>{ e.preventDefault(); setZoom(zoom*(e.deltaY>0?0.9:1.12)); }, {passive:false});
-let lastTap=0;
-C.addEventListener('pointerdown', e=>{
-  const n=Date.now(); if(n-lastTap<280) setZoom(zoom*1.6); lastTap=n;
-});
-document.getElementById('zin').onclick=()=> setZoom(zoom*1.35);
-document.getElementById('zout').onclick=()=> setZoom(zoom/1.35);
-document.getElementById('zreset').onclick=()=>{ zoom=1.0; yaw=0.10; pitch=0.30; auto=true; };
+C.addEventListener('wheel', e=>{ e.preventDefault(); setZoom(zoom*(e.deltaY>0?0.92:1.08)); }, {passive:false});
+document.getElementById('zin').onclick=()=> setZoom(zoom*1.12);
+document.getElementById('zout').onclick=()=> setZoom(zoom/1.12);
+document.getElementById('zreset').onclick=()=>{ zoom=1.0; layout(); };
 addEventListener('resize', resize);
 setInterval(boot, 8000);
 resize(); boot();
