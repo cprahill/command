@@ -2,13 +2,111 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="theme-color" content="#070b12"/>
 <meta name="robots" content="noindex"/>
-<meta http-equiv="refresh" content="0;url=../neural/"/>
-<link rel="canonical" href="../neural/"/>
-<title>NEURAL</title>
-<script>location.replace("../neural/")</script>
+<title>Harness</title>
+<style>
+:root{--bg:#070b12;--card:#0c121c;--fg:#d7e6f5;--muted:#6d7d93;--cyan:#3ce7ff;--ok:#8fba84;--bad:#d47878;--gold:#e0b143;--line:#1b2738}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.45 -apple-system,system-ui,sans-serif}
+body{padding:max(12px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+h1{font:700 13px/1 "Barlow Condensed",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+h2{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 10px}
+.big{font-size:26px;font-weight:700;color:var(--gold);margin:4px 0}
+.row{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid var(--line);font-size:15px}
+.row:last-child{border:0}
+.k{color:var(--muted)}.v{font-weight:600}
+.ok{color:var(--ok)}.bad{color:var(--bad)}
+.path{font-family:ui-monospace,Menlo,monospace;font-size:13px;line-height:1.7;background:#05080e;border:1px solid var(--line);border-radius:10px;padding:12px;margin:8px 0;white-space:pre-wrap}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+a.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 14px;border-radius:999px;background:#151b26;border:1px solid var(--line);color:var(--fg);text-decoration:none;font-weight:600;font-size:14px}
+.meta{font-size:12px;color:var(--muted);margin-top:8px}
+.note{font-size:13px;color:var(--muted);margin:0}
+</style>
 </head>
 <body>
-<p><a href="../neural/">Neural 3D harness</a></p>
+<h1>Harness · live Mini</h1>
+<div class="card">
+  <div class="k">Metabolism</div>
+  <div class="big" id="money">…</div>
+  <div class="meta" id="money-note">loading…</div>
+</div>
+<div class="card">
+  <h2>Com</h2>
+  <div class="path" id="com-path">You → Grok Bot (primary) / Grok Build (secondary)
+    → router → host | local model | OC seat | iMessage out (YES)
+iMessage inbound: closed. You do not text the Mini.</div>
+  <div class="row"><span class="k">Inbound</span><span class="v" id="inbound">—</span></div>
+  <div class="row"><span class="k">iMessage in</span><span class="v" id="imin">—</span></div>
+  <div class="row"><span class="k">iMessage out</span><span class="v" id="imout">—</span></div>
+</div>
+<div class="card">
+  <div class="row"><span class="k">Paper</span><span class="v" id="paper">—</span></div>
+  <div class="row"><span class="k">OpenClaw</span><span class="v" id="oc">—</span></div>
+  <div class="row"><span class="k">Fury cut</span><span class="v" id="fury">—</span></div>
+  <div class="row"><span class="k">Paper ticks cut</span><span class="v" id="pcut">—</span></div>
+  <div class="row"><span class="k">Updated CT</span><span class="v" id="when">—</span></div>
+</div>
+<div class="card" id="svc"><h2>Signals · services</h2></div>
+<div class="card">
+  <h2>Improve loop</h2>
+  <p class="note">Earn (R1) → cover $500/mo burn → hardware → better models. Kill if collected stays $0 after send YES. No fake P&amp;L. No extra bots.</p>
+</div>
+<div class="card">
+  <h2>HTTPS</h2>
+  <div class="btns">
+    <a class="btn" href="../phone/">Phone</a>
+    <a class="btn" href="../paper/">Paper</a>
+    <a class="btn" href="../bots/">Bots</a>
+    <a class="btn" href="../">Home</a>
+  </div>
+  <p class="meta" id="err"></p>
+</div>
+<script>
+async function load(){
+  const err=document.getElementById('err');
+  try{
+    const r=await fetch('./state.json?t='+Date.now(),{cache:'no-store'});
+    if(!r.ok) throw new Error('state '+r.status);
+    const d=await r.json();
+    const m=d.money||{};
+    const c=d.com||{};
+    document.getElementById('money').textContent='$'+Number(m.collected_usd||0)+' collected / $'+(m.burn_usd_mo||500)+'/mo burn';
+    document.getElementById('money-note').textContent=(m.lane||'R1')+' · paper '+(m.paper||d.paper&&d.paper.state||'?')+' · '+(m.note||'');
+    document.getElementById('inbound').textContent=(c.inbound||'grok')+' · bot '+(c.bot||'primary');
+    const imin=c.imessage_inbound||'?';
+    document.getElementById('imin').textContent=imin;
+    document.getElementById('imin').className='v '+(imin==='closed'?'ok':'bad');
+    document.getElementById('imout').textContent=c.imessage_outbound||'yes-gated';
+    const paper=(d.paper&&d.paper.state)||'PAUSED';
+    document.getElementById('paper').textContent=String(paper).toUpperCase();
+    const seats=(d.openclaw&&d.openclaw.seats!=null)?d.openclaw.seats:d.openclaw_agents_live;
+    const gw=(d.openclaw&&d.openclaw.gateway_state)||'';
+    document.getElementById('oc').textContent=seats+(gw?' · '+gw:'');
+    document.getElementById('fury').textContent=(d.cuts&&d.cuts.fury)?'YES':'NO';
+    document.getElementById('fury').className='v '+((d.cuts&&d.cuts.fury)?'ok':'bad');
+    document.getElementById('pcut').textContent=(d.cuts&&d.cuts.paper)?'YES':'NO';
+    document.getElementById('pcut').className='v '+((d.cuts&&d.cuts.paper)?'ok':'bad');
+    document.getElementById('when').textContent=d.updated_at_ct||d.generated_at||'';
+    const svc=document.getElementById('svc');
+    svc.innerHTML='<h2>Signals · services</h2>';
+    (d.services||[]).forEach(s=>{
+      const row=document.createElement('div');
+      row.className='row';
+      const st=String(s.state||'').toLowerCase();
+      const port=s.http!=null?(':'+s.http):'';
+      row.innerHTML='<span class="k">'+s.name+' '+port+'</span><span class="v '+(st==='up'?'ok':'bad')+'">'+String(s.state||'?').toUpperCase()+'</span>';
+      svc.appendChild(row);
+    });
+    err.textContent='';
+  }catch(e){
+    document.getElementById('money').textContent='$0 collected — fail closed';
+    err.textContent=String(e&&e.message||e);
+  }
+}
+load(); setInterval(load,20000);
+</script>
 </body>
 </html>

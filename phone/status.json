@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-12T20:58:38.485165Z",
-  "updated_at_ct": "2026-09-12T15:58:38-0500",
+  "generated_at": "2026-09-12T21:26:02.159457Z",
+  "updated_at_ct": "2026-09-12T16:26:02-0500",
   "host": {
     "name": "Jimothys-Mac-mini-2",
     "role": "Mission Control"
@@ -48,7 +48,7 @@
       "name": "openclaw_gateway",
       "http": null,
       "state": "up",
-      "pid": 30383
+      "pid": 53897
     },
     {
       "name": "openclaw_node",
@@ -69,21 +69,46 @@
       "pid": 1261
     }
   ],
+  "com": {
+    "inbound": "grok",
+    "bot": "primary",
+    "build": "secondary",
+    "imessage_inbound": "closed",
+    "imessage_outbound": "yes-gated",
+    "router": [
+      "host-script",
+      "local-model",
+      "oc-seat",
+      "imsg-out"
+    ]
+  },
+  "money": {
+    "collected_usd": 0,
+    "burn_usd_mo": 500,
+    "lane": "R1",
+    "paper": "PAUSED",
+    "note": "collected is filed $0 \u2014 do not invent P&L"
+  },
   "public": [
+    {
+      "id": "harness",
+      "label": "Harness HTTPS",
+      "url": "https://cprahill.github.io/command/harness/"
+    },
     {
       "id": "phone",
       "label": "Phone HTTPS",
-      "url": "https://grok-command.vercel.app/phone/"
+      "url": "https://cprahill.github.io/command/phone/"
     },
     {
       "id": "bots",
       "label": "Bots",
-      "url": "https://grok-command.vercel.app/bots/"
+      "url": "https://cprahill.github.io/command/bots/"
     },
     {
       "id": "paper",
       "label": "Paper",
-      "url": "https://grok-command.vercel.app/paper/"
+      "url": "https://cprahill.github.io/command/paper/"
     }
   ],
   "tailscale": {
