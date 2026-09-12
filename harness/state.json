@@ -1,7 +1,7 @@
 {
   "kernel": "grok",
-  "generated_at": "2026-09-12T23:06:48.581420Z",
-  "updated_at_ct": "2026-09-12T18:06:48-0500",
+  "generated_at": "2026-09-12T23:23:04.194692Z",
+  "updated_at_ct": "2026-09-12T18:23:04-0500",
   "host": {
     "name": "Jimothys-Mac-mini-2.local",
     "role": "Grok Mini"
@@ -14,10 +14,18 @@
     "imessage_outbound": "yes-gated",
     "router": [
       "host",
-      "qwen",
       "gemma",
+      "qwen",
+      "oc",
       "build",
       "imsg-out"
+    ],
+    "ladder": [
+      "host",
+      "gemma",
+      "qwen",
+      "oc",
+      "build"
     ]
   },
   "openclaw": {
@@ -100,13 +108,26 @@
     {
       "id": "gemma",
       "model": "gemma4:12b",
-      "job": "household"
+      "job": "cheap English"
     },
     {
       "id": "qwen",
       "model": "qwen3.6:27b",
-      "job": "twin"
+      "job": "brain + twin"
+    },
+    {
+      "id": "oc",
+      "model": "openclaw",
+      "job": "pipe",
+      "state": "up"
     }
+  ],
+  "ladder": [
+    "host",
+    "gemma",
+    "qwen",
+    "oc",
+    "build"
   ],
   "gates": [
     "quality",
@@ -124,7 +145,7 @@
       "name": "harness",
       "http": 8790,
       "state": "up",
-      "pid": 77009
+      "pid": 80649
     },
     {
       "name": "baja",
