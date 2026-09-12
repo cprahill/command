@@ -54,7 +54,7 @@ async function load(){
   document.getElementById('stocks').textContent=(d.stocks||'WAIT')==='WAIT'?'STOCKS WAIT':'STOCKS ON';
   document.getElementById('stop').textContent=d.stop?'STOP ON':'STOP OFF';
   document.getElementById('stop').className='pill '+(d.stop?'bad':'ok');
-  document.getElementById('when').textContent='Updated '+ (d.updated_at_ct||'') + (d.book&&d.book.as_of?(' · book '+d.book.as_of):'');
+  document.getElementById('when').textContent='Updated '+ (d.updated_at_ct||'') + (d.book&&d.book.as_of?(' · BOOK STALE · '+d.book.as_of):'');
   document.getElementById('strat').textContent=(d.strategy&&d.strategy.summary)||'';
   document.getElementById('edges').innerHTML=((d.strategy&&d.strategy.edges)||[]).map(e=>'<li>'+e+'</li>').join('');
   const b=d.book||{};
@@ -64,7 +64,7 @@ async function load(){
   document.getElementById('cry').textContent=fmt(b.crypto);
   document.getElementById('cash').textContent=fmt(b.cash);
   const c=d.caps||{};
-  document.getElementById('caps').textContent='≤$'+c.max_order_usd+' / day kill $'+c.day_kill_usd;
+  document.getElementById('caps').textContent='≤$'+c.max_order_usd+' / day kill −$'+Math.abs(c.day_kill_usd);
   const pos=document.getElementById('pos');
   pos.innerHTML='<div class="k">Positions</div>';
   (b.positions||[]).forEach(p=>{

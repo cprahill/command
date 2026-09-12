@@ -1,5 +1,5 @@
 {
-  "updated_at_ct": "2026-09-12T17:39:44-0500",
+  "updated_at_ct": "2026-09-12T17:45:47-0500",
   "account": "Agentic \u20264103",
   "hands_off": "Individual \u20266578",
   "mode": "CRYPTO_24_7",
@@ -24,7 +24,7 @@
     "invalidation": "STOP file, day kill, or uncertain fills"
   },
   "book": {
-    "as_of": "2026-09-11 connector snapshot \u2014 refresh on next live cycle",
+    "as_of": "STALE \u00b7 2026-09-11 connector snapshot \u2014 refresh on next live cycle",
     "account_value": 2284.35,
     "equity": 1724.68,
     "crypto": 559.65,
@@ -65,7 +65,8 @@
         "bucket": "crypto",
         "status": "DUST"
       }
-    ]
+    ],
+    "stale": true
   },
   "cycles": [
     {
@@ -87,5 +88,13 @@
     }
   ],
   "next": "Run crypto cycle on grok.com (Mini) \u2014 prefer BTC thesis \u2264$100 or skip with reason; log CYCLE-00N.md",
-  "operator": "Mini grok.com + RH connector \u00b7 LaunchAgent every 6h \u00b7 Grok Bot enforces STOP/logs/dash"
+  "operator": "Mini grok.com + RH connector \u00b7 LaunchAgent every 6h \u00b7 Grok Bot enforces STOP/logs/dash",
+  "critic": {
+    "verdict": "PASS",
+    "at": "2026-09-12T17:45:47-0500",
+    "notes": [
+      "refresh book on next live cycle",
+      "caps wording \u2212$150"
+    ]
+  }
 }
