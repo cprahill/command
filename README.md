@@ -4,7 +4,7 @@ Public command center for Grok Bot on phone/iPad. Not Baja.
 
 | Path | Role |
 |------|------|
-| `/harness/` | **Live system board** — COM, services, $0/$500. https://cprahill.github.io/command/harness/ |
+| `/harness/` | **3D harness** — YOU → Bot/Build → router. Live Mini JSON. https://cprahill.github.io/command/harness/ |
 | `/phone/` | Mini status + Bot phrases. https://cprahill.github.io/command/phone/ |
 | `/bots/` | Workforce KPI cards |
 | `/paper/` | Paper desk (fake money) |

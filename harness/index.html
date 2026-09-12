@@ -3,110 +3,400 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-<meta name="theme-color" content="#070b12"/>
 <meta name="robots" content="noindex"/>
-<title>Harness</title>
+<meta name="theme-color" content="#03060c"/>
+<title>HARNESS // 3D</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
 <style>
-:root{--bg:#070b12;--card:#0c121c;--fg:#d7e6f5;--muted:#6d7d93;--cyan:#3ce7ff;--ok:#8fba84;--bad:#d47878;--gold:#e0b143;--line:#1b2738}
+:root{
+  --bg:#03060c; --panel:#070d16; --line:#1a2a3e; --muted:#6d7d93;
+  --text:#d7e6f5; --cyan:#3ce7ff; --mint:#3dffc7; --gold:#ffb020;
+  --pink:#ff4d8d; --green:#3dff9a;
+}
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.45 -apple-system,system-ui,sans-serif}
-body{padding:max(12px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
-h1{font:700 13px/1 "Barlow Condensed",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
-h2{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 10px}
-.big{font-size:26px;font-weight:700;color:var(--gold);margin:4px 0}
-.row{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid var(--line);font-size:15px}
-.row:last-child{border:0}
-.k{color:var(--muted)}.v{font-weight:600}
-.ok{color:var(--ok)}.bad{color:var(--bad)}
-.path{font-family:ui-monospace,Menlo,monospace;font-size:13px;line-height:1.7;background:#05080e;border:1px solid var(--line);border-radius:10px;padding:12px;margin:8px 0;white-space:pre-wrap}
-.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-a.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 14px;border-radius:999px;background:#151b26;border:1px solid var(--line);color:var(--fg);text-decoration:none;font-weight:600;font-size:14px}
-.meta{font-size:12px;color:var(--muted);margin-top:8px}
-.note{font-size:13px;color:var(--muted);margin:0}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--text);overflow:hidden;
+  font-family:"IBM Plex Mono",ui-monospace,monospace}
+.app{height:100%;display:grid;grid-template-rows:48px 1fr 150px}
+header{
+  display:flex;align-items:center;gap:12px;padding:0 16px;
+  border-bottom:1px solid var(--line);
+  background:linear-gradient(90deg,#050a12,#0a1220 40%,#050a12);
+}
+.brand{font-family:"Barlow Condensed",sans-serif;font-weight:700;letter-spacing:.22em;font-size:17px;color:#fff}
+.brand i{color:var(--cyan);font-style:normal;text-shadow:0 0 12px #3ce7ff88}
+.chip{font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:3px 8px;border:1px solid var(--line);border-radius:2px;color:var(--muted)}
+.chip.on{color:var(--cyan);border-color:#1a5a66;box-shadow:0 0 10px #3ce7ff33}
+.chip.gold{color:var(--gold);border-color:#5a4318}
+.live{display:flex;align-items:center;gap:6px;font-size:10px;letter-spacing:.16em;color:var(--green)}
+.live b{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);display:block;animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.35}}
+.kpis{margin-left:auto;display:flex;gap:18px;font-size:10px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.kpis strong{display:block;color:#fff;font-family:"Space Grotesk",sans-serif;font-size:15px;letter-spacing:0;text-transform:none;margin-top:1px}
+a.nav{color:var(--cyan);text-decoration:none;font-family:"Barlow Condensed",sans-serif;letter-spacing:.14em;font-size:11px}
+.mesh{position:relative;min-height:0;overflow:hidden;
+  background:radial-gradient(900px 420px at 50% 48%, #10243c 0%, transparent 62%), #03060c}
+.mesh canvas{position:absolute;inset:0;width:100%;height:100%;cursor:grab;touch-action:none}
+.mesh canvas:active{cursor:grabbing}
+.mbanner{position:absolute;left:16px;top:12px;z-index:3;font-family:"Barlow Condensed",sans-serif;letter-spacing:.18em;font-size:11px;color:var(--cyan);text-shadow:0 0 12px #3ce7ff55}
+.call{position:absolute;z-index:4;transform:translate(-50%,-145%);background:#0a121c;border:1px solid var(--cyan);color:#e8fff9;font-size:10px;padding:3px 7px;white-space:nowrap;pointer-events:none;box-shadow:0 0 14px #3ce7ff33}
+.bot{display:grid;grid-template-columns:1.2fr .8fr;border-top:1px solid var(--line);min-height:0;background:var(--panel)}
+.panel{padding:12px 16px;min-height:0;overflow:hidden;display:flex;flex-direction:column}
+.panel + .panel{border-left:1px solid var(--line)}
+.ph{font-family:"Barlow Condensed",sans-serif;font-size:11px;letter-spacing:.2em;color:var(--muted);margin-bottom:8px}
+.feed{font-size:12px;line-height:1.55;flex:1;min-height:0;overflow:auto}
+.feed div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.feed .t{color:var(--muted);margin-right:8px}
+.feed .ok{color:var(--mint)} .feed .bad{color:var(--pink)} .feed .gold{color:var(--gold)}
+.docs{font-size:12px;line-height:1.5;flex:1;min-height:0;overflow:auto;margin:0;padding-left:16px}
+@media (max-width:900px){
+  html,body{height:100%;overflow:hidden;position:fixed;inset:0}
+  .app{height:100dvh;grid-template-rows:auto minmax(240px,46vh) auto;overflow-y:auto}
+  header{flex-wrap:wrap;height:auto;padding:10px 12px}
+  .kpis{order:4;flex:1 1 100%;margin-left:0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .bot{grid-template-columns:1fr}
+  .panel + .panel{border-left:none;border-top:1px solid var(--line)}
+}
 </style>
 </head>
 <body>
-<h1>Harness · live Mini</h1>
-<div class="card">
-  <div class="k">Metabolism</div>
-  <div class="big" id="money">…</div>
-  <div class="meta" id="money-note">loading…</div>
-</div>
-<div class="card">
-  <h2>Com</h2>
-  <div class="path" id="com-path">You → Grok Bot (primary) / Grok Build (secondary)
-    → router → host | local model | OC seat | iMessage out (YES)
-iMessage inbound: closed. You do not text the Mini.</div>
-  <div class="row"><span class="k">Inbound</span><span class="v" id="inbound">—</span></div>
-  <div class="row"><span class="k">iMessage in</span><span class="v" id="imin">—</span></div>
-  <div class="row"><span class="k">iMessage out</span><span class="v" id="imout">—</span></div>
-</div>
-<div class="card">
-  <div class="row"><span class="k">Paper</span><span class="v" id="paper">—</span></div>
-  <div class="row"><span class="k">OpenClaw</span><span class="v" id="oc">—</span></div>
-  <div class="row"><span class="k">Fury cut</span><span class="v" id="fury">—</span></div>
-  <div class="row"><span class="k">Paper ticks cut</span><span class="v" id="pcut">—</span></div>
-  <div class="row"><span class="k">Updated CT</span><span class="v" id="when">—</span></div>
-</div>
-<div class="card" id="svc"><h2>Signals · services</h2></div>
-<div class="card">
-  <h2>Improve loop</h2>
-  <p class="note">Earn (R1) → cover $500/mo burn → hardware → better models. Kill if collected stays $0 after send YES. No fake P&amp;L. No extra bots.</p>
-</div>
-<div class="card">
-  <h2>HTTPS</h2>
-  <div class="btns">
-    <a class="btn" href="../phone/">Phone</a>
-    <a class="btn" href="../paper/">Paper</a>
-    <a class="btn" href="../bots/">Bots</a>
-    <a class="btn" href="../">Home</a>
-  </div>
-  <p class="meta" id="err"></p>
+<div class="app">
+  <header>
+    <div class="brand">HARNESS <i>//</i> 3D</div>
+    <a class="nav" href="../">HOME</a>
+    <a class="nav" href="../phone/">PHONE</a>
+    <div class="chip on" id="comchip">YOU → GROK</div>
+    <div class="chip gold" id="moneychip">$0 / $500</div>
+    <div class="live" id="live"><b></b>LIVE</div>
+    <div class="kpis">
+      <div>Paper<strong id="kPaper">—</strong></div>
+      <div>OC<strong id="kOc">—</strong></div>
+      <div>Clock<strong id="kClk">--:--:--</strong></div>
+    </div>
+  </header>
+  <section class="mesh">
+    <div class="mbanner" id="mbanner">3D · YOU → BOT / BUILD · DRAG TO ORBIT</div>
+    <canvas id="c"></canvas>
+    <div id="calls"></div>
+  </section>
+  <section class="bot">
+    <article class="panel">
+      <div class="ph">SIGNALS</div>
+      <div class="feed" id="feed"></div>
+    </article>
+    <article class="panel">
+      <div class="ph">LAW</div>
+      <ul class="docs" id="law">
+        <li>Inbound = Grok Bot (primary) or Grok Build</li>
+        <li>iMessage the Mini is not a dest</li>
+        <li>iMessage out to others = YES only</li>
+        <li>Cheapest path: host → local → Build → Bot</li>
+        <li>Collected $0 until proof. No fake P&amp;L</li>
+      </ul>
+    </article>
+  </section>
 </div>
 <script>
-async function load(){
-  const err=document.getElementById('err');
+const C=document.getElementById('c'), X=C.getContext('2d');
+let W=0,H=0,T=0,S=null,jobs=[];
+let yaw=0.52, pitch=0.30, dist=2.2, drag=false, lx=0, ly=0, auto=true;
+const COL={
+  you:'#d7e6f5', bot:'#3ce7ff', build:'#ffb020', router:'#8b7cff',
+  host:'#9aa8b8', gemma:'#3dff9a', twin:'#7ed0ff', oc:'#3dffc7',
+  imsgout:'#6d7d93', baja:'#ff6a3d', paper:'#ffe08a', money:'#ffb020', rh:'#14f195'
+};
+const N={
+  you:{x:.10,y:.50,z:-.38,label:'YOU', kind:'human', sub:'PHONE'},
+  bot:{x:.30,y:.28,z:-.04,label:'BOT', kind:'hex', sub:'PRIMARY'},
+  build:{x:.30,y:.72,z:-.04,label:'BUILD', kind:'hex', sub:'SECONDARY'},
+  router:{x:.50,y:.50,z:.18,label:'ROUTER', kind:'hex', sub:'GROK PICKS'},
+  host:{x:.68,y:.18,z:.34,label:'HOST', kind:'ai', sub:'0-LLM'},
+  gemma:{x:.70,y:.38,z:.36,label:'GEMMA', kind:'ai', sub:'12B'},
+  twin:{x:.70,y:.58,z:.36,label:'TWIN', kind:'ai', sub:':8787'},
+  oc:{x:.68,y:.80,z:.34,label:'OC PIPE', kind:'ai', sub:'NOT INBOX'},
+  imsgout:{x:.50,y:.90,z:.22,label:'IMSG OUT', kind:'gate', sub:'YES ONLY'},
+  baja:{x:.90,y:.16,z:.62,label:'A BAJA', kind:'dest'},
+  destwin:{x:.92,y:.42,z:.66,label:'B TWIN', kind:'dest'},
+  paper:{x:.90,y:.66,z:.70,label:'C PAPER', kind:'dest'},
+  money:{x:.88,y:.88,z:.74,label:'$ BURN', kind:'dest', sub:'R1'}
+};
+const WIRES=[
+  {a:'you',b:'bot', kind:'in'},
+  {a:'you',b:'build', kind:'in'},
+  {a:'bot',b:'router', kind:'in'},
+  {a:'build',b:'router', kind:'in'},
+  {a:'router',b:'host', kind:'route'},
+  {a:'router',b:'gemma', kind:'route'},
+  {a:'router',b:'twin', kind:'route'},
+  {a:'router',b:'oc', kind:'route'},
+  {a:'router',b:'imsgout', kind:'out'},
+  {a:'build',b:'baja', kind:'ship'},
+  {a:'twin',b:'destwin', kind:'ship'},
+  {a:'oc',b:'paper', kind:'ship'},
+  {a:'paper',b:'money', kind:'ship'}
+];
+function hexA(h,a){const n=h.replace('#','');return `rgba(${parseInt(n.slice(0,2),16)},${parseInt(n.slice(2,4),16)},${parseInt(n.slice(4,6),16)},${a})`;}
+function svc(name){
+  const row=(S&&S.services||[]).find(s=>s.name===name);
+  return row && String(row.state).toLowerCase()==='up';
+}
+function on(id){
+  if(!S) return false;
+  if(id==='you'||id==='bot'||id==='router') return true;
+  if(id==='build') return true;
+  if(id==='host') return svc('mission_control');
+  if(id==='twin'||id==='destwin') return svc('twin');
+  if(id==='oc') return svc('openclaw_gateway');
+  if(id==='baja') return svc('baja');
+  if(id==='paper') return svc('money_desk');
+  if(id==='money') return true;
+  if(id==='rh') return svc('rh_agentic_crypto');
+  if(id==='imsgout') return (S.com&&S.com.imessage_outbound)==='yes-gated';
+  if(id==='gemma') return true;
+  return false;
+}
+function resize(){
+  const r=C.parentElement.getBoundingClientRect();
+  W=r.width; H=r.height;
+  C.width=W*devicePixelRatio; C.height=H*devicePixelRatio;
+  C.style.width=W+'px'; C.style.height=H+'px';
+  X.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+}
+function project(id){
+  const n=N[id];
+  let x=(n.x-0.5)*2.05, y=(n.y-0.5)*1.65, z=n.z;
+  const cy=Math.cos(yaw), sy=Math.sin(yaw), cp=Math.cos(pitch), sp=Math.sin(pitch);
+  let x1=x*cy-z*sy, z1=x*sy+z*cy;
+  let y1=y*cp-z1*sp, z2=y*sp+z1*cp;
+  const f=dist, s=f/(f+z2+0.55);
+  return {x:W*0.50+x1*s*W*0.40, y:H*0.50+y1*s*H*0.46, s, z:z2, id};
+}
+function P(id){return project(id);}
+function hexagon(x,y,r){
+  X.beginPath();
+  for(let i=0;i<6;i++){
+    const a=Math.PI/6+i*Math.PI/3;
+    i?X.lineTo(x+Math.cos(a)*r,y+Math.sin(a)*r):X.moveTo(x+Math.cos(a)*r,y+Math.sin(a)*r);
+  }
+  X.closePath();
+}
+function neuron(p,col,lit){
+  const r=(lit?13:10)*p.s;
+  X.save();
+  X.shadowColor=col; X.shadowBlur=lit?18*p.s:6*p.s;
+  X.beginPath(); X.arc(p.x,p.y,r,0,Math.PI*2);
+  X.fillStyle=hexA('#050b14',.94); X.fill();
+  X.strokeStyle=col; X.lineWidth=lit?2.1:1.15; X.stroke();
+  X.shadowBlur=0; X.globalAlpha=lit?0.95:0.4;
+  X.beginPath(); X.arc(p.x,p.y,r*0.32,0,Math.PI*2); X.fillStyle=col; X.fill();
+  X.globalAlpha=1;
+  for(let i=0;i<6;i++){
+    const a=T*0.55+i*Math.PI/3;
+    X.beginPath();
+    X.moveTo(p.x+Math.cos(a)*r, p.y+Math.sin(a)*r);
+    X.lineTo(p.x+Math.cos(a)*(r+5*p.s), p.y+Math.sin(a)*(r+5*p.s));
+    X.strokeStyle=hexA(col,lit?0.7:0.2); X.lineWidth=1; X.stroke();
+  }
+  X.restore();
+}
+function diamond(p,s,col,lit){
+  const k=s*p.s;
+  X.save(); X.shadowColor=col; X.shadowBlur=lit?14:4;
+  X.beginPath();
+  X.moveTo(p.x,p.y-k); X.lineTo(p.x+k*0.85,p.y); X.lineTo(p.x,p.y+k); X.lineTo(p.x-k*0.85,p.y); X.closePath();
+  X.fillStyle=hexA('#050b14',.94); X.fill();
+  X.strokeStyle=col; X.lineWidth=lit?2:1.15; X.stroke();
+  X.restore();
+}
+function drawHex(p,col,lit,big){
+  const r=(big?(lit?24:20):(lit?15:12))*p.s;
+  X.save(); X.shadowColor=col; X.shadowBlur=lit?24:7;
+  hexagon(p.x,p.y,r); X.fillStyle=hexA('#050b14',.95); X.fill();
+  X.strokeStyle=col; X.lineWidth=lit?2.4:1.4; X.stroke();
+  X.shadowBlur=0; hexagon(p.x,p.y,r*0.55);
+  X.strokeStyle=hexA(col,lit?0.7:0.25); X.lineWidth=1; X.stroke();
+  X.restore();
+}
+function projectPt(x,y,z){
+  const cy=Math.cos(yaw), sy=Math.sin(yaw), cp=Math.cos(pitch), sp=Math.sin(pitch);
+  let x1=x*cy-z*sy, z1=x*sy+z*cy;
+  let y1=y*cp-z1*sp, z2=y*sp+z1*cp;
+  const f=dist, s=f/(f+z2+0.55);
+  return {x:W*0.50+x1*s*W*0.40, y:H*0.50+y1*s*H*0.46, s, z:z2};
+}
+function drawFloor(){
+  X.save();
+  for(let i=-5;i<=5;i++){
+    for(let j=-5;j<=5;j++){
+      const a=projectPt(i*0.18, 0.92, j*0.16);
+      const b=projectPt((i+1)*0.18, 0.92, j*0.16);
+      const c=projectPt(i*0.18, 0.92, (j+1)*0.16);
+      X.strokeStyle='rgba(60,231,255,0.06)'; X.lineWidth=1;
+      X.beginPath(); X.moveTo(a.x,a.y); X.lineTo(b.x,b.y); X.stroke();
+      if(c){ X.beginPath(); X.moveTo(a.x,a.y); X.lineTo(c.x,c.y); X.stroke(); }
+    }
+  }
+  X.restore();
+}
+function cable(A,B,col,lit,dash,width){
+  const a=Math.max(0.2, Math.min(1,(A.s+B.s)/2));
+  X.beginPath(); X.moveTo(A.x,A.y); X.lineTo(B.x,B.y);
+  X.setLineDash(dash||[]);
+  if(dash&&dash.length) X.lineDashOffset=-(T*22);
+  X.strokeStyle=hexA(col,(lit?0.88:0.28)*a);
+  X.lineWidth=(lit?(width||2.1):1.05)*a;
+  X.shadowColor=lit?col:'transparent'; X.shadowBlur=lit?8:0;
+  X.stroke(); X.setLineDash([]); X.lineDashOffset=0; X.shadowBlur=0;
+}
+function drawWires(){
+  const st={in:{dash:[],w:2.4}, route:{dash:[],w:1.7}, out:{dash:[5,6],w:1.4}, ship:{dash:[4,5],w:1.5}};
+  WIRES.forEach(w=>{
+    const A=P(w.a), B=P(w.b);
+    const lit=on(w.a)&&on(w.b);
+    const s=st[w.kind]||st.route;
+    cable(A,B, COL[w.a]||'#3ce7ff', lit, s.dash, s.w);
+  });
+  const Y=P('you'), Bt=P('bot'), Bd=P('build'), R=P('router');
+  X.font='700 10px Barlow Condensed,sans-serif'; X.textAlign='center';
+  X.fillStyle=hexA(COL.bot,.9);
+  X.fillText('PRIMARY', (Y.x+Bt.x)/2, (Y.y+Bt.y)/2-8);
+  X.fillStyle=hexA(COL.build,.9);
+  X.fillText('SECONDARY', (Y.x+Bd.x)/2, (Y.y+Bd.y)/2+12);
+  X.fillStyle=hexA(COL.router,.85);
+  X.fillText('PICKS PATH', R.x, R.y-28*R.s);
+}
+function along(path,t){
+  const segs=Math.max(1,path.length-1), f=Math.min(segs-.0001,Math.max(0,t)*segs), i=Math.floor(f), u=f-i;
+  const a=path[i], b=path[i+1]||path[i];
+  if(!N[a]||!N[b]) return {x:0,y:0,s:1};
+  const A=P(a), B=P(b);
+  return {x:A.x+(B.x-A.x)*u, y:A.y+(B.y-A.y)*u, s:(A.s+B.s)/2};
+}
+function drawJobs(){
+  jobs=jobs.filter(j=>!j.dead);
+  jobs.forEach(j=>{
+    j.t+=j.v; if(j.t>=1) j.dead=true;
+    const p=along(j.path,j.t);
+    X.beginPath(); X.arc(p.x,p.y,3.2*(p.s||1),0,Math.PI*2);
+    X.fillStyle=j.col; X.shadowColor=j.col; X.shadowBlur=12; X.fill(); X.shadowBlur=0;
+  });
+}
+function drawNodes(){
+  Object.keys(N).map(id=>{ const p=P(id); p._id=id; return p; })
+    .sort((a,b)=>a.z-b.z)
+    .forEach(p=>{
+      const id=p._id, lit=on(id), col=COL[id]||'#3ce7ff', kind=N[id].kind||'ai';
+      if(lit){
+        X.beginPath(); X.arc(p.x,p.y,(kind==='hex'?28:18)*p.s+Math.sin(T*4)*2,0,Math.PI*2);
+        X.strokeStyle=hexA(col,.32); X.lineWidth=1.1; X.stroke();
+      }
+      if(kind==='hex') drawHex(p,col,lit,id==='router'||id==='bot');
+      else if(kind==='dest') diamond(p,lit?12:10,col,lit);
+      else if(kind==='human') diamond(p,lit?13:11,col,lit);
+      else if(kind==='gate') drawHex(p,col,lit,false);
+      else neuron(p,col,lit);
+      X.font=`600 ${Math.max(8,10*p.s)|0}px Barlow Condensed,sans-serif`;
+      X.textAlign='center'; X.textBaseline='top';
+      X.fillStyle=lit?'#fff':hexA('#d7e6f5',.7);
+      X.fillText(N[id].label, p.x, p.y+(kind==='hex'?24:15)*p.s);
+      if(N[id].sub){
+        X.font=`600 ${Math.max(7,8*p.s)|0}px IBM Plex Mono,monospace`;
+        X.fillStyle=hexA(col, lit?.8:.4);
+        X.fillText(N[id].sub, p.x, p.y+(kind==='hex'?36:27)*p.s);
+      }
+    });
+}
+let lastSpawn=0;
+function keepJobs(ts){
+  if(!S) return;
+  if(ts-lastSpawn<800) return;
+  lastSpawn=ts;
+  const n=jobs.filter(j=>!j.dead).length;
+  if(n>=6) return;
+  jobs.push({path:['you','bot','router','host'], t:0, v:0.006, col:COL.bot});
+  jobs.push({path:['you','build','router'], t:0, v:0.005, col:COL.build});
+  if(svc('baja')) jobs.push({path:['build','baja'], t:0, v:0.006, col:COL.baja});
+  if(svc('twin')) jobs.push({path:['router','twin','destwin'], t:0, v:0.006, col:COL.twin});
+  if(svc('openclaw_gateway')) jobs.push({path:['router','oc'], t:0, v:0.007, col:COL.oc});
+  if(svc('money_desk')) jobs.push({path:['router','paper','money'], t:0, v:0.005, col:COL.paper});
+}
+function frame(ts){
+  T=ts/1000;
+  if(auto) yaw+=0.00115;
+  if(W<20||H<20) resize();
+  keepJobs(ts);
+  X.clearRect(0,0,W,H);
+  drawFloor(); drawWires(); drawJobs(); drawNodes();
+  const calls=document.getElementById('calls');
+  calls.innerHTML='';
+  [['bot','PRIMARY'],['router','ROUTES'],['money', (S&&S.money)?('$'+S.money.collected_usd+' / $'+S.money.burn_usd_mo):'$0 / $500']].forEach(([id,txt])=>{
+    if(!N[id]) return;
+    const p=P(id);
+    const el=document.createElement('div');
+    el.className='call'; el.textContent=txt;
+    el.style.left=p.x+'px'; el.style.top=p.y+'px';
+    calls.appendChild(el);
+  });
+  requestAnimationFrame(frame);
+}
+function paint(){
+  if(!S) return;
+  const m=S.money||{};
+  const c=S.com||{};
+  const paper=(S.paper&&S.paper.state)||'PAUSED';
+  document.getElementById('kPaper').textContent=paper;
+  const seats=(S.openclaw&&S.openclaw.seats!=null)?S.openclaw.seats:'—';
+  const gw=(S.openclaw&&S.openclaw.gateway_state)||'';
+  document.getElementById('kOc').textContent=seats+(gw?' · '+gw:'');
+  document.getElementById('moneychip').textContent='$'+Number(m.collected_usd||0)+' / $'+(m.burn_usd_mo||500);
+  const imin=c.imessage_inbound||'?';
+  document.getElementById('comchip').textContent=imin==='closed'?'YOU → GROK':'COM OPEN';
+  const age=S.generated_at? (Date.now()-Date.parse(S.generated_at)) : 9e9;
+  const liveEl=document.getElementById('live');
+  const fresh=age<120000;
+  liveEl.innerHTML=fresh?'<b></b>LIVE':'<b></b>STALE';
+  liveEl.style.color=fresh?'':'var(--gold)';
+  document.getElementById('mbanner').textContent=
+    '3D · YOU → BOT / BUILD · ROUTER · '+(imin==='closed'?'IMSG IN CLOSED':'IMSG IN OPEN');
+  const rows=[];
+  rows.push({t:(S.updated_at_ct||'').slice(11,19), cls:'gold', line:'com inbound '+(c.inbound||'grok')+' · bot '+(c.bot||'primary')});
+  rows.push({t:'', cls:imin==='closed'?'ok':'bad', line:'iMessage inbound '+imin+' · out '+(c.imessage_outbound||'yes-gated')});
+  (S.services||[]).forEach(s=>{
+    const st=String(s.state||'').toLowerCase();
+    rows.push({t:'', cls:st==='up'?'ok':'bad', line:s.name+(s.http!=null?(' :'+s.http):'')+' '+String(s.state||'?').toUpperCase()});
+  });
+  document.getElementById('feed').innerHTML=rows.map(r=>
+    `<div><span class="t">${r.t||''}</span><span class="${r.cls}">${r.line}</span></div>`
+  ).join('');
+}
+async function boot(){
   try{
     const r=await fetch('./state.json?t='+Date.now(),{cache:'no-store'});
     if(!r.ok) throw new Error('state '+r.status);
-    const d=await r.json();
-    const m=d.money||{};
-    const c=d.com||{};
-    document.getElementById('money').textContent='$'+Number(m.collected_usd||0)+' collected / $'+(m.burn_usd_mo||500)+'/mo burn';
-    document.getElementById('money-note').textContent=(m.lane||'R1')+' · paper '+(m.paper||d.paper&&d.paper.state||'?')+' · '+(m.note||'');
-    document.getElementById('inbound').textContent=(c.inbound||'grok')+' · bot '+(c.bot||'primary');
-    const imin=c.imessage_inbound||'?';
-    document.getElementById('imin').textContent=imin;
-    document.getElementById('imin').className='v '+(imin==='closed'?'ok':'bad');
-    document.getElementById('imout').textContent=c.imessage_outbound||'yes-gated';
-    const paper=(d.paper&&d.paper.state)||'PAUSED';
-    document.getElementById('paper').textContent=String(paper).toUpperCase();
-    const seats=(d.openclaw&&d.openclaw.seats!=null)?d.openclaw.seats:d.openclaw_agents_live;
-    const gw=(d.openclaw&&d.openclaw.gateway_state)||'';
-    document.getElementById('oc').textContent=seats+(gw?' · '+gw:'');
-    document.getElementById('fury').textContent=(d.cuts&&d.cuts.fury)?'YES':'NO';
-    document.getElementById('fury').className='v '+((d.cuts&&d.cuts.fury)?'ok':'bad');
-    document.getElementById('pcut').textContent=(d.cuts&&d.cuts.paper)?'YES':'NO';
-    document.getElementById('pcut').className='v '+((d.cuts&&d.cuts.paper)?'ok':'bad');
-    document.getElementById('when').textContent=d.updated_at_ct||d.generated_at||'';
-    const svc=document.getElementById('svc');
-    svc.innerHTML='<h2>Signals · services</h2>';
-    (d.services||[]).forEach(s=>{
-      const row=document.createElement('div');
-      row.className='row';
-      const st=String(s.state||'').toLowerCase();
-      const port=s.http!=null?(':'+s.http):'';
-      row.innerHTML='<span class="k">'+s.name+' '+port+'</span><span class="v '+(st==='up'?'ok':'bad')+'">'+String(s.state||'?').toUpperCase()+'</span>';
-      svc.appendChild(row);
-    });
-    err.textContent='';
+    S=await r.json();
+    paint();
   }catch(e){
-    document.getElementById('money').textContent='$0 collected — fail closed';
-    err.textContent=String(e&&e.message||e);
+    document.getElementById('mbanner').textContent='STATE FAIL · '+e.message;
+    document.getElementById('live').innerHTML='<b></b>FAIL';
   }
 }
-load(); setInterval(load,20000);
+function clock(){
+  const d=new Date(), z=n=>String(n).padStart(2,'0');
+  document.getElementById('kClk').textContent=`${z(d.getHours())}:${z(d.getMinutes())}:${z(d.getSeconds())}`;
+}
+C.addEventListener('pointerdown', e=>{ drag=true; auto=false; lx=e.clientX; ly=e.clientY; try{C.setPointerCapture(e.pointerId)}catch(err){} });
+C.addEventListener('pointermove', e=>{
+  if(!drag) return;
+  yaw+=(e.clientX-lx)*0.006;
+  pitch=Math.max(-0.7, Math.min(0.85, pitch+(e.clientY-ly)*0.005));
+  lx=e.clientX; ly=e.clientY;
+});
+C.addEventListener('pointerup', ()=>{ drag=false; });
+C.addEventListener('wheel', e=>{ e.preventDefault(); dist=Math.max(1.35, Math.min(3.4, dist+e.deltaY*0.002)); }, {passive:false});
+addEventListener('resize', resize);
+setInterval(boot, 8000);
+setInterval(clock, 1000);
+clock(); resize(); boot();
+requestAnimationFrame(frame);
 </script>
 </body>
 </html>
