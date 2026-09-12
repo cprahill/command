@@ -4,13 +4,13 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <meta name="robots" content="noindex"/>
-<title>GROK ATOM</title>
+<title>GROK TREE</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 :root{--bg:#03060c;--line:#1a2a3e;--muted:#6d7d93;--text:#d7e6f5;--cyan:#3ce7ff;--mint:#3dffc7;--gold:#ffb020;--pink:#ff4d8d;--green:#3dff9a}
 *{box-sizing:border-box}
 html,body{margin:0;height:100%;background:var(--bg);color:var(--text);overflow:hidden;font-family:"IBM Plex Mono",ui-monospace,monospace}
-.app{height:100%;display:grid;grid-template-rows:44px 1fr 120px}
+.app{height:100%;display:grid;grid-template-rows:44px 1fr 118px}
 header{display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid var(--line);z-index:5}
 .brand{font-family:"Barlow Condensed",sans-serif;letter-spacing:.2em;font-size:16px}
 .brand i{color:var(--cyan);font-style:normal}
@@ -19,7 +19,7 @@ header{display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px
 .live{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:10px;letter-spacing:.14em;color:var(--green)}
 .live b{width:7px;height:7px;border-radius:50%;background:var(--green);display:block}
 a.nav{color:var(--cyan);text-decoration:none;font-size:11px;letter-spacing:.12em}
-.mesh{position:relative;min-height:0;background:radial-gradient(ellipse at 50% 50%,#12243a 0%,#03060c 70%)}
+.mesh{position:relative;min-height:0;background:radial-gradient(900px 500px at 50% 70%,#102032 0%,#03060c 72%)}
 .mesh canvas{position:absolute;inset:0;width:100%;height:100%;cursor:grab;touch-action:none}
 .mbanner{position:absolute;left:12px;top:8px;z-index:3;font-family:"Barlow Condensed",sans-serif;letter-spacing:.16em;font-size:11px;color:var(--cyan)}
 .zoom{position:absolute;right:12px;bottom:12px;z-index:6;display:flex;flex-direction:column;gap:8px}
@@ -32,7 +32,7 @@ a.nav{color:var(--cyan);text-decoration:none;font-size:11px;letter-spacing:.12em
 .ok{color:var(--mint)} .bad{color:var(--pink)} .gold{color:var(--gold)} .dim{color:var(--muted)}
 .docs{margin:0;padding-left:16px;font-size:12px;line-height:1.45}
 @media(max-width:900px){
-  .app{grid-template-rows:auto minmax(280px,55vh) auto;height:100dvh;overflow-y:auto}
+  .app{grid-template-rows:auto minmax(280px,56vh) auto;height:100dvh;overflow-y:auto}
   header{flex-wrap:wrap;height:auto;padding:8px}
   .bot{grid-template-columns:1fr}
   .panel + .panel{border-left:0;border-top:1px solid var(--line)}
@@ -42,35 +42,31 @@ a.nav{color:var(--cyan);text-decoration:none;font-size:11px;letter-spacing:.12em
 <body>
 <div class="app">
   <header>
-    <div class="brand">GROK <i>ATOM</i></div>
+    <div class="brand">GROK <i>TREE</i></div>
     <a class="nav" href="/">LOCAL</a>
-    <div class="chip on" id="comchip">NUCLEUS = YOU + GROK</div>
+    <div class="chip on">YOU → GROK → GATES → LOCALS → DESTS</div>
     <div class="chip" id="moneychip">RH · R1 $0 · PAPER OFF</div>
     <div class="live" id="live"><b></b>LIVE</div>
   </header>
   <section class="mesh">
-    <div class="mbanner" id="mbanner">ORBIT · SCROLL / PINCH / + − TO ZOOM · DRAG TO TUMBLE</div>
+    <div class="mbanner" id="mbanner">3D TREE · GROWTH UP · DRAG TO ORBIT · + − ZOOM</div>
     <canvas id="c"></canvas>
     <div class="zoom">
-      <button type="button" id="zin" aria-label="zoom in">+</button>
-      <button type="button" id="zout" aria-label="zoom out">−</button>
-      <button type="button" id="zreset" aria-label="reset" style="font-size:11px">RST</button>
+      <button type="button" id="zin">+</button>
+      <button type="button" id="zout">−</button>
+      <button type="button" id="zreset" style="font-size:11px">RST</button>
     </div>
   </section>
   <section class="bot">
+    <article class="panel"><div class="ph">LIVE</div><div class="feed" id="feed"></div></article>
     <article class="panel">
-      <div class="ph">LIVE</div>
-      <div class="feed" id="feed"></div>
-    </article>
-    <article class="panel">
-      <div class="ph">SHELLS</div>
+      <div class="ph">BRANCHES</div>
       <ul class="docs">
-        <li>Nucleus: YOU · BOT · BUILD</li>
-        <li>K: QUALITY · REVIEW · VERIFY</li>
-        <li>L: ROUTER</li>
-        <li>M: HOST · GEMMA 12b · QWEN 27b</li>
-        <li>N: OC pipe · IMSG OUT</li>
-        <li>O: BAJA · TWIN · RH · R1 · PAPER</li>
+        <li>Root: YOU</li>
+        <li>Trunk split: BOT (primary) · BUILD (secondary)</li>
+        <li>Fork: QUALITY · REVIEW · VERIFY</li>
+        <li>Crown: HOST · GEMMA 12b · QWEN 27b</li>
+        <li>Leaves: BAJA · TWIN · RH · R1 · PAPER</li>
       </ul>
     </article>
   </section>
@@ -78,7 +74,7 @@ a.nav{color:var(--cyan);text-decoration:none;font-size:11px;letter-spacing:.12em
 <script>
 const C=document.getElementById('c'), X=C.getContext('2d');
 let W=0,H=0,T=0,S=null,jobs=[];
-let yaw=0.55, pitch=0.38, dist=1.8, zoom=1.15, drag=false, lx=0, ly=0, auto=true;
+let yaw=0.72, pitch=0.42, dist=1.85, zoom=1.2, drag=false, lx=0, ly=0, auto=true;
 const COL={
   you:'#e8f4ff', bot:'#3ce7ff', build:'#ffb020',
   quality:'#8b7cff', review:'#ffb020', verify:'#ffffff',
@@ -88,7 +84,7 @@ const COL={
   baja:'#ff6a3d', twin:'#7ed0ff', rh:'#14f195', r1:'#ffb020', paper:'#5a5340'
 };
 const META={
-  you:{label:'YOU', kind:'hex', sub:'NUCLEUS'},
+  you:{label:'YOU', kind:'hex', sub:'ROOT'},
   bot:{label:'BOT', kind:'hex', sub:'PRIMARY'},
   build:{label:'BUILD', kind:'hex', sub:'SECONDARY'},
   quality:{label:'QUALITY', kind:'ai', sub:'LOCKS'},
@@ -106,18 +102,35 @@ const META={
   r1:{label:'R1', kind:'dest', sub:'B2B $0'},
   paper:{label:'PAPER', kind:'dest', sub:'FAKE OFF'}
 };
-const SHELLS=[
-  {label:'K GATES', r:0.32, tilt:0.55, speed:0.22, ids:['quality','review','verify'], col:'#8b7cff'},
-  {label:'L ROUTE', r:0.48, tilt:-0.35, speed:-0.12, ids:['router'], col:'#3ce7ff'},
-  {label:'M LOCAL', r:0.66, tilt:0.85, speed:0.16, ids:['host','gemma','qwen'], col:'#3dff9a'},
-  {label:'N PIPE', r:0.84, tilt:-0.7, speed:-0.09, ids:['oc','imsgout'], col:'#3dffc7'},
-  {label:'O DEST', r:1.08, tilt:0.4, speed:0.07, ids:['baja','twin','rh','r1','paper'], col:'#ff6a3d'}
-];
-const CORE=['you','bot','build'];
+/* 3D tree: Y up, X left/right, Z in/out so limbs don't sit in one plane */
+const TREE={
+  you:[0,-0.95,0],
+  bot:[-0.28,-0.52,0.22],
+  build:[0.28,-0.52,-0.22],
+  quality:[-0.42,-0.12,0.38],
+  review:[0,-0.08,0.05],
+  verify:[0.42,-0.12,-0.38],
+  router:[0,0.22,0],
+  host:[-0.48,0.52,0.32],
+  gemma:[0,0.55,0.12],
+  qwen:[0.48,0.52,-0.28],
+  oc:[-0.22,0.72,0.48],
+  imsgout:[0.22,0.72,-0.48],
+  baja:[-0.72,0.98,0.42],
+  twin:[0.0,1.02,0.18],
+  rh:[0.55,1.00,-0.15],
+  r1:[0.82,0.92,-0.42],
+  paper:[-0.95,0.78,0.22]
+};
 const N={};
+Object.keys(TREE).forEach(id=>{
+  const [x,y,z]=TREE[id];
+  N[id]={wx:x, wy:y, wz:z, ...META[id]};
+});
 const WIRES=[
-  ['you','bot'],['you','build'],['bot','build'],
-  ['bot','quality'],['bot','review'],['build','verify'],['build','quality'],
+  ['you','bot'],['you','build'],
+  ['bot','quality'],['bot','review'],
+  ['build','review'],['build','verify'],
   ['quality','router'],['review','router'],['verify','router'],
   ['router','host'],['router','gemma'],['router','qwen'],
   ['host','oc'],['router','imsgout'],
@@ -144,23 +157,6 @@ function on(id){
   if(id==='paper') return false;
   return false;
 }
-function place(t){
-  N.you={wx:0, wy:0, wz:0, ...META.you};
-  N.bot={wx:0.07, wy:0.045, wz:0.02, ...META.bot};
-  N.build={wx:0.07, wy:-0.05, wz:-0.02, ...META.build};
-  SHELLS.forEach(sh=>{
-    const n=sh.ids.length;
-    sh.ids.forEach((id,i)=>{
-      const a=(i/n)*Math.PI*2 + t*sh.speed;
-      const ct=Math.cos(sh.tilt), st=Math.sin(sh.tilt);
-      const x=sh.r*Math.cos(a);
-      const z=sh.r*Math.sin(a);
-      const y=z*st;
-      const zz=z*ct;
-      N[id]={wx:x, wy:y, wz:zz, ...META[id], shell:sh.label};
-    });
-  });
-}
 function resize(){
   const r=C.parentElement.getBoundingClientRect();
   W=r.width; H=r.height;
@@ -172,14 +168,11 @@ function projectW(x,y,z){
   const cy=Math.cos(yaw), sy=Math.sin(yaw), cp=Math.cos(pitch), sp=Math.sin(pitch);
   let x1=x*cy-z*sy, z1=x*sy+z*cy;
   let y1=y*cp-z1*sp, z2=y*sp+z1*cp;
-  const s=zoom*dist/(dist+z2+1.15);
-  return {x:W*0.5+x1*s*Math.min(W,H)*0.48, y:H*0.5+y1*s*Math.min(W,H)*0.48, s, z:z2};
+  const s=zoom*dist/(dist+z2+1.2);
+  const k=Math.min(W,H)*0.46;
+  return {x:W*0.5+x1*s*k, y:H*0.52-y1*s*k, s, z:z2};
 }
-function P(id){
-  const n=N[id];
-  const p=projectW(n.wx,n.wy,n.wz);
-  p.id=id; return p;
-}
+function P(id){ const n=N[id]; const p=projectW(n.wx,n.wy,n.wz); p.id=id; return p; }
 function hexagon(x,y,r){
   X.beginPath();
   for(let i=0;i<6;i++){
@@ -188,45 +181,29 @@ function hexagon(x,y,r){
   }
   X.closePath();
 }
-function drawRing(sh){
-  const pts=[];
-  for(let i=0;i<=72;i++){
-    const a=(i/72)*Math.PI*2 + T*sh.speed;
-    const ct=Math.cos(sh.tilt), st=Math.sin(sh.tilt);
-    const x=sh.r*Math.cos(a), z=sh.r*Math.sin(a);
-    pts.push(projectW(x, z*st, z*ct));
-  }
-  X.beginPath();
-  pts.forEach((p,i)=> i?X.lineTo(p.x,p.y):X.moveTo(p.x,p.y));
-  X.strokeStyle=hexA(sh.col,0.22); X.lineWidth=1.2; X.stroke();
-  const lab=pts[0];
-  X.font=`600 ${Math.max(10, 9*zoom)|0}px Barlow Condensed,sans-serif`;
-  X.fillStyle=hexA(sh.col,0.55); X.textAlign='left';
-  X.fillText(sh.label, lab.x+8, lab.y);
-}
 function neuron(p,col,lit){
-  const r=Math.max(6, (lit?14:10)*p.s*zoom*0.85);
-  X.save();
-  X.shadowColor=col; X.shadowBlur=lit?18:6;
+  const r=Math.max(7,(lit?13:10)*p.s*zoom*0.9);
+  X.save(); X.shadowColor=col; X.shadowBlur=lit?16:5;
   X.beginPath(); X.arc(p.x,p.y,r,0,Math.PI*2);
   X.fillStyle=hexA('#050b14',.95); X.fill();
-  X.strokeStyle=col; X.lineWidth=lit?2.2:1.1; X.stroke();
-  X.beginPath(); X.arc(p.x,p.y,r*0.38,0,Math.PI*2);
-  X.fillStyle=hexA(col, lit?0.95:0.3); X.fill();
+  X.strokeStyle=col; X.lineWidth=lit?2.1:1.1; X.stroke();
+  X.beginPath(); X.arc(p.x,p.y,r*0.36,0,Math.PI*2);
+  X.fillStyle=hexA(col, lit?0.95:0.28); X.fill();
   X.restore();
 }
 function hexn(p,col,lit,big){
-  const r=Math.max(8,(big?22:14)*p.s*zoom*0.85*(lit?1.08:1));
-  X.save(); X.shadowColor=col; X.shadowBlur=lit?20:6;
+  const r=Math.max(9,(big?20:14)*p.s*zoom*0.9*(lit?1.06:1));
+  X.save(); X.shadowColor=col; X.shadowBlur=lit?18:5;
   hexagon(p.x,p.y,r); X.fillStyle=hexA('#050b14',.95); X.fill();
-  X.strokeStyle=col; X.lineWidth=lit?2.4:1.2; X.stroke();
-  hexagon(p.x,p.y,r*0.5); X.strokeStyle=hexA(col,.45); X.lineWidth=1; X.stroke();
+  X.strokeStyle=col; X.lineWidth=lit?2.3:1.2; X.stroke();
+  hexagon(p.x,p.y,r*0.5); X.strokeStyle=hexA(col,.4); X.lineWidth=1; X.stroke();
   X.restore();
 }
-function cable(A,B,col,lit){
-  X.beginPath(); X.moveTo(A.x,A.y); X.lineTo(B.x,B.y);
-  X.strokeStyle=hexA(col, lit?0.45:0.1);
-  X.lineWidth=lit?1.5:0.7;
+function branch(A,B,col,lit){
+  const mx=(A.x+B.x)/2, my=(A.y+B.y)/2+(B.y<A.y?-18:18)*Math.min(1,zoom);
+  X.beginPath(); X.moveTo(A.x,A.y); X.quadraticCurveTo(mx, my, B.x, B.y);
+  X.strokeStyle=hexA(col, lit?0.7:0.16);
+  X.lineWidth=lit?2.4:1.0;
   X.stroke();
 }
 function along(path,t){
@@ -239,26 +216,25 @@ function drawJobs(){
   jobs.forEach(j=>{
     j.t+=j.v; if(j.t>=1) j.dead=true;
     const p=along(j.path,j.t);
-    X.beginPath(); X.arc(p.x,p.y,Math.max(2.2,2.8*zoom*(p.s||1)),0,Math.PI*2);
-    X.fillStyle=j.col; X.shadowColor=j.col; X.shadowBlur=12; X.fill(); X.shadowBlur=0;
+    X.beginPath(); X.arc(p.x,p.y,Math.max(2.4,2.6*zoom*(p.s||1)),0,Math.PI*2);
+    X.fillStyle=j.col; X.shadowColor=j.col; X.shadowBlur=11; X.fill(); X.shadowBlur=0;
   });
 }
 function drawNodes(){
-  const ids=Object.keys(N);
-  ids.map(id=>{const p=P(id); p._id=id; return p;})
+  Object.keys(N).map(id=>{const p=P(id); p._id=id; return p;})
     .sort((a,b)=>a.z-b.z)
     .forEach(p=>{
       const id=p._id, lit=on(id), col=COL[id]||'#3ce7ff', m=N[id];
-      if(m.kind==='hex') hexn(p,col,lit,id==='you'||id==='router'||id==='bot');
+      if(m.kind==='hex') hexn(p,col,lit,id==='you'||id==='router');
       else neuron(p,col,lit);
-      const fs=Math.max(12, Math.min(28, 13*p.s*zoom));
+      const fs=Math.max(12, Math.min(30, 14*p.s*zoom));
       X.font=`700 ${fs|0}px Barlow Condensed,sans-serif`;
       X.textAlign='center'; X.textBaseline='top';
-      X.fillStyle=lit?'#fff':hexA('#d7e6f5',.45);
-      X.fillText(m.label, p.x, p.y+Math.max(12,16*p.s*zoom));
-      X.font=`600 ${Math.max(10, fs*0.72)|0}px IBM Plex Mono,monospace`;
-      X.fillStyle=hexA(col, lit?.85:.35);
-      X.fillText(m.sub, p.x, p.y+Math.max(26, 30*p.s*zoom));
+      X.fillStyle=lit?'#fff':hexA('#d7e6f5',.42);
+      X.fillText(m.label, p.x, p.y+Math.max(14,17*p.s*zoom));
+      X.font=`600 ${Math.max(10, fs*0.7)|0}px IBM Plex Mono,monospace`;
+      X.fillStyle=hexA(col, lit?.85:.32);
+      X.fillText(m.sub, p.x, p.y+Math.max(28, 32*p.s*zoom));
     });
 }
 let lastSpawn=0;
@@ -275,13 +251,11 @@ function keepJobs(ts){
 }
 function frame(ts){
   T=ts/1000;
-  if(auto) yaw+=0.0032;
-  place(T);
+  if(auto) yaw+=0.0024;
   if(W<20) resize();
   keepJobs(ts);
   X.clearRect(0,0,W,H);
-  SHELLS.forEach(drawRing);
-  WIRES.forEach(([a,b])=> cable(P(a),P(b), COL[a]||'#3ce7ff', on(a)&&on(b)));
+  WIRES.forEach(([a,b])=> branch(P(a),P(b), COL[a]||'#3ce7ff', on(a)&&on(b)));
   drawJobs(); drawNodes();
   requestAnimationFrame(frame);
 }
@@ -313,28 +287,29 @@ async function boot(){
     document.getElementById('mbanner').textContent='STATE FAIL · '+e.message;
   }
 }
+function resize(){
+  const r=C.parentElement.getBoundingClientRect();
+  W=r.width; H=r.height;
+  C.width=W*devicePixelRatio; C.height=H*devicePixelRatio;
+  C.style.width=W+'px'; C.style.height=H+'px';
+  X.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+}
 C.addEventListener('pointerdown', e=>{ drag=true; auto=false; lx=e.clientX; ly=e.clientY; });
 C.addEventListener('pointermove', e=>{
   if(!drag) return;
   yaw+=(e.clientX-lx)*0.008;
-  pitch=Math.max(-1.2, Math.min(1.2, pitch+(e.clientY-ly)*0.007));
+  pitch=Math.max(-1.15, Math.min(1.15, pitch+(e.clientY-ly)*0.007));
   lx=e.clientX; ly=e.clientY;
 });
 C.addEventListener('pointerup', ()=> drag=false);
-C.addEventListener('wheel', e=>{
-  e.preventDefault();
-  setZoom(zoom * (e.deltaY>0 ? 0.9 : 1.12));
-}, {passive:false});
+C.addEventListener('wheel', e=>{ e.preventDefault(); setZoom(zoom*(e.deltaY>0?0.9:1.12)); }, {passive:false});
 let lastTap=0;
-C.addEventListener('dblclick', ()=> setZoom(zoom*1.8));
 C.addEventListener('pointerdown', e=>{
-  const now=Date.now();
-  if(now-lastTap<280) setZoom(zoom*1.6);
-  lastTap=now;
+  const n=Date.now(); if(n-lastTap<280) setZoom(zoom*1.6); lastTap=n;
 });
 document.getElementById('zin').onclick=()=> setZoom(zoom*1.35);
 document.getElementById('zout').onclick=()=> setZoom(zoom/1.35);
-document.getElementById('zreset').onclick=()=>{ zoom=1.15; yaw=0.55; pitch=0.38; auto=true; };
+document.getElementById('zreset').onclick=()=>{ zoom=1.2; yaw=0.72; pitch=0.42; auto=true; };
 addEventListener('resize', resize);
 setInterval(boot, 8000);
 resize(); boot();
