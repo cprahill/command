@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-06T23:25:37-0500",
+  "updated_at": "2026-09-11T21:51:20-0500",
   "mode": "PAPER_OPS",
   "live": "DENY",
   "cap_living": 4,
@@ -26,12 +26,12 @@
       "generation": 0,
       "parent_ids": [],
       "born_at": "2026-09-06T23:13:41-0500",
-      "score": 64.93,
-      "verify_green_streak": 1,
-      "jobs_pass_7d": 1,
-      "jobs_total_7d": 1,
-      "idle_hours": 0.2,
-      "scored_at": "2026-09-06T23:25:37-0500",
+      "score": 58.04,
+      "verify_green_streak": 36,
+      "jobs_pass_7d": 39,
+      "jobs_total_7d": 41,
+      "idle_hours": 0.0,
+      "scored_at": "2026-09-11T21:22:32-0500",
       "terminate_strikes": 0
     },
     {
@@ -47,12 +47,12 @@
       "generation": 0,
       "parent_ids": [],
       "born_at": "2026-09-06T23:13:41-0500",
-      "score": 42.69,
-      "verify_green_streak": 1,
-      "jobs_pass_7d": 1,
-      "jobs_total_7d": 1,
-      "idle_hours": 0.2,
-      "scored_at": "2026-09-06T23:25:37-0500",
+      "score": 58.01,
+      "verify_green_streak": 36,
+      "jobs_pass_7d": 39,
+      "jobs_total_7d": 41,
+      "idle_hours": 0.1,
+      "scored_at": "2026-09-11T21:22:32-0500",
       "terminate_strikes": 0
     },
     {
@@ -68,12 +68,12 @@
       "generation": 0,
       "parent_ids": [],
       "born_at": "2026-09-06T23:13:41-0500",
-      "score": 47.27,
-      "verify_green_streak": 1,
-      "jobs_pass_7d": 1,
-      "jobs_total_7d": 1,
-      "idle_hours": 0.2,
-      "scored_at": "2026-09-06T23:25:37-0500",
+      "score": 66.72,
+      "verify_green_streak": 39,
+      "jobs_pass_7d": 39,
+      "jobs_total_7d": 39,
+      "idle_hours": 0.1,
+      "scored_at": "2026-09-11T21:22:32-0500",
       "terminate_strikes": 0
     },
     {
@@ -89,17 +89,19 @@
       "generation": 0,
       "parent_ids": [],
       "born_at": "2026-09-06T23:13:41-0500",
-      "score": 40.93,
+      "score": 40.96,
       "jobs_pass_7d": 1,
       "jobs_total_7d": 1,
       "verify_green_streak": 1,
-      "idle_hours": 0.2,
-      "scored_at": "2026-09-06T23:25:37-0500"
+      "idle_hours": 0.1,
+      "scored_at": "2026-09-11T21:22:32-0500",
+      "terminate_strikes": 0
     }
   ],
   "last_score": {
-    "at": "2026-09-06T23:25:37-0500",
+    "at": "2026-09-11T21:22:32-0500",
     "killed": [],
     "birth_offer": null
-  }
+  },
+  "source": "Mini workforce SoT sync 2026-09-11 pause+publish"
 }
