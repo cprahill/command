@@ -49,7 +49,7 @@ a.nav{color:var(--cyan);text-decoration:none;font-size:11px;letter-spacing:.12em
     <div class="live" id="live"><b></b>LIVE</div>
   </header>
   <section class="mesh">
-    <div class="mbanner" id="mbanner">3D TREE · GROWTH UP · DRAG TO ORBIT · + − ZOOM</div>
+    <div class="mbanner" id="mbanner">3D TREE · LIMBS SPREAD · DRAG TO ORBIT · + − ZOOM</div>
     <canvas id="c"></canvas>
     <div class="zoom">
       <button type="button" id="zin">+</button>
@@ -74,7 +74,8 @@ a.nav{color:var(--cyan);text-decoration:none;font-size:11px;letter-spacing:.12em
 <script>
 const C=document.getElementById('c'), X=C.getContext('2d');
 let W=0,H=0,T=0,S=null,jobs=[];
-let yaw=0.72, pitch=0.42, dist=1.85, zoom=1.2, drag=false, lx=0, ly=0, auto=true;
+/* look slightly down so the dest RING is readable, not a stacked row */
+let yaw=0.10, pitch=0.30, dist=9.2, zoom=1.0, drag=false, lx=0, ly=0, auto=true;
 const COL={
   you:'#e8f4ff', bot:'#3ce7ff', build:'#ffb020',
   quality:'#8b7cff', review:'#ffb020', verify:'#ffffff',
@@ -107,29 +108,31 @@ const META={
   prod:{label:'PROD', kind:'dest', sub:'TOOLS'},
   first:{label:'HARNESS', kind:'dest', sub:'KERNEL'}
 };
-/* 3D tree: Y up, X left/right, Z in/out so limbs don't sit in one plane */
+/* View-space candelabra: X = left/right spread, Y = up, Z = depth only.
+   Dests are the outer leaves — not a diagonal row, not a polar ring that
+   collapses onto the trunk from the home camera. */
 const TREE={
-  you:[0,-0.95,0],
-  bot:[-0.28,-0.52,0.22],
-  build:[0.28,-0.52,-0.22],
-  quality:[-0.42,-0.12,0.38],
-  review:[0,-0.08,0.05],
-  verify:[0.42,-0.12,-0.38],
-  router:[0,0.22,0],
-  host:[-0.48,0.52,0.32],
-  gemma:[0,0.55,0.12],
-  qwen:[0.48,0.52,-0.28],
-  oc:[-0.22,0.68,0.48],
-  imsgout:[0.22,0.68,-0.48],
-  baja:[-0.95,1.05,0.50],
-  print:[-0.62,1.08,0.28],
-  twin:[-0.18,1.12,0.10],
-  rh:[0.22,1.12,-0.08],
-  r1:[0.55,1.08,-0.28],
-  roblox:[0.88,1.02,-0.48],
-  music:[-0.95,0.82,0.62],
-  prod:[0.95,0.82,-0.62],
-  first:[0.0,0.88,0.0]
+  you:     [ 0.00, -3.20,  0.00],
+  bot:     [-2.50, -1.80,  1.00],
+  build:   [ 2.50, -1.80, -1.00],
+  quality: [-3.40, -0.25,  1.40],
+  review:  [ 0.00, -0.10,  0.55],
+  verify:  [ 3.40, -0.25, -1.40],
+  router:  [ 0.00,  1.30,  0.00],
+  host:    [-2.30,  2.25,  1.15],
+  gemma:   [-0.85,  2.45,  0.75],
+  qwen:    [ 2.15,  2.20, -1.05],
+  oc:      [-3.60,  1.90,  1.50],
+  imsgout: [ 1.20,  0.75, -1.70],
+  music:   [-5.50,  2.85,  1.65],
+  prod:    [-4.50,  4.30, -0.85],
+  roblox:  [-3.00,  4.00,  1.75],
+  twin:    [-1.60,  4.90,  1.05],
+  first:   [ 0.00,  5.45,  0.22],
+  rh:      [ 1.80,  4.95, -1.15],
+  r1:      [ 3.70,  4.35,  1.20],
+  baja:    [ 5.05,  4.55,  0.50],
+  print:   [ 5.65,  2.70, -1.60]
 };
 const N={};
 Object.keys(TREE).forEach(id=>{
@@ -177,11 +180,12 @@ function resize(){
   X.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
 }
 function projectW(x,y,z){
+  y = y - 1.10;
   const cy=Math.cos(yaw), sy=Math.sin(yaw), cp=Math.cos(pitch), sp=Math.sin(pitch);
   let x1=x*cy-z*sy, z1=x*sy+z*cy;
   let y1=y*cp-z1*sp, z2=y*sp+z1*cp;
-  const s=zoom*dist/(dist+z2+1.2);
-  const k=Math.min(W,H)*0.46;
+  const s=zoom*dist/(dist+z2+2.4);
+  const k=W<800?Math.min(W,H)*0.070:Math.min(W*0.068,H*0.118);
   return {x:W*0.5+x1*s*k, y:H*0.52-y1*s*k, s, z:z2};
 }
 function P(id){ const n=N[id]; const p=projectW(n.wx,n.wy,n.wz); p.id=id; return p; }
@@ -199,7 +203,7 @@ function neuron(p,col,lit){
   X.beginPath(); X.arc(p.x,p.y,r,0,Math.PI*2);
   X.fillStyle=hexA('#050b14',.95); X.fill();
   X.strokeStyle=col; X.lineWidth=lit?2.1:1.1; X.stroke();
-  X.beginPath(); X.arc(p.x,p.y,r*0.36,0,Math.PI*2);
+  X.beginPath(); X.arc(p.x,p.y,r*0.36,0,Math.PI/2*4);
   X.fillStyle=hexA(col, lit?0.95:0.28); X.fill();
   X.restore();
 }
@@ -211,12 +215,36 @@ function hexn(p,col,lit,big){
   hexagon(p.x,p.y,r*0.5); X.strokeStyle=hexA(col,.4); X.lineWidth=1; X.stroke();
   X.restore();
 }
-function branch(A,B,col,lit){
-  const mx=(A.x+B.x)/2, my=(A.y+B.y)/2+(B.y<A.y?-18:18)*Math.min(1,zoom);
-  X.beginPath(); X.moveTo(A.x,A.y); X.quadraticCurveTo(mx, my, B.x, B.y);
-  X.strokeStyle=hexA(col, lit?0.7:0.16);
-  X.lineWidth=lit?2.4:1.0;
+function limb(a,b,col,lit){
+  const A=N[a], B=N[b];
+  const A2=P(a), B2=P(b);
+  const ex=A.wx+(B.wx-A.wx)*0.72;
+  const ey=A.wy+(B.wy-A.wy)*0.28;
+  const ez=A.wz+(B.wz-A.wz)*0.72;
+  const E=projectW(ex,ey,ez);
+  X.beginPath();
+  X.moveTo(A2.x,A2.y);
+  X.quadraticCurveTo(E.x,E.y,B2.x,B2.y);
+  X.strokeStyle=hexA(col, lit?0.72:0.18);
+  X.lineWidth=lit?2.6:1.05;
   X.stroke();
+}
+function ring(){
+  X.save();
+  X.setLineDash([5,7]);
+  X.strokeStyle='rgba(60,231,255,0.10)';
+  X.lineWidth=1;
+  const pts=[];
+  for(let i=0;i<=48;i++){
+    const t=i/48*Math.PI*2;
+    pts.push(projectW(Math.cos(t)*5.10, 3.60, Math.sin(t)*1.55));
+  }
+  pts.sort((a,b)=>a.z-b.z);
+  X.beginPath();
+  pts.forEach((p,i)=> i?X.lineTo(p.x,p.y):X.moveTo(p.x,p.y));
+  X.stroke();
+  X.setLineDash([]);
+  X.restore();
 }
 function along(path,t){
   const segs=Math.max(1,path.length-1), f=Math.min(segs-.0001,Math.max(0,t)*segs), i=Math.floor(f), u=f-i;
@@ -232,6 +260,32 @@ function drawJobs(){
     X.fillStyle=j.col; X.shadowColor=j.col; X.shadowBlur=11; X.fill(); X.shadowBlur=0;
   });
 }
+function caption(p,n,col,lit){
+  const cx=W*0.5, cy=H*0.52;
+  const dx=p.x-cx, dy=p.y-cy;
+  const len=Math.hypot(dx,dy)||1;
+  const dest=n.kind==='dest';
+  const push=dest?42:24;
+  let lx, ly;
+  if(Math.hypot(n.wx,n.wz)<0.35){
+    lx=p.x; ly=p.y+Math.max(16,20*p.s*zoom);
+  }else{
+    lx=p.x+(dx/len)*push*Math.min(1.25,0.85+zoom*0.2);
+    ly=p.y+(dy/len)*push*Math.min(1.25,0.85+zoom*0.2);
+  }
+  const fs=Math.max(13, Math.min(28, (dest?16:14)*p.s*zoom));
+  X.textAlign='center'; X.textBaseline='middle';
+  X.lineJoin='round';
+  X.font=`700 ${fs|0}px Barlow Condensed,sans-serif`;
+  X.strokeStyle='rgba(3,6,12,0.88)'; X.lineWidth=5;
+  X.strokeText(n.label, lx, ly);
+  X.fillStyle=lit?'#fff':hexA('#d7e6f5',.50);
+  X.fillText(n.label, lx, ly);
+  X.font=`600 ${Math.max(10, fs*0.68)|0}px IBM Plex Mono,monospace`;
+  X.strokeText(n.sub, lx, ly+Math.max(12, fs*0.9));
+  X.fillStyle=hexA(col, lit?.9:.38);
+  X.fillText(n.sub, lx, ly+Math.max(12, fs*0.9));
+}
 function drawNodes(){
   Object.keys(N).map(id=>{const p=P(id); p._id=id; return p;})
     .sort((a,b)=>a.z-b.z)
@@ -239,14 +293,7 @@ function drawNodes(){
       const id=p._id, lit=on(id), col=COL[id]||'#3ce7ff', m=N[id];
       if(m.kind==='hex') hexn(p,col,lit,id==='you'||id==='router');
       else neuron(p,col,lit);
-      const fs=Math.max(12, Math.min(30, 14*p.s*zoom));
-      X.font=`700 ${fs|0}px Barlow Condensed,sans-serif`;
-      X.textAlign='center'; X.textBaseline='top';
-      X.fillStyle=lit?'#fff':hexA('#d7e6f5',.42);
-      X.fillText(m.label, p.x, p.y+Math.max(14,17*p.s*zoom));
-      X.font=`600 ${Math.max(10, fs*0.7)|0}px IBM Plex Mono,monospace`;
-      X.fillStyle=hexA(col, lit?.85:.32);
-      X.fillText(m.sub, p.x, p.y+Math.max(28, 32*p.s*zoom));
+      caption(p,m,col,lit);
     });
 }
 let lastSpawn=0;
@@ -264,11 +311,12 @@ function keepJobs(ts){
 }
 function frame(ts){
   T=ts/1000;
-  if(auto) yaw+=0.0024;
+  if(auto) yaw=0.10+0.18*Math.sin(T*0.22);
   if(W<20) resize();
   keepJobs(ts);
   X.clearRect(0,0,W,H);
-  WIRES.forEach(([a,b])=> branch(P(a),P(b), COL[a]||'#3ce7ff', on(a)&&on(b)));
+  ring();
+  WIRES.forEach(([a,b])=> limb(a,b, COL[a]||'#3ce7ff', on(a)&&on(b)));
   drawJobs(); drawNodes();
   requestAnimationFrame(frame);
 }
@@ -300,13 +348,6 @@ async function boot(){
     document.getElementById('mbanner').textContent='STATE FAIL · '+e.message;
   }
 }
-function resize(){
-  const r=C.parentElement.getBoundingClientRect();
-  W=r.width; H=r.height;
-  C.width=W*devicePixelRatio; C.height=H*devicePixelRatio;
-  C.style.width=W+'px'; C.style.height=H+'px';
-  X.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
-}
 C.addEventListener('pointerdown', e=>{ drag=true; auto=false; lx=e.clientX; ly=e.clientY; });
 C.addEventListener('pointermove', e=>{
   if(!drag) return;
@@ -322,7 +363,7 @@ C.addEventListener('pointerdown', e=>{
 });
 document.getElementById('zin').onclick=()=> setZoom(zoom*1.35);
 document.getElementById('zout').onclick=()=> setZoom(zoom/1.35);
-document.getElementById('zreset').onclick=()=>{ zoom=1.2; yaw=0.72; pitch=0.42; auto=true; };
+document.getElementById('zreset').onclick=()=>{ zoom=1.0; yaw=0.10; pitch=0.30; auto=true; };
 addEventListener('resize', resize);
 setInterval(boot, 8000);
 resize(); boot();
