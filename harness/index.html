@@ -62,7 +62,7 @@ a.nav{color:var(--cyan);text-decoration:none;font-size:11px;letter-spacing:.12em
     <div class="chip on phone">ME → GROK → REVIEW → DESTS</div>
   </header>
   <section class="mesh">
-    <div class="mbanner" id="mbanner">FIXED VIEW · DRAG TO PAN · + − ZOOM</div>
+    <div class="mbanner" id="mbanner">DOTS = REAL JOBS · NO DOTS = IDLE · DRAG TO PAN</div>
     <canvas id="c"></canvas>
     <div class="zoom">
       <button type="button" id="zin">+</button>
@@ -71,10 +71,12 @@ a.nav{color:var(--cyan);text-decoration:none;font-size:11px;letter-spacing:.12em
     </div>
   </section>
   <section class="bot">
-    <article class="panel"><div class="ph">LIVE</div><div class="feed" id="feed"></div></article>
+    <article class="panel"><div class="ph" id="feedph">WORK</div><div class="feed" id="feed"></div></article>
     <article class="panel">
       <div class="ph">ROUTE</div>
       <ul class="docs">
+        <li>Dots move only when route.py or a local brain actually ran</li>
+        <li>Lit node = listening (looks). Bright pulse = work in last 45s</li>
         <li>You talk to BOT (primary) or BUILD (secondary)</li>
         <li>Both run QUALITY and VERIFY</li>
         <li>REVIEW is first principles — every producing dest</li>
@@ -294,31 +296,52 @@ function caption(p,n,col,lit){
   X.fillStyle=hexA(col, lit?.9:.4);
   X.fillText(n.sub, p.x, sy);
 }
+function busy(id){
+  const evs=(S&&S.traffic)||[];
+  const cut=Date.now()-45000;
+  return evs.some(e=>{
+    const t=Date.parse(e.ts||'');
+    if(!(t>cut)) return false;
+    if(e.path===id||e.dest===id) return true;
+    if(id==='qwen'&&e.path==='twin') return true;
+    return false;
+  });
+}
 function drawNodes(){
   ORDER.forEach(id=>{
-    const p=P(id), lit=on(id), col=COL[id], m=N[id];
-    if(m.kind==='hex') hexn(p,col,lit,id==='you'||id==='review');
+    const p=P(id), hot=busy(id), lit=on(id)||hot, col=COL[id], m=N[id];
+    if(m.kind==='hex') hexn(p,col,lit,id==='you'||id==='review'||hot);
     else neuron(p,col,lit);
     caption(p,m,col,lit);
   });
 }
-let lastSpawn=0;
-function keepJobs(ts){
-  if(!S) return;
-  if(ts-lastSpawn<1000) return;
-  lastSpawn=ts;
-  if(jobs.filter(j=>!j.dead).length>4) return;
-  jobs.push({path:['you','bot','quality','review','gemma'], t:0, v:0.006, col:COL.bot});
-  jobs.push({path:['you','build','verify','review','qwen'], t:0, v:0.005, col:COL.build});
-  if(on('games')) jobs.push({path:['review','games'], t:0, v:0.007, col:COL.games});
-  if(on('twin')) jobs.push({path:['review','qwen','twin'], t:0, v:0.007, col:COL.qwen});
-  if(on('business')) jobs.push({path:['review','business'], t:0, v:0.006, col:COL.business});
-  if(on('oc')) jobs.push({path:['review','oc'], t:0, v:0.006, col:COL.oc});
+function wireFor(e){
+  const p=e.path, d=e.dest;
+  if(p==='host') return ['you','bot','quality','review','host'];
+  if(p==='gemma') return ['you','bot','quality','review','gemma'];
+  if(p==='qwen') return ['you','build','verify','review','qwen'];
+  if(p==='twin') return ['you','build','verify','review','qwen','twin'];
+  if(p==='oc') return ['you','bot','quality','review','oc'];
+  if(p==='imsg-out') return ['you','bot'];
+  if(p==='build'&&d&&N[d]) return ['you','build','verify','review',d];
+  if(p==='build') return ['you','build','verify','review'];
+  return null;
+}
+const seen=new Set();
+let primed=false;
+function ingestWork(){
+  const evs=(S&&S.traffic)||[];
+  if(!primed){ evs.forEach(e=>{ if(e.id) seen.add(e.id); }); primed=true; return; }
+  evs.forEach(e=>{
+    if(!e.id||seen.has(e.id)||e.path==='refuse') return;
+    seen.add(e.id);
+    const path=wireFor(e);
+    if(path) jobs.push({path, t:0, v:0.01, col:COL[e.path]||COL[e.dest]||'#3ce7ff'});
+  });
 }
 function frame(ts){
   T=ts/1000;
   if(W<20) resize();
-  keepJobs(ts);
   X.clearRect(0,0,W,H);
   WIRES.forEach(([a,b])=> limb(a,b, COL[a]||'#3ce7ff', on(a)&&on(b)));
   drawJobs(); drawNodes();
@@ -334,25 +357,43 @@ function setZoom(z, mx, my){
   }
   layout();
 }
+function ago(ts){
+  const t=Date.parse(ts||'');
+  if(!t) return '?';
+  const s=Math.max(0,(Date.now()-t)/1000);
+  if(s<10) return 'now';
+  if(s<60) return Math.floor(s)+'s';
+  if(s<3600) return Math.floor(s/60)+'m';
+  return Math.floor(s/3600)+'h';
+}
 function paint(){
   if(!S) return;
+  ingestWork();
   const m=S.money||{};
+  const w=S.work||{};
   const biz=destState('business')||'?';
   document.getElementById('moneychip').textContent=
     W<760 ? 'BIZ '+biz : 'BIZ '+biz+' · R1 $'+Number(m.collected_usd||0);
   const age=S.generated_at?(Date.now()-Date.parse(S.generated_at)):9e9;
-  document.getElementById('live').innerHTML=age<120000?'<b></b>LIVE':'<b></b>STALE';
+  const working=!w.idle && (w.last_120s||0)>0;
+  document.getElementById('live').innerHTML=age>120000?'<b></b>STALE':working?'<b></b>WORK':'<b></b>IDLE';
+  const ph=document.getElementById('feedph');
+  if(ph) ph.textContent=working?'WORK · REAL':'WORK · IDLE';
   const rows=[];
+  const evs=[...(S.traffic||[])].slice().reverse().slice(0,8);
+  if(!evs.length) rows.push('<div class="dim">no route/brain jobs yet · dots stay still until one runs</div>');
+  evs.forEach(e=>{
+    const cls=e.path==='refuse'?'dim':e.ran?'gold':'ok';
+    rows.push(`<div class="${cls}">${ago(e.ts)} · ${e.path}${e.dest?' → '+e.dest:''}${e.ran?' · RAN':''} · ${(e.job||e.why||'')}</div>`);
+  });
+  const hot=(w.ollama_hot||[]).map(x=>x.name).join(', ')||'none loaded';
+  rows.push(`<div class="${hot==='none loaded'?'dim':'gold'}">ollama · ${hot}</div>`);
+  if(w.rh_tick_age_s!=null) rows.push(`<div class="dim">rh tick · ${w.rh_tick_age_s}s ago (file mtime, not a pulse)</div>`);
+  rows.push('<div class="dim">LOOKS · listening only</div>');
   (S.dests||[]).forEach(d=>{
     const ok=['up','armed','draft'].includes(d.state);
-    const inn=(d.inside||[]).join(', ');
-    rows.push(`<div class="${d.state==='parked'||d.state==='empty'?'dim':ok?'ok':'bad'}">${d.label} · ${d.state}${inn?' · '+inn:''}</div>`);
+    rows.push(`<div class="${d.state==='parked'||d.state==='empty'?'dim':ok?'ok':'bad'}">${d.label} · ${d.state}</div>`);
   });
-  if(W>=760){
-    (S.locals||[]).forEach(l=> rows.push(`<div class="ok">${l.id} · ${l.model} · ${l.job}</div>`));
-    rows.push(`<div class="gold">gates · ${(S.gates||[]).join(' → ')} · first principles</div>`);
-  }
-  rows.push(`<div class="gold">ladder · ${(S.ladder||[]).join(' → ')}</div>`);
   document.getElementById('feed').innerHTML=rows.join('');
 }
 async function boot(){
@@ -417,7 +458,7 @@ document.getElementById('zin').onclick=()=> setZoom(zoom*1.18, W*0.5, H*0.5);
 document.getElementById('zout').onclick=()=> setZoom(zoom/1.18, W*0.5, H*0.5);
 document.getElementById('zreset').onclick=()=>{ zoom=1.0; panX=0; panY=0; layout(); };
 addEventListener('resize', resize);
-setInterval(boot, 8000);
+setInterval(boot, 2000);
 resize(); boot();
 requestAnimationFrame(frame);
 </script>
