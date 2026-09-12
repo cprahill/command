@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-12T21:26:02.159457Z",
-  "updated_at_ct": "2026-09-12T16:26:02-0500",
+  "generated_at": "2026-09-12T21:52:09.338336Z",
+  "updated_at_ct": "2026-09-12T16:52:09-0500",
   "host": {
     "name": "Jimothys-Mac-mini-2",
     "role": "Mission Control"
@@ -24,19 +24,19 @@
       "name": "twin",
       "http": 8787,
       "state": "up",
-      "pid": 36838
+      "pid": 64354
     },
     {
       "name": "mission_control",
       "http": 8790,
       "state": "up",
-      "pid": 37081
+      "pid": 64356
     },
     {
       "name": "money_desk",
       "http": 8791,
       "state": "up",
-      "pid": 83089
+      "pid": 64358
     },
     {
       "name": "baja",
