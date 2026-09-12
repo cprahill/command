@@ -17,4 +17,6 @@ Control (Grok Bot → Mini shell, no spend/send):
 ~/Desktop/Christopher/project-first/harness/scripts/phone-ctl.sh restart twin
 ```
 
-Tailscale `http://100.x:8790/phone.html` is Mini/LAN only. Chat apps and cellular often cannot open 100.x. Proof is this HTTPS URL returning 200 with Paper/Services filled — not localhost.
+Christopher talks to Grok Bot (or Build), not iMessage. This page is status, not an inbox.
+
+Tailscale `http://100.x:8790/phone.html` is Mini/LAN only. Proof is HTTPS 200 with Paper/Services filled — not localhost.
