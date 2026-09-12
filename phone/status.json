@@ -1,0 +1,97 @@
+{
+  "generated_at": "2026-09-12T20:35:02.925295Z",
+  "updated_at_ct": "2026-09-12T15:35:02-0500",
+  "host": {
+    "name": "Jimothys-Mac-mini-2",
+    "role": "Mission Control"
+  },
+  "paper": {
+    "state": "PAUSED",
+    "ticks_enabled": false,
+    "reason": "Phase1 rebuild \u2014 ticks cut"
+  },
+  "openclaw": {
+    "seats": 1,
+    "seat_cap": 1,
+    "gateway_state": "up"
+  },
+  "cuts": {
+    "fury": true,
+    "paper": true
+  },
+  "services": [
+    {
+      "name": "twin",
+      "http": 8787,
+      "state": "up",
+      "pid": 36838
+    },
+    {
+      "name": "mission_control",
+      "http": 8790,
+      "state": "up",
+      "pid": 37081
+    },
+    {
+      "name": "money_desk",
+      "http": 8791,
+      "state": "up",
+      "pid": 83089
+    },
+    {
+      "name": "baja",
+      "http": 8766,
+      "state": "up",
+      "pid": null
+    },
+    {
+      "name": "openclaw_gateway",
+      "http": null,
+      "state": "up",
+      "pid": 30383
+    },
+    {
+      "name": "openclaw_node",
+      "http": null,
+      "state": "up",
+      "pid": 30436
+    },
+    {
+      "name": "rh_agentic_crypto",
+      "http": null,
+      "state": "down",
+      "pid": null
+    },
+    {
+      "name": "keepawake",
+      "http": null,
+      "state": "up",
+      "pid": 1261
+    }
+  ],
+  "tailscale": {
+    "online": true,
+    "hostname": "Jimothys-Mac-mini-2",
+    "ip": "100.92.162.78",
+    "lan": "192.168.1.127",
+    "urls": [
+      {
+        "id": "dashboard",
+        "label": "MC",
+        "url": "http://100.92.162.78:8790/"
+      },
+      {
+        "id": "phone",
+        "label": "Phone",
+        "url": "http://100.92.162.78:8790/phone.html"
+      },
+      {
+        "id": "twin",
+        "label": "Twin",
+        "url": "http://100.92.162.78:8787/"
+      }
+    ]
+  },
+  "paper_legacy": "PAUSED",
+  "openclaw_agents_live": 1
+}
