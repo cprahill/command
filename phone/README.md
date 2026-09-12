@@ -1,8 +1,8 @@
 # Phone control (public HTTPS)
 
-**Open on phone/iPad:** https://grok-command.vercel.app/phone/
+**Open on phone/iPad (live now):** https://cprahill.github.io/command/phone/
 
-Alias: https://grok-command.vercel.app/ctl/
+Vercel alias (quota-blocked 2026-09-12, restore after reset): https://grok-command.vercel.app/phone/
 
 SoT refresh (Mini, 0 LLM):
 

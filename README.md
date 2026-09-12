@@ -4,8 +4,7 @@ Public command center for Grok Bot on phone/iPad. Not Baja.
 
 | Path | Role |
 |------|------|
-| `/phone/` | **Control plane** — Mini status + Bot command phrases |
-| `/ctl/` | Alias of `/phone/` |
+| `/phone/` | **Control plane** — Mini status + Bot command phrases. Live: https://cprahill.github.io/command/phone/ |
 | `/bots/` | Workforce KPI cards |
 | `/paper/` | Paper desk (fake money) |
 | `/neural/` | 3D harness mesh |
