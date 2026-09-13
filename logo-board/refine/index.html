@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex"/>
+<title>Stickers&amp;Soap Co. — logo refine</title>
+<meta name="description" content="Lock-ready polish of Christopher YES logos. Peel-blob font+color revise is first."/>
+<link rel="canonical" href="https://cprahill.github.io/command/logo-board/refine/"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+@layer reset, base, theme, components;
+@layer reset {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { background: var(--bg); color: var(--text); }
+  html, body { margin: 0; overflow-x: hidden; }
+  img { display: block; max-inline-size: 100%; height: auto; }
+  a { color: var(--cyan); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 2px;
+  }
+}
+@layer theme {
+  :root {
+    --bg: #07080c;
+    --card: #10141c;
+    --line: #243044;
+    --muted: #7a8aa0;
+    --text: #e8eef6;
+    --cyan: #3ce7ff;
+    --gold: #ffb020;
+    --ok: #3dff9a;
+    --fun: #ff5a9a;
+    color-scheme: dark;
+  }
+}
+@layer base {
+  body {
+    font: 14px/1.45 "IBM Plex Mono", ui-monospace, monospace;
+  }
+  h1, h2, h3 {
+    font-family: "Barlow Condensed", sans-serif;
+    text-wrap: balance;
+  }
+}
+@layer components {
+  header {
+    max-inline-size: 1100px;
+    margin-inline: auto;
+    padding: 16px 16px 8px;
+  }
+  .brand {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 13px;
+    letter-spacing: .22em;
+    color: var(--muted);
+  }
+  .brand i { color: var(--cyan); font-style: normal; }
+  h1 {
+    font-size: clamp(26px, 6vw, 42px);
+    line-height: 1.08;
+    margin: 8px 0 10px;
+  }
+  .lede { color: var(--muted); font-size: 13px; max-inline-size: 72ch; }
+  .lede b { color: var(--fun); }
+  .nav-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 8;
+    container-type: scroll-state;
+    container-name: board-nav;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-block-end: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-inline-size: 1100px;
+    margin-inline: auto;
+    padding: 6px 8px;
+  }
+  @container board-nav scroll-state(stuck: top) {
+    .nav-inner { box-shadow: 0 8px 24px rgb(0 0 0 / 0.35); }
+  }
+  nav.marks {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  nav.marks a {
+    flex: 0 0 auto;
+    padding: 10px 12px;
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-block-end: 2px solid transparent;
+    white-space: nowrap;
+    min-block-size: 44px;
+  }
+  nav.marks a:hover { text-decoration: none; color: var(--text); }
+  nav.marks a:target-current,
+  nav.marks a.is-current {
+    color: var(--cyan);
+    border-color: var(--cyan);
+    font-weight: 700;
+  }
+  section.block {
+    max-inline-size: 1100px;
+    margin-inline: auto;
+    padding: 18px 16px 8px;
+    overflow-anchor: none;
+  }
+  .theme-head {
+    display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline;
+    margin-block-end: 12px;
+  }
+  .theme-head h2 {
+    margin: 0;
+    font-size: 22px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+  .door { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--cyan); }
+  .door.fun { color: var(--fun); }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 14px;
+  }
+  .grid.trio { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+  .card {
+    container-type: inline-size;
+    container-name: logo-card;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    display: grid;
+    content-visibility: auto;
+    contain-intrinsic-size: auto 640px;
+  }
+  .card.primary { border-color: color-mix(in srgb, var(--fun) 55%, var(--line)); }
+  .card img.hero {
+    inline-size: 100%;
+    aspect-ratio: 1;
+    min-block-size: 220px;
+    object-fit: contain;
+    background: #0b0e14;
+  }
+  .pad { padding: 12px 12px 14px; display: grid; gap: 8px; }
+  .pad h3 {
+    margin: 0;
+    font-size: 22px;
+    letter-spacing: .04em;
+  }
+  .meta { color: var(--muted); font-size: 12px; }
+  .tag {
+    justify-self: start;
+    font-size: 10px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--fun);
+    border: 1px solid color-mix(in srgb, var(--fun) 50%, transparent);
+    padding: 3px 7px;
+    border-radius: 999px;
+  }
+  .sizes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: end;
+  }
+  .size {
+    display: grid;
+    gap: 4px;
+    justify-items: center;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .size img.av {
+    inline-size: 72px;
+    block-size: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #111;
+  }
+  .size img.tiny {
+    inline-size: 40px;
+    block-size: 40px;
+    object-fit: contain;
+    background: #111;
+    border-radius: 6px;
+  }
+  .label-strip {
+    inline-size: 100%;
+    aspect-ratio: 18 / 5;
+    object-fit: contain;
+    background: #0b0e14;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+  }
+  .from {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: var(--muted);
+    font-size: 11px;
+  }
+  .from img {
+    inline-size: 56px;
+    block-size: 56px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #0b0e14;
+    border: 1px solid var(--line);
+  }
+  footer {
+    max-inline-size: 1100px;
+    margin-inline: auto;
+    padding: 8px 16px 40px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+  @media (max-width: 700px) {
+    header { padding: 10px 16px 4px; }
+    h1 { font-size: 22px; margin: 4px 0 6px; }
+    .lede { font-size: 12px; }
+  }
+  @media (pointer: coarse) {
+    nav.marks a { min-block-size: 44px; padding-inline: 14px; }
+  }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">COMMAND <i>//</i> LOGO REFINE · STICKERS&amp;SOAP CO. · 2026-09-13</div>
+  <h1>YES only. Peel-blob got the fun font + color pass.</h1>
+  <p class="lede">Seven Christopher YES marks, lock-ready SVG/PNG. <b>02-peel-blob</b> is the mandatory revise (Coiny + coral/mint). Two more fun variants sit beside it. Everything else is a clean vector of the pick — no raccoon, no IP, no neon lane.</p>
+</header>
+<div class="nav-wrap">
+  <div class="nav-inner">
+    <nav class="marks" aria-label="Marks">
+      <a href="#peel">Peel blob</a>
+      <a href="#diecut">Die-cut S</a>
+      <a href="#stamp">Stamp</a>
+      <a href="#kraft">Kraft</a>
+      <a href="#script">Script</a>
+      <a href="#ticket">Ticket</a>
+      <a href="#box">Box</a>
+    </nav>
+  </div>
+</div>
+<main>
+<section class="block" id="peel">
+  <div class="theme-head">
+    <h2>Peel blob</h2>
+    <span class="door fun">mandatory revise · font + color</span>
+  </div>
+  <p class="lede">Kept the blob, stacked S&amp;S, peel corner, bubbles. Killed the elegant serif and cream/gold. Primary file: <code>02-peel-blob.svg</code>.</p>
+  <div class="grid trio">
+    <article class="card primary">
+      <img class="hero" src="./02-peel-blob-sticker.png" alt="Peel Blob primary — Coiny coral mint" width="1024" height="1024" fetchpriority="high"/>
+      <div class="pad">
+        <span class="tag">primary revise</span>
+        <h3>Coiny · coral / mint</h3>
+        <p class="meta">Bubble display + hot coral S, mint ampersand, orange peel. Sticker-shop energy. Reads as an X avatar.</p>
+        <div class="sizes">
+          <div class="size"><img class="av" src="./02-peel-blob-avatar.png" alt="" width="400" height="400"/>avatar</div>
+          <div class="size"><img class="tiny" src="./02-peel-blob-avatar.png" alt="" width="400" height="400"/>40px</div>
+        </div>
+        <img class="label-strip" src="./02-peel-blob-label.png" alt="Peel blob soap label" width="1800" height="500" loading="lazy"/>
+        <div class="from"><img src="../concepts/02-peel-blob.png" alt="Original peel blob" width="1024" height="1024" loading="lazy"/>from board — serif + gold</div>
+      </div>
+    </article>
+    <article class="card">
+      <img class="hero" src="./02-peel-blob-b-sticker.png" alt="Peel Blob variant B — Fredoka lemon berry" width="1024" height="1024" loading="lazy"/>
+      <div class="pad">
+        <span class="door">variant B</span>
+        <h3>Fredoka · lemon / berry</h3>
+        <p class="meta">Rounded friendly type on a lemon blob. Berry S, cyan &amp;. Still print-flat, not the neon lane.</p>
+        <div class="sizes">
+          <div class="size"><img class="av" src="./02-peel-blob-b-avatar.png" alt="" width="400" height="400" loading="lazy"/>avatar</div>
+          <div class="size"><img class="tiny" src="./02-peel-blob-b-avatar.png" alt="" width="400" height="400" loading="lazy"/>40px</div>
+        </div>
+        <img class="label-strip" src="./02-peel-blob-b-label.png" alt="Peel blob B soap label" width="1800" height="500" loading="lazy"/>
+      </div>
+    </article>
+    <article class="card">
+      <img class="hero" src="./02-peel-blob-c-sticker.png" alt="Peel Blob variant C — Lilita mint navy" width="1024" height="1024" loading="lazy"/>
+      <div class="pad">
+        <span class="door">variant C</span>
+        <h3>Lilita · mint / navy</h3>
+        <p class="meta">Chunky poster type. Mint blob, navy S, tangerine &amp; and peel. Grown-up fun.</p>
+        <div class="sizes">
+          <div class="size"><img class="av" src="./02-peel-blob-c-avatar.png" alt="" width="400" height="400" loading="lazy"/>avatar</div>
+          <div class="size"><img class="tiny" src="./02-peel-blob-c-avatar.png" alt="" width="400" height="400" loading="lazy"/>40px</div>
+        </div>
+        <img class="label-strip" src="./02-peel-blob-c-label.png" alt="Peel blob C soap label" width="1800" height="500" loading="lazy"/>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="block" id="diecut">
+  <div class="theme-head"><h2>Die-cut S</h2><span class="door">sticker</span></div>
+  <div class="grid">
+    <article class="card">
+      <img class="hero" src="./04-diecut-s-sticker.png" alt="Die-cut S" width="1024" height="1024" loading="lazy"/>
+      <div class="pad">
+        <h3>04 · Die-cut S</h3>
+        <p class="meta">Fat S as a vinyl sticker. Peel + bubbles. Favicon-simple.</p>
+        <div class="sizes">
+          <div class="size"><img class="av" src="./04-diecut-s-avatar.png" alt="" width="400" height="400" loading="lazy"/>avatar</div>
+          <div class="size"><img class="tiny" src="./04-diecut-s-avatar.png" alt="" width="400" height="400" loading="lazy"/>40px</div>
+        </div>
+        <img class="label-strip" src="./04-diecut-s-label.png" alt="Die-cut S soap label" width="1800" height="500" loading="lazy"/>
+        <div class="from"><img src="../concepts/04-diecut-s.png" alt="Original die-cut S" width="1024" height="1024" loading="lazy"/>from board</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="block" id="stamp">
+  <div class="theme-head"><h2>Factory stamp</h2><span class="door">badge</span></div>
+  <div class="grid">
+    <article class="card">
+      <img class="hero" src="./06-factory-stamp-sticker.png" alt="Factory stamp" width="1024" height="1024" loading="lazy"/>
+      <div class="pad">
+        <h3>06 · Factory Stamp</h3>
+        <p class="meta">Circular S&amp;S ink stamp. Dual-arc type, both readable. Soap-factory / limited-drop.</p>
+        <div class="sizes">
+          <div class="size"><img class="av" src="./06-factory-stamp-avatar.png" alt="" width="400" height="400" loading="lazy"/>avatar</div>
+          <div class="size"><img class="tiny" src="./06-factory-stamp-avatar.png" alt="" width="400" height="400" loading="lazy"/>40px</div>
+        </div>
+        <img class="label-strip" src="./06-factory-stamp-label.png" alt="Factory stamp soap label" width="1800" height="500" loading="lazy"/>
+        <div class="from"><img src="../concepts/06-factory-stamp.png" alt="Original factory stamp" width="1024" height="1024" loading="lazy"/>from board</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="block" id="kraft">
+  <div class="theme-head"><h2>Kraft band</h2><span class="door">packaging</span></div>
+  <div class="grid">
+    <article class="card">
+      <img class="hero" src="./09-kraft-band-sticker.png" alt="Kraft band" width="1024" height="1024" loading="lazy"/>
+      <div class="pad">
+        <h3>09 · Kraft Band</h3>
+        <p class="meta">Belly-band as the logo. Kraft + ink. Packaging is the mark.</p>
+        <div class="sizes">
+          <div class="size"><img class="av" src="./09-kraft-band-avatar.png" alt="" width="400" height="400" loading="lazy"/>avatar</div>
+          <div class="size"><img class="tiny" src="./09-kraft-band-avatar.png" alt="" width="400" height="400" loading="lazy"/>40px</div>
+        </div>
+        <img class="label-strip" src="./09-kraft-band-label.png" alt="Kraft band soap label" width="1800" height="500" loading="lazy"/>
+        <div class="from"><img src="../concepts/09-kraft-band.png" alt="Original kraft band" width="1024" height="1024" loading="lazy"/>from board</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="block" id="script">
+  <div class="theme-head"><h2>Script shop</h2><span class="door">wordmark</span></div>
+  <div class="grid">
+    <article class="card">
+      <img class="hero" src="./13-script-shop-sticker.png" alt="Script shop" width="1024" height="1024" loading="lazy"/>
+      <div class="pad">
+        <h3>13 · Script Shop</h3>
+        <p class="meta">Brush shop-sign. Human. Works on a belly band. Bubbles stay as accent, not clutter.</p>
+        <div class="sizes">
+          <div class="size"><img class="av" src="./13-script-shop-avatar.png" alt="" width="400" height="400" loading="lazy"/>avatar</div>
+          <div class="size"><img class="tiny" src="./13-script-shop-avatar.png" alt="" width="400" height="400" loading="lazy"/>40px</div>
+        </div>
+        <img class="label-strip" src="./13-script-shop-label.png" alt="Script shop soap label" width="1800" height="500" loading="lazy"/>
+        <div class="from"><img src="../concepts/13-script-shop.png" alt="Original script shop" width="1024" height="1024" loading="lazy"/>from board</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="block" id="ticket">
+  <div class="theme-head"><h2>Drop ticket</h2><span class="door">ephemera</span></div>
+  <div class="grid">
+    <article class="card">
+      <img class="hero" src="./17-drop-ticket-sticker.png" alt="Drop ticket" width="1024" height="1024" loading="lazy"/>
+      <div class="pad">
+        <h3>17 · Drop Ticket</h3>
+        <p class="meta">Limited-drop stub. Italic S&amp;S, STUB, burst. Fits the shop model.</p>
+        <div class="sizes">
+          <div class="size"><img class="av" src="./17-drop-ticket-avatar.png" alt="" width="400" height="400" loading="lazy"/>avatar</div>
+          <div class="size"><img class="tiny" src="./17-drop-ticket-avatar.png" alt="" width="400" height="400" loading="lazy"/>40px</div>
+        </div>
+        <img class="label-strip" src="./17-drop-ticket-label.png" alt="Drop ticket soap label" width="1800" height="500" loading="lazy"/>
+        <div class="from"><img src="../concepts/17-drop-ticket.png" alt="Original drop ticket" width="1024" height="1024" loading="lazy"/>from board</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="block" id="box">
+  <div class="theme-head"><h2>Box logo</h2><span class="door">wordmark</span></div>
+  <div class="grid">
+    <article class="card">
+      <img class="hero" src="./21-box-logo-sticker.png" alt="Box logo" width="1024" height="1024" loading="lazy"/>
+      <div class="pad">
+        <h3>21 · Box Logo</h3>
+        <p class="meta">Streetwear rectangle S&amp;S CO. Instant merch. Survives one-color print.</p>
+        <div class="sizes">
+          <div class="size"><img class="av" src="./21-box-logo-avatar.png" alt="" width="400" height="400" loading="lazy"/>avatar</div>
+          <div class="size"><img class="tiny" src="./21-box-logo-avatar.png" alt="" width="400" height="400" loading="lazy"/>40px</div>
+        </div>
+        <img class="label-strip" src="./21-box-logo-label.png" alt="Box logo soap label" width="1800" height="500" loading="lazy"/>
+        <div class="from"><img src="../concepts/21-box-logo.png" alt="Original box logo" width="1024" height="1024" loading="lazy"/>from board</div>
+      </div>
+    </article>
+  </div>
+</section>
+</main>
+<footer>
+  <p>Source: <code>brand/logo-board/refine/</code> · SVG + PNG at avatar 400 / sticker 1024 / label 1800×500 · primary peel-blob revise: <code>02-peel-blob.svg</code></p>
+</footer>
+<script>
+const links = [...document.querySelectorAll("nav.marks a")];
+const secs = links.map(a => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+const io = new IntersectionObserver((ents) => {
+  const vis = ents.filter(e => e.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+  if (!vis) return;
+  links.forEach(a => a.classList.toggle("is-current", a.getAttribute("href") === "#" + vis.target.id));
+}, { rootMargin: "-20% 0px -60% 0px", threshold: [0.2, 0.5] });
+secs.forEach(s => io.observe(s));
+</script>
+</body>
+</html>
