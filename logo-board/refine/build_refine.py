@@ -178,54 +178,57 @@ def rsvg(src: Path, dest: Path, w: int, h: int):
 
 
 # ---------------------------------------------------------------------------
-# 02 peel-blob — MANDATORY fun font+color revise. Keep blob/peel soul.
+# 02 peel-blob — RECUT: original blob composition, fun font+color only.
+# Peel is a folded corner of the blob (not a leaf). & sits BETWEEN the two S
+# letters in the monogram pocket — not stacked on the lower S.
 # ---------------------------------------------------------------------------
-# Organic die-cut blob (wavy sticker, not a lemon). Includes BR peel lobe.
 BLOB = (
-    "M 368,168 "
-    "C 278,148 188,208 176,312 "
-    "C 164,416 198,478 176,568 "
-    "C 154,658 214,742 328,788 "
-    "C 442,834 548,848 650,808 "
-    "C 752,768 838,708 852,600 "
-    "C 866,492 838,400 804,312 "
-    "C 770,224 708,164 600,150 "
-    "C 492,136 430,152 368,168 Z"
+    "M 250,195 "
+    "C 175,175 118,235 112,330 "
+    "C 106,425 128,490 118,580 "
+    "C 108,675 155,760 270,820 "
+    "C 385,880 500,905 595,860 "
+    "C 670,825 725,770 742,690 "
+    "C 758,610 742,520 718,425 "
+    "C 694,330 640,235 525,195 "
+    "C 410,155 325,170 250,195 Z"
 )
-# Folded sticker corner on the BR lobe (backing color + crease, no seed-vein lip).
-PEEL_UNDER = "M 620,690 C 690,724 748,784 762,852 C 708,870 638,844 590,786 C 598,748 606,712 620,690 Z"
-PEEL_CREASE = "M 620,690 C 598,748 590,786 590,786"
+# Underside of the blob's own BR corner fold (clipped to blob — not a tongue).
+PEEL_UNDER = "M 575,775 Q 655,815 705,885 Q 655,860 575,815 Q 560,795 575,775 Z"
+PEEL_CREASE = "M 575,775 Q 655,815 705,885"
 
 
-def blob_mark(font: TTFont, pal: dict, s_size=392, amp_size=228) -> str:
+def blob_mark(font: TTFont, pal: dict, s_size=280, amp_size=152, clip: str = "blobClip") -> str:
     ink, amp, peel, cream, line = pal["ink"], pal["amp"], pal["peel"], pal["cream"], pal["line"]
-    s_top = text_paths(font, "S", 438, 448, s_size, ink, anchor="center")
-    s_bot = text_paths(font, "S", 548, 742, s_size + 12, ink, anchor="center")
-    ampersand = text_paths(font, "&", 568, 596, amp_size, amp, anchor="center")
+    # Interlocking stacked S; & nestled in the middle-right pocket.
+    s_top = text_paths(font, "S", 405, 425, s_size, ink, anchor="center", stroke=line, sw=10)
+    s_bot = text_paths(font, "S", 475, 695, s_size + 8, ink, anchor="center", stroke=line, sw=10)
+    ampersand = text_paths(font, "&", 525, 545, amp_size, amp, anchor="center", stroke=line, sw=8)
     bubbles = f"""
     <g fill="{cream}" stroke="{line}" stroke-width="7">
-      <circle cx="746" cy="612" r="18"/>
-      <circle cx="780" cy="646" r="12"/>
-      <circle cx="718" cy="650" r="9"/>
+      <circle cx="655" cy="705" r="16"/>
+      <circle cx="688" cy="738" r="11"/>
+      <circle cx="632" cy="742" r="8"/>
     </g>"""
     inner = (
-        f'<g transform="translate(500 500) scale(0.84) translate(-500 -500)">'
+        f'<g transform="translate(500 500) scale(0.86) translate(-500 -500)">'
         f'<path d="{BLOB}" fill="none" stroke="{line}" stroke-width="10" stroke-linejoin="round"/></g>'
     )
     shadow = f'<path d="{BLOB}" fill="#1a1208" opacity=".16" transform="translate(12 18)"/>'
-    peel_shadow = f'<path d="{PEEL_UNDER}" fill="#1a1208" opacity=".16" transform="translate(12 18)"/>'
     sticker = f"""
-    {shadow}{peel_shadow}
+    {shadow}
     <path d="{BLOB}" fill="{cream}"/>
     <path d="{BLOB}" fill="none" stroke="{line}" stroke-width="20" stroke-linejoin="round"/>
     {inner}
-    <path d="{PEEL_UNDER}" fill="{peel}"/>
-    <path d="{PEEL_UNDER}" fill="none" stroke="{line}" stroke-width="16" stroke-linejoin="round"/>
+    <clipPath id="{clip}"><path d="{BLOB}"/></clipPath>
+    <g clip-path="url(#{clip})">
+      <path d="{PEEL_UNDER}" fill="{peel}"/>
+    </g>
     <path d="{PEEL_CREASE}" fill="none" stroke="{line}" stroke-width="8" stroke-linecap="round"/>
     {s_top}{s_bot}{ampersand}
     {bubbles}
     """
-    return f'<g transform="translate(500 508) rotate(-7) translate(-500 -500)">{sticker}</g>'
+    return f'<g transform="translate(500 508) rotate(-6) translate(-500 -500)">{sticker}</g>'
 
 
 def peel_label(font: TTFont, pal: dict, word_font: TTFont) -> str:
@@ -237,34 +240,40 @@ def peel_label(font: TTFont, pal: dict, word_font: TTFont) -> str:
 # ---------------------------------------------------------------------------
 # 04 die-cut S
 # ---------------------------------------------------------------------------
-def diecut_mark(font: TTFont) -> str:
-    cream, ink, coral = "#F6EDE3", "#16120F", "#F06A5A"
-    s = text_paths(font, "S", 500, 640, 640, cream, anchor="center", stroke=ink, sw=24)
-    halo = text_paths(font, "S", 500, 640, 640, cream, anchor="center", stroke="#FFFaf4", sw=72)
-    # Peel sits on the S lower-right terminal so the vinyl silhouette includes it.
-    peel_d = "M 600,575 C 658,604 706,654 718,722 C 666,736 606,708 566,664 C 576,628 584,596 600,575 Z"
+def diecut_mark(font: TTFont, amp_font: TTFont | None = None) -> str:
+    """Original rounded vinyl S; & lives on the peeled flap only."""
+    cream, ink, coral, halo_c = "#F6EDE3", "#16120F", "#F06A5A", "#FFFaf4"
+    amp_font = amp_font or font
+    s = text_paths(font, "S", 500, 670, 560, cream, anchor="center", stroke=ink, sw=18)
+    halo = text_paths(font, "S", 500, 670, 560, cream, anchor="center", stroke=halo_c, sw=64)
+    # Peel is the S lower-right terminal curling up (not a separate leaf).
+    peel_d = "M 575,620 C 640,648 690,700 702,768 C 648,784 585,752 542,705 C 552,668 560,640 575,620 Z"
     peel = f"""
-    <path d="{peel_d}" fill="none" stroke="#FFFaf4" stroke-width="56" stroke-linejoin="round"/>
+    <path d="{peel_d}" fill="none" stroke="{halo_c}" stroke-width="48" stroke-linejoin="round"/>
     <path d="{peel_d}" fill="{coral}" stroke="{ink}" stroke-width="8" stroke-linejoin="round"/>
-    <path d="M 600,575 C 576,628 566,664 566,664" fill="none" stroke="{ink}" stroke-width="8" stroke-linecap="round"/>
-    <g stroke="{ink}" stroke-width="1.7" opacity=".32">
-      <path d="M 588,608 L 684,664"/>
-      <path d="M 580,626 L 676,682"/>
-      <path d="M 574,644 L 664,698"/>
+    <path d="M 575,620 C 552,668 542,705 542,705" fill="none" stroke="{ink}" stroke-width="8" stroke-linecap="round"/>
+    <g stroke="{ink}" stroke-width="1.5" opacity=".28">
+      <path d="M 568,650 L 668,708"/>
+      <path d="M 560,670 L 658,726"/>
+      <path d="M 554,690 L 646,744"/>
     </g>
     """
+    amp = text_group_transform(
+        amp_font, "&", 638, 710, 78, cream, "rotate(32)",
+        anchor="center", stroke=ink, sw=5,
+    )
     bubbles = f"""
     <g fill="{coral}" stroke="{ink}" stroke-width="7">
-      <circle cx="332" cy="262" r="30"/>
-      <circle cx="286" cy="224" r="16"/>
-      <circle cx="364" cy="214" r="11"/>
+      <circle cx="338" cy="268" r="28"/>
+      <circle cx="294" cy="230" r="15"/>
+      <circle cx="368" cy="222" r="10"/>
     </g>
-    <g fill="#FFFaf4" opacity=".55">
-      <ellipse cx="324" cy="252" rx="8" ry="5" transform="rotate(-30 324 252)"/>
+    <g fill="{halo_c}" opacity=".55">
+      <ellipse cx="330" cy="258" rx="8" ry="5" transform="rotate(-30 330 258)"/>
     </g>
     """
-    shadow = text_paths(font, "S", 514, 656, 640, "#1a1208", anchor="center")
-    return f'<g opacity=".16">{shadow}</g>{halo}{s}{peel}{bubbles}'
+    shadow = text_paths(font, "S", 514, 686, 560, "#1a1208", anchor="center")
+    return f'<g opacity=".16">{shadow}</g>{halo}{s}{peel}{amp}{bubbles}'
 
 
 # ---------------------------------------------------------------------------
@@ -424,68 +433,10 @@ def export_label(stem: str, body: str, bg: str):
 
 
 def main():
-    fredoka = load_font("Fredoka-Bold.ttf", wght=700, wdth=100)
-    coiny = load_font("Coiny-Regular.ttf")
-    lilita = load_font("LilitaOne-Regular.ttf")
-    archivo = load_font("ArchivoBlack-Regular.ttf")
-    barlow = load_font("BarlowCondensed-Bold.ttf")
-    anton = load_font("Anton-Regular.ttf")
-    bebas = load_font("BebasNeue-Regular.ttf")
-    pacifico = load_font("Pacifico-Regular.ttf")
-    caveat = load_font("Caveat-Variable.ttf", wght=600)
-    sniglet = load_font("Sniglet-ExtraBold.ttf")
-
-    pal_a = dict(ink="#FF3B6B", amp="#1EE0A0", peel="#FF7A3A", cream="#FFF6EA", line="#1A1714")
-    pal_b = dict(ink="#C2185B", amp="#00C2D1", peel="#FF4FA3", cream="#FFE566", line="#1A1714")
-    pal_c = dict(ink="#1B2A4A", amp="#FF7A1A", peel="#FF7A1A", cream="#D4F5E9", line="#1A1714")
-
-    # 02 primary — Coiny + coral/mint (fun font + sticker-shop color, not neon lane)
-    m = blob_mark(coiny, pal_a)
-    export_square("02-peel-blob", m, "#F3EDE3")
-    export_label("02-peel-blob", wordmark_label(m, coiny, pal_a["ink"]), "#F3EDE3")
-
-    # 02-b Fredoka + lemon/berry
-    m = blob_mark(fredoka, pal_b)
-    export_square("02-peel-blob-b", m, "#F3EDE3")
-    export_label("02-peel-blob-b", wordmark_label(m, fredoka, pal_b["ink"]), "#FFF6C8")
-
-    # 02-c Lilita + mint/navy/tangerine
-    m = blob_mark(lilita, pal_c)
-    export_square("02-peel-blob-c", m, "#F3EDE3")
-    export_label("02-peel-blob-c", wordmark_label(m, lilita, pal_c["ink"]), "#E8F8F0")
-
-    # 04
-    m = diecut_mark(sniglet)
-    export_square("04-diecut-s", m, "#F3E6D4")
-    export_label("04-diecut-s", wordmark_label(m, archivo, "#1A1714", 0.56), "#F3E6D4")
-
-    # 06
-    m = stamp_mark(barlow, archivo)
-    export_square("06-factory-stamp", m, "#F3EBD8")
-    export_label("06-factory-stamp", wordmark_label(m, barlow, "#1A1714", 0.5), "#F3EBD8")
-
-    # 09
-    m = kraft_mark(archivo, bebas)
-    export_square("09-kraft-band", m, "#F4EFE4")
-    export_label("09-kraft-band", wordmark_label(m, archivo, "#1A1714", 0.52), "#F4EFE4")
-
-    # 13
-    m = script_mark(pacifico, caveat, bebas)
-    export_square("13-script-shop", m, "#F6EDE0")
-    # script IS the label — wider crop
-    export_label("13-script-shop", f'<g transform="translate(900 250) scale(0.78) translate(-500 -500)">{m}</g>', "#F6EDE0")
-
-    # 17
-    m = ticket_mark(archivo, barlow)
-    export_square("17-drop-ticket", m, "#0B0B0B")
-    export_label("17-drop-ticket", f'<g transform="translate(900 250) scale(0.72) translate(-500 -500)">{m}</g>', "#0B0B0B")
-
-    # 21
-    m = box_mark(archivo, bebas)
-    export_square("21-box-logo", m, "#F7F4EE")
-    export_label("21-box-logo", wordmark_label(m, archivo, "#111", 0.52), "#F7F4EE")
-
-    print("OK", "files", len(list(OUT.glob("*.svg"))) + len(list(OUT.glob("*.png"))))
+    # Recut 2026-09-13: raster board assets come from build_recut.py
+    # (original-composition peel-blob + diecut; reverted stamp/kraft/script/box;
+    # kept drop-ticket). Do not clobber those PNGs from this vector pass.
+    print("SKIP raster — run build_recut.py for the recut board")
 
 
 if __name__ == "__main__":

@@ -1,5 +1,6 @@
 # GO-REFINE — Stickers&Soap Co. YES logos
-**2026-09-13** · Grok Build · silent until this file
+**2026-09-13** · Grok Build · silent until this file  
+**Superseded in part by** `GO-RECUT.md` (revert unrequested edits; recut peel-blob + diecut; keep drop-ticket).
 
 ## Open
 - HTTPS: https://cprahill.github.io/command/logo-board/refine/

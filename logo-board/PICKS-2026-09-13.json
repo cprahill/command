@@ -1,0 +1,251 @@
+{
+  "when": "2026-09-13T19:46:12.978Z",
+  "key": "ss-logo-board-2026-09-13",
+  "picks": {
+    "13-script-shop": "yes",
+    "04-diecut-s": "yes",
+    "16-venn": "no",
+    "18-slap-sticker": "no",
+    "19-peel-ampersand": "no",
+    "28-peel-bar": "no",
+    "31-holo-foil": "no",
+    "06-factory-stamp": "yes",
+    "09-kraft-band": "yes",
+    "11-gold-seal": "no",
+    "15-burst-badge": "no",
+    "17-drop-ticket": "yes",
+    "25-swirl": "no",
+    "08-twin-s": "no",
+    "30-enamel-pin": "no",
+    "29-rubber-stamp": "no",
+    "12-split-type": "no",
+    "07-neon-vinyl": "no",
+    "23-split-s": "no",
+    "22-fat-ss": "no",
+    "10-bubble-s": "no",
+    "03-liquid-ampersand": "no",
+    "27-app-icon": "no",
+    "26-mirror-ss": "no",
+    "24-stencil": "no",
+    "21-box-logo": "yes",
+    "20-soap-wordmark": "no",
+    "05-condensed-stack": "no",
+    "02-peel-blob": "yes"
+  },
+  "notes": {
+    "02-peel-blob": "Change font and colors to more fun"
+  },
+  "global": "",
+  "marks": [
+    {
+      "id": "01-bar-stamp",
+      "name": "Bar Stamp",
+      "theme": "combine",
+      "pick": "",
+      "note": ""
+    },
+    {
+      "id": "02-peel-blob",
+      "name": "Peel Blob",
+      "theme": "combine",
+      "pick": "yes",
+      "note": "Change font and colors to more fun"
+    },
+    {
+      "id": "05-condensed-stack",
+      "name": "Condensed Stack",
+      "theme": "type",
+      "pick": "no",
+      "note": ""
+    },
+    {
+      "id": "13-script-shop",
+      "name": "Script Shop",
+      "theme": "type",
+      "pick": "yes",
+      "note": ""
+    },
+    {
+      "id": "20-soap-wordmark",
+      "name": "Soap as Ampersand",
+      "theme": "type",
+      "pick": "no",
+      "note": ""
+    },
+    {
+      "id": "21-box-logo",
+      "name": "Box Logo",
+      "theme": "type",
+      "pick": "yes",
+      "note": ""
+    },
+    {
+      "id": "24-stencil",
+      "name": "Stencil",
+      "theme": "type",
+      "pick": "no",
+      "note": ""
+    },
+    {
+      "id": "26-mirror-ss",
+      "name": "Mirror SS",
+      "theme": "type",
+      "pick": "no",
+      "note": ""
+    },
+    {
+      "id": "27-app-icon",
+      "name": "App Icon",
+      "theme": "type",
+      "pick": "no",
+      "note": ""
+    },
+    {
+      "id": "03-liquid-ampersand",
+      "name": "Liquid Ampersand",
+      "theme": "soap",
+      "pick": "no",
+      "note": ""
+    },
+    {
+      "id": "10-bubble-s",
+      "name": "Bubble S",
+      "theme": "soap",
+      "pick": "no",
+      "note": ""
+    },
+    {
+      "id": "22-fat-ss",
+      "name": "Fat ss",
+      "theme": "soap",
+      "pick": "no",
+      "note": ""
+    },
+    {
+      "id": "23-split-s",
+      "name": "Split S",
+      "theme": "soap",
+      "pick": "no",
+      "note": ""
+    },
+    {
+      "id": "04-diecut-s",
+      "name": "Die-cut S",
+      "theme": "sticker",
+      "pick": "yes",
+      "note": ""
+    },
+    {
+      "id": "07-neon-vinyl",
+      "name": "Neon Vinyl",
+      "theme": "sticker",
+      "pick": "no",
+      "note": ""
+    },
+    {
+      "id": "12-split-type",
+      "name": "Split Type",
+      "theme": "sticker",
+      "pick": "no",
+      "note": ""
+    },
+    {
+      "id": "16-venn",
+      "name": "Venn",
+      "theme": "sticker",
+      "pick": "no",
+      "note": ""
+    },
+    {
+      "id": "18-slap-sticker",
+      "name": "Slap on Soap",
+      "theme": "sticker",
+      "pick": "no",
+      "note": ""
+    },
+    {
+      "id": "19-peel-ampersand",
+      "name": "Peel Ampersand",
+      "theme": "sticker",
+      "pick": "no",
+      "note": ""
+    },
+    {
+      "id": "28-peel-bar",
+      "name": "Peel Bar Wordmark",
+      "theme": "sticker",
+      "pick": "no",
+      "note": ""
+    },
+    {
+      "id": "31-holo-foil",
+      "name": "Holo Foil",
+      "theme": "sticker",
+      "pick": "no",
+      "note": ""
+    },
+    {
+      "id": "06-factory-stamp",
+      "name": "Factory Stamp",
+      "theme": "badge",
+      "pick": "yes",
+      "note": ""
+    },
+    {
+      "id": "09-kraft-band",
+      "name": "Kraft Band",
+      "theme": "badge",
+      "pick": "yes",
+      "note": ""
+    },
+    {
+      "id": "11-gold-seal",
+      "name": "Gold Seal",
+      "theme": "badge",
+      "pick": "no",
+      "note": ""
+    },
+    {
+      "id": "15-burst-badge",
+      "name": "Burst Badge",
+      "theme": "badge",
+      "pick": "no",
+      "note": ""
+    },
+    {
+      "id": "17-drop-ticket",
+      "name": "Drop Ticket",
+      "theme": "badge",
+      "pick": "yes",
+      "note": ""
+    },
+    {
+      "id": "29-rubber-stamp",
+      "name": "Rubber Stamp",
+      "theme": "badge",
+      "pick": "no",
+      "note": ""
+    },
+    {
+      "id": "30-enamel-pin",
+      "name": "Enamel Pin",
+      "theme": "badge",
+      "pick": "no",
+      "note": ""
+    },
+    {
+      "id": "08-twin-s",
+      "name": "Twin S",
+      "theme": "abstract",
+      "pick": "no",
+      "note": ""
+    },
+    {
+      "id": "25-swirl",
+      "name": "Ribbon Swirl",
+      "theme": "abstract",
+      "pick": "no",
+      "note": ""
+    }
+  ]
+}

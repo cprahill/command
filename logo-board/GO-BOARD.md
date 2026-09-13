@@ -2,8 +2,9 @@
 **2026-09-13** · Grok Build · silent until this file
 
 ## Open
+- HTTPS: https://cprahill.github.io/command/logo-board/
+- HTTPS (Vercel): https://grok-command.vercel.app/logo-board/
 - Local: `brand/logo-board/index.html`
-- HTTPS (if command Pages is live): https://cprahill.github.io/command/logo-board/
 
 ## What you get
 **30 distinct concepts** (not 30 variants of the soap bar).
