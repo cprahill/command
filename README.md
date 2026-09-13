@@ -5,6 +5,7 @@ Public command center for Grok Bot on phone/iPad. Not Baja.
 | Path | Role |
 |------|------|
 | `/merch/` | **Line Dragon** merch catalog (SEO). Checkout when Fourthwall/Printify URLs are set. https://cprahill.github.io/command/merch/ |
+| `/merch-review/` | **Overnight cool pack** morning board (Approve/Reject). A=Fourthwall neon/gamer, B=Shopify anime/memes/classics. https://cprahill.github.io/command/merch-review/ |
 | `/harness/` | **3D harness** — YOU → Bot/Build → router. Live Mini JSON. https://cprahill.github.io/command/harness/ |
 | `/phone/` | Mini status + Bot phrases. https://cprahill.github.io/command/phone/ |
 | `/bots/` | Workforce KPI cards |
