@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex"/>
+<title>Stickers&amp;Soap Co. — logo options board</title>
+<meta name="description" content="30 distinct logo directions for Stickers&Soap Co. Pick Yes / Later / No."/>
+<link rel="canonical" href="https://cprahill.github.io/command/logo-board/"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #07080c;
+  --card: #10141c;
+  --line: #243044;
+  --muted: #7a8aa0;
+  --text: #e8eef6;
+  --cyan: #3ce7ff;
+  --gold: #ffb020;
+  --ok: #3dff9a;
+  --no: #ff5a7a;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--bg); color: var(--text); }
+html, body {
+  margin: 0;
+  overflow-x: hidden;
+  font: 14px/1.45 "IBM Plex Mono", ui-monospace, monospace;
+}
+img { display: block; max-inline-size: 100%; }
+a { color: var(--cyan); text-decoration: none; }
+a:hover { text-decoration: underline; }
+header {
+  max-inline-size: 1100px;
+  margin-inline: auto;
+  padding: 16px 16px 8px;
+}
+.brand { font-family: "Barlow Condensed", sans-serif; font-size: 13px; letter-spacing: .22em; color: var(--muted); }
+.brand i { color: var(--cyan); font-style: normal; }
+h1 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(26px, 6vw, 44px);
+  line-height: 1.08;
+  margin: 8px 0 10px;
+  text-wrap: balance;
+}
+.lede { color: var(--muted); font-size: 13px; max-inline-size: 72ch; }
+.tally {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  margin: 14px 0 6px; font-size: 12px; letter-spacing: .08em;
+}
+.tally b { color: var(--gold); }
+.tools { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 4px; }
+.tools button {
+  font: 12px/1 "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  min-block-size: 44px;
+}
+.tools button:hover { border-color: var(--cyan); }
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 8;
+  container-type: scroll-state;
+  container-name: board-nav;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(12px);
+  border-block-end: 1px solid var(--line);
+}
+.nav-inner {
+  max-inline-size: 1100px;
+  margin-inline: auto;
+  padding: 6px 8px;
+}
+@container board-nav scroll-state(stuck: top) {
+  .nav-inner { box-shadow: 0 8px 24px rgb(0 0 0 / 0.35); }
+}
+nav.themes {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+nav.themes a {
+  flex: 0 0 auto;
+  padding: 10px 12px;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-block-end: 2px solid transparent;
+  white-space: nowrap;
+}
+nav.themes a:hover { text-decoration: none; color: var(--text); }
+nav.themes a:is(:target-current, .is-current) {
+  color: var(--cyan);
+  border-color: var(--cyan);
+  font-weight: 700;
+}
+section.theme {
+  max-inline-size: 1100px;
+  margin: 0 auto;
+  padding: 18px 16px 8px;
+  overflow-anchor: none;
+}
+.theme-head {
+  display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline;
+  margin-block-end: 12px;
+}
+.theme-head h2 {
+  font-family: "Barlow Condensed", sans-serif;
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.door { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--cyan); }
+.door.ref { color: var(--gold); }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 14px;
+}
+.card {
+  container-type: inline-size;
+  container-name: logo-card;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 520px;
+}
+.card.combine { border-color: color-mix(in srgb, var(--gold) 45%, var(--line)); }
+.card img.hero {
+  inline-size: 100%;
+  aspect-ratio: 1;
+  min-block-size: 220px;
+  object-fit: contain;
+  object-position: center;
+  background: #0b0e14;
+}
+.pad {
+  padding: 12px 12px 14px;
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+.pad h3 {
+  font-family: "Barlow Condensed", sans-serif;
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: .04em;
+}
+.meta { color: var(--muted); font-size: 12px; }
+.tag {
+  justify-self: start;
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid color-mix(in srgb, var(--gold) 50%, transparent);
+  padding: 3px 7px;
+  border-radius: 999px;
+}
+.btns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.btns button {
+  font: 11px/1 "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 12px 4px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  min-block-size: 44px;
+}
+.btns button:hover { border-color: var(--cyan); }
+.btns button.yes.on { background: color-mix(in srgb, var(--ok) 18%, transparent); border-color: var(--ok); color: var(--ok); }
+.btns button.no.on { background: color-mix(in srgb, var(--no) 18%, transparent); border-color: var(--no); color: var(--no); }
+.btns button.later.on { border-color: var(--gold); color: var(--gold); }
+.card textarea, #global-note {
+  field-sizing: content;
+  width: 100%;
+  height: auto;
+  min-block-size: 3lh;
+  max-block-size: 8lh;
+  font: 13px/1.4 "IBM Plex Mono", ui-monospace, monospace;
+  color: var(--text);
+  background: #0b0f16;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+@supports not (field-sizing: content) {
+  .card textarea, #global-note { min-height: 64px; }
+}
+.card textarea:focus, #global-note:focus { outline: 2px solid var(--cyan); outline-offset: 1px; }
+@container logo-card (max-width: 220px) {
+  .pad h3 { font-size: 18px; }
+  .btns { grid-template-columns: 1fr; }
+}
+.global {
+  max-inline-size: 1100px;
+  margin: 8px auto 0;
+  padding: 8px 16px 28px;
+  display: grid;
+  gap: 8px;
+}
+footer {
+  max-inline-size: 1100px;
+  margin-inline: auto;
+  padding: 8px 16px 40px;
+  color: var(--muted);
+  font-size: 12px;
+}
+@media (max-width: 700px) {
+  header { padding: 10px 16px 4px; }
+  h1 { font-size: 22px; margin: 4px 0 6px; }
+  .lede { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">COMMAND <i>//</i> LOGO BOARD · STICKERS&amp;SOAP CO. · 2026-09-13</div>
+  <h1>30 logo directions. Pick. Soap/monogram are two lanes, not the whole board.</h1>
+  <p class="lede">Want-and-buy at sticker size and as an X avatar. Combine-soap and Combine-monogram sit at the top as reference. Neon is one lane. No film IP. Yes the ones you would actually slap on a bar or a profile pic.</p>
+  <div class="tally">
+    <span>yes <b id="n-yes">0</b></span>
+    <span>later <b id="n-later">0</b></span>
+    <span>no <b id="n-no">0</b></span>
+    <span>comments <b id="n-notes">0</b></span>
+  </div>
+  <div class="tools">
+    <button type="button" id="export">Export picks JSON</button>
+  </div>
+</header>
+<div class="nav-wrap">
+  <div class="nav-inner">
+    <nav class="themes" aria-label="Lanes">
+      <a href="#combine">Combine</a>
+      <a href="#type">Type</a>
+      <a href="#soap">Soap</a>
+      <a href="#sticker">Sticker</a>
+      <a href="#badge">Badge</a>
+      <a href="#abstract">Abstract</a>
+    </nav>
+  </div>
+</div>
+<main id="board"></main>
+<div class="global">
+  <label for="global-note">Global note (whole board)</label>
+  <textarea id="global-note" placeholder="Lock this one… mix A icon with B wordmark… kill neon…"></textarea>
+</div>
+<footer>
+  <p>Picks save on this device in localStorage. Export JSON if you want a Drop copy. Source: <code>brand/logo-board/</code>.</p>
+</footer>
+<script>
+const KEY = "ss-logo-board-2026-09-13";
+const MARKS = [
+  {id:"01-bar-stamp", theme:"combine", tag:"combine soap", name:"Bar Stamp", why:"COMBINE-soap refined. Word stamped on the bar plus two bubbles. Reads as soap at sticker size."},
+  {id:"02-peel-blob", theme:"combine", tag:"combine monogram", name:"Peel Blob", why:"COMBINE-monogram refined. Stacked S&S, gold ampersand, peel corner. Avatar-ready without a circle."},
+  {id:"05-condensed-stack", theme:"type", tag:"wordmark", name:"Condensed Stack", why:"STICKERS / & / SOAP CO. poster type. Catchy on a wrapper or a drop poster."},
+  {id:"13-script-shop", theme:"type", tag:"wordmark", name:"Script Shop", why:"Brush shop-sign. Human and funny. Works on a belly band."},
+  {id:"20-soap-wordmark", theme:"type", tag:"icon+word", name:"Soap as Ampersand", why:"Stickers [bar] Soap Co. The bar replaces the &. Clean horizontal lockup."},
+  {id:"21-box-logo", theme:"type", tag:"wordmark", name:"Box Logo", why:"Streetwear rectangle S&S CO. Instant merch. Survives one-color print."},
+  {id:"24-stencil", theme:"type", tag:"wordmark", name:"Stencil", why:"Industrial stencil S&S. Underground soap-factory energy, no film marks."},
+  {id:"26-mirror-ss", theme:"type", tag:"monogram", name:"Mirror SS", why:"Mirrored S letters with a gold &. Typographic lock, scales to favicon."},
+  {id:"27-app-icon", theme:"type", tag:"monogram", name:"App Icon", why:"Rounded-square S&S. Built as an X avatar. Tech-clean lane."},
+  {id:"03-liquid-ampersand", theme:"soap", tag:"soap motif", name:"Liquid Ampersand", why:"The & is poured soap. Stickers above, SOAP below. Product is the letter."},
+  {id:"10-bubble-s", theme:"soap", tag:"soap motif", name:"Bubble S", why:"Iridescent soap bubble with an S. Premium avatar. Photo-real, not a stamp."},
+  {id:"22-fat-ss", theme:"soap", tag:"soap motif", name:"Fat ss", why:"Two glossy soap lowercase s. Fun, tactile, sticker-native."},
+  {id:"23-split-s", theme:"soap", tag:"icon", name:"Split S", why:"One S: vinyl peel on the left, soap on the right. Dual product as a letter."},
+  {id:"04-diecut-s", theme:"sticker", tag:"sticker", name:"Die-cut S", why:"Single S as a sticker with peel + bubbles. Favicon-simple."},
+  {id:"07-neon-vinyl", theme:"sticker", tag:"neon", name:"Neon Vinyl", why:"The neon lane. Pink / cyan / purple S&S on a peeling vinyl slap."},
+  {id:"12-split-type", theme:"sticker", tag:"icon+word", name:"Split Type", why:"STICKERS as a halftone slap, SOAP as an embossed bar, one giant &."},
+  {id:"16-venn", theme:"sticker", tag:"icon", name:"Venn", why:"Sticker circle ∩ soap circle. Gold & in the overlap. The two products as one mark."},
+  {id:"18-slap-sticker", theme:"sticker", tag:"icon", name:"Slap on Soap", why:"S&S sticker slapped onto a soap bar. Dual SKU in one picture."},
+  {id:"19-peel-ampersand", theme:"sticker", tag:"icon", name:"Peel Ampersand", why:"The & itself is a peeling sticker. Icon that works everywhere."},
+  {id:"28-peel-bar", theme:"sticker", tag:"icon+word", name:"Peel Bar Wordmark", why:"Peeling soap-sticker icon over Stickers&Soap Co. Full name + motif."},
+  {id:"31-holo-foil", theme:"sticker", tag:"sticker", name:"Holo Foil", why:"Holographic die-cut S&S. Drop energy. Wants to be a sticker."},
+  {id:"06-factory-stamp", theme:"badge", tag:"stamp", name:"Factory Stamp", why:"Circular S&S ink stamp. Soap-factory / limited-drop."},
+  {id:"09-kraft-band", theme:"badge", tag:"packaging", name:"Kraft Band", why:"Kraft belly-band as the logo. Packaging is the mark."},
+  {id:"11-gold-seal", theme:"badge", tag:"seal", name:"Gold Seal", why:"Foil wax-seal S&S. Premium OG collection."},
+  {id:"15-burst-badge", theme:"badge", tag:"badge", name:"Burst Badge", why:"Red starburst S&S. Sticker-native slap. High want-and-buy."},
+  {id:"17-drop-ticket", theme:"badge", tag:"ephemera", name:"Drop Ticket", why:"Limited-drop ticket stub. Fits the shop model."},
+  {id:"29-rubber-stamp", theme:"badge", tag:"stamp", name:"Rubber Stamp", why:"Oval ink S&S. Wrapper, packing tape, belly band."},
+  {id:"30-enamel-pin", theme:"badge", tag:"badge", name:"Enamel Pin", why:"Pin-ready circular S&S. Also a clean avatar."},
+  {id:"08-twin-s", theme:"abstract", tag:"monogram", name:"Twin S", why:"Geometric interlocking SS with a punched &. Scales to nothing."},
+  {id:"25-swirl", theme:"abstract", tag:"abstract", name:"Ribbon Swirl", why:"Cream and coral S-ribbons around a gold &. Abstract mark, no clutter."}
+];
+const THEMES = [
+  {id:"combine", title:"Combine lanes", door:"reference · 2 only", lede:"The 👍 bases, refined. Pick these if the WIP was already the answer — or skip them and take a new direction."},
+  {id:"type", title:"Typographic", door:"wordmarks + monograms", lede:"Name-first. Stack, script, box, stencil, mirror, app icon."},
+  {id:"soap", title:"Soap", door:"bar / liquid / bubble", lede:"The product is the letter. Liquid &, fat ss, split vinyl/soap S, bubble."},
+  {id:"sticker", title:"Sticker / peel", door:"vinyl + die-cut", lede:"Peel corners, slaps, holographic foil, Venn of sticker ∩ soap. Neon lives here."},
+  {id:"badge", title:"Badge / stamp", door:"seal · ticket · pin", lede:"Factory stamp, kraft band, gold seal, burst, drop ticket, rubber stamp, enamel pin."},
+  {id:"abstract", title:"Abstract", door:"unexpected", lede:"Interlock and ribbon. Marks that still read as S&S when you squint."}
+];
+
+const state = JSON.parse(localStorage.getItem(KEY) || '{"picks":{},"notes":{},"global":""}');
+state.picks ||= {};
+state.notes ||= {};
+state.global ||= "";
+
+function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
+function tally() {
+  let y=0,l=0,n=0,c=0;
+  for (const v of Object.values(state.picks)) {
+    if (v==="yes") y++; else if (v==="later") l++; else if (v==="no") n++;
+  }
+  for (const v of Object.values(state.notes)) if (v && v.trim()) c++;
+  if (state.global && state.global.trim()) c++;
+  document.getElementById("n-yes").textContent = y;
+  document.getElementById("n-later").textContent = l;
+  document.getElementById("n-no").textContent = n;
+  document.getElementById("n-notes").textContent = c;
+}
+
+function cardHTML(s, i) {
+  const pick = state.picks[s.id] || "";
+  const note = state.notes[s.id] || "";
+  const eager = i < 2;
+  const combine = s.theme === "combine" ? " combine" : "";
+  const tag = s.theme === "combine" ? `<span class="tag">${s.tag}</span>` : `<span class="door">${s.tag}</span>`;
+  return `<article class="card${combine}" data-id="${s.id}">
+    <img class="hero" src="./concepts/${s.id}.png" alt="${s.name}" width="1024" height="1024" ${eager ? 'fetchpriority="high"' : ''}/>
+    <div class="pad">
+      ${tag}
+      <h3>${s.name}</h3>
+      <p class="meta">${s.why}</p>
+      <div class="btns">
+        <button class="yes${pick==="yes"?" on":""}" type="button">Yes</button>
+        <button class="later${pick==="later"?" on":""}" type="button">Later</button>
+        <button class="no${pick==="no"?" on":""}" type="button">No</button>
+      </div>
+      <textarea data-note="${s.id}" placeholder="Comment…">${note.replace(/</g,"&lt;")}</textarea>
+    </div>
+  </article>`;
+}
+
+const board = document.getElementById("board");
+THEMES.forEach((t) => {
+  const items = MARKS.filter(s => s.theme === t.id);
+  const sec = document.createElement("section");
+  sec.className = "theme";
+  sec.id = t.id;
+  sec.innerHTML = `<div class="theme-head"><h2>${t.title}</h2><span class="door${t.id==="combine"?" ref":""}">${t.door}</span></div>
+    <p class="lede">${t.lede}</p>
+    <div class="grid">${items.map((s, i) => cardHTML(s, t.id==="combine" ? i : 9)).join("")}</div>`;
+  board.appendChild(sec);
+});
+
+board.addEventListener("click", (e) => {
+  const btn = e.target.closest("button");
+  if (!btn) return;
+  const card = btn.closest(".card");
+  if (!card) return;
+  const id = card.dataset.id;
+  const kind = btn.classList.contains("yes") ? "yes" : btn.classList.contains("no") ? "no" : "later";
+  state.picks[id] = state.picks[id] === kind ? "" : kind;
+  save();
+  card.querySelectorAll(".btns button").forEach((b) => {
+    b.classList.toggle("on", (b.classList.contains("yes") && state.picks[id]==="yes")
+      || (b.classList.contains("no") && state.picks[id]==="no")
+      || (b.classList.contains("later") && state.picks[id]==="later"));
+  });
+  tally();
+});
+board.addEventListener("input", (e) => {
+  if (e.target.matches("textarea[data-note]")) {
+    state.notes[e.target.dataset.note] = e.target.value;
+    save(); tally();
+  }
+});
+const g = document.getElementById("global-note");
+g.value = state.global;
+g.addEventListener("input", () => { state.global = g.value; save(); tally(); });
+
+document.getElementById("export").addEventListener("click", () => {
+  const payload = {
+    when: new Date().toISOString(),
+    key: KEY,
+    picks: state.picks,
+    notes: state.notes,
+    global: state.global,
+    marks: MARKS.map(s => ({id:s.id, name:s.name, theme:s.theme, pick: state.picks[s.id] || "", note: state.notes[s.id] || ""}))
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "logo-board-picks.json";
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+
+tally();
+
+const navLinks = document.querySelectorAll("nav.themes a");
+navLinks[0].classList.add("is-current");
+navLinks[0].setAttribute("aria-current", "true");
+const sections = THEMES.map(t => document.getElementById(t.id));
+const obs = new IntersectionObserver((entries) => {
+  const visible = entries.filter(e => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+  if (!visible) return;
+  const id = visible.target.id;
+  navLinks.forEach((link) => {
+    const on = link.getAttribute("href") === `#${id}`;
+    link.classList.toggle("is-current", on);
+    link.setAttribute("aria-current", on ? "true" : "false");
+  });
+}, { rootMargin: "-25% 0px -55% 0px", threshold: [0, 0.25, 0.5] });
+sections.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
