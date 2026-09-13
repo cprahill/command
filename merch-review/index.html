@@ -4,9 +4,9 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <meta name="robots" content="noindex"/>
-<meta name="merch-review-build" content="rev4b-2026-09-13"/>
-<title>Rev 4 review — 6×4 merch board</title>
-<meta name="description" content="24 designs. 6 themes. Comment and pick. Stage only."/>
+<meta name="merch-review-build" content="rev5-2026-09-13"/>
+<title>Rev 5 review — sellable board</title>
+<meta name="description" content="12 designs. 3 themes. Placement measured. Comment and pick. Stage only."/>
 <link rel="canonical" href="https://cprahill.github.io/command/merch-review/"/>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
@@ -20,10 +20,8 @@
   --gold: #ffb020;
   --magenta: #ff2d95;
   --cherry: #c44536;
-  --cream: #f3ead8;
   --ok: #3dff9a;
   --no: #ff5a7a;
-  --shop: #c9a227;
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { background: var(--bg); color: var(--text); }
@@ -154,7 +152,7 @@ section.theme {
   object-position: center 18%;
   background: #05070b;
 }
-.card.sticker img.hero, .card.poster img.hero { object-fit: contain; object-position: center; background: #0b0e14; }
+.card.poster img.hero, .card.mug img.hero, .card.cap img.hero { object-fit: contain; object-position: center; background: #0b0e14; }
 .pad { padding: 12px 12px 14px; display: grid; gap: 8px; }
 .pad h3 {
   font-family: "Barlow Condensed", sans-serif;
@@ -221,10 +219,10 @@ footer {
 </head>
 <body>
 <header>
-  <div class="brand">COMMAND <i>//</i> MERCH REVIEW · REV 4 · 2026-09-13</div>
-  <p style="color:#3ce7ff;font:700 12px/1.3 IBM Plex Mono,monospace;letter-spacing:.08em">BUILD rev4b · 6 THEMES · 24 DESIGNS · wrong if you only see Line Dragon (that is /merch/ not /merch-review/)</p>
-  <h1>Six worlds. 24 designs. Comment and pick.</h1>
-  <p class="lede">One page. Overnight SKUs had no YES export — all redone. Cassette heart is tape-from-reels, not a gift ribbon. Chest line measured. Type is designed with art, not stacked words. Stage only — live Line Dragon checkout stays.</p>
+  <div class="brand">COMMAND <i>//</i> MERCH REVIEW · REV 5 · 2026-09-13</div>
+  <p style="color:#3ce7ff;font:700 12px/1.3 IBM Plex Mono,monospace;letter-spacing:.08em">BUILD rev5 · 3 THEMES · 12 DESIGNS · Rain Field · Cassette Heart · quality over count</p>
+  <h1>Sellable only. 12 designs. Comment and pick.</h1>
+  <p class="lede">Rev4 failed placement (postage-stamp chest, cassette as two objects, shorts under the drawstring). Rev5: measured boxes first, art fills the box. Tape from the reels is the heart. Shorts on the left thigh. Stage only — live Line Dragon checkout stays.</p>
   <div class="tally">
     <span>approve <b id="n-yes">0</b></span>
     <span>later <b id="n-later">0</b></span>
@@ -240,11 +238,8 @@ footer {
   <div class="nav-inner">
     <nav class="themes" aria-label="Themes">
       <a href="#night-signal">1 Night Signal</a>
-      <a href="#kung-synth">2 Kung Synth</a>
-      <a href="#soft-wave">3 Soft Wave</a>
-      <a href="#arcade-gamer">4 Arcade Gamer</a>
-      <a href="#retro-classic">5 Retro Classic</a>
-      <a href="#meme-lab">6 Meme Lab</a>
+      <a href="#pulse-street">2 Pulse Street</a>
+      <a href="#analog-heart">3 Analog Heart</a>
     </nav>
   </div>
 </div>
@@ -256,44 +251,29 @@ footer {
   <textarea id="global-note" placeholder="Overall notes — what to redo, what to upload first…"></textarea>
 </div>
 <footer>
-  <p>Picks save on this phone in localStorage. Export JSON and Drop-save as <code>merch/review-comments.json</code>. Upload winners only: <code>merch/GO-REV4.md</code>.</p>
+  <p>Picks save on this phone in localStorage. Export JSON and Drop-save as <code>merch/review-comments.json</code>. Upload winners only: <code>merch/GO-REV5.md</code>.</p>
   <p><a href="https://fresh-start-ogz-shop.fourthwall.com/">Live Fourthwall (do not break)</a> · <a href="https://sh0bvy-v0.myshopify.com/">Shopify</a> · <a href="../merch/">Line Dragon catalog</a></p>
 </footer>
 <script>
-const KEY = "merch-review-rev4-2026-09-13";
+const KEY = "merch-review-rev5-2026-09-13";
 const SKUS = [
-  {id:"ns-rain-antenna", theme:"night-signal", door:"A Fourthwall", name:"Rain Antenna", type:"tee", price:28, why:"Chrome tower in magenta rain. Object as identity.", cls:"tee"},
-  {id:"ns-night-visor", theme:"night-signal", door:"A Fourthwall", name:"Night Visor", type:"hoodie", price:48, why:"Cyan visor slit, rain on chrome. Clears kangaroo pocket.", cls:"hoodie"},
-  {id:"ns-signal-glyph", theme:"night-signal", door:"A Fourthwall", name:"Signal Glyph", type:"mug", price:18, why:"Club-stamp city sigil. Gift desk object.", cls:"mug"},
-  {id:"ns-grid-rain", theme:"night-signal", door:"A Fourthwall", name:"Grid Rain", type:"poster", price:24, why:"Invented night city. Full-bleed, no type.", cls:"poster"},
-  {id:"ks-pulse-kick", theme:"kung-synth", door:"A Fourthwall", name:"Pulse Kick", type:"tee", price:28, why:"Compact kick, torso on the collar line. Not film IP.", cls:"tee"},
-  {id:"ks-tiger-gi", theme:"kung-synth", door:"A Fourthwall", name:"Tiger Gi", type:"hoodie", price:48, why:"Original tiger mascot in a gi. Magenta belt.", cls:"hoodie"},
-  {id:"ks-dojo-sun", theme:"kung-synth", door:"A Fourthwall", name:"Dojo Sun", type:"tote", price:22, why:"Sun disk + kicker silhouette. Everyday bag.", cls:"tote"},
-  {id:"ks-scanline-fist", theme:"kung-synth", door:"A Fourthwall", name:"Scanline Fist", type:"sticker", price:8, why:"Die-cut sheet. Impulse add-on.", cls:"sticker"},
-  {id:"sw-moon-cat", theme:"soft-wave", door:"B Shopify", name:"Moon Cat", type:"tee", price:28, why:"Original cat + paper moon. Not licensed.", cls:"tee"},
-  {id:"sw-sleepy-mech", theme:"soft-wave", door:"B Shopify", name:"Sleepy Mech", type:"hoodie", price:48, why:"Squat robot, sakura, gift-first.", cls:"hoodie"},
-  {id:"sw-fox-mask", theme:"soft-wave", door:"B Shopify", name:"Fox Mask", type:"tote", price:22, why:"Original spirit mask. Cream / cherry / gold.", cls:"tote"},
-  {id:"sw-red-moon", theme:"soft-wave", door:"B Shopify", name:"Red Moon Swell", type:"poster", price:24, why:"Original swell + paper moon. Not Hokusai.", cls:"poster"},
-  {id:"ag-chrome-stick", theme:"arcade-gamer", door:"A Fourthwall", name:"Chrome Stick", type:"tee", price:28, why:"Arcade stick sculpture. Not a console pad.", cls:"tee"},
-  {id:"ag-insert-coin", theme:"arcade-gamer", door:"A Fourthwall", name:"INSERT COIN", type:"cap", price:26, why:"Press Start lockup on a dad cap.", cls:"cap"},
-  {id:"ag-high-score", theme:"arcade-gamer", door:"A Fourthwall", name:"HIGH SCORE", type:"shorts", price:32, why:"Left-thigh type. Not another tee.", cls:"shorts"},
-  {id:"ag-1up", theme:"arcade-gamer", door:"A Fourthwall", name:"1-UP", type:"mug", price:18, why:"Pixel heart + designed type. Original, not Mario.", cls:"mug"},
-  {id:"rc-cassette-heart", theme:"retro-classic", door:"B Shopify", name:"Cassette Heart", type:"tee", price:28, why:"Rectangular cassette. Thin tape from the reels forms the heart. Fixed.", cls:"tee"},
-  {id:"rc-vhs-night", theme:"retro-classic", door:"B Shopify", name:"VHS Night", type:"hoodie", price:48, why:"Blank-spine VHS object. No brand names.", cls:"hoodie"},
-  {id:"rc-boombox", theme:"retro-classic", door:"B Shopify", name:"Boombox", type:"tote", price:22, why:"80s boombox sculpture on the pocket.", cls:"tote"},
-  {id:"rc-analog-wall", theme:"retro-classic", door:"B Shopify", name:"Analog Wall", type:"poster", price:24, why:"Still-life cassettes + VHS + phones. Gift wall.", cls:"poster"},
-  {id:"ml-npc-caffeine", theme:"meme-lab", door:"B Shopify", name:"NPC UNTIL CAFFEINE", type:"tee", price:28, why:"Coffee HUD + Anton type. Not a boring word shirt.", cls:"tee"},
-  {id:"ml-side-quest", theme:"meme-lab", door:"B Shopify", name:"SIDE QUEST: SNACKS", type:"hoodie", price:48, why:"Pixel ramen/sandwich locked to the type.", cls:"hoodie"},
-  {id:"ml-loading", theme:"meme-lab", door:"B Shopify", name:"LOADING…", type:"mug", price:18, why:"Progress bar as the graphic. 73%.", cls:"mug"},
-  {id:"ml-main-character", theme:"meme-lab", door:"B Shopify", name:"MAIN CHARACTER", type:"sticker", price:8, why:"Sheet: badge + cat + fox + heart + mug + fist.", cls:"sticker"},
+  {id:"ns-rain-field", theme:"night-signal", door:"A Fourthwall", name:"Rain Field", type:"tee", price:28, why:"12\" chest. Chrome tower + magenta rain + city. Fills the box.", cls:"tee"},
+  {id:"ns-night-visor", theme:"night-signal", door:"A Fourthwall", name:"Night Visor", type:"hoodie", price:48, why:"Bust on the chest. Clears the hood cavity and kangaroo pocket.", cls:"hoodie"},
+  {id:"ns-signal-glyph", theme:"night-signal", door:"A Fourthwall", name:"Signal Glyph", type:"mug", price:18, why:"Circular stamp on the cylinder face. Gift desk object.", cls:"mug"},
+  {id:"ns-grid-rain", theme:"night-signal", door:"A Fourthwall", name:"Grid Rain", type:"poster", price:24, why:"Invented night city in the mat. Full-bleed art, no type.", cls:"poster"},
+  {id:"ps-pulse-kick", theme:"pulse-street", door:"A Fourthwall", name:"Pulse Kick", type:"tee", price:28, why:"Kick fills 12\" width. Not film IP.", cls:"tee"},
+  {id:"ps-chrome-stick", theme:"pulse-street", door:"A Fourthwall", name:"Chrome Stick", type:"hoodie", price:48, why:"Whole stick on the chest, clears pocket. Not a console pad.", cls:"hoodie"},
+  {id:"ps-high-score", theme:"pulse-street", door:"A Fourthwall", name:"HIGH SCORE", type:"shorts", price:32, why:"Left thigh, below the drawstring, rotated to the fabric.", cls:"shorts"},
+  {id:"ps-insert-coin", theme:"pulse-street", door:"A Fourthwall", name:"INSERT COIN", type:"cap", price:26, why:"Press Start lockup on the front panels, above the brim.", cls:"cap"},
+  {id:"ah-cassette-heart", theme:"analog-heart", door:"B Shopify", name:"Cassette Heart", type:"tee", price:28, why:"Tape from both reels IS the heart. One mark. 12\" on cream.", cls:"tee"},
+  {id:"ah-vhs-night", theme:"analog-heart", door:"B Shopify", name:"VHS Night", type:"hoodie", price:48, why:"Blank-spine VHS on a cream ticket. No brand names.", cls:"hoodie"},
+  {id:"ah-boombox", theme:"analog-heart", door:"B Shopify", name:"Boombox", type:"tote", price:22, why:"Fills the front pocket. Original object, no brand.", cls:"tote"},
+  {id:"ah-analog-wall", theme:"analog-heart", door:"B Shopify", name:"Analog Wall", type:"poster", price:24, why:"Still-life cassettes + VHS + phone. Gallery mat.", cls:"poster"},
 ];
 const THEMES = [
-  {id:"night-signal", title:"Night Signal", door:"A · Fourthwall", pack:"a", lede:"80s cyberpunk / neon rain / chrome. Black cloth."},
-  {id:"kung-synth", title:"Kung Synth", door:"A · Fourthwall", pack:"a", lede:"Synthwave karate energy. Not the film."},
-  {id:"soft-wave", title:"Soft Wave", door:"B · Shopify", pack:"b", lede:"JP-inspired originals. No licensed characters."},
-  {id:"arcade-gamer", title:"Arcade Gamer", door:"A · Fourthwall", pack:"a", lede:"Stick, coin, score, 1-UP. Designed, not clipart."},
-  {id:"retro-classic", title:"Retro Classic", door:"B · Shopify", pack:"b", lede:"Cassette / VHS / boombox. Heart tape fixed."},
-  {id:"meme-lab", title:"Meme Lab", door:"B · Shopify", pack:"b", lede:"Funny + wearable. Type is a graphic."},
+  {id:"night-signal", title:"Night Signal", door:"A · Fourthwall", pack:"a", lede:"Chrome rain. Visor. Night city. Black cloth."},
+  {id:"pulse-street", title:"Pulse Street", door:"A · Fourthwall", pack:"a", lede:"Kick, stick, score, coin. Not the film. Not a console pad."},
+  {id:"analog-heart", title:"Analog Heart", door:"B · Shopify", pack:"b", lede:"Tape from the reels is the heart. VHS / boombox / still-life."},
 ];
 
 const state = JSON.parse(localStorage.getItem(KEY) || '{"picks":{},"notes":{},"global":""}');
@@ -315,12 +295,13 @@ function tally() {
   document.getElementById("n-notes").textContent = c;
 }
 
-function cardHTML(s) {
+function cardHTML(s, i) {
   const pick = state.picks[s.id] || "";
   const note = state.notes[s.id] || "";
   const doorCls = s.door.startsWith("B") ? "b" : "";
+  const pri = i === 0 ? ' fetchpriority="high"' : "";
   return `<article class="card ${s.cls}" data-id="${s.id}">
-    <img class="hero" src="./img/${s.id}.jpg?v=rev4b" alt="${s.name} ${s.type}" width="800" height="1067"/>
+    <img class="hero" src="./img/${s.id}.jpg?v=rev5" alt="${s.name} ${s.type}" width="800" height="1067"${pri}/>
     <div class="pad">
       <span class="door ${doorCls}">${s.door} · ${s.type} $${s.price}</span>
       <h3>${s.name}</h3>
@@ -342,9 +323,10 @@ THEMES.forEach((t) => {
   sec.className = "theme";
   sec.id = t.id;
   const pack = t.pack === "b" ? "b" : "";
+  const cards = SKUS.filter(s => s.theme===t.id);
   sec.innerHTML = `<div class="theme-head"><h2>${t.title}</h2><span class="door ${pack}">${t.door}</span></div>
     <p class="lede">${t.lede}</p>
-    <div class="grid">${SKUS.filter(s => s.theme===t.id).map(cardHTML).join("")}</div>`;
+    <div class="grid">${cards.map((s, i) => cardHTML(s, t.id==="night-signal"?i:9)).join("")}</div>`;
   board.appendChild(sec);
 });
 
