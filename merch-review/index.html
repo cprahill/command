@@ -4,9 +4,9 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <meta name="robots" content="noindex"/>
-<meta name="merch-review-build" content="rev7-sticker-shop-2026-09-13"/>
-<title>Rev 7 review — Stickers&Soap Co. sticker shop</title>
-<meta name="description" content="Stickers&Soap Co. Rev7: 100 die-cut stickers, 10 genres, 10-packs. S&S OG foundation first. Comment Yes/Later/No."/>
+<meta name="merch-review-build" content="rev7-fix-sticker-shop-2026-09-13"/>
+<title>Rev 7 FIX — Stickers&Soap Co. sticker shop</title>
+<meta name="description" content="Stickers&Soap Co. Rev7 FIX: YES-only stickers, quotes killed, BYO 10-pack $20. Comment Yes/Later/No."/>
 <link rel="canonical" href="https://cprahill.github.io/command/merch-review/"/>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
@@ -217,10 +217,10 @@ body.og-only .card:not(.og) { display: none; }
 </head>
 <body>
 <header>
-  <div class="brand">COMMAND <i>//</i> MERCH REVIEW · REV7 · STICKERS&amp;SOAP CO.</div>
-  <p style="color:#ffb020;font:700 12px/1.3 IBM Plex Mono,monospace;letter-spacing:.08em">BUILD rev7 · stickers only · 100 marks · 10 genres · singles $5/$6 · 10-packs $14 · S&amp;S OG first</p>
-  <h1>Stickers&amp;Soap Co. Comment Yes / Later / No.</h1>
-  <p class="lede">Rev6 moth/sparrow/toad FAIL. This board is stickers only until profit. Gold tag = recommended S&amp;S OG foundation (year-round). Untagged = drop candidates. No licensed anime. Do not upload live until you YES.</p>
+  <div class="brand">COMMAND <i>//</i> MERCH REVIEW · REV7 FIX · STICKERS&amp;SOAP CO.</div>
+  <p style="color:#ffb020;font:700 12px/1.3 IBM Plex Mono,monospace;letter-spacing:.08em">BUILD rev7-fix · YES-only · quotes/spino killed · singles $5/$6 · genre 10-packs $14 · BYO 10-pack $20 · S&amp;S OG first</p>
+  <h1>Stickers&amp;Soap Co. FIX pass. Comment Yes / Later / No.</h1>
+  <p class="lede">Art fixes: avocado colors, donut frosting, snake one tail, daruma both eyes, kraken beak. Quotes + pack-quote + spino gone. New: Build Your Own 10-pack $20 (pick any 10 YES singles). Gold tag = S&amp;S OG. Do not upload live until you YES this board.</p>
   <div class="tally">
     <span>approve <b id="n-yes">0</b></span>
     <span>later <b id="n-later">0</b></span>
@@ -243,7 +243,6 @@ body.og-only .card:not(.og) { display: none; }
       <a href="#pin">Pins</a>
       <a href="#chibi">Chibi</a>
       <a href="#myth">Myth</a>
-      <a href="#quote">Quotes</a>
       <a href="#anime">Anime</a>
       <a href="#packs">Packs</a>
     </nav>
@@ -255,11 +254,11 @@ body.og-only .card:not(.og) { display: none; }
   <textarea id="global-note" placeholder="Lock OG 24? skip anime? YES Wave 1 Snack pack?…"></textarea>
 </div>
 <footer>
-  <p>Picks save on this phone in localStorage. Export JSON and Drop-save as <code>merch/review-comments.json</code>. Upload winners only from <code>merch/GO-REV7.md</code>.</p>
+  <p>Picks save on this phone in localStorage. Export JSON and Drop-save as <code>merch/review-comments.json</code>. Upload winners only after YES on <code>merch/GO-REV7-FIX.md</code>.</p>
   <p>Fourthwall $0/mo primary. Shopify mapped, meter YES-gated. No tees / keychains until sticker profit.</p>
 </footer>
 <script>
-const KEY = "merch-review-rev7-sticker-2026-09-13";
+const KEY = "merch-review-rev7-fix-2026-09-13";
 const SKUS = [
   {id:'boombox-80s', theme:'eighty', door:'A Fourthwall · B Shopify', name:'Boombox', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
   {id:'cassette-80s', theme:'eighty', door:'A Fourthwall · B Shopify', name:'Cassette', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
@@ -318,7 +317,6 @@ const SKUS = [
   {id:'ptera-dino', theme:'dino', door:'A Fourthwall · B Shopify', name:'Ptera', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
   {id:'brachio-dino', theme:'dino', door:'A Fourthwall · B Shopify', name:'Brachio', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
   {id:'ankylo-dino', theme:'dino', door:'A Fourthwall · B Shopify', name:'Ankylo', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
-  {id:'spino-dino', theme:'dino', door:'A Fourthwall · B Shopify', name:'Spino', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
   {id:'dilo-dino', theme:'dino', door:'A Fourthwall · B Shopify', name:'Dilo', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
   {id:'para-dino', theme:'dino', door:'A Fourthwall · B Shopify', name:'Para', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
   {id:'lightning-pin', theme:'pin', door:'A Fourthwall · B Shopify', name:'Lightning', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
@@ -331,16 +329,6 @@ const SKUS = [
   {id:'rose-pin', theme:'pin', door:'A Fourthwall · B Shopify', name:'Rose', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
   {id:'starburst-pin', theme:'pin', door:'A Fourthwall · B Shopify', name:'Starburst', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
   {id:'horseshoe-pin', theme:'pin', door:'A Fourthwall · B Shopify', name:'Horseshoe', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
-  {id:'keep-going', theme:'quote', door:'A Fourthwall · B Shopify', name:'Keep Going', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
-  {id:'stay-gold', theme:'quote', door:'A Fourthwall · B Shopify', name:'Stay Gold', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
-  {id:'hold-fast', theme:'quote', door:'A Fourthwall · B Shopify', name:'Hold Fast', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
-  {id:'fresh-start', theme:'quote', door:'A Fourthwall · B Shopify', name:'Fresh Start', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
-  {id:'walk-by-faith', theme:'quote', door:'A Fourthwall · B Shopify', name:'Walk by Faith', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
-  {id:'still-standing', theme:'quote', door:'A Fourthwall · B Shopify', name:'Still Standing', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
-  {id:'easy-does-it', theme:'quote', door:'A Fourthwall · B Shopify', name:'Easy Does It', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
-  {id:'texas-tough', theme:'quote', door:'A Fourthwall · B Shopify', name:'Texas Tough', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
-  {id:'one-more-round', theme:'quote', door:'A Fourthwall · B Shopify', name:'One More Round', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
-  {id:'born-to-build', theme:'quote', door:'A Fourthwall · B Shopify', name:'Born to Build', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
   {id:'us-flag-wave', theme:'flag', door:'A Fourthwall · B Shopify', name:'Old Glory', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
   {id:'texas-flag', theme:'flag', door:'A Fourthwall · B Shopify', name:'Texas Flag', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
   {id:'texas-outline', theme:'flag', door:'A Fourthwall · B Shopify', name:'Texas Shape', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
@@ -368,26 +356,25 @@ const SKUS = [
   {id:'pack-myth', theme:'packs', door:'A Fourthwall · B Shopify', name:'Myth 10-pack', type:'kiss-cut 10-pack sheet', price:14, why:'5.83×8.27 Fourthwall 5495 / Printify sheet.', og:false},
   {id:'pack-dino', theme:'packs', door:'A Fourthwall · B Shopify', name:'Dino 10-pack', type:'kiss-cut 10-pack sheet', price:14, why:'5.83×8.27 Fourthwall 5495 / Printify sheet.', og:false},
   {id:'pack-pin', theme:'packs', door:'A Fourthwall · B Shopify', name:'Pin energy 10-pack', type:'kiss-cut 10-pack sheet', price:14, why:'5.83×8.27 Fourthwall 5495 / Printify sheet.', og:false},
-  {id:'pack-quote', theme:'packs', door:'A Fourthwall · B Shopify', name:'Quotes 10-pack', type:'kiss-cut 10-pack sheet', price:14, why:'5.83×8.27 Fourthwall 5495 / Printify sheet.', og:false},
   {id:'pack-flag', theme:'packs', door:'A Fourthwall · B Shopify', name:'Flags 10-pack', type:'kiss-cut 10-pack sheet', price:14, why:'OG pack. One sheet, one fulfillment.', og:true},
   {id:'pack-snack', theme:'packs', door:'A Fourthwall · B Shopify', name:'Snack Crew 10-pack', type:'kiss-cut 10-pack sheet', price:14, why:'OG pack. One sheet, one fulfillment.', og:true},
   {id:'pack-random-a', theme:'packs', door:'A Fourthwall · B Shopify', name:'Mystery Mix A', type:'kiss-cut 10-pack sheet', price:14, why:'OG pack. One sheet, one fulfillment.', og:true},
   {id:'pack-random-b', theme:'packs', door:'A Fourthwall · B Shopify', name:'Mystery Mix B', type:'kiss-cut 10-pack sheet', price:14, why:'5.83×8.27 Fourthwall 5495 / Printify sheet.', og:false},
-  {id:'pack-random-c', theme:'packs', door:'A Fourthwall · B Shopify', name:'Mystery Mix C', type:'kiss-cut 10-pack sheet', price:14, why:'5.83×8.27 Fourthwall 5495 / Printify sheet.', og:false}
+  {id:'pack-random-c', theme:'packs', door:'A Fourthwall · B Shopify', name:'Mystery Mix C', type:'kiss-cut 10-pack sheet', price:14, why:'5.83×8.27 Fourthwall 5495 / Printify sheet.', og:false},
+  {id:'pack-byo-10', theme:'packs', door:'A Fourthwall · B Shopify', name:'Build Your Own 10-pack', type:'build-your-own 10-pack', price:20, why:'Pick any 10 YES singles. $20. Fourthwall/Shopify prep only — not live.', og:true}
 ]
 ;
 const THEMES = [
-  {id:"snack", title:"Snack Crew", door:"A Fourthwall", lede:"Wildcard. Food kawaii. Highest want-and-buy. Wave 1. Gold tag = S&S OG pick."},
-  {id:"dino", title:"Dinosaurs", door:"A Fourthwall", lede:"Chunky enamel-pin dinos. Kid + adult impulse."},
+  {id:"snack", title:"Snack Crew", door:"A Fourthwall", lede:"Wildcard. Food kawaii. Highest want-and-buy. Wave 1. Avocado colors + donut frosting fixed."},
+  {id:"dino", title:"Dinosaurs", door:"A Fourthwall", lede:"Chunky enamel-pin dinos. Spino killed. Kid + adult impulse."},
   {id:"eighty", title:"80s", door:"A Fourthwall", lede:"Retro objects. Boombox, cassette, walkman."},
   {id:"nineties", title:"90s", door:"A Fourthwall", lede:"Floppy, discman, original pet-egg. No licensed toys."},
   {id:"flag", title:"Flags / state", door:"A Fourthwall", lede:"Flags YES. Parties / candidates NO."},
-  {id:"pin", title:"Enamel pin energy", door:"A Fourthwall", lede:"Badge-thick contour. Lightning, rose, lucky marks."},
-  {id:"chibi", title:"Chibi Japan", door:"A Fourthwall", lede:"Original kawaii. No Sanrio."},
-  {id:"myth", title:"Mythical", door:"A Fourthwall", lede:"Collectible creatures. Not Line Dragon."},
-  {id:"quote", title:"Quotes", door:"A Fourthwall", lede:"Designed type badges. Letters stay off creature art."},
+  {id:"pin", title:"Enamel pin energy", door:"A Fourthwall", lede:"Badge-thick contour. Lightning, rose, lucky marks. Snake is one tail."},
+  {id:"chibi", title:"Chibi Japan", door:"A Fourthwall", lede:"Original kawaii. No Sanrio. Daruma both eyes painted."},
+  {id:"myth", title:"Mythical", door:"A Fourthwall", lede:"Collectible creatures. Not Line Dragon. Kraken beak fixed."},
   {id:"anime", title:"Anime originals", door:"A Fourthwall", lede:"Shonen energy, original faces. No Naruto / Goku / Sailor Moon."},
-  {id:"packs", title:"10-packs", door:"A Fourthwall sheet $14", lede:"One kiss-cut sheet per pack. Not 10 fulfillments."},
+  {id:"packs", title:"10-packs", door:"A Fourthwall", lede:"Genre sheets $14. Mystery mixes $14. Build Your Own 10-pack $20 — pick any 10 YES singles. Prep only, not live."},
 ];
 
 const state = JSON.parse(localStorage.getItem(KEY) || '{"picks":{},"notes":{},"global":""}');
@@ -415,7 +402,7 @@ function cardHTML(s) {
   const og = s.og ? `<span class="tag">S&S OG</span>` : "";
   const cls = s.og ? "card og" : "card";
   return `<article class="${cls}" data-id="${s.id}">
-    <img class="hero" src="./img/${s.id}.jpg?v=rev7" alt="${s.name} ${s.type}" width="800" height="800"/>
+    <img class="hero" src="./img/${s.id}.jpg?v=rev7fix" alt="${s.name} ${s.type}" width="800" height="800"/>
     <div class="pad">
       ${og}
       <span class="door">${s.door} · ${s.type} $${s.price}</span>
