@@ -1,7 +1,7 @@
 {
   "kernel": "grok",
-  "generated_at": "2026-09-13T16:29:21.975998Z",
-  "updated_at_ct": "2026-09-13T11:29:21-0500",
+  "generated_at": "2026-09-13T16:31:31.262626Z",
+  "updated_at_ct": "2026-09-13T11:31:31-0500",
   "host": {
     "name": "Jimothys-Mac-mini-2.local",
     "role": "Grok Mini"
@@ -40,9 +40,7 @@
     "r1": "draft $0",
     "paper": "KILLED",
     "print": "KILLED",
-    "note": "Paper and print are dead. Money lives under Business (RH + R1).",
-    "lane": "RH Agentic \u20264103",
-    "merch": "PARKED"
+    "note": "Paper and print are dead. Money lives under Business (RH + R1)."
   },
   "dests": [
     {
@@ -413,7 +411,7 @@
     "idle": true,
     "last_120s": 0,
     "ollama_hot": [],
-    "rh_tick_age_s": 254
+    "rh_tick_age_s": 374
   },
   "cuts": {
     "crew_seq": true,
@@ -423,7 +421,11 @@
     "money_desk_8791": true
   },
   "one_in_flight": {
-    "dest": "RH CRYPTO ONLY",
-    "note": "Merch parked until one tee/tote works. Line Dragon pull pending login."
+    "dest": "RH CRYPTO + QUALITY GATE",
+    "note": "QUALITY.md locked. No ping until gate green. Merch parked."
+  },
+  "quality": {
+    "doc": "project-first/grok/QUALITY.md",
+    "locked": "2026-09-13"
   }
 }
