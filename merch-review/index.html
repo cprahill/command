@@ -4,9 +4,9 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <meta name="robots" content="noindex"/>
-<meta name="merch-review-build" content="rev6-easyship-2026-09-13"/>
-<title>Rev 6 review — easy-ship scientific line</title>
-<meta name="description" content="Rev6 easy-ship: stickers, keychains, bracelets, bottle opener, two tees. Research-led. Comment Yes/Later/No."/>
+<meta name="merch-review-build" content="rev7-sticker-shop-2026-09-13"/>
+<title>Rev 7 review — Stickers&Soap Co. sticker shop</title>
+<meta name="description" content="Stickers&Soap Co. Rev7: 100 die-cut stickers, 10 genres, 10-packs. S&S OG foundation first. Comment Yes/Later/No."/>
 <link rel="canonical" href="https://cprahill.github.io/command/merch-review/"/>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
@@ -19,7 +19,6 @@
   --cyan: #3ce7ff;
   --gold: #ffb020;
   --magenta: #ff2d95;
-  --cherry: #c44536;
   --ok: #3dff9a;
   --no: #ff5a7a;
 }
@@ -34,12 +33,12 @@ img { display: block; max-inline-size: 100%; }
 a { color: var(--cyan); text-decoration: none; }
 a:hover { text-decoration: underline; }
 header {
-  max-inline-size: 1100px;
+  max-inline-size: 1280px;
   margin-inline: auto;
   padding: 16px 16px 8px;
 }
 .brand { font-family: "Barlow Condensed", sans-serif; font-size: 13px; letter-spacing: .22em; color: var(--muted); }
-.brand i { color: var(--cyan); font-style: normal; }
+.brand i { color: var(--gold); font-style: normal; }
 h1 {
   font-family: "Barlow Condensed", sans-serif;
   font-size: clamp(26px, 6vw, 44px);
@@ -47,7 +46,7 @@ h1 {
   margin: 8px 0 10px;
   text-wrap: balance;
 }
-.lede { color: var(--muted); font-size: 13px; max-inline-size: 72ch; }
+.lede { color: var(--muted); font-size: 13px; max-inline-size: 78ch; }
 .tally {
   display: flex; gap: 10px; flex-wrap: wrap;
   margin: 14px 0 6px; font-size: 12px; letter-spacing: .08em;
@@ -66,29 +65,24 @@ h1 {
   min-block-size: 44px;
 }
 .tools button:hover, .export:hover { border-color: var(--cyan); }
+.tools button.on { border-color: var(--gold); color: var(--gold); }
 .nav-wrap {
   position: sticky;
   top: 0;
   z-index: 8;
-  container-type: scroll-state;
-  container-name: board-nav;
   background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: blur(12px);
   border-block-end: 1px solid var(--line);
 }
 .nav-inner {
-  max-inline-size: 1100px;
+  max-inline-size: 1280px;
   margin-inline: auto;
   padding: 6px 8px;
-}
-@container board-nav scroll-state(stuck: top) {
-  .nav-inner { box-shadow: 0 8px 24px rgb(0 0 0 / 0.35); }
 }
 nav.themes {
   display: flex;
   gap: 4px;
   overflow-x: auto;
-  scroll-target-group: auto;
   -webkit-overflow-scrolling: touch;
 }
 nav.themes a {
@@ -102,16 +96,15 @@ nav.themes a {
   white-space: nowrap;
 }
 nav.themes a:hover { text-decoration: none; color: var(--text); }
-nav.themes a:is(:target-current, .is-current) {
-  color: var(--cyan);
-  border-color: var(--cyan);
+nav.themes a.is-current {
+  color: var(--gold);
+  border-color: var(--gold);
   font-weight: 700;
 }
 section.theme {
-  max-inline-size: 1100px;
+  max-inline-size: 1280px;
   margin: 0 auto;
   padding: 18px 16px 8px;
-  overflow-anchor: none;
 }
 .theme-head {
   display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline;
@@ -125,17 +118,16 @@ section.theme {
   text-transform: uppercase;
 }
 .door { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--cyan); }
-.door.b { color: var(--cherry); }
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 14px;
+  gap: 12px;
 }
 @media (min-width: 700px) {
   .grid { grid-template-columns: 1fr 1fr; }
 }
 @media (min-width: 1100px) {
-  .grid { grid-template-columns: 1fr 1fr 1fr; }
+  .grid { grid-template-columns: 1fr 1fr 1fr 1fr; }
 }
 .card {
   background: var(--card);
@@ -145,24 +137,19 @@ section.theme {
   display: flex;
   flex-direction: column;
 }
-.card.easy { border-color: color-mix(in srgb, var(--gold) 45%, var(--line)); }
+.card.og { border-color: color-mix(in srgb, var(--gold) 55%, var(--line)); }
 .card img.hero {
   inline-size: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  object-position: center 18%;
-  background: #05070b;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  object-position: center;
+  background: #0b0e14;
 }
-.card.sticker img.hero,
-.card.sheet img.hero,
-.card.keychain img.hero,
-.card.bracelet img.hero,
-.card.opener img.hero { object-fit: contain; object-position: center; background: #0b0e14; }
 .pad { padding: 12px 12px 14px; display: grid; gap: 8px; }
 .pad h3 {
   font-family: "Barlow Condensed", sans-serif;
   margin: 0;
-  font-size: 22px;
+  font-size: 20px;
   letter-spacing: .04em;
 }
 .meta { color: var(--muted); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
@@ -194,9 +181,7 @@ section.theme {
 .btns button.no.on { background: color-mix(in srgb, var(--no) 18%, transparent); border-color: var(--no); color: var(--no); }
 .btns button.later.on { border-color: var(--gold); color: var(--gold); }
 .card textarea, #global-note {
-  field-sizing: content;
   width: 100%;
-  height: auto;
   min-block-size: 3lh;
   max-block-size: 8lh;
   font: 13px/1.4 "IBM Plex Mono", ui-monospace, monospace;
@@ -207,24 +192,22 @@ section.theme {
   padding: 8px 10px;
   resize: vertical;
 }
-@supports not (field-sizing: content) {
-  .card textarea, #global-note { min-height: 64px; }
-}
 .card textarea:focus, #global-note:focus { outline: 2px solid var(--cyan); outline-offset: 1px; }
 .global {
-  max-inline-size: 1100px;
+  max-inline-size: 1280px;
   margin: 8px auto 0;
   padding: 8px 16px 28px;
   display: grid;
   gap: 8px;
 }
 footer {
-  max-inline-size: 1100px;
+  max-inline-size: 1280px;
   margin-inline: auto;
   padding: 8px 16px 40px;
   color: var(--muted);
   font-size: 12px;
 }
+body.og-only .card:not(.og) { display: none; }
 @media (max-width: 700px) {
   header { padding: 10px 16px 4px; }
   h1 { font-size: 22px; margin: 4px 0 6px; }
@@ -234,10 +217,10 @@ footer {
 </head>
 <body>
 <header>
-  <div class="brand">COMMAND <i>//</i> MERCH REVIEW · REV6 · 2026-09-13</div>
-  <p style="color:#3ce7ff;font:700 12px/1.3 IBM Plex Mono,monospace;letter-spacing:.08em">BUILD rev6 · easy-ship scientific line · stickers/keychains first · two tees max · $300 by Fri math in PLAN</p>
-  <h1>Rev 6. Easy-ship only. Comment Yes / Later / No.</h1>
-  <p class="lede">Research-led originals. Shop Moth · Shift Sparrow · Cap Toad. Volume SKUs before tees. Bracelets staged (no cheap silicone POD door). Do not upload live until you YES. Line Dragon checkout stays.</p>
+  <div class="brand">COMMAND <i>//</i> MERCH REVIEW · REV7 · STICKERS&amp;SOAP CO.</div>
+  <p style="color:#ffb020;font:700 12px/1.3 IBM Plex Mono,monospace;letter-spacing:.08em">BUILD rev7 · stickers only · 100 marks · 10 genres · singles $5/$6 · 10-packs $14 · S&amp;S OG first</p>
+  <h1>Stickers&amp;Soap Co. Comment Yes / Later / No.</h1>
+  <p class="lede">Rev6 moth/sparrow/toad FAIL. This board is stickers only until profit. Gold tag = recommended S&amp;S OG foundation (year-round). Untagged = drop candidates. No licensed anime. Do not upload live until you YES.</p>
   <div class="tally">
     <span>approve <b id="n-yes">0</b></span>
     <span>later <b id="n-later">0</b></span>
@@ -245,53 +228,166 @@ footer {
     <span>comments <b id="n-notes">0</b></span>
   </div>
   <div class="tools">
+    <button type="button" id="og-only">OG only</button>
     <button type="button" class="export" id="export">Export picks + comments JSON</button>
   </div>
 </header>
 <div class="nav-wrap">
   <div class="nav-inner">
-    <nav class="themes" aria-label="Themes">
-      <a href="#shop-moth">1 Shop Moth</a>
-      <a href="#shift-sparrow">2 Shift Sparrow</a>
-      <a href="#cap-toad">3 Cap Toad</a>
+    <nav class="themes" aria-label="Genres">
+      <a href="#snack">Snack</a>
+      <a href="#dino">Dino</a>
+      <a href="#eighty">80s</a>
+      <a href="#nineties">90s</a>
+      <a href="#flag">Flags</a>
+      <a href="#pin">Pins</a>
+      <a href="#chibi">Chibi</a>
+      <a href="#myth">Myth</a>
+      <a href="#quote">Quotes</a>
+      <a href="#anime">Anime</a>
+      <a href="#packs">Packs</a>
     </nav>
   </div>
 </div>
 <main id="board"></main>
 <div class="global">
   <label for="global-note">Global note (whole board)</label>
-  <textarea id="global-note" placeholder="Upload stickers first? skip bracelets? YES the sparrow tee?…"></textarea>
+  <textarea id="global-note" placeholder="Lock OG 24? skip anime? YES Wave 1 Snack pack?…"></textarea>
 </div>
 <footer>
-  <p>Picks save on this phone in localStorage. Export JSON and Drop-save as <code>merch/review-comments.json</code>. Upload winners only from <code>merch/GO-REV6.md</code>.</p>
-  <p><a href="https://fresh-start-ogz-shop.fourthwall.com/">Live Fourthwall (do not break)</a> · <a href="https://sh0bvy-v0.myshopify.com/">Shopify frozen</a></p>
+  <p>Picks save on this phone in localStorage. Export JSON and Drop-save as <code>merch/review-comments.json</code>. Upload winners only from <code>merch/GO-REV7.md</code>.</p>
+  <p>Fourthwall $0/mo primary. Shopify mapped, meter YES-gated. No tees / keychains until sticker profit.</p>
 </footer>
 <script>
-const KEY = "merch-review-rev6-easyship-2026-09-13";
+const KEY = "merch-review-rev7-sticker-2026-09-13";
 const SKUS = [
-  {id:"sm-moth-sticker", theme:"shop-moth", door:"A Fourthwall", name:"Shop Moth", type:"die-cut sticker", price:6, why:'Thick cream contour. Factory moth with lighter. Reads at thumbnail.', cls:"sticker easy"},
-  {id:"sm-spark-sticker", theme:"shop-moth", door:"A Fourthwall", name:"Spark Lighter", type:"die-cut sticker", price:6, why:'Companion tool mark. Brass striker, not a brand Zippo.', cls:"sticker easy"},
-  {id:"sm-pack-sheet", theme:"shop-moth", door:"A Fourthwall", name:"Shop Moth pack", type:"kiss-cut sheet", price:10, why:'5.83×8.27 Fourthwall template. Two of each mark.', cls:"sheet easy"},
-  {id:"sm-moth-keychain", theme:"shop-moth", door:"A Fourthwall", name:"Shop Moth", type:"acrylic keychain", price:12, why:'Custom-shape acrylic. Hole + ring. Print fills the cut.', cls:"keychain easy"},
-  {id:"sm-moth-bracelet", theme:"shop-moth", door:"Printify staged", name:"Shop Moth", type:"silicone bracelet", price:18, why:'STAGED look. No $1 POD silicone door. Printify jewelry if YES.', cls:"bracelet easy"},
-  {id:"sm-moth-tee", theme:"shop-moth", door:"A Fourthwall", name:"Shop Moth", type:"tee", price:28, why:'Measured TEE_FRONT ~12" wide, ~3" below collar.', cls:"tee"},
-  {id:"ss-sparrow-sticker", theme:"shift-sparrow", door:"A Fourthwall", name:"Shift Sparrow", type:"die-cut sticker", price:6, why:'Commute sparrow, safety vest, pickle bag. Strongest impulse.', cls:"sticker easy"},
-  {id:"ss-bag-sticker", theme:"shift-sparrow", door:"A Fourthwall", name:"Deli Bag", type:"die-cut sticker", price:6, why:'Companion object. Kraft bag + pickle.', cls:"sticker easy"},
-  {id:"ss-pack-sheet", theme:"shift-sparrow", door:"A Fourthwall", name:"Shift pack", type:"kiss-cut sheet", price:10, why:'5.83×8.27. Sparrow + bag, two each.', cls:"sheet easy"},
-  {id:"ss-sparrow-keychain", theme:"shift-sparrow", door:"A Fourthwall", name:"Shift Sparrow", type:"acrylic keychain", price:12, why:'Custom-shape acrylic. Fill the cut.', cls:"keychain easy"},
-  {id:"ss-sparrow-bracelet", theme:"shift-sparrow", door:"Printify staged", name:"Shift Sparrow", type:"silicone bracelet", price:18, why:'STAGED. Wrist-scale enamel icon. Jewelry door if YES.', cls:"bracelet easy"},
-  {id:"ss-sparrow-tee", theme:"shift-sparrow", door:"A Fourthwall", name:"Shift Sparrow", type:"tee", price:28, why:'Second tee only. 12" TEE_FRONT fill.', cls:"tee"},
-  {id:"ct-toad-sticker", theme:"cap-toad", door:"A Fourthwall", name:"Cap Toad", type:"die-cut sticker", price:6, why:'Toad in the cap. Letters stripped. Cream halo.', cls:"sticker easy"},
-  {id:"ct-cap-sticker", theme:"cap-toad", door:"A Fourthwall", name:"Bottle Cap", type:"die-cut sticker", price:6, why:'Companion object. No brand stamp.', cls:"sticker easy"},
-  {id:"ct-toad-keychain", theme:"cap-toad", door:"A Fourthwall", name:"Cap Toad", type:"acrylic keychain", price:12, why:'Custom-shape acrylic of toad-in-cap.', cls:"keychain easy"},
-  {id:"ct-toad-opener", theme:"cap-toad", door:"Printify 649", name:"Cap Toad", type:"bottle opener", price:16, why:'Printify magnetic cap opener. Door exists. Confirm cost at upload.', cls:"opener easy"},
-  {id:"ct-toad-bracelet", theme:"cap-toad", door:"Printify staged", name:"Cap Toad", type:"silicone bracelet", price:18, why:'STAGED green band + brass toad. Not a $1 factory band.', cls:"bracelet easy"}
+  {id:'boombox-80s', theme:'eighty', door:'A Fourthwall · B Shopify', name:'Boombox', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'cassette-80s', theme:'eighty', door:'A Fourthwall · B Shopify', name:'Cassette', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'walkman-80s', theme:'eighty', door:'A Fourthwall · B Shopify', name:'Walkman', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'joystick-80s', theme:'eighty', door:'A Fourthwall · B Shopify', name:'Joystick', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'crt-80s', theme:'eighty', door:'A Fourthwall · B Shopify', name:'CRT Set', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'skate-80s', theme:'eighty', door:'A Fourthwall · B Shopify', name:'Roller Skate', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'palm-80s', theme:'eighty', door:'A Fourthwall · B Shopify', name:'Neon Palm', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'polaroid-80s', theme:'eighty', door:'A Fourthwall · B Shopify', name:'Instant Cam', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'synth-80s', theme:'eighty', door:'A Fourthwall · B Shopify', name:'Synth', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'sunset-80s', theme:'eighty', door:'A Fourthwall · B Shopify', name:'Grid Sun', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'floppy-90s', theme:'nineties', door:'A Fourthwall · B Shopify', name:'Floppy', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'discman-90s', theme:'nineties', door:'A Fourthwall · B Shopify', name:'Discman', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'pager-90s', theme:'nineties', door:'A Fourthwall · B Shopify', name:'Pager', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'pet-egg-90s', theme:'nineties', door:'A Fourthwall · B Shopify', name:'Pet Egg', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'handheld-90s', theme:'nineties', door:'A Fourthwall · B Shopify', name:'Brick Game', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'slap-90s', theme:'nineties', door:'A Fourthwall · B Shopify', name:'Slap Band', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'inline-90s', theme:'nineties', door:'A Fourthwall · B Shopify', name:'Inline Skate', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'mixtape-90s', theme:'nineties', door:'A Fourthwall · B Shopify', name:'Mixtape', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'cd-90s', theme:'nineties', door:'A Fourthwall · B Shopify', name:'Rainbow CD', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'scrunchie-90s', theme:'nineties', door:'A Fourthwall · B Shopify', name:'Scrunchie', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'ember-fist', theme:'anime', door:'A Fourthwall · B Shopify', name:'Ember Fist', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'moon-ribbon', theme:'anime', door:'A Fourthwall · B Shopify', name:'Moon Ribbon', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'fox-blade', theme:'anime', door:'A Fourthwall · B Shopify', name:'Fox Blade', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'ramen-pilot', theme:'anime', door:'A Fourthwall · B Shopify', name:'Ramen Pilot', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'cloud-bike', theme:'anime', door:'A Fourthwall · B Shopify', name:'Cloud Bike', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'bolt-cat', theme:'anime', door:'A Fourthwall · B Shopify', name:'Bolt Cat', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'iron-petal', theme:'anime', door:'A Fourthwall · B Shopify', name:'Iron Petal', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'tide-monk', theme:'anime', door:'A Fourthwall · B Shopify', name:'Tide Monk', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'star-courier', theme:'anime', door:'A Fourthwall · B Shopify', name:'Star Courier', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'ink-fox', theme:'anime', door:'A Fourthwall · B Shopify', name:'Ink Fox', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'onigiri-chibi', theme:'chibi', door:'A Fourthwall · B Shopify', name:'Onigiri', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'tanuki-chibi', theme:'chibi', door:'A Fourthwall · B Shopify', name:'Tanuki', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'koi-chibi', theme:'chibi', door:'A Fourthwall · B Shopify', name:'Koi', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'ramune-chibi', theme:'chibi', door:'A Fourthwall · B Shopify', name:'Ramune', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'daruma-chibi', theme:'chibi', door:'A Fourthwall · B Shopify', name:'Daruma', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'dumpling-chibi', theme:'chibi', door:'A Fourthwall · B Shopify', name:'Dumpling', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'lucky-frog-chibi', theme:'chibi', door:'A Fourthwall · B Shopify', name:'Lucky Frog', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'festival-mask-chibi', theme:'chibi', door:'A Fourthwall · B Shopify', name:'Fest Mask', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'bento-cat-chibi', theme:'chibi', door:'A Fourthwall · B Shopify', name:'Bento Cat', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'lantern-chibi', theme:'chibi', door:'A Fourthwall · B Shopify', name:'Lantern', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'phoenix-myth', theme:'myth', door:'A Fourthwall · B Shopify', name:'Phoenix', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'griffin-myth', theme:'myth', door:'A Fourthwall · B Shopify', name:'Griffin', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'unicorn-myth', theme:'myth', door:'A Fourthwall · B Shopify', name:'Unicorn', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'kraken-myth', theme:'myth', door:'A Fourthwall · B Shopify', name:'Kraken', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'pegasus-myth', theme:'myth', door:'A Fourthwall · B Shopify', name:'Pegasus', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'sphinx-myth', theme:'myth', door:'A Fourthwall · B Shopify', name:'Sphinx', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'hydra-myth', theme:'myth', door:'A Fourthwall · B Shopify', name:'Hydra', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'basilisk-myth', theme:'myth', door:'A Fourthwall · B Shopify', name:'Basilisk', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'kitsune-myth', theme:'myth', door:'A Fourthwall · B Shopify', name:'Kitsune', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'wyvern-myth', theme:'myth', door:'A Fourthwall · B Shopify', name:'Wyvern', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'trex-dino', theme:'dino', door:'A Fourthwall · B Shopify', name:'T-Rex', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'raptor-dino', theme:'dino', door:'A Fourthwall · B Shopify', name:'Raptor', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'triceratops-dino', theme:'dino', door:'A Fourthwall · B Shopify', name:'Triceratops', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'stego-dino', theme:'dino', door:'A Fourthwall · B Shopify', name:'Stego', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'ptera-dino', theme:'dino', door:'A Fourthwall · B Shopify', name:'Ptera', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'brachio-dino', theme:'dino', door:'A Fourthwall · B Shopify', name:'Brachio', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'ankylo-dino', theme:'dino', door:'A Fourthwall · B Shopify', name:'Ankylo', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'spino-dino', theme:'dino', door:'A Fourthwall · B Shopify', name:'Spino', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'dilo-dino', theme:'dino', door:'A Fourthwall · B Shopify', name:'Dilo', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'para-dino', theme:'dino', door:'A Fourthwall · B Shopify', name:'Para', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'lightning-pin', theme:'pin', door:'A Fourthwall · B Shopify', name:'Lightning', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'dagger-pin', theme:'pin', door:'A Fourthwall · B Shopify', name:'Dagger', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'eye-pin', theme:'pin', door:'A Fourthwall · B Shopify', name:'All-Seeing', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'snake-pin', theme:'pin', door:'A Fourthwall · B Shopify', name:'Coil Snake', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'dice-pin', theme:'pin', door:'A Fourthwall · B Shopify', name:'Lucky Die', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'anchor-pin', theme:'pin', door:'A Fourthwall · B Shopify', name:'Anchor', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'heart-lock-pin', theme:'pin', door:'A Fourthwall · B Shopify', name:'Heart Lock', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'rose-pin', theme:'pin', door:'A Fourthwall · B Shopify', name:'Rose', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'starburst-pin', theme:'pin', door:'A Fourthwall · B Shopify', name:'Starburst', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'horseshoe-pin', theme:'pin', door:'A Fourthwall · B Shopify', name:'Horseshoe', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'keep-going', theme:'quote', door:'A Fourthwall · B Shopify', name:'Keep Going', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'stay-gold', theme:'quote', door:'A Fourthwall · B Shopify', name:'Stay Gold', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'hold-fast', theme:'quote', door:'A Fourthwall · B Shopify', name:'Hold Fast', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'fresh-start', theme:'quote', door:'A Fourthwall · B Shopify', name:'Fresh Start', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'walk-by-faith', theme:'quote', door:'A Fourthwall · B Shopify', name:'Walk by Faith', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'still-standing', theme:'quote', door:'A Fourthwall · B Shopify', name:'Still Standing', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'easy-does-it', theme:'quote', door:'A Fourthwall · B Shopify', name:'Easy Does It', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'texas-tough', theme:'quote', door:'A Fourthwall · B Shopify', name:'Texas Tough', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'one-more-round', theme:'quote', door:'A Fourthwall · B Shopify', name:'One More Round', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'born-to-build', theme:'quote', door:'A Fourthwall · B Shopify', name:'Born to Build', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'us-flag-wave', theme:'flag', door:'A Fourthwall · B Shopify', name:'Old Glory', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'texas-flag', theme:'flag', door:'A Fourthwall · B Shopify', name:'Texas Flag', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'texas-outline', theme:'flag', door:'A Fourthwall · B Shopify', name:'Texas Shape', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'bald-eagle', theme:'flag', door:'A Fourthwall · B Shopify', name:'Eagle', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'liberty-bell', theme:'flag', door:'A Fourthwall · B Shopify', name:'Liberty Bell', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'stars-circle', theme:'flag', door:'A Fourthwall · B Shopify', name:'Star Ring', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'american-shield', theme:'flag', door:'A Fourthwall · B Shopify', name:'Shield', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'lone-star-badge', theme:'flag', door:'A Fourthwall · B Shopify', name:'Lone Star', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'old-glory-banner', theme:'flag', door:'A Fourthwall · B Shopify', name:'Banner', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'boots-star', theme:'flag', door:'A Fourthwall · B Shopify', name:'Star Boot', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'taco-snack', theme:'snack', door:'A Fourthwall · B Shopify', name:'Taco', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'burger-snack', theme:'snack', door:'A Fourthwall · B Shopify', name:'Burger', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'ramen-snack', theme:'snack', door:'A Fourthwall · B Shopify', name:'Ramen', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'pizza-snack', theme:'snack', door:'A Fourthwall · B Shopify', name:'Pizza', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'donut-snack', theme:'snack', door:'A Fourthwall · B Shopify', name:'Donut', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'boba-snack', theme:'snack', door:'A Fourthwall · B Shopify', name:'Boba', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
+  {id:'avocado-snack', theme:'snack', door:'A Fourthwall · B Shopify', name:'Avocado', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'sushi-snack', theme:'snack', door:'A Fourthwall · B Shopify', name:'Sushi', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'ice-cream-snack', theme:'snack', door:'A Fourthwall · B Shopify', name:'Ice Cream', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'hotdog-snack', theme:'snack', door:'A Fourthwall · B Shopify', name:'Hot Dog', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'pack-eighty', theme:'packs', door:'A Fourthwall · B Shopify', name:'80s 10-pack', type:'kiss-cut 10-pack sheet', price:14, why:'5.83×8.27 Fourthwall 5495 / Printify sheet.', og:false},
+  {id:'pack-nineties', theme:'packs', door:'A Fourthwall · B Shopify', name:'90s 10-pack', type:'kiss-cut 10-pack sheet', price:14, why:'5.83×8.27 Fourthwall 5495 / Printify sheet.', og:false},
+  {id:'pack-anime', theme:'packs', door:'A Fourthwall · B Shopify', name:'Anime originals 10-pack', type:'kiss-cut 10-pack sheet', price:14, why:'5.83×8.27 Fourthwall 5495 / Printify sheet.', og:false},
+  {id:'pack-chibi', theme:'packs', door:'A Fourthwall · B Shopify', name:'Chibi 10-pack', type:'kiss-cut 10-pack sheet', price:14, why:'5.83×8.27 Fourthwall 5495 / Printify sheet.', og:false},
+  {id:'pack-myth', theme:'packs', door:'A Fourthwall · B Shopify', name:'Myth 10-pack', type:'kiss-cut 10-pack sheet', price:14, why:'5.83×8.27 Fourthwall 5495 / Printify sheet.', og:false},
+  {id:'pack-dino', theme:'packs', door:'A Fourthwall · B Shopify', name:'Dino 10-pack', type:'kiss-cut 10-pack sheet', price:14, why:'5.83×8.27 Fourthwall 5495 / Printify sheet.', og:false},
+  {id:'pack-pin', theme:'packs', door:'A Fourthwall · B Shopify', name:'Pin energy 10-pack', type:'kiss-cut 10-pack sheet', price:14, why:'5.83×8.27 Fourthwall 5495 / Printify sheet.', og:false},
+  {id:'pack-quote', theme:'packs', door:'A Fourthwall · B Shopify', name:'Quotes 10-pack', type:'kiss-cut 10-pack sheet', price:14, why:'5.83×8.27 Fourthwall 5495 / Printify sheet.', og:false},
+  {id:'pack-flag', theme:'packs', door:'A Fourthwall · B Shopify', name:'Flags 10-pack', type:'kiss-cut 10-pack sheet', price:14, why:'OG pack. One sheet, one fulfillment.', og:true},
+  {id:'pack-snack', theme:'packs', door:'A Fourthwall · B Shopify', name:'Snack Crew 10-pack', type:'kiss-cut 10-pack sheet', price:14, why:'OG pack. One sheet, one fulfillment.', og:true},
+  {id:'pack-random-a', theme:'packs', door:'A Fourthwall · B Shopify', name:'Mystery Mix A', type:'kiss-cut 10-pack sheet', price:14, why:'OG pack. One sheet, one fulfillment.', og:true},
+  {id:'pack-random-b', theme:'packs', door:'A Fourthwall · B Shopify', name:'Mystery Mix B', type:'kiss-cut 10-pack sheet', price:14, why:'5.83×8.27 Fourthwall 5495 / Printify sheet.', og:false},
+  {id:'pack-random-c', theme:'packs', door:'A Fourthwall · B Shopify', name:'Mystery Mix C', type:'kiss-cut 10-pack sheet', price:14, why:'5.83×8.27 Fourthwall 5495 / Printify sheet.', og:false}
 ]
 ;
 const THEMES = [
-  {id:"shop-moth", title:"Shop Moth", door:"A · Fourthwall first", pack:"a", lede:"Factory-cute moth. Stickers + keychain live-path. Tee after volume. Bracelet staged."},
-  {id:"shift-sparrow", title:"Shift Sparrow", door:"A · Fourthwall first", pack:"a", lede:"Commute sparrow. Strongest want-and-buy. Second tee only."},
-  {id:"cap-toad", title:"Cap Toad", door:"A + Printify opener", pack:"a", lede:"Toad in a bottle cap. Opener is the extra SKU. No tee this sprint."},
+  {id:"snack", title:"Snack Crew", door:"A Fourthwall", lede:"Wildcard. Food kawaii. Highest want-and-buy. Wave 1. Gold tag = S&S OG pick."},
+  {id:"dino", title:"Dinosaurs", door:"A Fourthwall", lede:"Chunky enamel-pin dinos. Kid + adult impulse."},
+  {id:"eighty", title:"80s", door:"A Fourthwall", lede:"Retro objects. Boombox, cassette, walkman."},
+  {id:"nineties", title:"90s", door:"A Fourthwall", lede:"Floppy, discman, original pet-egg. No licensed toys."},
+  {id:"flag", title:"Flags / state", door:"A Fourthwall", lede:"Flags YES. Parties / candidates NO."},
+  {id:"pin", title:"Enamel pin energy", door:"A Fourthwall", lede:"Badge-thick contour. Lightning, rose, lucky marks."},
+  {id:"chibi", title:"Chibi Japan", door:"A Fourthwall", lede:"Original kawaii. No Sanrio."},
+  {id:"myth", title:"Mythical", door:"A Fourthwall", lede:"Collectible creatures. Not Line Dragon."},
+  {id:"quote", title:"Quotes", door:"A Fourthwall", lede:"Designed type badges. Letters stay off creature art."},
+  {id:"anime", title:"Anime originals", door:"A Fourthwall", lede:"Shonen energy, original faces. No Naruto / Goku / Sailor Moon."},
+  {id:"packs", title:"10-packs", door:"A Fourthwall sheet $14", lede:"One kiss-cut sheet per pack. Not 10 fulfillments."},
 ];
 
 const state = JSON.parse(localStorage.getItem(KEY) || '{"picks":{},"notes":{},"global":""}');
@@ -316,11 +412,12 @@ function tally() {
 function cardHTML(s) {
   const pick = state.picks[s.id] || "";
   const note = state.notes[s.id] || "";
-  const easy = s.cls.includes("easy") ? `<span class="tag">easy ship</span>` : "";
-  return `<article class="card ${s.cls}" data-id="${s.id}">
-    <img class="hero" src="./img/${s.id}.jpg?v=rev6" alt="${s.name} ${s.type}" width="800" height="1067"/>
+  const og = s.og ? `<span class="tag">S&S OG</span>` : "";
+  const cls = s.og ? "card og" : "card";
+  return `<article class="${cls}" data-id="${s.id}">
+    <img class="hero" src="./img/${s.id}.jpg?v=rev7" alt="${s.name} ${s.type}" width="800" height="800"/>
     <div class="pad">
-      ${easy}
+      ${og}
       <span class="door">${s.door} · ${s.type} $${s.price}</span>
       <h3>${s.name}</h3>
       <p class="price">$${s.price} + ship</p>
@@ -340,9 +437,10 @@ THEMES.forEach((t) => {
   const sec = document.createElement("section");
   sec.className = "theme";
   sec.id = t.id;
+  const rows = SKUS.filter(s => s.theme===t.id);
   sec.innerHTML = `<div class="theme-head"><h2>${t.title}</h2><span class="door">${t.door}</span></div>
     <p class="lede">${t.lede}</p>
-    <div class="grid">${SKUS.filter(s => s.theme===t.id).map(cardHTML).join("")}</div>`;
+    <div class="grid">${rows.map(cardHTML).join("")}</div>`;
   board.appendChild(sec);
 });
 
@@ -379,7 +477,7 @@ document.getElementById("export").addEventListener("click", () => {
     picks: state.picks,
     notes: state.notes,
     global: state.global,
-    skus: SKUS.map(s => ({id:s.id, name:s.name, type:s.type, price:s.price, theme:s.theme, door:s.door, pick: state.picks[s.id] || "", note: state.notes[s.id] || ""})),
+    skus: SKUS.map(s => ({id:s.id, name:s.name, type:s.type, price:s.price, theme:s.theme, door:s.door, og:!!s.og, pick: state.picks[s.id] || "", note: state.notes[s.id] || ""})),
   };
   const blob = new Blob([JSON.stringify(payload, null, 2)], {type:"application/json"});
   const a = document.createElement("a");
@@ -389,31 +487,26 @@ document.getElementById("export").addEventListener("click", () => {
   URL.revokeObjectURL(a.href);
 });
 
+document.getElementById("og-only").addEventListener("click", (e) => {
+  document.body.classList.toggle("og-only");
+  e.currentTarget.classList.toggle("on", document.body.classList.contains("og-only"));
+});
+
 tally();
 
 const navLinks = document.querySelectorAll("nav.themes a");
-if (!CSS.supports("scroll-target-group", "auto")) {
-  const sections = THEMES.map(t => document.getElementById(t.id));
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      const id = entry.target.id;
-      navLinks.forEach((link) => {
-        const on = link.getAttribute("href") === `#${id}`;
-        link.classList.toggle("is-current", on);
-        link.setAttribute("aria-current", on ? "true" : "false");
-      });
+const sections = THEMES.map(t => document.getElementById(t.id));
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    const id = entry.target.id;
+    navLinks.forEach((link) => {
+      const on = link.getAttribute("href") === `#${id}`;
+      link.classList.toggle("is-current", on);
     });
-  }, { rootMargin: "-45% 0px -45% 0px", threshold: 0 });
-  sections.forEach(s => obs.observe(s));
-} else {
-  const sync = () => {
-    const current = document.querySelector("nav.themes a:target-current");
-    navLinks.forEach(link => link.setAttribute("aria-current", link === current ? "true" : "false"));
-  };
-  sync();
-  document.addEventListener("scrollend", sync);
-}
+  });
+}, { rootMargin: "-45% 0px -45% 0px", threshold: 0 });
+sections.forEach(s => obs.observe(s));
 </script>
 </body>
 </html>
