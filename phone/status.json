@@ -1,7 +1,7 @@
 {
   "kernel": "grok",
-  "generated_at": "2026-09-13T16:31:31.262626Z",
-  "updated_at_ct": "2026-09-13T11:31:31-0500",
+  "generated_at": "2026-09-13T16:31:58.000911Z",
+  "updated_at_ct": "2026-09-13T11:31:58-0500",
   "host": {
     "name": "Jimothys-Mac-mini-2.local",
     "role": "Grok Mini"
@@ -170,7 +170,9 @@
       "name": "rh_agentic_crypto",
       "http": null,
       "state": "armed",
-      "pid": null
+      "pid": null,
+      "last_exit": "0",
+      "note": "crypto markets OPEN 24/7 \u2014 this row is the cycle process only"
     },
     {
       "name": "keepawake",
@@ -179,26 +181,22 @@
       "pid": 1261
     }
   ],
+  "rh": {
+    "markets": "OPEN 24/7",
+    "agent": "armed",
+    "why": "cycle every 6h \u2014 not market hours",
+    "last_exit": "0"
+  },
+  "one_in_flight": {
+    "dest": "SYSTEM FIX",
+    "note": "Verify surface + Line Dragon pull (YES). ONE-IN-FLIGHT."
+  },
+  "merch": {
+    "line_dragon": "LIVE_FAIL",
+    "note": "Pull in progress after login.",
+    "shop": "https://fresh-start-ogz-shop.fourthwall.com/"
+  },
   "traffic": [
-    {
-      "kind": "route",
-      "path": "gemma",
-      "dest": "productivity",
-      "job": "remind milk",
-      "ran": false,
-      "why": "Gemma 12b cheap English \u2014 not Bot grind",
-      "id": "1789269332156286000",
-      "ts": "2026-09-13T03:15:32.156288Z"
-    },
-    {
-      "kind": "route",
-      "path": "host",
-      "job": "status",
-      "ran": false,
-      "why": "ops on Mini clocks",
-      "id": "1789269332402142000",
-      "ts": "2026-09-13T03:15:32.402143Z"
-    },
     {
       "kind": "route",
       "path": "refuse",
@@ -405,13 +403,31 @@
       "model": "gemma4:12b",
       "id": "1789270087508507000",
       "ts": "2026-09-13T03:28:07.508509Z"
+    },
+    {
+      "kind": "route",
+      "path": "host",
+      "job": "status",
+      "ran": false,
+      "why": "ops on Mini clocks",
+      "id": "1789317111927945000",
+      "ts": "2026-09-13T16:31:51.927949Z"
+    },
+    {
+      "kind": "route",
+      "path": "host",
+      "job": "status",
+      "ran": true,
+      "why": "ops on Mini clocks",
+      "id": "1789317112027141000",
+      "ts": "2026-09-13T16:31:52.027144Z"
     }
   ],
   "work": {
-    "idle": true,
-    "last_120s": 0,
+    "idle": false,
+    "last_120s": 2,
     "ollama_hot": [],
-    "rh_tick_age_s": 374
+    "rh_tick_age_s": 430
   },
   "cuts": {
     "crew_seq": true,
@@ -419,13 +435,5 @@
     "paper": true,
     "print": true,
     "money_desk_8791": true
-  },
-  "one_in_flight": {
-    "dest": "RH CRYPTO + QUALITY GATE",
-    "note": "QUALITY.md locked. No ping until gate green. Merch parked."
-  },
-  "quality": {
-    "doc": "project-first/grok/QUALITY.md",
-    "locked": "2026-09-13"
   }
 }
