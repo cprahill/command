@@ -2,8 +2,8 @@
   "title": "PROCESS TRUTH",
   "conductor": "grok-bot",
   "build": "tool",
-  "generated_at": "2026-09-13T17:42:17.005544Z",
-  "generated_at_ct": "2026-09-13T12:42:17-0500",
+  "generated_at": "2026-09-13T17:57:58.857699Z",
+  "generated_at_ct": "2026-09-13T12:57:58-0500",
   "host": "Jimothys-Mac-mini-2.local",
   "ram": {
     "gb": 24,
@@ -66,7 +66,7 @@
       "keep": true
     },
     "com.rahill.truth-publish": {
-      "pid": 79003,
+      "pid": 81975,
       "last_exit": "0",
       "loaded": true,
       "keep": true
@@ -102,13 +102,13 @@
   },
   "ports_note": "8791 paper dead; 8792 command-http theater disabled",
   "ollama_hot": [],
-  "paid_grok_builds": 1,
+  "paid_grok_builds": 2,
   "rh": {
     "markets": "OPEN 24/7",
     "agent": "armed",
     "watchdog": "ok",
     "why": "tick fresh",
-    "tick_age_s": 3326,
+    "tick_age_s": 5127,
     "launchd_exit": "0",
     "pid": null,
     "tick_tail": [
