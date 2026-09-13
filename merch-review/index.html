@@ -4,9 +4,9 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <meta name="robots" content="noindex"/>
-<meta name="merch-review-build" content="rev5-2026-09-13"/>
-<title>Rev 5 review — sellable board</title>
-<meta name="description" content="12 designs. 3 themes. Placement measured. Comment and pick. Stage only."/>
+<meta name="merch-review-build" content="rev5e-2026-09-13"/>
+<title>Rev 5 review — easy-money + one tee</title>
+<meta name="description" content="Night Signal pack: stickers, keychain, bracelet, one measured tee. Stage only."/>
 <link rel="canonical" href="https://cprahill.github.io/command/merch-review/"/>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
@@ -20,6 +20,7 @@
   --gold: #ffb020;
   --magenta: #ff2d95;
   --cherry: #c44536;
+  --cream: #f3ead8;
   --ok: #3dff9a;
   --no: #ff5a7a;
 }
@@ -135,7 +136,7 @@ section.theme {
   .grid { grid-template-columns: 1fr 1fr; }
 }
 @media (min-width: 1100px) {
-  .grid { grid-template-columns: 1fr 1fr 1fr 1fr; }
+  .grid { grid-template-columns: 1fr 1fr 1fr; }
 }
 .card {
   background: var(--card);
@@ -145,6 +146,7 @@ section.theme {
   display: flex;
   flex-direction: column;
 }
+.card.easy { border-color: color-mix(in srgb, var(--gold) 45%, var(--line)); }
 .card img.hero {
   inline-size: 100%;
   aspect-ratio: 3 / 4;
@@ -152,7 +154,13 @@ section.theme {
   object-position: center 18%;
   background: #05070b;
 }
-.card.poster img.hero, .card.mug img.hero, .card.cap img.hero { object-fit: contain; object-position: center; background: #0b0e14; }
+.card.sticker img.hero,
+.card.sheet img.hero,
+.card.poster img.hero,
+.card.keychain img.hero,
+.card.bracelet img.hero,
+.card.object img.hero { object-fit: contain; object-position: center; background: #0b0e14; }
+.card.object img.hero { aspect-ratio: 1 / 1; }
 .pad { padding: 12px 12px 14px; display: grid; gap: 8px; }
 .pad h3 {
   font-family: "Barlow Condensed", sans-serif;
@@ -162,6 +170,16 @@ section.theme {
 }
 .meta { color: var(--muted); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
 .price { color: var(--gold); }
+.tag {
+  justify-self: start;
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid color-mix(in srgb, var(--gold) 50%, transparent);
+  padding: 3px 7px;
+  border-radius: 999px;
+}
 .btns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
 .btns button {
   font: 11px/1 "IBM Plex Mono", ui-monospace, monospace;
@@ -219,10 +237,10 @@ footer {
 </head>
 <body>
 <header>
-  <div class="brand">COMMAND <i>//</i> MERCH REVIEW · REV 5 · 2026-09-13</div>
-  <p style="color:#3ce7ff;font:700 12px/1.3 IBM Plex Mono,monospace;letter-spacing:.08em">BUILD rev5 · 3 THEMES · 12 DESIGNS · Rain Field · Cassette Heart · quality over count</p>
-  <h1>Sellable only. 12 designs. Comment and pick.</h1>
-  <p class="lede">Rev4 failed placement (postage-stamp chest, cassette as two objects, shorts under the drawstring). Rev5: measured boxes first, art fills the box. Tape from the reels is the heart. Shorts on the left thigh. Stage only — live Line Dragon checkout stays.</p>
+  <div class="brand">COMMAND <i>//</i> MERCH REVIEW · REV 5e · 2026-09-13</div>
+  <p style="color:#3ce7ff;font:700 12px/1.3 IBM Plex Mono,monospace;letter-spacing:.08em">BUILD rev5e · easy-money FIRST · Night Signal pack · 7 SKUs · wrong if you only see Line Dragon (that is /merch/ not /merch-review/)</p>
+  <h1>Easy money first. One world. Comment and pick.</h1>
+  <p class="lede">Stickers + keychain + bracelet, then one measured Night Signal tee. Not a 24-tee grid. Rev4 stays FAIL. Bracelet is Printify jewelry staged — paracord mock is a concept. Live Line Dragon checkout stays.</p>
   <div class="tally">
     <span>approve <b id="n-yes">0</b></span>
     <span>later <b id="n-later">0</b></span>
@@ -248,32 +266,26 @@ footer {
 
 <div class="global">
   <label for="global-note">Global note (whole board)</label>
-  <textarea id="global-note" placeholder="Overall notes — what to redo, what to upload first…"></textarea>
+  <textarea id="global-note" placeholder="Overall notes — upload stickers first? skip the bracelet? YES the tee?…"></textarea>
 </div>
 <footer>
   <p>Picks save on this phone in localStorage. Export JSON and Drop-save as <code>merch/review-comments.json</code>. Upload winners only: <code>merch/GO-REV5.md</code>.</p>
   <p><a href="https://fresh-start-ogz-shop.fourthwall.com/">Live Fourthwall (do not break)</a> · <a href="https://sh0bvy-v0.myshopify.com/">Shopify</a> · <a href="../merch/">Line Dragon catalog</a></p>
 </footer>
 <script>
-const KEY = "merch-review-rev5-2026-09-13";
+const KEY = "merch-review-rev5e-2026-09-13";
 const SKUS = [
-  {id:"ns-rain-field", theme:"night-signal", door:"A Fourthwall", name:"Rain Field", type:"tee", price:28, why:"12\" chest. Chrome tower + magenta rain + city. Fills the box.", cls:"tee"},
-  {id:"ns-night-visor", theme:"night-signal", door:"A Fourthwall", name:"Night Visor", type:"hoodie", price:48, why:"Bust on the chest. Clears the hood cavity and kangaroo pocket.", cls:"hoodie"},
-  {id:"ns-signal-glyph", theme:"night-signal", door:"A Fourthwall", name:"Signal Glyph", type:"mug", price:18, why:"Circular stamp on the cylinder face. Gift desk object.", cls:"mug"},
-  {id:"ns-grid-rain", theme:"night-signal", door:"A Fourthwall", name:"Grid Rain", type:"poster", price:24, why:"Invented night city in the mat. Full-bleed art, no type.", cls:"poster"},
-  {id:"ps-pulse-kick", theme:"pulse-street", door:"A Fourthwall", name:"Pulse Kick", type:"tee", price:28, why:"Kick fills 12\" width. Not film IP.", cls:"tee"},
-  {id:"ps-chrome-stick", theme:"pulse-street", door:"A Fourthwall", name:"Chrome Stick", type:"hoodie", price:48, why:"Whole stick on the chest, clears pocket. Not a console pad.", cls:"hoodie"},
-  {id:"ps-high-score", theme:"pulse-street", door:"A Fourthwall", name:"HIGH SCORE", type:"shorts", price:32, why:"Left thigh, below the drawstring, rotated to the fabric.", cls:"shorts"},
-  {id:"ps-insert-coin", theme:"pulse-street", door:"A Fourthwall", name:"INSERT COIN", type:"cap", price:26, why:"Press Start lockup on the front panels, above the brim.", cls:"cap"},
-  {id:"ah-cassette-heart", theme:"analog-heart", door:"B Shopify", name:"Cassette Heart", type:"tee", price:28, why:"Tape from both reels IS the heart. One mark. 12\" on cream.", cls:"tee"},
-  {id:"ah-vhs-night", theme:"analog-heart", door:"B Shopify", name:"VHS Night", type:"hoodie", price:48, why:"Blank-spine VHS on a cream ticket. No brand names.", cls:"hoodie"},
-  {id:"ah-boombox", theme:"analog-heart", door:"B Shopify", name:"Boombox", type:"tote", price:22, why:"Fills the front pocket. Original object, no brand.", cls:"tote"},
-  {id:"ah-analog-wall", theme:"analog-heart", door:"B Shopify", name:"Analog Wall", type:"poster", price:24, why:"Still-life cassettes + VHS + phone. Gallery mat.", cls:"poster"},
+  {id:"ns-glyph-sticker", theme:"easy-money", door:"A Fourthwall", name:"Signal Glyph", type:"die-cut sticker", price:5, why:"Circular Night Signal badge. Thick contour. Fourthwall die-cut.", cls:"sticker easy"},
+  {id:"ns-visor-sticker", theme:"easy-money", door:"A Fourthwall", name:"Night Visor", type:"die-cut sticker", price:5, why:"Helmet only. Cyan visor, magenta rim. Reads at 2 inches.", cls:"sticker easy"},
+  {id:"ns-rain-sticker", theme:"easy-money", door:"A Fourthwall", name:"Rain Tower", type:"die-cut sticker", price:5, why:"Chrome tower + magenta rain as one silhouette. Die-cut blob.", cls:"sticker easy"},
+  {id:"ns-pack-sheet", theme:"easy-money", door:"A Fourthwall", name:"Night Signal pack", type:"kiss-cut sheet", price:8, why:"Four marks on the 5.83×8.27 Fourthwall template. Impulse add-on.", cls:"sheet easy"},
+  {id:"ns-charm-keychain", theme:"easy-money", door:"Printify", name:"Signal Charm", type:"acrylic keychain", price:12, why:"Same charm on clear acrylic. Printify, no min. Not Fourthwall plush MOQ.", cls:"keychain easy"},
+  {id:"ns-charm-bracelet", theme:"easy-money", door:"Printify staged", name:"Signal Charm", type:"bracelet", price:18, why:"STAGED. Printify jewelry (engrave/picture charm). Paracord mock is a concept — not the shipped SKU.", cls:"bracelet easy"},
+  {id:"ns-rain-tee", theme:"night-signal", door:"A Fourthwall", name:"Rain Field", type:"tee", price:28, why:"ONE apparel world. 12\" TEE_FRONT, ~3\" below collar. Fills the box.", cls:"tee"},
 ];
 const THEMES = [
-  {id:"night-signal", title:"Night Signal", door:"A · Fourthwall", pack:"a", lede:"Chrome rain. Visor. Night city. Black cloth."},
-  {id:"pulse-street", title:"Pulse Street", door:"A · Fourthwall", pack:"a", lede:"Kick, stick, score, coin. Not the film. Not a console pad."},
-  {id:"analog-heart", title:"Analog Heart", door:"B · Shopify", pack:"b", lede:"Tape from the reels is the heart. VHS / boombox / still-life."},
+  {id:"easy-money", title:"Easy money", door:"A · Fourthwall + Printify", pack:"a", lede:"Stickers and a keychain first. Bracelet only if you YES the real Printify jewelry SKU."},
+  {id:"night-signal", title:"Night Signal", door:"A · Fourthwall", pack:"a", lede:"At most one apparel world. Measured chest. Pulse Street and Analog Heart are frozen."},
 ];
 
 const state = JSON.parse(localStorage.getItem(KEY) || '{"picks":{},"notes":{},"global":""}');
@@ -295,14 +307,15 @@ function tally() {
   document.getElementById("n-notes").textContent = c;
 }
 
-function cardHTML(s, i) {
+function cardHTML(s) {
   const pick = state.picks[s.id] || "";
   const note = state.notes[s.id] || "";
   const doorCls = s.door.startsWith("B") ? "b" : "";
-  const pri = i === 0 ? ' fetchpriority="high"' : "";
+  const easy = s.cls.includes("easy") ? `<span class="tag">easy money</span>` : "";
   return `<article class="card ${s.cls}" data-id="${s.id}">
-    <img class="hero" src="./img/${s.id}.jpg?v=rev5" alt="${s.name} ${s.type}" width="800" height="1067"${pri}/>
+    <img class="hero" src="./img/${s.id}.jpg?v=rev5e" alt="${s.name} ${s.type}" width="800" height="1067"/>
     <div class="pad">
+      ${easy}
       <span class="door ${doorCls}">${s.door} · ${s.type} $${s.price}</span>
       <h3>${s.name}</h3>
       <p class="price">$${s.price} + ship</p>
@@ -323,10 +336,9 @@ THEMES.forEach((t) => {
   sec.className = "theme";
   sec.id = t.id;
   const pack = t.pack === "b" ? "b" : "";
-  const cards = SKUS.filter(s => s.theme===t.id);
   sec.innerHTML = `<div class="theme-head"><h2>${t.title}</h2><span class="door ${pack}">${t.door}</span></div>
     <p class="lede">${t.lede}</p>
-    <div class="grid">${cards.map((s, i) => cardHTML(s, t.id==="night-signal"?i:9)).join("")}</div>`;
+    <div class="grid">${SKUS.filter(s => s.theme===t.id).map(cardHTML).join("")}</div>`;
   board.appendChild(sec);
 });
 
