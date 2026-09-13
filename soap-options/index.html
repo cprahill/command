@@ -9,7 +9,7 @@
 *{box-sizing:border-box}body{margin:0;font-family:ui-rounded,system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45;padding:16px 14px 48px}
 h1{font-size:1.45rem;margin:0 0 6px}h2{font-size:1.05rem;margin:28px 0 10px;color:#fff}
 .sub{color:var(--muted);font-size:.9rem;margin:0 0 18px}
-.badge{display:inline-block;padding:3px 8px;border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.02em}
+.badge{display:inline-block;padding:3px 8px;border-radius:999px;font-size:.72rem;font-weight:700}
 .go{background:rgba(61,220,151,.15);color:var(--go)}.kill{background:rgba(255,107,107,.15);color:var(--kill)}.hold{background:rgba(247,201,72,.15);color:var(--hold)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0}
 .card h3{margin:0 0 6px;font-size:1rem}
@@ -17,78 +17,57 @@ h1{font-size:1.45rem;margin:0 0 6px}h2{font-size:1.05rem;margin:28px 0 10px;colo
 table{width:100%;border-collapse:collapse;font-size:.86rem;margin:8px 0}
 th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
 th{color:var(--muted);font-weight:600}
-.star{color:var(--go)}
 ul{margin:8px 0;padding-left:1.1rem}li{margin:4px 0}
 .footer{margin-top:28px;color:var(--muted);font-size:.78rem}
+.banner{background:rgba(247,201,72,.12);border:1px solid rgba(247,201,72,.35);border-radius:14px;padding:14px;margin:0 0 16px}
 </style>
 </head>
 <body>
 <h1>Soap options</h1>
-<p class="sub">Stickers&Soap Co. · plan only · no spend · Passport YES before any cart<br/>Sourced public prices 2026-09-13 — live quotes before YES spend</p>
+<p class="sub">Stickers&Soap Co. · updated 2026-09-13</p>
 
-<div class="card">
-  <h3>What we’re deciding</h3>
-  <p class="meta">One soap SKU on existing Fourthwall — without stealing the sticker Fri race.</p>
+<div class="banner">
+  <span class="badge hold">LOCKED</span>
+  <h3 style="margin:8px 0 6px">No personal inventory</h3>
+  <p class="meta" style="margin:0">Christopher YES. Do not buy/hold bars at home. Path A/B wholesale stock is <strong>parked</strong>. Sample cart is <strong>not authorized</strong>.</p>
 </div>
 
-<h2>1 · Capital paths</h2>
 <div class="card">
-  <span class="badge go">GO</span>
-  <h3 class="star">A — Wholesale blank + our wrap</h3>
-  <p>Buy finished true-soap bars, wrap, sell. Capital likely <strong>~$400</strong> (low ~$255 · high ~$550). Bar ~$1.78–$3.70. Works at <strong>$12</strong> list (~$8.67 contribution if customer pays ship).</p>
+  <span class="badge go">ACTIVE</span>
+  <h3>Stickers POD</h3>
+  <p>Rev7 cash path — no inventory. Brand keeps “Soap” in the name; soap SKU waits.</p>
+</div>
+
+<div class="card">
+  <span class="badge hold">PARKED</span>
+  <h3>A — Wholesale blank + wrap</h3>
+  <p>Required holding bars (~$400 first stock). Fails the inventory lock.</p>
 </div>
 <div class="card">
-  <span class="badge kill">KILL @ $12</span>
-  <h3>B — Engraved / private-label</h3>
-  <p>~$940+ before freight · ~$8.75/bar. Thin at $12. Revisit at $18–22 only after Path A demand.</p>
+  <span class="badge hold">PARKED</span>
+  <h3>B — Engraved / private-label MOQ</h3>
+  <p>Also hold stock · thin at $12 anyway.</p>
 </div>
 <div class="card">
   <span class="badge kill">KILL</span>
-  <h3>C — Contract / custom mold</h3>
-  <p>$5k–10k class. Not day-1.</p>
+  <h3>C — Custom mold / contract</h3>
+  <p>$5k–10k class. Still no.</p>
 </div>
 
-<h2>2 · Path A suppliers</h2>
-<table>
-<tr><th>Who</th><th>Role</th><th>Public $</th></tr>
-<tr><td><strong>The Soap Guy</strong></td><td>Default stock after PASS</td><td>Loaf 9 bars $17.60 · 10 loaves $160 · free ship &gt;$180</td></tr>
-<tr><td><strong>Bulk Apothecary</strong></td><td>Cheapest sample + alt</td><td>Sample $3.95 · loaf ~$1.99/bar · labels from $14.95</td></tr>
-<tr><td><strong>Botanie</strong></td><td>Higher-grade if A1 fails</td><td>10-pack $36.99 (~$3.70/bar)</td></tr>
-<tr><td>WTS USA tallow</td><td>Feel contrast only</td><td>$4.80/bar — rich for $12 default</td></tr>
-</table>
-
-<h2>3 · Who buys</h2>
-<div class="card"><span class="badge go">KEEP</span> <strong>STEM-dad gift buyer</strong> — $12 space object gift (self or kid-adjacent adult).</div>
-<div class="card"><span class="badge kill">KILL</span> Tourist · kid bath · “everyone who showers”</div>
-
-<h2>4 · Locks</h2>
-<table>
-<tr><td>List</td><td><strong>$12</strong> (band $8–14)</td></tr>
-<tr><td>Ship</td><td>Customer pays</td></tr>
-<tr><td>Door</td><td>Fourthwall self-source</td></tr>
-<tr><td>SKU</td><td>1 bar until reorder proof</td></tr>
-<tr><td>Sequence</td><td><strong>Soap first → space wrap second</strong></td></tr>
-</table>
-
-<h2>5 · Phase 0 sample cart (≤$75)</h2>
-<p class="meta">Research draft — not an order. Needs your YES.</p>
-<table>
-<tr><th>Piece</th><th>$</th><th>Why</th></tr>
-<tr><td>Soap Guy unscented loaf (9)</td><td>$17.60</td><td>Main feel</td></tr>
-<tr><td>Bulk Apothecary sample</td><td>$3.95</td><td>Second house</td></tr>
-<tr><td>Optional WTS tallow</td><td>$4.80</td><td>Contrast</td></tr>
-<tr><td>Inbound ship</td><td>~$12–18</td><td>Stay ≤$75</td></tr>
-</table>
-<p class="meta">PASS = lather · crack · scent · shower melt · skin feel. FAIL any → kill that base. Then wrap + Legal label.</p>
-
-<h2>6 · Your call</h2>
+<h2>Allowed soap futures (unproven)</h2>
 <ul>
-<li>Approve Phase 0 sample cart (≤$75)</li>
-<li>Trim the cart (say what to cut)</li>
-<li>Hold soap — stickers only until Rev7 live</li>
-<li>Challenge a lock (path / price / beachhead / door)</li>
+<li><strong>POD / dropship soap</strong> — prove a real door first (often junk; no bet until proven)</li>
+<li><strong>Partner fulfillment holds stock</strong> — you don’t store bars; still needs proven MOQ/economics</li>
+</ul>
+<p class="meta">No YES spend until a zero-hold door is written up with real links + unit math.</p>
+
+<h2>Your call</h2>
+<ul>
+<li>Default: keep soap parked — stickers only</li>
+<li>Or: commission zero-hold soap door research</li>
+<li>Or: explicitly change the inventory rule</li>
 </ul>
 
-<p class="footer">Disk: projects/rahill-business/soap/OPTIONS.md · AS-BUILT · EDGE · SUPPLIERS · UNIT-ECON<br/>No collected_usd invented. Stickers remain Fri cash race.</p>
+<p class="footer">Disk: soap/NO-INVENTORY.md · OPTIONS.md · AS-BUILT (historical)<br/>https://cprahill.github.io/command/soap-options/</p>
 </body>
 </html>
