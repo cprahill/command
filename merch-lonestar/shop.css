@@ -1,4 +1,4 @@
-:root { --bg:#07080c; --card:#10141c; --line:#243044; --muted:#7a8aa0; --text:#e8eef6; --acc:#3ce7ff; --gold:#ffb020; }
+:root { --bg:#0b1c3a; --card:#12264a; --line:#2a4a78; --muted:#c9b89a; --text:#f4ead4; --acc:#d4a017; --gold:#d4a017; }
 html,body { font-family:"IBM Plex Mono",ui-monospace,monospace; }
 .brand,.h,h1,h2,h3 { font-family:"Barlow Condensed",sans-serif; }
 .brand i { color:var(--acc); }

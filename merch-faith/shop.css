@@ -1,7 +1,7 @@
-:root { --bg:#07080c; --card:#10141c; --line:#243044; --muted:#7a8aa0; --text:#e8eef6; --acc:#3ce7ff; --gold:#ffb020; }
-html,body { font-family:"IBM Plex Mono",ui-monospace,monospace; }
-.brand,.h,h1,h2,h3 { font-family:"Barlow Condensed",sans-serif; }
-.brand i { color:var(--acc); }
+:root { --bg:#1c1612; --card:#2a221c; --line:#4a3c32; --muted:#b9a894; --text:#f3ead8; --acc:#c9a227; --gold:#c9a227; }
+html,body { font-family:"Libre Baskerville",Georgia,serif; }
+.brand,.h,h1,h2,h3 { font-family:"Cormorant Garamond",Georgia,serif; font-weight:600; }
+.brand i { color:var(--acc); font-style:italic; }
 *,*::before,*::after{box-sizing:border-box}
 html{background:var(--bg);color:var(--text)}
 html,body{margin:0;font-size:16px;line-height:1.5}
