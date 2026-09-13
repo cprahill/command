@@ -1,15 +1,17 @@
 {
   "kernel": "grok",
-  "generated_at": "2026-09-13T16:32:14.198333Z",
-  "updated_at_ct": "2026-09-13T11:32:14-0500",
+  "generated_at": "2026-09-13T17:03:33.901409Z",
+  "updated_at_ct": "2026-09-13T12:03:33-0500",
   "host": {
     "name": "Jimothys-Mac-mini-2.local",
     "role": "Grok Mini"
   },
+  "conductor": "grok-bot",
   "com": {
     "inbound": "grok",
-    "bot": "primary",
-    "build": "secondary",
+    "conductor": "grok-bot",
+    "bot": "conductor",
+    "build": "tool",
     "imessage_inbound": "closed",
     "imessage_outbound": "yes-gated",
     "router": [
@@ -146,7 +148,7 @@
       "name": "harness",
       "http": 8790,
       "state": "up",
-      "pid": 2920
+      "pid": 68640
     },
     {
       "name": "baja",
@@ -185,12 +187,22 @@
     "markets": "OPEN 24/7",
     "agent": "armed",
     "why": "tick fresh",
-    "tick_age_s": 24,
+    "tick_age_s": 1824,
     "watchdog": "ok"
   },
   "one_in_flight": {
-    "dest": "SYSTEM FIX",
-    "note": "Verify surface + Line Dragon pull (YES). ONE-IN-FLIGHT."
+    "dest": "RH Agentic \u20264103",
+    "note": "Jarvis live. Merch PARKED. Conductor grok-bot. Build is the tool."
+  },
+  "ram": {
+    "gb": 24,
+    "policy": "one hot model \u2014 never dual-load gemma+qwen",
+    "ollama_hot": [
+      {
+        "name": "qwen3.6:27b",
+        "processor": null
+      }
+    ]
   },
   "merch": {
     "line_dragon": "LIVE_FAIL",
@@ -198,91 +210,6 @@
     "shop": "https://fresh-start-ogz-shop.fourthwall.com/"
   },
   "traffic": [
-    {
-      "kind": "route",
-      "path": "refuse",
-      "job": "spend stripe live",
-      "ran": false,
-      "why": "money/send needs Christopher YES \u2014 not this command",
-      "id": "1789269332559741000",
-      "ts": "2026-09-13T03:15:32.559743Z"
-    },
-    {
-      "kind": "route",
-      "path": "refuse",
-      "job": "",
-      "ran": false,
-      "why": "empty job",
-      "id": "1789269332584456000",
-      "ts": "2026-09-13T03:15:32.584458Z"
-    },
-    {
-      "kind": "route",
-      "path": "gemma",
-      "dest": "productivity",
-      "job": "remind milk",
-      "ran": false,
-      "why": "Gemma 12b cheap English \u2014 not Bot grind",
-      "id": "1789269332610057000",
-      "ts": "2026-09-13T03:15:32.610059Z"
-    },
-    {
-      "kind": "route",
-      "path": "qwen",
-      "dest": "productivity",
-      "job": "draft a plan",
-      "ran": false,
-      "why": "Qwen 27b local brain \u2014 not Bot grind",
-      "id": "1789269332634193000",
-      "ts": "2026-09-13T03:15:32.634195Z"
-    },
-    {
-      "kind": "route",
-      "path": "oc",
-      "job": "oc-team list",
-      "ran": false,
-      "why": "OpenClaw pipe after review \u2014 not inbox",
-      "id": "1789269332658587000",
-      "ts": "2026-09-13T03:15:32.658588Z"
-    },
-    {
-      "kind": "route",
-      "path": "imsg-out",
-      "job": "text bob hello",
-      "ran": false,
-      "why": "third-party text after YES",
-      "id": "1789269332682272000",
-      "ts": "2026-09-13T03:15:32.682273Z"
-    },
-    {
-      "kind": "route",
-      "path": "refuse",
-      "job": "text christopher hello",
-      "ran": false,
-      "why": "cannot iMessage Christopher \u2014 he talks to Grok",
-      "id": "1789269332706014000",
-      "ts": "2026-09-13T03:15:32.706016Z"
-    },
-    {
-      "kind": "brain",
-      "path": "gemma",
-      "job": "ping",
-      "ran": false,
-      "ok": true,
-      "model": "gemma4:12b",
-      "id": "1789270003687379000",
-      "ts": "2026-09-13T03:26:43.687380Z"
-    },
-    {
-      "kind": "brain",
-      "path": "gemma",
-      "job": "ping",
-      "ran": false,
-      "ok": true,
-      "model": "gemma4:12b",
-      "id": "1789270019108145000",
-      "ts": "2026-09-13T03:26:59.108146Z"
-    },
     {
       "kind": "brain",
       "path": "gemma",
@@ -426,14 +353,142 @@
       },
       "id": "1789317134137516000",
       "ts": "2026-09-13T16:32:14.137518Z"
+    },
+    {
+      "kind": "route",
+      "path": "host",
+      "job": "status",
+      "ran": true,
+      "why": "ops on Mini clocks",
+      "ran_detail": {
+        "ok": true,
+        "text": "status\",\n      \"ts\": \"2026-09-13T16:32:14.137518Z\",\n      \"ran\": true\n    }\n  },\n  \"locals_loaded_now\": [],\n  \"cuts\": {\n    \"crew_seq\": true,\n    \"fury_pollers\": true,\n    \"paper\": true,\n    \"print\": true,\n    \"money_desk_8791\": true\n  }\n}\n"
+      },
+      "id": "1789318221914544000",
+      "ts": "2026-09-13T16:50:21.914546Z"
+    },
+    {
+      "kind": "brain",
+      "path": "gemma",
+      "job": "classify: one-line \u2014 household or ops: Mini process truth",
+      "ran": true,
+      "ok": true,
+      "model": "gemma4:12b",
+      "id": "1789318279775506000",
+      "ts": "2026-09-13T16:51:19.775535Z"
+    },
+    {
+      "kind": "route",
+      "path": "gemma",
+      "dest": "productivity",
+      "job": "classify: one-line \u2014 household or ops: Mini process truth",
+      "ran": true,
+      "why": "Gemma 12b cheap English \u2014 not Bot grind",
+      "ran_detail": {
+        "ok": true,
+        "model": "gemma4:12b",
+        "text": "ops"
+      },
+      "id": "1789318279777477000",
+      "ts": "2026-09-13T16:51:19.777481Z"
+    },
+    {
+      "kind": "brain",
+      "path": "qwen",
+      "job": "qwen draft one line: Mini health in six words",
+      "ran": false,
+      "ok": false,
+      "model": "qwen3.6:27b",
+      "id": "1789318460928818000",
+      "ts": "2026-09-13T16:54:20.928844Z"
+    },
+    {
+      "kind": "route",
+      "path": "qwen",
+      "dest": "productivity",
+      "job": "qwen draft one line: Mini health in six words",
+      "ran": false,
+      "why": "Qwen 27b local brain \u2014 not Bot grind",
+      "ran_detail": {
+        "ok": false,
+        "model": "qwen3.6:27b",
+        "error": "timed out"
+      },
+      "id": "1789318460936843000",
+      "ts": "2026-09-13T16:54:20.936845Z"
+    },
+    {
+      "kind": "brain",
+      "path": "qwen",
+      "job": "qwen draft one line: Mini health in six words",
+      "ran": false,
+      "ok": false,
+      "model": "qwen3.6:27b",
+      "id": "1789318779939040000",
+      "ts": "2026-09-13T16:59:39.939108Z"
+    },
+    {
+      "kind": "route",
+      "path": "qwen",
+      "dest": "productivity",
+      "job": "qwen draft one line: Mini health in six words",
+      "ran": false,
+      "why": "Qwen 27b local brain \u2014 not Bot grind",
+      "ran_detail": {
+        "ok": false,
+        "model": "qwen3.6:27b",
+        "error": "timed out"
+      },
+      "id": "1789318779946559000",
+      "ts": "2026-09-13T16:59:39.946562Z"
+    },
+    {
+      "kind": "brain",
+      "path": "qwen",
+      "job": "qwen draft one line: Mini health in six words",
+      "ran": true,
+      "ok": true,
+      "model": "qwen3.6:27b",
+      "id": "1789318997076603000",
+      "ts": "2026-09-13T17:03:17.076740Z"
+    },
+    {
+      "kind": "route",
+      "path": "qwen",
+      "dest": "productivity",
+      "job": "qwen draft one line: Mini health in six words",
+      "ran": true,
+      "why": "Qwen 27b local brain \u2014 not Bot grind",
+      "ran_detail": {
+        "ok": true,
+        "model": "qwen3.6:27b",
+        "text": "Mini healthy."
+      },
+      "id": "1789318997079499000",
+      "ts": "2026-09-13T17:03:17.079500Z"
     }
   ],
   "work": {
     "idle": false,
-    "last_120s": 3,
-    "ollama_hot": [],
-    "rh_tick_age_s": 446
+    "last_120s": 2,
+    "ollama_hot": [
+      {
+        "name": "qwen3.6:27b",
+        "processor": null
+      }
+    ],
+    "rh_tick_age_s": 2326,
+    "last_ran_true": {
+      "kind": "route",
+      "path": "qwen",
+      "job": "qwen draft one line: Mini health in six words",
+      "ts": "2026-09-13T17:03:17.079500Z",
+      "ran": true
+    }
   },
+  "locals_loaded_now": [
+    "qwen3.6:27b"
+  ],
   "cuts": {
     "crew_seq": true,
     "fury_pollers": true,

@@ -30,28 +30,29 @@ a.btn{display:inline-flex;align-items:center;justify-content:center;min-height:4
 <h1>Command · verify</h1>
 <div class="banner" id="stale">Loading status…</div>
 <div class="card">
-  <div class="k">One dest</div>
-  <div class="big" id="dest">…</div>
-  <div class="meta" id="dest-note">—</div>
+  <div class="k">Conductor</div>
+  <div class="big" id="conductor">grok-bot</div>
+  <div class="meta" id="dest-note">Build is the tool. One money loop.</div>
 </div>
 <div class="card">
   <div class="row"><span class="k">Collected</span><span class="v" id="money">—</span></div>
-  <div class="row"><span class="k">Line Dragon shop</span><span class="v bad" id="dragon">LIVE FAIL</span></div>
-  <div class="row"><span class="k">Crypto markets</span><span class="v" id="markets">OPEN 24/7</span></div>
-  <div class="row"><span class="k">RH agent cycle</span><span class="v" id="rh">—</span></div>
-  <div class="row"><span class="k">OpenClaw</span><span class="v" id="oc">—</span></div>
-  <div class="row"><span class="k">Status written (CT)</span><span class="v" id="when">—</span></div>
+  <div class="row"><span class="k">Line Dragon</span><span class="v bad" id="dragon">LIVE FAIL</span></div>
+  <div class="row"><span class="k">Crypto markets</span><span class="v ok" id="markets">OPEN 24/7</span></div>
+  <div class="row"><span class="k">RH agent</span><span class="v" id="rh">—</span></div>
+  <div class="row"><span class="k">RAM / ollama_hot</span><span class="v" id="ram">—</span></div>
+  <div class="row"><span class="k">locals.loaded_now</span><span class="v" id="loaded">—</span></div>
+  <div class="row"><span class="k">last ran=true</span><span class="v" id="ran">—</span></div>
+  <div class="row"><span class="k">paid grok builds</span><span class="v" id="paid">—</span></div>
 </div>
-<div class="card" id="svc"><h2>Services (process truth)</h2></div>
-<div class="card" id="traffic"><h2>Exchange (last stamps)</h2><p class="note" id="traffic-note">—</p></div>
+<div class="card" id="svc"><h2>Launchd (keep)</h2></div>
+<div class="card" id="ports"><h2>Ports</h2></div>
 <div class="card">
   <h2>Real links only</h2>
   <div class="btns">
-    <a class="btn" href="https://cprahill.github.io/command/merch-review/">Merch review</a>
-    <a class="btn" href="https://fresh-start-ogz-shop.fourthwall.com/">Fourthwall shop</a>
-    <a class="btn" href="https://cprahill.github.io/command/phone/">This page (github)</a>
+    <a class="btn" href="../truth/">PROCESS TRUTH</a>
+    <a class="btn" href="https://grok-command.vercel.app/truth/">HTTPS truth</a>
   </div>
-  <p class="meta">No Paper · No Bots dash · No Neural · No old harness. Those were dead theater.</p>
+  <p class="meta">No Paper · No Bots dash · No Neural · No old harness.</p>
 </div>
 <p class="meta" id="err"></p>
 <script>
@@ -60,77 +61,92 @@ function ageLabel(iso){
   const t = Date.parse(String(iso).replace('Z','+00:00'));
   if(!Number.isFinite(t)) return {cls:'bad', text:'BAD TIMESTAMP'};
   const mins = (Date.now()-t)/60000;
-  if(mins < 5) return {cls:'ok', text:'FRESH · '+Math.round(mins)+'m ago'};
+  if(mins < 20) return {cls:'ok', text:'FRESH · '+Math.round(mins)+'m ago'};
   if(mins < 60) return {cls:'warn', text:'AGING · '+Math.round(mins)+'m ago — Mini tick may be off'};
   if(mins < 1440) return {cls:'bad', text:'STALE · '+Math.round(mins/60)+'h ago — not live'};
   return {cls:'bad', text:'DEAD · '+Math.round(mins/1440)+'d ago — do not trust'};
 }
 function clsFor(st){
   st = String(st||'').toLowerCase();
-  if(st==='up'||st==='open'||st==='cycling') return 'ok';
-  if(st==='armed'||st==='idle'||st==='stopped') return 'warn';
+  if(st==='up'||st==='open'||st==='cycling'||st==='ok'||st==='armed') return 'ok';
+  if(st==='idle'||st==='stopped'||st==='unknown') return 'warn';
   return 'bad';
+}
+function row(parent, k, v, cls){
+  const el=document.createElement('div');
+  el.className='row';
+  el.innerHTML='<span class="k">'+k+'</span><span class="v '+(cls||'')+'">'+v+'</span>';
+  parent.appendChild(el);
 }
 async function load(){
   const err = document.getElementById('err');
   try{
-    const r = await fetch('./status.json?t='+Date.now(),{cache:'no-store'});
-    if(!r.ok) throw new Error('status '+r.status);
-    const d = await r.json();
-    const when = d.updated_at_ct || d.generated_at || d.patched_at || '';
-    const age = ageLabel(d.generated_at || d.patched_at || d.updated_at_ct);
+    let d;
+    try {
+      const r = await fetch('../truth/process.json?t='+Date.now(),{cache:'no-store'});
+      if(!r.ok) throw new Error('process '+r.status);
+      d = await r.json();
+    } catch(e) {
+      const r = await fetch('./status.json?t='+Date.now(),{cache:'no-store'});
+      if(!r.ok) throw new Error('status '+r.status);
+      d = await r.json();
+    }
+    const age = ageLabel(d.generated_at);
     const ban = document.getElementById('stale');
     ban.className = 'banner';
     ban.style.borderColor = age.cls==='ok' ? 'var(--ok)' : age.cls==='warn' ? 'var(--warn)' : 'var(--bad)';
     ban.style.background = age.cls==='ok' ? '#152a1a' : age.cls==='warn' ? '#2a2415' : '#2a1515';
     ban.style.color = age.cls==='ok' ? '#c8f0c8' : age.cls==='warn' ? '#ffe6a8' : '#ffc9c9';
-    ban.textContent = age.text;
+    ban.textContent = age.text + ' · ' + (d.generated_at || '');
 
-    document.getElementById('dest').textContent = (d.one_in_flight && d.one_in_flight.dest) || 'SYSTEM FIX · verify surface';
-    document.getElementById('dest-note').textContent = (d.one_in_flight && d.one_in_flight.note) || 'ONE-IN-FLIGHT. No parallel half dests.';
+    document.getElementById('conductor').textContent = d.conductor || (d.com && d.com.conductor) || 'grok-bot';
+    const oif = d.one_in_flight || {};
+    document.getElementById('dest-note').textContent = (oif.dest || 'RH') + ' — ' + (oif.note || '');
     const m = d.money || {};
-    document.getElementById('money').textContent = '$'+(m.collected_usd!=null?m.collected_usd:0)+' · burn $'+(m.burn_usd_mo!=null?m.burn_usd_mo:'?')+'/mo';
-    const merch = d.merch || {};
-    const dragon = merch.line_dragon || 'LIVE_FAIL';
+    document.getElementById('money').textContent = '$'+(m.collected_usd!=null?m.collected_usd:0);
+    const dragon = (d.strategy && d.strategy.line_dragon) || (d.merch && d.merch.line_dragon) || m.line_dragon || 'LIVE_FAIL';
     const dg = document.getElementById('dragon');
-    dg.textContent = dragon.replace(/_/g,' ');
-    dg.className = 'v ' + (dragon==='PULLED'?'ok':'bad');
+    dg.textContent = String(dragon).replace(/_/g,' ');
+    dg.className = 'v ' + (String(dragon).includes('PULLED')?'ok':'bad');
 
     const rh = d.rh || {};
-    document.getElementById('markets').textContent = rh.markets || 'OPEN 24/7 (crypto)';
-    document.getElementById('markets').className = 'v ok';
-    const rhState = rh.agent || ((d.services||[]).find(s=>s.name==='rh_agentic_crypto')||{}).state || '?';
+    document.getElementById('markets').textContent = rh.markets || 'OPEN 24/7';
+    const rhState = rh.agent || rh.watchdog || '?';
     const rhEl = document.getElementById('rh');
-    rhEl.textContent = String(rhState).toUpperCase() + (rh.why ? ' · '+rh.why : '');
+    rhEl.textContent = String(rhState).toUpperCase() + (rh.why ? ' · '+rh.why : '') + (rh.tick_age_s!=null ? ' · tick '+rh.tick_age_s+'s' : '');
     rhEl.className = 'v '+clsFor(rhState);
 
-    const seats = (d.openclaw && d.openclaw.seats != null) ? d.openclaw.seats : '—';
-    const gw = (d.openclaw && d.openclaw.gateway_state) || '';
-    document.getElementById('oc').textContent = seats + (gw ? ' · ' + gw : '');
-    document.getElementById('when').textContent = when || '—';
+    const hot = (d.ram && d.ram.ollama_hot) || d.ollama_hot || [];
+    const names = (d.locals && d.locals.loaded_now) || d.locals_loaded_now || hot.map(x=>x.name||x);
+    document.getElementById('ram').textContent = ((d.ram && d.ram.policy) || 'one hot model') + ' · ' + (hot.length?hot.length+' loaded':'none loaded');
+    document.getElementById('loaded').textContent = names.length ? names.join(', ') : 'none';
+    const last = (d.locals && d.locals.last_ran_true) || (d.work && d.work.last_ran_true);
+    document.getElementById('ran').textContent = last ? ((last.path||'?')+' · '+(last.job||'')+' · '+(last.ts||'')) : 'none';
+    document.getElementById('paid').textContent = String(d.paid_grok_builds!=null?d.paid_grok_builds:'—');
 
     const svc = document.getElementById('svc');
-    svc.innerHTML = '<h2>Services (process truth)</h2>';
-    (d.services || []).forEach(s => {
-      const row = document.createElement('div');
-      row.className = 'row';
-      const st = String(s.state || '').toLowerCase();
-      const port = s.http != null ? (':' + s.http) : '';
-      const label = s.name === 'rh_agentic_crypto' ? 'rh_cycle (not markets)' : s.name;
-      row.innerHTML = '<span class="k">'+label+' '+port+'</span><span class="v '+clsFor(st)+'">'+String(s.state||'?').toUpperCase()+'</span>';
-      svc.appendChild(row);
-    });
-
-    const traf = d.traffic || [];
-    const tn = document.getElementById('traffic-note');
-    if(!traf.length){
-      tn.textContent = 'No exchange stamps — work is not logging (this is the bug).';
-      tn.className = 'note bad';
+    svc.innerHTML = '<h2>Launchd (keep)</h2>';
+    const launchd = d.launchd || {};
+    if(Object.keys(launchd).length){
+      Object.keys(launchd).forEach(name=>{
+        const s = launchd[name] || {};
+        const st = s.pid ? 'up' : (s.loaded ? 'armed' : 'down');
+        row(svc, name, (s.pid?('pid '+s.pid):'—')+' · exit '+(s.last_exit||'?'), clsFor(st));
+      });
     } else {
-      const last = traf[traf.length-1];
-      tn.textContent = traf.length+' stamps · last: '+(last.kind||'?')+' / '+(last.path||last.job||'')+' @ '+(last.ts||'');
-      tn.className = 'note';
+      (d.services || []).forEach(s=>{
+        row(svc, s.name+(s.http!=null?(' :'+s.http):''), String(s.state||'?').toUpperCase(), clsFor(s.state));
+      });
     }
+    const ports = document.getElementById('ports');
+    ports.innerHTML = '<h2>Ports</h2>';
+    const p = d.ports || {};
+    Object.keys(p).forEach(k=>{
+      const code = p[k];
+      const dead = (k==='8791'||k==='8792');
+      const ok = dead ? (code===0) : (code>=200 && code<400);
+      row(ports, ':'+k+(dead?' (should be down)':''), String(code), ok?'ok':'bad');
+    });
     err.textContent = '';
   }catch(e){
     document.getElementById('stale').textContent = 'STATUS FEED BROKEN';

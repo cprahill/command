@@ -1,103 +1,165 @@
 {
   "title": "PROCESS TRUTH",
-  "generated_at": "2026-09-13T16:33:50.836977Z",
-  "generated_at_ct": "2026-09-13T11:33:50-0500",
+  "conductor": "grok-bot",
+  "build": "tool",
+  "generated_at": "2026-09-13T17:03:33.764917Z",
+  "generated_at_ct": "2026-09-13T12:03:33-0500",
   "host": "Jimothys-Mac-mini-2.local",
+  "ram": {
+    "gb": 24,
+    "policy": "one hot model \u2014 never dual-load gemma+qwen",
+    "ollama_hot": [
+      {
+        "name": "qwen3.6:27b",
+        "processor": null
+      }
+    ]
+  },
   "money": {
     "collected_usd": 0,
     "lane": "RH \u20264103",
     "merch": "PARKED",
+    "line_dragon": "LIVE_FAIL",
     "note": "filed $0 \u2014 do not invent"
   },
   "strategy": {
     "money_loop": "RH crypto only",
     "merch": "PARKED until one tee/tote passes QUALITY",
-    "line_dragon": "LIVE_FAIL \u2014 pull YES pending login"
+    "line_dragon": "LIVE_FAIL \u2014 pull YES pending Fourthwall login"
   },
   "launchd": {
+    "com.rahill.twin": {
+      "pid": 64354,
+      "last_exit": "-15",
+      "loaded": true,
+      "keep": true
+    },
     "com.rahill.mission-control": {
-      "pid": "2920",
-      "last_exit": "-15"
+      "pid": 68640,
+      "last_exit": "-15",
+      "loaded": true,
+      "keep": true
+    },
+    "ai.openclaw.gateway": {
+      "pid": 53897,
+      "last_exit": "0",
+      "loaded": true,
+      "keep": true
+    },
+    "ai.openclaw.node": {
+      "pid": 30436,
+      "last_exit": "-15",
+      "loaded": true,
+      "keep": true
+    },
+    "com.cyberfury.keepawake": {
+      "pid": 1261,
+      "last_exit": "0",
+      "loaded": true,
+      "keep": true
     },
     "com.rahill.rh-agentic-crypto": {
       "pid": null,
-      "last_exit": "0"
-    },
-    "ai.openclaw.node": {
-      "pid": "30436",
-      "last_exit": "-15"
+      "last_exit": "0",
+      "loaded": true,
+      "keep": true
     },
     "com.rahill.rh-crypto-watchdog": {
       "pid": null,
-      "last_exit": "0"
+      "last_exit": "0",
+      "loaded": true,
+      "keep": true
     },
-    "com.rahill.twin": {
-      "pid": "64354",
-      "last_exit": "-15"
+    "com.rahill.truth-publish": {
+      "pid": null,
+      "last_exit": "0",
+      "loaded": true,
+      "keep": true
     },
-    "ai.openclaw.gateway": {
-      "pid": "53897",
-      "last_exit": "0"
+    "com.ollama.ollama": {
+      "pid": null,
+      "last_exit": "0",
+      "loaded": true,
+      "keep": true
     },
-    "com.cyberfury.keepawake": {
-      "pid": "1261",
-      "last_exit": "0"
+    "com.cyberfury.ollama-env": {
+      "pid": null,
+      "last_exit": "0",
+      "loaded": true,
+      "keep": true
     }
   },
+  "launchd_extras": [
+    {
+      "label": "com.cyberfury.xcode-env",
+      "pid": null,
+      "last_exit": "0",
+      "keep": false
+    }
+  ],
   "ports": {
-    "8787": "200",
-    "8790": "200",
-    "8766": "200",
-    "11434": "200"
+    "8787": 200,
+    "8790": 200,
+    "8766": 200,
+    "11434": 200,
+    "8791": 0,
+    "8792": 0
   },
-  "ollama_hot": [],
-  "paid_grok_builds": 0,
-  "paid_grok_lines": [],
+  "ports_note": "8791 paper dead; 8792 command-http theater disabled",
+  "ollama_hot": [
+    {
+      "name": "qwen3.6:27b",
+      "processor": null
+    }
+  ],
+  "paid_grok_builds": 2,
   "rh": {
     "markets": "OPEN 24/7",
-    "health": {
-      "ok": true,
-      "status": "ok",
-      "why": "tick fresh",
-      "tick_age_s": 24,
-      "launchd_exit": "0",
-      "pid": "-",
-      "markets": "OPEN 24/7",
-      "checked_at": "2026-09-13T16:32:14.061283Z",
-      "checked_at_ct": "2026-09-13T11:32:14-0500"
-    },
-    "tick_age_s": 120,
+    "agent": "armed",
+    "watchdog": "ok",
+    "why": "tick fresh",
+    "tick_age_s": 1824,
+    "launchd_exit": "0",
+    "pid": null,
     "tick_tail": [
       "20260913-112446 tick sent ui=0",
       "20260913-113148 tick sent ui=0"
-    ]
+    ],
+    "note": "crypto markets OPEN 24/7 \u2014 agent row is the 6h cycle, not market hours"
   },
   "locals": {
     "models_installed": [
-      "gemma4:12b",
+      "qwen3.6:27b",
+      "qwen3-embedding:0.6b",
+      "gemma4:12b"
+    ],
+    "loaded_now": [
       "qwen3.6:27b"
     ],
-    "loaded_now": [],
-    "traffic_ran_true_last100": 5,
+    "traffic_ran_true_count": 10,
     "last_ran_true": {
       "kind": "route",
-      "path": "host",
-      "job": "status",
+      "path": "qwen",
+      "job": "qwen draft one line: Mini health in six words",
       "ran": true,
-      "why": "ops on Mini clocks",
+      "ts": "2026-09-13T17:03:17.079500Z",
+      "why": "Qwen 27b local brain \u2014 not Bot grind",
       "ran_detail": {
         "ok": true,
-        "stdout": " not Bot grind\",\n      \"id\": \"1789270038253400000\",\n      \"ts\": \"2026-09-13T03:27:18.253402Z\"\n    },\n    {\n      \"kind\": \"route\",\n      \"path\": \"qwen\",\n      \"dest\": \"productivity\",\n      \"job\": \"draft a plan\",\n      \"ran\": false,\n      \"why\": \"Qwen 27b local brain \\u2014 not Bot grind\",\n      \"id\": \"1789270038275102000\",\n      \"ts\": \"2026-09-13T03:27:18.275103Z\"\n    },\n    {\n      \"kind\": \"route\",\n      \"path\": \"oc\",\n      \"job\": \"oc-team list\",\n      \"ran\": false,\n      \"why\": \"OpenClaw pipe after review \\u2014 not inbox\",\n      \"id\": \"1789270038296931000\",\n      \"ts\": \"2026-09-13T03:27:18.296932Z\"\n    },\n    {\n      \"kind\": \"route\",\n      \"path\": \"imsg-out\",\n      \"job\": \"text bob hello\",\n      \"ran\": false,\n      \"why\": \"third-party text after YES\",\n      \"id\": \"1789270038318729000\",\n      \"ts\": \"2026-09-13T03:27:18.318730Z\"\n    },\n    {\n      \"kind\": \"route\",\n      \"path\": \"refuse\",\n      \"job\": \"text christopher hello\",\n      \"ran\": false,\n      \"why\": \"cannot iMessage Christopher \\u2014 he talks to Grok\",\n      \"id\": \"1789270038340583000\",\n      \"ts\": \"2026-09-13T03:27:18.340585Z\"\n    },\n    {\n      \"kind\": \"brain\",\n      \"path\": \"gemma\",\n      \"job\": \"ping\",\n      \"ran\": false,\n      \"ok\": true,\n      \"model\": \"gemma4:12b\",\n      \"id\": \"1789270087508507000\",\n      \"ts\": \"2026-09-13T03:28:07.508509Z\"\n    },\n    {\n      \"kind\": \"route\",\n      \"path\": \"host\",\n      \"job\": \"status\",\n      \"ran\": false,\n      \"why\": \"ops on Mini clocks\",\n      \"id\": \"1789317111927945000\",\n      \"ts\": \"2026-09-13T16:31:51.927949Z\"\n    },\n    {\n      \"kind\": \"route\",\n      \"path\": \"host\",\n      \"job\": \"status\",\n      \"ran\": true,\n      \"why\": \"ops on Mini clocks\",\n      \"id\": \"1789317112027141000\",\n      \"ts\": \"2026-09-13T16:31:52.027144Z\"\n    }\n  ],\n  \"work\": {\n    \"idle\": false,\n    \"last_120s\": 2,\n    \"ollama_hot\": [],\n    \"rh_tick_age_s\": 446\n  },\n  \"cuts\": {\n    \"crew_seq\": true,\n    \"fury_pollers\": true,\n    \"paper\": true,\n    \"print\": true,\n    \"money_desk_8791\": true\n  }\n}\n"
-      },
-      "id": "1789317134137516000",
-      "ts": "2026-09-13T16:32:14.137518Z"
+        "model": "qwen3.6:27b",
+        "text": "Mini healthy."
+      }
     }
+  },
+  "one_in_flight": {
+    "dest": "RH Agentic \u20264103",
+    "note": "Jarvis live. Merch PARKED. Conductor grok-bot. Build is the tool."
   },
   "quality": "project-first/grok/QUALITY.md",
   "honest": [
     "This page is process facts from Mini at generate time.",
     "HTTPS copy is a snapshot until republished \u2014 age badge matters.",
-    "Locals unused for merch grind historically \u2014 paid Build did that work.",
+    "Locals unused without ran=true. Paid Build while Mini idle = FAIL.",
     "Profit = collected_usd only. Today 0."
   ]
 }
