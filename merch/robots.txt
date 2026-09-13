@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cprahill.github.io/command/merch/sitemap.xml
