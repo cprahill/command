@@ -2,18 +2,13 @@
   "title": "PROCESS TRUTH",
   "conductor": "grok-bot",
   "build": "tool",
-  "generated_at": "2026-09-13T17:03:33.764917Z",
-  "generated_at_ct": "2026-09-13T12:03:33-0500",
+  "generated_at": "2026-09-13T17:27:26.467948Z",
+  "generated_at_ct": "2026-09-13T12:27:26-0500",
   "host": "Jimothys-Mac-mini-2.local",
   "ram": {
     "gb": 24,
     "policy": "one hot model \u2014 never dual-load gemma+qwen",
-    "ollama_hot": [
-      {
-        "name": "qwen3.6:27b",
-        "processor": null
-      }
-    ]
+    "ollama_hot": []
   },
   "money": {
     "collected_usd": 0,
@@ -106,19 +101,14 @@
     "8792": 0
   },
   "ports_note": "8791 paper dead; 8792 command-http theater disabled",
-  "ollama_hot": [
-    {
-      "name": "qwen3.6:27b",
-      "processor": null
-    }
-  ],
-  "paid_grok_builds": 2,
+  "ollama_hot": [],
+  "paid_grok_builds": 1,
   "rh": {
     "markets": "OPEN 24/7",
     "agent": "armed",
     "watchdog": "ok",
     "why": "tick fresh",
-    "tick_age_s": 1824,
+    "tick_age_s": 3326,
     "launchd_exit": "0",
     "pid": null,
     "tick_tail": [
@@ -133,9 +123,7 @@
       "qwen3-embedding:0.6b",
       "gemma4:12b"
     ],
-    "loaded_now": [
-      "qwen3.6:27b"
-    ],
+    "loaded_now": [],
     "traffic_ran_true_count": 10,
     "last_ran_true": {
       "kind": "route",
