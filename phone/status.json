@@ -1,7 +1,7 @@
 {
   "kernel": "grok",
-  "generated_at": "2026-09-13T16:31:58.000911Z",
-  "updated_at_ct": "2026-09-13T11:31:58-0500",
+  "generated_at": "2026-09-13T16:32:14.198333Z",
+  "updated_at_ct": "2026-09-13T11:32:14-0500",
   "host": {
     "name": "Jimothys-Mac-mini-2.local",
     "role": "Grok Mini"
@@ -172,7 +172,7 @@
       "state": "armed",
       "pid": null,
       "last_exit": "0",
-      "note": "crypto markets OPEN 24/7 \u2014 this row is the cycle process only"
+      "note": "tick fresh"
     },
     {
       "name": "keepawake",
@@ -184,8 +184,9 @@
   "rh": {
     "markets": "OPEN 24/7",
     "agent": "armed",
-    "why": "cycle every 6h \u2014 not market hours",
-    "last_exit": "0"
+    "why": "tick fresh",
+    "tick_age_s": 24,
+    "watchdog": "ok"
   },
   "one_in_flight": {
     "dest": "SYSTEM FIX",
@@ -197,15 +198,6 @@
     "shop": "https://fresh-start-ogz-shop.fourthwall.com/"
   },
   "traffic": [
-    {
-      "kind": "route",
-      "path": "refuse",
-      "job": "text christopher hi",
-      "ran": false,
-      "why": "cannot iMessage Christopher \u2014 he talks to Grok",
-      "id": "1789269332532662000",
-      "ts": "2026-09-13T03:15:32.532663Z"
-    },
     {
       "kind": "route",
       "path": "refuse",
@@ -421,13 +413,26 @@
       "why": "ops on Mini clocks",
       "id": "1789317112027141000",
       "ts": "2026-09-13T16:31:52.027144Z"
+    },
+    {
+      "kind": "route",
+      "path": "host",
+      "job": "status",
+      "ran": true,
+      "why": "ops on Mini clocks",
+      "ran_detail": {
+        "ok": true,
+        "stdout": " not Bot grind\",\n      \"id\": \"1789270038253400000\",\n      \"ts\": \"2026-09-13T03:27:18.253402Z\"\n    },\n    {\n      \"kind\": \"route\",\n      \"path\": \"qwen\",\n      \"dest\": \"productivity\",\n      \"job\": \"draft a plan\",\n      \"ran\": false,\n      \"why\": \"Qwen 27b local brain \\u2014 not Bot grind\",\n      \"id\": \"1789270038275102000\",\n      \"ts\": \"2026-09-13T03:27:18.275103Z\"\n    },\n    {\n      \"kind\": \"route\",\n      \"path\": \"oc\",\n      \"job\": \"oc-team list\",\n      \"ran\": false,\n      \"why\": \"OpenClaw pipe after review \\u2014 not inbox\",\n      \"id\": \"1789270038296931000\",\n      \"ts\": \"2026-09-13T03:27:18.296932Z\"\n    },\n    {\n      \"kind\": \"route\",\n      \"path\": \"imsg-out\",\n      \"job\": \"text bob hello\",\n      \"ran\": false,\n      \"why\": \"third-party text after YES\",\n      \"id\": \"1789270038318729000\",\n      \"ts\": \"2026-09-13T03:27:18.318730Z\"\n    },\n    {\n      \"kind\": \"route\",\n      \"path\": \"refuse\",\n      \"job\": \"text christopher hello\",\n      \"ran\": false,\n      \"why\": \"cannot iMessage Christopher \\u2014 he talks to Grok\",\n      \"id\": \"1789270038340583000\",\n      \"ts\": \"2026-09-13T03:27:18.340585Z\"\n    },\n    {\n      \"kind\": \"brain\",\n      \"path\": \"gemma\",\n      \"job\": \"ping\",\n      \"ran\": false,\n      \"ok\": true,\n      \"model\": \"gemma4:12b\",\n      \"id\": \"1789270087508507000\",\n      \"ts\": \"2026-09-13T03:28:07.508509Z\"\n    },\n    {\n      \"kind\": \"route\",\n      \"path\": \"host\",\n      \"job\": \"status\",\n      \"ran\": false,\n      \"why\": \"ops on Mini clocks\",\n      \"id\": \"1789317111927945000\",\n      \"ts\": \"2026-09-13T16:31:51.927949Z\"\n    },\n    {\n      \"kind\": \"route\",\n      \"path\": \"host\",\n      \"job\": \"status\",\n      \"ran\": true,\n      \"why\": \"ops on Mini clocks\",\n      \"id\": \"1789317112027141000\",\n      \"ts\": \"2026-09-13T16:31:52.027144Z\"\n    }\n  ],\n  \"work\": {\n    \"idle\": false,\n    \"last_120s\": 2,\n    \"ollama_hot\": [],\n    \"rh_tick_age_s\": 446\n  },\n  \"cuts\": {\n    \"crew_seq\": true,\n    \"fury_pollers\": true,\n    \"paper\": true,\n    \"print\": true,\n    \"money_desk_8791\": true\n  }\n}\n"
+      },
+      "id": "1789317134137516000",
+      "ts": "2026-09-13T16:32:14.137518Z"
     }
   ],
   "work": {
     "idle": false,
-    "last_120s": 2,
+    "last_120s": 3,
     "ollama_hot": [],
-    "rh_tick_age_s": 430
+    "rh_tick_age_s": 446
   },
   "cuts": {
     "crew_seq": true,
