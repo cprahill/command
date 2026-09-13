@@ -1,7 +1,7 @@
 {
   "kernel": "grok",
-  "generated_at": "2026-09-13T16:24:47.637291Z",
-  "updated_at_ct": "2026-09-13T11:24:47-0500",
+  "generated_at": "2026-09-13T16:29:21.975998Z",
+  "updated_at_ct": "2026-09-13T11:29:21-0500",
   "host": {
     "name": "Jimothys-Mac-mini-2.local",
     "role": "Grok Mini"
@@ -40,7 +40,9 @@
     "r1": "draft $0",
     "paper": "KILLED",
     "print": "KILLED",
-    "note": "Paper and print are dead. Money lives under Business (RH + R1)."
+    "note": "Paper and print are dead. Money lives under Business (RH + R1).",
+    "lane": "RH Agentic \u20264103",
+    "merch": "PARKED"
   },
   "dests": [
     {
@@ -65,7 +67,7 @@
     {
       "id": "business",
       "label": "Business",
-      "state": "down",
+      "state": "armed",
       "kind": "money",
       "inside": [
         "RH Agentic armed",
@@ -170,8 +172,7 @@
       "name": "rh_agentic_crypto",
       "http": null,
       "state": "armed",
-      "pid": null,
-      "note": "tick fresh"
+      "pid": null
     },
     {
       "name": "keepawake",
@@ -412,7 +413,7 @@
     "idle": true,
     "last_120s": 0,
     "ollama_hot": [],
-    "rh_tick_age_s": 66546
+    "rh_tick_age_s": 254
   },
   "cuts": {
     "crew_seq": true,
@@ -421,11 +422,8 @@
     "print": true,
     "money_desk_8791": true
   },
-  "rh": {
-    "markets": "OPEN 24/7",
-    "agent": "armed",
-    "why": "tick fresh",
-    "tick_age_s": 0,
-    "watchdog": "ok"
+  "one_in_flight": {
+    "dest": "RH CRYPTO ONLY",
+    "note": "Merch parked until one tee/tote works. Line Dragon pull pending login."
   }
 }
