@@ -1,21 +1,117 @@
-:root{--bg:#07080c;--card:#10141c;--line:#243044;--muted:#7a8aa0;--text:#e8eef6;--cyan:#3ce7ff;--gold:#ffb020}
-*{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 "IBM Plex Mono",ui-monospace,monospace}
-a{color:var(--cyan);text-decoration:none}
-header,main,footer{max-width:980px;margin:0 auto;padding:20px 16px}
-.brand{font-family:"Barlow Condensed",sans-serif;letter-spacing:.18em;font-size:22px}
-.brand i{color:var(--cyan);font-style:normal}
-h1,h2,h3{font-family:"Barlow Condensed",sans-serif;letter-spacing:.04em}
-h1{font-size:clamp(32px,6vw,52px);line-height:1.05;margin:8px 0 16px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
-.card img{width:100%;aspect-ratio:1;object-fit:cover;background:#05070b}
-.card.poster img{aspect-ratio:2/3}
-.card body,.card .pad{padding:14px}
-.price{color:var(--gold)}
-.muted{color:var(--muted);font-size:13px}
-.cta{display:inline-block;margin-top:10px;padding:8px 12px;border:1px solid var(--cyan);letter-spacing:.12em;font-size:12px;text-transform:uppercase}
-.note{border:1px solid #5a3a10;background:#1a1206;color:var(--gold);padding:10px 12px;font-size:13px;margin:16px 0}
-nav a{margin-right:14px;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
-footer{color:var(--muted);font-size:12px}
-@media(max-width:600px){h1{font-size:34px}}
+:root {
+  --bg: #07080c;
+  --card: #10141c;
+  --line: #243044;
+  --muted: #7a8aa0;
+  --text: #e8eef6;
+  --cyan: #3ce7ff;
+  --gold: #ffb020;
+  --magenta: #ff2d95;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--bg); color: var(--text); }
+html, body {
+  margin: 0;
+  font: 16px/1.5 "IBM Plex Mono", ui-monospace, monospace;
+}
+img { display: block; max-inline-size: 100%; }
+a { color: var(--cyan); text-decoration: none; }
+a:hover { text-decoration: underline; }
+header, main, footer {
+  max-inline-size: 1100px;
+  margin-inline: auto;
+  padding: 20px 16px;
+}
+.brand {
+  font-family: "Barlow Condensed", sans-serif;
+  letter-spacing: .18em;
+  font-size: 22px;
+}
+.brand i { color: var(--cyan); font-style: normal; }
+h1, h2, h3 {
+  font-family: "Barlow Condensed", sans-serif;
+  letter-spacing: .04em;
+}
+h1 {
+  font-size: clamp(32px, 6vw, 52px);
+  line-height: 1.05;
+  margin: 8px 0 16px;
+}
+h3 { margin: 0 0 6px; font-size: 22px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16.5rem), 1fr));
+  gap: 1.125rem;
+}
+.card {
+  container-type: inline-size;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.card img {
+  inline-size: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  background: #05070b;
+}
+.card.square img { aspect-ratio: 1; }
+.card .pad { padding: 14px; display: grid; gap: 6px; }
+.card .pad p { margin: 0; }
+.price { color: var(--gold); }
+.muted { color: var(--muted); font-size: 13px; }
+.cta {
+  display: inline-block;
+  margin-block-start: 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--cyan);
+  letter-spacing: .12em;
+  font-size: 12px;
+  text-transform: uppercase;
+  inline-size: fit-content;
+}
+.cta:hover { background: color-mix(in srgb, var(--cyan) 16%, transparent); text-decoration: none; }
+.cta.staged { border-color: var(--gold); color: var(--gold); }
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  border: 1px solid var(--line);
+  padding: 2px 7px;
+  color: var(--muted);
+  inline-size: fit-content;
+}
+.badge.live { border-color: var(--cyan); color: var(--cyan); }
+.badge.staged { border-color: var(--gold); color: var(--gold); }
+.note {
+  border: 1px solid #5a3a10;
+  background: #1a1206;
+  color: var(--gold);
+  padding: 10px 12px;
+  font-size: 13px;
+  margin: 16px 0;
+}
+nav { display: flex; flex-wrap: wrap; gap: 14px; }
+nav a { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; }
+footer { color: var(--muted); font-size: 12px; }
+.hero-img {
+  margin-block: 18px;
+  border: 1px solid var(--line);
+  max-inline-size: 420px;
+  inline-size: 100%;
+}
+.skip {
+  position: absolute;
+  inset-inline-start: -999px;
+}
+.skip:focus { inset-inline-start: 12px; inset-block-start: 12px; background: var(--card); padding: 8px; }
+@media (max-width: 600px) {
+  h1 { font-size: 34px; }
+}
+@container (min-width: 360px) {
+  .card .pad { padding: 16px; }
+}
