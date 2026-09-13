@@ -4,10 +4,10 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <meta name="robots" content="noindex"/>
-<title>Morning review — cool pack 2026-09-13</title>
-<meta name="description" content="Christopher morning review. Night Signal on Fourthwall. Soft Wave on Shopify. Stage only."/>
+<title>Rev 4 review — 6×4 merch board</title>
+<meta name="description" content="24 designs. 6 themes. Comment and pick. Stage only."/>
 <link rel="canonical" href="https://cprahill.github.io/command/merch-review/"/>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=Oswald:wght@500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 :root {
   --bg: #07080c;
@@ -22,383 +22,398 @@
   --cream: #f3ead8;
   --ok: #3dff9a;
   --no: #ff5a7a;
+  --shop: #c9a227;
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { background: var(--bg); color: var(--text); }
 html, body {
   margin: 0;
   overflow-x: hidden;
-  font: 15px/1.45 "IBM Plex Mono", ui-monospace, monospace;
+  font: 14px/1.45 "IBM Plex Mono", ui-monospace, monospace;
 }
 img { display: block; max-inline-size: 100%; }
 a { color: var(--cyan); text-decoration: none; }
 a:hover { text-decoration: underline; }
-header, footer {
-  max-inline-size: 720px;
+header {
+  max-inline-size: 1100px;
   margin-inline: auto;
   padding: 16px 16px 8px;
 }
-h1, h2, .brand {
-  font-family: "Barlow Condensed", sans-serif;
-  letter-spacing: .04em;
-}
-.brand { font-size: 13px; letter-spacing: .22em; color: var(--muted); }
+.brand { font-family: "Barlow Condensed", sans-serif; font-size: 13px; letter-spacing: .22em; color: var(--muted); }
 .brand i { color: var(--cyan); font-style: normal; }
-h1 { font-size: clamp(26px, 7.2vw, 44px); line-height: 1.08; margin: 8px 0 10px; text-wrap: balance; }
-.lede { color: var(--muted); font-size: 13px; max-inline-size: 62ch; }
+h1 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(26px, 6vw, 44px);
+  line-height: 1.08;
+  margin: 8px 0 10px;
+  text-wrap: balance;
+}
+.lede { color: var(--muted); font-size: 13px; max-inline-size: 72ch; }
 .tally {
   display: flex; gap: 10px; flex-wrap: wrap;
   margin: 14px 0 6px; font-size: 12px; letter-spacing: .08em;
 }
 .tally b { color: var(--gold); }
-.tabs {
-  position: sticky; top: 0; z-index: 4;
-  display: grid; grid-template-columns: 1fr 1fr;
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
-  backdrop-filter: blur(10px);
-  border-block-end: 1px solid var(--line);
-}
-.tabs a {
-  padding: 12px 8px;
-  text-align: center;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  font-size: 11px;
-  color: var(--muted);
-  border-block-end: 2px solid transparent;
-}
-.tabs a:hover { text-decoration: none; color: var(--text); }
-.tabs a.on { color: var(--cyan); border-color: var(--cyan); }
-.tabs a.b.on { color: var(--cream); border-color: var(--cherry); }
-.sku {
-  max-inline-size: 720px;
-  margin: 0 auto 28px;
-  border-block-end: 1px solid var(--line);
-}
-.sku img.hero {
-  inline-size: 100%;
-  aspect-ratio: 3 / 4;
-  max-block-size: 58vh;
-  object-fit: cover;
-  object-position: center 18%;
-  background: #05070b;
-}
-.sku .pad { padding: 14px 16px 22px; display: grid; gap: 8px; }
-.door {
-  font-size: 11px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--cyan);
-}
-.sku.b .door { color: var(--cherry); }
-h2 { margin: 0; font-size: 26px; }
-.price { color: var(--gold); }
-.why { color: var(--muted); font-size: 13px; }
-.mark {
-  inline-size: 92px;
-  aspect-ratio: 1;
-  object-fit: contain;
-  background: #000;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-}
-.row { display: flex; gap: 12px; align-items: center; }
-.btns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 6px; }
-button {
+.tools { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 4px; }
+.tools button, .export {
   font: 12px/1 "IBM Plex Mono", ui-monospace, monospace;
-  letter-spacing: .12em;
+  letter-spacing: .1em;
   text-transform: uppercase;
-  padding: 12px 8px;
+  padding: 10px 12px;
   border-radius: 8px;
   border: 1px solid var(--line);
   background: transparent;
   color: var(--text);
   min-block-size: 44px;
 }
-button:hover { border-color: var(--cyan); }
-button.yes.on { background: color-mix(in srgb, var(--ok) 18%, transparent); border-color: var(--ok); color: var(--ok); }
-button.no.on { background: color-mix(in srgb, var(--no) 18%, transparent); border-color: var(--no); color: var(--no); }
-button.later.on { border-color: var(--gold); color: var(--gold); }
-.sec-head {
-  max-inline-size: 720px;
-  margin: 8px auto 0;
-  padding: 20px 16px 8px;
+.tools button:hover, .export:hover { border-color: var(--cyan); }
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 8;
+  container-type: scroll-state;
+  container-name: board-nav;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(12px);
+  border-block-end: 1px solid var(--line);
 }
-.sec-head h2 { font-size: 20px; letter-spacing: .18em; color: var(--muted); }
-.ignore { color: var(--muted); font-size: 12px; padding: 8px 16px 28px; max-inline-size: 720px; margin-inline: auto; }
+.nav-inner {
+  max-inline-size: 1100px;
+  margin-inline: auto;
+  padding: 6px 8px;
+}
+@container board-nav scroll-state(stuck: top) {
+  .nav-inner { box-shadow: 0 8px 24px rgb(0 0 0 / 0.35); }
+}
+nav.themes {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scroll-target-group: auto;
+  -webkit-overflow-scrolling: touch;
+}
+nav.themes a {
+  flex: 0 0 auto;
+  padding: 10px 12px;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-block-end: 2px solid transparent;
+  white-space: nowrap;
+}
+nav.themes a:hover { text-decoration: none; color: var(--text); }
+nav.themes a:is(:target-current, .is-current) {
+  color: var(--cyan);
+  border-color: var(--cyan);
+  font-weight: 700;
+}
+section.theme {
+  max-inline-size: 1100px;
+  margin: 0 auto;
+  padding: 18px 16px 8px;
+  overflow-anchor: none;
+}
+.theme-head {
+  display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline;
+  margin-block-end: 12px;
+}
+.theme-head h2 {
+  font-family: "Barlow Condensed", sans-serif;
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.door { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--cyan); }
+.door.b { color: var(--cherry); }
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+@media (min-width: 700px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1100px) {
+  .grid { grid-template-columns: 1fr 1fr 1fr 1fr; }
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.card img.hero {
+  inline-size: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center 18%;
+  background: #05070b;
+}
+.card.sticker img.hero, .card.poster img.hero { object-fit: contain; object-position: center; background: #0b0e14; }
+.pad { padding: 12px 12px 14px; display: grid; gap: 8px; }
+.pad h3 {
+  font-family: "Barlow Condensed", sans-serif;
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: .04em;
+}
+.meta { color: var(--muted); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+.price { color: var(--gold); }
+.btns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.btns button {
+  font: 11px/1 "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 12px 4px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  min-block-size: 44px;
+}
+.btns button:hover { border-color: var(--cyan); }
+.btns button.yes.on { background: color-mix(in srgb, var(--ok) 18%, transparent); border-color: var(--ok); color: var(--ok); }
+.btns button.no.on { background: color-mix(in srgb, var(--no) 18%, transparent); border-color: var(--no); color: var(--no); }
+.btns button.later.on { border-color: var(--gold); color: var(--gold); }
+.card textarea, #global-note {
+  field-sizing: content;
+  width: 100%;
+  height: auto;
+  min-block-size: 3lh;
+  max-block-size: 8lh;
+  font: 13px/1.4 "IBM Plex Mono", ui-monospace, monospace;
+  color: var(--text);
+  background: #0b0f16;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+@supports not (field-sizing: content) {
+  .card textarea, #global-note { min-height: 64px; }
+}
+.card textarea:focus, #global-note:focus { outline: 2px solid var(--cyan); outline-offset: 1px; }
+.global {
+  max-inline-size: 1100px;
+  margin: 8px auto 0;
+  padding: 8px 16px 28px;
+  display: grid;
+  gap: 8px;
+}
+footer {
+  max-inline-size: 1100px;
+  margin-inline: auto;
+  padding: 8px 16px 40px;
+  color: var(--muted);
+  font-size: 12px;
+}
 @media (max-width: 700px) {
   header { padding: 10px 16px 4px; }
   h1 { font-size: 22px; margin: 4px 0 6px; }
-  .lede, .why, .row, .sec-head { display: none; }
-  .tally { margin: 8px 0 4px; }
-  .sku img.hero { max-block-size: 52vh; }
-  .sku .pad { padding: 10px 16px 18px; gap: 6px; }
-  button { letter-spacing: .06em; font-size: 11px; padding: 12px 4px; }
-}
-@media (min-width: 900px) {
-  .sku { display: grid; grid-template-columns: 1.1fr 0.9fr; border: 1px solid var(--line); border-block-end: 1px solid var(--line); margin-block-end: 18px; }
-  .sku img.hero { aspect-ratio: auto; max-block-size: none; block-size: 100%; object-fit: cover; }
+  .lede { font-size: 12px; }
 }
 </style>
 </head>
 <body>
 <header>
-  <div class="brand">COMMAND <i>//</i> MERCH REVIEW · 2026-09-13</div>
-  <h1>Cool pack. Stage only. Pick winners.</h1>
-  <p class="lede">Two existing doors. <b>A = Fourthwall</b> neon/cyber/gamer. <b>B = Shopify</b> anime-inspired / memes / 80s–90s classics. No live swaps until you approve. Would-a-stranger-pay-$28 bar already applied; kill pile is off this board.</p>
+  <div class="brand">COMMAND <i>//</i> MERCH REVIEW · REV 4 · 2026-09-13</div>
+  <h1>Six worlds. 24 designs. Comment and pick.</h1>
+  <p class="lede">One page. Overnight SKUs had no YES export — all redone. Cassette heart is tape-from-reels, not a gift ribbon. Chest line measured. Type is designed with art, not stacked words. Stage only — live Line Dragon checkout stays.</p>
   <div class="tally">
-    <span>A approve <b id="a-yes">0</b></span>
-    <span>B approve <b id="b-yes">0</b></span>
-    <span>reject <b id="no">0</b></span>
+    <span>approve <b id="n-yes">0</b></span>
+    <span>later <b id="n-later">0</b></span>
+    <span>reject <b id="n-no">0</b></span>
+    <span>comments <b id="n-notes">0</b></span>
+  </div>
+  <div class="tools">
+    <button type="button" class="export" id="export">Export picks + comments JSON</button>
   </div>
 </header>
-<nav class="tabs">
-  <a href="#pack-a" class="on" id="tab-a">A Fourthwall</a>
-  <a href="#pack-b" class="b" id="tab-b">B Shopify</a>
-</nav>
 
-<section class="sec-head" id="pack-a">
-  <h2>A · Night Signal · Fourthwall</h2>
-  <p class="lede">Black cloth. Cyan / magenta / gold. Kung-Fury-energy, not the film. https://fresh-start-ogz-shop.fourthwall.com/</p>
-</section>
+<div class="nav-wrap">
+  <div class="nav-inner">
+    <nav class="themes" aria-label="Themes">
+      <a href="#night-signal">1 Night Signal</a>
+      <a href="#kung-synth">2 Kung Synth</a>
+      <a href="#soft-wave">3 Soft Wave</a>
+      <a href="#arcade-gamer">4 Arcade Gamer</a>
+      <a href="#retro-classic">5 Retro Classic</a>
+      <a href="#meme-lab">6 Meme Lab</a>
+    </nav>
+  </div>
+</div>
 
-<article class="sku" data-id="a-neon-kick" data-pack="a">
-  <img class="hero" src="./img/a-neon-kick.jpg" alt="Black tee with neon side-kick graphic" width="800" height="1067"/>
-  <div class="pad">
-    <span class="door">A · Fourthwall · tee $28</span>
-    <h2>Neon Kick</h2>
-    <p class="price">$28 + ship</p>
-    <p class="why">Original fighter, blank mask, cyan contour. 80s action you can wear. No letters in the mark.</p>
-    <div class="row"><img class="mark" src="./img/mark-neon-kick.jpg" alt="Neon Kick print mark"/></div>
-    <div class="btns">
-      <button class="yes" type="button">Yes</button>
-      <button class="later" type="button">Later</button>
-      <button class="no" type="button">No</button>
-    </div>
-  </div>
-</article>
-<article class="sku" data-id="a-night-ronin" data-pack="a">
-  <img class="hero" src="./img/a-night-ronin.jpg" alt="Black hoodie with visor fighter bust" width="800" height="1067"/>
-  <div class="pad">
-    <span class="door">A · Fourthwall · hoodie $48</span>
-    <h2>Night Ronin</h2>
-    <p class="price">$48 + ship</p>
-    <p class="why">Visor, rain, magenta pauldron. Print sits above the kangaroo pocket.</p>
-    <div class="row"><img class="mark" src="./img/mark-night-ronin.jpg" alt="Night Ronin print mark"/></div>
-    <div class="btns">
-      <button class="yes" type="button">Yes</button>
-      <button class="later" type="button">Later</button>
-      <button class="no" type="button">No</button>
-    </div>
-  </div>
-</article>
-<article class="sku" data-id="a-chrome-stick" data-pack="a">
-  <img class="hero" src="./img/a-chrome-stick.jpg" alt="Black tee with chrome arcade joystick" width="800" height="1067"/>
-  <div class="pad">
-    <span class="door">A · Fourthwall · tee $28</span>
-    <h2>Chrome Stick</h2>
-    <p class="price">$28 + ship</p>
-    <p class="why">Original arcade stick. Not PlayStation, Xbox, or Nintendo. Gamer object as sculpture.</p>
-    <div class="row"><img class="mark" src="./img/mark-chrome-stick.jpg" alt="Chrome Stick print mark"/></div>
-    <div class="btns">
-      <button class="yes" type="button">Yes</button>
-      <button class="later" type="button">Later</button>
-      <button class="no" type="button">No</button>
-    </div>
-  </div>
-</article>
-<article class="sku" data-id="a-scanline-fist" data-pack="a">
-  <img class="hero" src="./img/a-scanline-fist.jpg" alt="Black tee with neon scanline fist" width="800" height="1067"/>
-  <div class="pad">
-    <span class="door">A · Fourthwall · tee $28</span>
-    <h2>Scanline Fist</h2>
-    <p class="price">$28 + ship</p>
-    <p class="why">80s action punch through scanlines. Thumbnail-loud. No letters.</p>
-    <div class="row"><img class="mark" src="./img/mark-scanline-fist.jpg" alt="Scanline Fist print mark"/></div>
-    <div class="btns">
-      <button class="yes" type="button">Yes</button>
-      <button class="later" type="button">Later</button>
-      <button class="no" type="button">No</button>
-    </div>
-  </div>
-</article>
-<article class="sku" data-id="a-grid-rain" data-pack="a">
-  <img class="hero" src="./img/a-grid-rain.jpg" alt="Framed night-city synthwave poster on brick" width="800" height="1067"/>
-  <div class="pad">
-    <span class="door">A · Fourthwall · poster $24</span>
-    <h2>Grid Rain</h2>
-    <p class="price">$24 + ship</p>
-    <p class="why">Full-bleed night city. Invented towers. No type on the art.</p>
-    <div class="row"><img class="mark" src="./img/mark-grid-rain.jpg" alt="Grid Rain poster art"/></div>
-    <div class="btns">
-      <button class="yes" type="button">Yes</button>
-      <button class="later" type="button">Later</button>
-      <button class="no" type="button">No</button>
-    </div>
-  </div>
-</article>
-<article class="sku" data-id="a-insert-coin" data-pack="a">
-  <img class="hero" src="./img/a-insert-coin.jpg" alt="Black tee reading INSERT COIN" width="800" height="1067"/>
-  <div class="pad">
-    <span class="door">A · Fourthwall · type tee $28</span>
-    <h2>INSERT COIN</h2>
-    <p class="price">$28 + ship</p>
-    <p class="why">Gamer type lane. IBM Plex Mono. Generic arcade language — not a licensed cabinet.</p>
-    <div class="row"><img class="mark" src="./img/mark-insert-coin.png" alt="INSERT COIN type lockup"/></div>
-    <div class="btns">
-      <button class="yes" type="button">Yes</button>
-      <button class="later" type="button">Later</button>
-      <button class="no" type="button">No</button>
-    </div>
-  </div>
-</article>
+<main id="board"></main>
 
-<section class="sec-head" id="pack-b">
-  <h2>B · Soft Wave · Shopify</h2>
-  <p class="lede">Ink / cream / cherry / gold. Original JP-inspired + 90s object + meme type. https://sh0bvy-v0.myshopify.com/ — you upload after picks.</p>
-</section>
-
-<article class="sku b" data-id="b-moon-cat" data-pack="b">
-  <img class="hero" src="./img/b-moon-cat.jpg" alt="Black tee with original moon cat" width="800" height="1067"/>
-  <div class="pad">
-    <span class="door">B · Shopify · tee $28</span>
-    <h2>Moon Cat</h2>
-    <p class="price">$28 + ship</p>
-    <p class="why">Original cat + paper moon. Woodblock / 90s cel. Not Ghibli, not Hello Kitty. Gift-first.</p>
-    <div class="row"><img class="mark" src="./img/mark-moon-cat.jpg" alt="Moon Cat print mark"/></div>
-    <div class="btns">
-      <button class="yes" type="button">Yes</button>
-      <button class="later" type="button">Later</button>
-      <button class="no" type="button">No</button>
-    </div>
-  </div>
-</article>
-<article class="sku b" data-id="b-sleepy-mech" data-pack="b">
-  <img class="hero" src="./img/b-sleepy-mech.jpg" alt="Black hoodie with sleepy round robot" width="800" height="1067"/>
-  <div class="pad">
-    <span class="door">B · Shopify · hoodie $48</span>
-    <h2>Sleepy Mech</h2>
-    <p class="price">$48 + ship</p>
-    <p class="why">Original squat robot, sakura petal, visible bolts. Print clears the pocket.</p>
-    <div class="row"><img class="mark" src="./img/mark-sleepy-mech.jpg" alt="Sleepy Mech print mark"/></div>
-    <div class="btns">
-      <button class="yes" type="button">Yes</button>
-      <button class="later" type="button">Later</button>
-      <button class="no" type="button">No</button>
-    </div>
-  </div>
-</article>
-<article class="sku b" data-id="b-cassette-heart" data-pack="b">
-  <img class="hero" src="./img/b-cassette-heart.jpg" alt="Black tee with cassette-tape heart" width="800" height="1067"/>
-  <div class="pad">
-    <span class="door">B · Shopify · tee $28</span>
-    <h2>Cassette Heart</h2>
-    <p class="price">$28 + ship</p>
-    <p class="why">80s/90s classic object. No Sony / Maxell / TDK. Blank label on purpose.</p>
-    <div class="row"><img class="mark" src="./img/mark-cassette-heart.jpg" alt="Cassette Heart print mark"/></div>
-    <div class="btns">
-      <button class="yes" type="button">Yes</button>
-      <button class="later" type="button">Later</button>
-      <button class="no" type="button">No</button>
-    </div>
-  </div>
-</article>
-<article class="sku b" data-id="b-night-wave" data-pack="b">
-  <img class="hero" src="./img/b-night-wave.jpg" alt="Framed night-wave poster with red moon" width="800" height="1067"/>
-  <div class="pad">
-    <span class="door">B · Shopify · poster $24</span>
-    <h2>Night Wave</h2>
-    <p class="price">$24 + ship</p>
-    <p class="why">Original swell + huge red moon + islands. Not a Hokusai claw-copy. No type.</p>
-    <div class="row"><img class="mark" src="./img/mark-night-wave.jpg" alt="Night Wave poster art"/></div>
-    <div class="btns">
-      <button class="yes" type="button">Yes</button>
-      <button class="later" type="button">Later</button>
-      <button class="no" type="button">No</button>
-    </div>
-  </div>
-</article>
-<article class="sku b" data-id="b-npc-caffeine" data-pack="b">
-  <img class="hero" src="./img/b-npc-caffeine.jpg" alt="Black tee reading NPC UNTIL CAFFEINE" width="800" height="1067"/>
-  <div class="pad">
-    <span class="door">B · Shopify · type tee $28</span>
-    <h2>NPC UNTIL CAFFEINE</h2>
-    <p class="price">$28 + ship</p>
-    <p class="why">Original meme energy. Oswald. Not a stolen format.</p>
-    <div class="row"><img class="mark" src="./img/mark-npc-caffeine.png" alt="NPC UNTIL CAFFEINE type lockup"/></div>
-    <div class="btns">
-      <button class="yes" type="button">Yes</button>
-      <button class="later" type="button">Later</button>
-      <button class="no" type="button">No</button>
-    </div>
-  </div>
-</article>
-<article class="sku b" data-id="b-side-quest" data-pack="b">
-  <img class="hero" src="./img/b-side-quest.jpg" alt="Black tee reading SIDE QUEST SNACKS" width="800" height="1067"/>
-  <div class="pad">
-    <span class="door">B · Shopify · type tee $28</span>
-    <h2>SIDE QUEST: SNACKS</h2>
-    <p class="price">$28 + ship</p>
-    <p class="why">Second meme. Short enough to read at a thumbnail. Gift-joke, not spam.</p>
-    <div class="row"><img class="mark" src="./img/mark-side-quest.png" alt="SIDE QUEST SNACKS type lockup"/></div>
-    <div class="btns">
-      <button class="yes" type="button">Yes</button>
-      <button class="later" type="button">Later</button>
-      <button class="no" type="button">No</button>
-    </div>
-  </div>
-</article>
-
-<p class="ignore">Ignore tonight: live Line Dragon checkout (do not break it), faith / Texas / Rev 2 dump, ads, auto-post, RH …4103, extra paid storefronts. Kill pile: Hokusai-too-close wave, grid-rain recolor that still had a green strip, PIL moon-cat with a gray plate.</p>
+<div class="global">
+  <label for="global-note">Global note (whole board)</label>
+  <textarea id="global-note" placeholder="Overall notes — what to redo, what to upload first…"></textarea>
+</div>
 <footer>
-  <p>Picks save on this phone in localStorage. Upload steps: merch/GO-OVERNIGHT.md. One-pager: merch/REVIEW-MORNING-2026-09-13.md.</p>
-  <p><a href="https://fresh-start-ogz-shop.fourthwall.com/">Live Fourthwall</a> · <a href="https://sh0bvy-v0.myshopify.com/">Shopify</a> · <a href="../merch/">Line Dragon catalog</a></p>
+  <p>Picks save on this phone in localStorage. Export JSON and Drop-save as <code>merch/review-comments.json</code>. Upload winners only: <code>merch/GO-REV4.md</code>.</p>
+  <p><a href="https://fresh-start-ogz-shop.fourthwall.com/">Live Fourthwall (do not break)</a> · <a href="https://sh0bvy-v0.myshopify.com/">Shopify</a> · <a href="../merch/">Line Dragon catalog</a></p>
 </footer>
 <script>
-const KEY = "merch-review-2026-09-13";
-const state = JSON.parse(localStorage.getItem(KEY) || "{}");
+const KEY = "merch-review-rev4-2026-09-13";
+const SKUS = [
+  {id:"ns-rain-antenna", theme:"night-signal", door:"A Fourthwall", name:"Rain Antenna", type:"tee", price:28, why:"Chrome tower in magenta rain. Object as identity.", cls:"tee"},
+  {id:"ns-night-visor", theme:"night-signal", door:"A Fourthwall", name:"Night Visor", type:"hoodie", price:48, why:"Cyan visor slit, rain on chrome. Clears kangaroo pocket.", cls:"hoodie"},
+  {id:"ns-signal-glyph", theme:"night-signal", door:"A Fourthwall", name:"Signal Glyph", type:"mug", price:18, why:"Club-stamp city sigil. Gift desk object.", cls:"mug"},
+  {id:"ns-grid-rain", theme:"night-signal", door:"A Fourthwall", name:"Grid Rain", type:"poster", price:24, why:"Invented night city. Full-bleed, no type.", cls:"poster"},
+  {id:"ks-pulse-kick", theme:"kung-synth", door:"A Fourthwall", name:"Pulse Kick", type:"tee", price:28, why:"Compact kick, torso on the collar line. Not film IP.", cls:"tee"},
+  {id:"ks-tiger-gi", theme:"kung-synth", door:"A Fourthwall", name:"Tiger Gi", type:"hoodie", price:48, why:"Original tiger mascot in a gi. Magenta belt.", cls:"hoodie"},
+  {id:"ks-dojo-sun", theme:"kung-synth", door:"A Fourthwall", name:"Dojo Sun", type:"tote", price:22, why:"Sun disk + kicker silhouette. Everyday bag.", cls:"tote"},
+  {id:"ks-scanline-fist", theme:"kung-synth", door:"A Fourthwall", name:"Scanline Fist", type:"sticker", price:8, why:"Die-cut sheet. Impulse add-on.", cls:"sticker"},
+  {id:"sw-moon-cat", theme:"soft-wave", door:"B Shopify", name:"Moon Cat", type:"tee", price:28, why:"Original cat + paper moon. Not licensed.", cls:"tee"},
+  {id:"sw-sleepy-mech", theme:"soft-wave", door:"B Shopify", name:"Sleepy Mech", type:"hoodie", price:48, why:"Squat robot, sakura, gift-first.", cls:"hoodie"},
+  {id:"sw-fox-mask", theme:"soft-wave", door:"B Shopify", name:"Fox Mask", type:"tote", price:22, why:"Original spirit mask. Cream / cherry / gold.", cls:"tote"},
+  {id:"sw-red-moon", theme:"soft-wave", door:"B Shopify", name:"Red Moon Swell", type:"poster", price:24, why:"Original swell + paper moon. Not Hokusai.", cls:"poster"},
+  {id:"ag-chrome-stick", theme:"arcade-gamer", door:"A Fourthwall", name:"Chrome Stick", type:"tee", price:28, why:"Arcade stick sculpture. Not a console pad.", cls:"tee"},
+  {id:"ag-insert-coin", theme:"arcade-gamer", door:"A Fourthwall", name:"INSERT COIN", type:"cap", price:26, why:"Press Start lockup on a dad cap.", cls:"cap"},
+  {id:"ag-high-score", theme:"arcade-gamer", door:"A Fourthwall", name:"HIGH SCORE", type:"shorts", price:32, why:"Left-thigh type. Not another tee.", cls:"shorts"},
+  {id:"ag-1up", theme:"arcade-gamer", door:"A Fourthwall", name:"1-UP", type:"mug", price:18, why:"Pixel heart + designed type. Original, not Mario.", cls:"mug"},
+  {id:"rc-cassette-heart", theme:"retro-classic", door:"B Shopify", name:"Cassette Heart", type:"tee", price:28, why:"Rectangular cassette. Thin tape from the reels forms the heart. Fixed.", cls:"tee"},
+  {id:"rc-vhs-night", theme:"retro-classic", door:"B Shopify", name:"VHS Night", type:"hoodie", price:48, why:"Blank-spine VHS object. No brand names.", cls:"hoodie"},
+  {id:"rc-boombox", theme:"retro-classic", door:"B Shopify", name:"Boombox", type:"tote", price:22, why:"80s boombox sculpture on the pocket.", cls:"tote"},
+  {id:"rc-analog-wall", theme:"retro-classic", door:"B Shopify", name:"Analog Wall", type:"poster", price:24, why:"Still-life cassettes + VHS + phones. Gift wall.", cls:"poster"},
+  {id:"ml-npc-caffeine", theme:"meme-lab", door:"B Shopify", name:"NPC UNTIL CAFFEINE", type:"tee", price:28, why:"Coffee HUD + Anton type. Not a boring word shirt.", cls:"tee"},
+  {id:"ml-side-quest", theme:"meme-lab", door:"B Shopify", name:"SIDE QUEST: SNACKS", type:"hoodie", price:48, why:"Pixel ramen/sandwich locked to the type.", cls:"hoodie"},
+  {id:"ml-loading", theme:"meme-lab", door:"B Shopify", name:"LOADING…", type:"mug", price:18, why:"Progress bar as the graphic. 73%.", cls:"mug"},
+  {id:"ml-main-character", theme:"meme-lab", door:"B Shopify", name:"MAIN CHARACTER", type:"sticker", price:8, why:"Sheet: badge + cat + fox + heart + mug + fist.", cls:"sticker"},
+];
+const THEMES = [
+  {id:"night-signal", title:"Night Signal", door:"A · Fourthwall", pack:"a", lede:"80s cyberpunk / neon rain / chrome. Black cloth."},
+  {id:"kung-synth", title:"Kung Synth", door:"A · Fourthwall", pack:"a", lede:"Synthwave karate energy. Not the film."},
+  {id:"soft-wave", title:"Soft Wave", door:"B · Shopify", pack:"b", lede:"JP-inspired originals. No licensed characters."},
+  {id:"arcade-gamer", title:"Arcade Gamer", door:"A · Fourthwall", pack:"a", lede:"Stick, coin, score, 1-UP. Designed, not clipart."},
+  {id:"retro-classic", title:"Retro Classic", door:"B · Shopify", pack:"b", lede:"Cassette / VHS / boombox. Heart tape fixed."},
+  {id:"meme-lab", title:"Meme Lab", door:"B · Shopify", pack:"b", lede:"Funny + wearable. Type is a graphic."},
+];
+
+const state = JSON.parse(localStorage.getItem(KEY) || '{"picks":{},"notes":{},"global":""}');
+state.picks ||= {};
+state.notes ||= {};
+state.global ||= "";
+
 function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
 function tally() {
-  let a = 0, b = 0, n = 0;
-  for (const [id, v] of Object.entries(state)) {
-    if (v === "yes" && id.startsWith("a-")) a++;
-    else if (v === "yes" && id.startsWith("b-")) b++;
-    else if (v === "no") n++;
+  let y=0,l=0,n=0,c=0;
+  for (const v of Object.values(state.picks)) {
+    if (v==="yes") y++; else if (v==="later") l++; else if (v==="no") n++;
   }
-  document.getElementById("a-yes").textContent = a;
-  document.getElementById("b-yes").textContent = b;
-  document.getElementById("no").textContent = n;
+  for (const v of Object.values(state.notes)) if (v && v.trim()) c++;
+  if (state.global && state.global.trim()) c++;
+  document.getElementById("n-yes").textContent = y;
+  document.getElementById("n-later").textContent = l;
+  document.getElementById("n-no").textContent = n;
+  document.getElementById("n-notes").textContent = c;
 }
-function paint(sku) {
-  const id = sku.dataset.id;
-  const v = state[id] || "";
-  sku.querySelectorAll("button").forEach((btn) => {
-    btn.classList.toggle("on", (btn.classList.contains("yes") && v === "yes")
-      || (btn.classList.contains("no") && v === "no")
-      || (btn.classList.contains("later") && v === "later"));
-  });
+
+function cardHTML(s) {
+  const pick = state.picks[s.id] || "";
+  const note = state.notes[s.id] || "";
+  const doorCls = s.door.startsWith("B") ? "b" : "";
+  return `<article class="card ${s.cls}" data-id="${s.id}">
+    <img class="hero" src="./img/${s.id}.jpg" alt="${s.name} ${s.type}" width="800" height="1067"/>
+    <div class="pad">
+      <span class="door ${doorCls}">${s.door} · ${s.type} $${s.price}</span>
+      <h3>${s.name}</h3>
+      <p class="price">$${s.price} + ship</p>
+      <p class="meta">${s.why}</p>
+      <div class="btns">
+        <button class="yes${pick==="yes"?" on":""}" type="button">Yes</button>
+        <button class="later${pick==="later"?" on":""}" type="button">Later</button>
+        <button class="no${pick==="no"?" on":""}" type="button">No</button>
+      </div>
+      <textarea data-note="${s.id}" placeholder="Comment on this design…">${note.replace(/</g,"&lt;")}</textarea>
+    </div>
+  </article>`;
 }
-document.querySelectorAll(".sku").forEach((sku) => {
-  paint(sku);
-  sku.querySelectorAll("button").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const kind = btn.classList.contains("yes") ? "yes" : btn.classList.contains("no") ? "no" : "later";
-      const id = sku.dataset.id;
-      state[id] = state[id] === kind ? "" : kind;
-      save(); paint(sku); tally();
-    });
-  });
+
+const board = document.getElementById("board");
+THEMES.forEach((t) => {
+  const sec = document.createElement("section");
+  sec.className = "theme";
+  sec.id = t.id;
+  const pack = t.pack === "b" ? "b" : "";
+  sec.innerHTML = `<div class="theme-head"><h2>${t.title}</h2><span class="door ${pack}">${t.door}</span></div>
+    <p class="lede">${t.lede}</p>
+    <div class="grid">${SKUS.filter(s => s.theme===t.id).map(cardHTML).join("")}</div>`;
+  board.appendChild(sec);
 });
+
+board.addEventListener("click", (e) => {
+  const btn = e.target.closest("button");
+  if (!btn) return;
+  const card = btn.closest(".card");
+  if (!card) return;
+  const id = card.dataset.id;
+  const kind = btn.classList.contains("yes") ? "yes" : btn.classList.contains("no") ? "no" : "later";
+  state.picks[id] = state.picks[id] === kind ? "" : kind;
+  save();
+  card.querySelectorAll(".btns button").forEach((b) => {
+    b.classList.toggle("on", (b.classList.contains("yes") && state.picks[id]==="yes")
+      || (b.classList.contains("no") && state.picks[id]==="no")
+      || (b.classList.contains("later") && state.picks[id]==="later"));
+  });
+  tally();
+});
+board.addEventListener("input", (e) => {
+  if (e.target.matches("textarea[data-note]")) {
+    state.notes[e.target.dataset.note] = e.target.value;
+    save(); tally();
+  }
+});
+const g = document.getElementById("global-note");
+g.value = state.global;
+g.addEventListener("input", () => { state.global = g.value; save(); tally(); });
+
+document.getElementById("export").addEventListener("click", () => {
+  const payload = {
+    when: new Date().toISOString(),
+    key: KEY,
+    picks: state.picks,
+    notes: state.notes,
+    global: state.global,
+    skus: SKUS.map(s => ({id:s.id, name:s.name, type:s.type, price:s.price, theme:s.theme, door:s.door, pick: state.picks[s.id] || "", note: state.notes[s.id] || ""})),
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "review-comments.json";
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+
 tally();
-const tabA = document.getElementById("tab-a");
-const tabB = document.getElementById("tab-b");
-function tabs() {
-  const b = location.hash === "#pack-b";
-  tabA.classList.toggle("on", !b);
-  tabB.classList.toggle("on", b);
+
+const navLinks = document.querySelectorAll("nav.themes a");
+if (!CSS.supports("scroll-target-group", "auto")) {
+  const sections = THEMES.map(t => document.getElementById(t.id));
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const id = entry.target.id;
+      navLinks.forEach((link) => {
+        const on = link.getAttribute("href") === `#${id}`;
+        link.classList.toggle("is-current", on);
+        link.setAttribute("aria-current", on ? "true" : "false");
+      });
+    });
+  }, { rootMargin: "-45% 0px -45% 0px", threshold: 0 });
+  sections.forEach(s => obs.observe(s));
+} else {
+  const sync = () => {
+    const current = document.querySelector("nav.themes a:target-current");
+    navLinks.forEach(link => link.setAttribute("aria-current", link === current ? "true" : "false"));
+  };
+  sync();
+  document.addEventListener("scrollend", sync);
 }
-window.addEventListener("hashchange", tabs);
-tabs();
 </script>
 </body>
 </html>
