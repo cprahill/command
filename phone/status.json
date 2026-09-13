@@ -1,7 +1,7 @@
 {
   "kernel": "grok",
-  "generated_at": "2026-09-13T16:19:03.949041Z",
-  "updated_at_ct": "2026-09-13T11:19:03-0500",
+  "generated_at": "2026-09-13T16:23:43.496477Z",
+  "updated_at_ct": "2026-09-13T11:23:43-0500",
   "host": {
     "name": "Jimothys-Mac-mini-2.local",
     "role": "Grok Mini"
@@ -65,7 +65,7 @@
     {
       "id": "business",
       "label": "Business",
-      "state": "down",
+      "state": "cycling",
       "kind": "money",
       "inside": [
         "RH Agentic armed",
@@ -169,9 +169,10 @@
     {
       "name": "rh_agentic_crypto",
       "http": null,
-      "state": "stopped",
-      "pid": null,
-      "label_note": "agent cycle stopped \u2014 not market hours"
+      "state": "cycling",
+      "pid": 63023,
+      "last_exit": "0",
+      "note": "crypto markets OPEN 24/7 \u2014 this row is the cycle process only"
     },
     {
       "name": "keepawake",
@@ -180,6 +181,21 @@
       "pid": 1261
     }
   ],
+  "rh": {
+    "markets": "OPEN 24/7",
+    "agent": "cycling",
+    "why": "cycle every 6h \u2014 not market hours",
+    "last_exit": "0"
+  },
+  "one_in_flight": {
+    "dest": "SYSTEM FIX",
+    "note": "Verify surface + Line Dragon pull (YES). ONE-IN-FLIGHT."
+  },
+  "merch": {
+    "line_dragon": "LIVE_FAIL",
+    "note": "Pull in progress after login.",
+    "shop": "https://fresh-start-ogz-shop.fourthwall.com/"
+  },
   "traffic": [
     {
       "kind": "route",
@@ -412,7 +428,7 @@
     "idle": true,
     "last_120s": 0,
     "ollama_hot": [],
-    "rh_tick_age_s": 66248
+    "rh_tick_age_s": 66528
   },
   "cuts": {
     "crew_seq": true,
@@ -420,19 +436,5 @@
     "paper": true,
     "print": true,
     "money_desk_8791": true
-  },
-  "one_in_flight": {
-    "dest": "SYSTEM FIX",
-    "note": "Verify surface + pull Line Dragon (YES). Merch full board paused until system is honest."
-  },
-  "merch": {
-    "line_dragon": "LIVE_FAIL",
-    "note": "Christopher: garbage. Pull in progress (YES login).",
-    "shop": "https://fresh-start-ogz-shop.fourthwall.com/"
-  },
-  "rh": {
-    "markets": "OPEN 24/7 (crypto \u2014 never 'closed')",
-    "agent": "stopped",
-    "why": "process not running \u2014 markets still open"
   }
 }
