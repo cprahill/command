@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex"/>
+<title>PROCESS TRUTH</title>
+<style>
+body{margin:0;background:#0a0a0a;color:#e8e8e8;font:14px/1.4 ui-monospace,Menlo,monospace;padding:16px}
+h1{font-size:13px;letter-spacing:.15em;color:#888;margin:0 0 12px}
+.bad{color:#ff6b6b}.ok{color:#6bcf7f}.warn{color:#e0b143}
+pre{white-space:pre-wrap;word-break:break-word;background:#111;border:1px solid #222;padding:12px;border-radius:8px}
+a{color:#6bcfff}
+.meta{color:#666;font-size:12px;margin-top:12px}
+</style>
+</head>
+<body>
+<h1>PROCESS TRUTH · MINI</h1>
+<p id="age" class="bad">loading…</p>
+<pre id="j">loading…</pre>
+<p class="meta">Source: <code>process.json</code> generated on Mini. Not a dashboard fantasy.</p>
+<p class="meta"><a href="../phone/">phone verify</a> · <a href="https://fresh-start-ogz-shop.fourthwall.com/">shop (LIVE FAIL)</a></p>
+<script>
+fetch('./process.json?t='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(d=>{
+  const t=Date.parse(d.generated_at);
+  const mins=(Date.now()-t)/60000;
+  const a=document.getElementById('age');
+  if(mins<10){a.className='ok';a.textContent='FRESH · '+Math.round(mins)+'m';}
+  else if(mins<60){a.className='warn';a.textContent='AGING · '+Math.round(mins)+'m';}
+  else {a.className='bad';a.textContent='STALE · '+Math.round(mins)+'m — republish from Mini';}
+  document.getElementById('j').textContent=JSON.stringify(d,null,2);
+}).catch(e=>{document.getElementById('j').textContent=String(e);});
+</script>
+</body>
+</html>
