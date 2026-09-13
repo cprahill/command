@@ -1,24 +1,140 @@
 {
-  "generated_at": "2026-09-12T21:58:13.861177Z",
-  "updated_at_ct": "2026-09-12T16:58:13-0500",
+  "kernel": "grok",
+  "generated_at": "2026-09-13T16:19:03.949041Z",
+  "updated_at_ct": "2026-09-13T11:19:03-0500",
   "host": {
-    "name": "Jimothys-Mac-mini-2",
-    "role": "Mission Control"
+    "name": "Jimothys-Mac-mini-2.local",
+    "role": "Grok Mini"
   },
-  "paper": {
-    "state": "PAUSED",
-    "ticks_enabled": false,
-    "reason": "Phase1 rebuild \u2014 ticks cut"
+  "com": {
+    "inbound": "grok",
+    "bot": "primary",
+    "build": "secondary",
+    "imessage_inbound": "closed",
+    "imessage_outbound": "yes-gated",
+    "router": [
+      "host",
+      "gemma",
+      "qwen",
+      "oc",
+      "build",
+      "imsg-out"
+    ],
+    "ladder": [
+      "host",
+      "gemma",
+      "qwen",
+      "oc",
+      "build"
+    ]
   },
   "openclaw": {
     "seats": 1,
     "seat_cap": 1,
     "gateway_state": "up"
   },
-  "cuts": {
-    "fury": true,
-    "paper": true
+  "money": {
+    "collected_usd": 0,
+    "burn_usd_mo": 500,
+    "live": "RH Agentic",
+    "r1": "draft $0",
+    "paper": "KILLED",
+    "print": "KILLED",
+    "note": "Paper and print are dead. Money lives under Business (RH + R1)."
   },
+  "dests": [
+    {
+      "id": "productivity",
+      "label": "Productivity",
+      "state": "up",
+      "kind": "productivity",
+      "inside": [
+        "bible-kernel"
+      ]
+    },
+    {
+      "id": "games",
+      "label": "Games",
+      "state": "up",
+      "kind": "games",
+      "inside": [
+        "Baja play",
+        "Roblox scout"
+      ]
+    },
+    {
+      "id": "business",
+      "label": "Business",
+      "state": "down",
+      "kind": "money",
+      "inside": [
+        "RH Agentic armed",
+        "R1 pack draft $0 send OFF",
+        "merch Fourthwall $0 not-live"
+      ]
+    },
+    {
+      "id": "music",
+      "label": "Music",
+      "state": "empty",
+      "kind": "music",
+      "inside": []
+    },
+    {
+      "id": "film",
+      "label": "Film",
+      "state": "parked",
+      "kind": "film",
+      "inside": [
+        "portal",
+        "stranger"
+      ]
+    },
+    {
+      "id": "twin",
+      "label": "Twin",
+      "state": "up",
+      "kind": "clone",
+      "inside": [
+        "Qwen 27b :8787"
+      ]
+    }
+  ],
+  "locals": [
+    {
+      "id": "host",
+      "model": "scripts",
+      "job": "clocks"
+    },
+    {
+      "id": "gemma",
+      "model": "gemma4:12b",
+      "job": "cheap English"
+    },
+    {
+      "id": "qwen",
+      "model": "qwen3.6:27b",
+      "job": "brain + twin"
+    },
+    {
+      "id": "oc",
+      "model": "openclaw",
+      "job": "pipe",
+      "state": "up"
+    }
+  ],
+  "ladder": [
+    "host",
+    "gemma",
+    "qwen",
+    "oc",
+    "build"
+  ],
+  "gates": [
+    "quality",
+    "verify",
+    "review"
+  ],
   "services": [
     {
       "name": "twin",
@@ -27,16 +143,10 @@
       "pid": 64354
     },
     {
-      "name": "mission_control",
+      "name": "harness",
       "http": 8790,
       "state": "up",
-      "pid": 64356
-    },
-    {
-      "name": "money_desk",
-      "http": 8791,
-      "state": "up",
-      "pid": 64358
+      "pid": 2920
     },
     {
       "name": "baja",
@@ -59,8 +169,9 @@
     {
       "name": "rh_agentic_crypto",
       "http": null,
-      "state": "down",
-      "pid": null
+      "state": "stopped",
+      "pid": null,
+      "label_note": "agent cycle stopped \u2014 not market hours"
     },
     {
       "name": "keepawake",
@@ -69,66 +180,259 @@
       "pid": 1261
     }
   ],
-  "com": {
-    "inbound": "grok",
-    "bot": "primary",
-    "build": "secondary",
-    "imessage_inbound": "closed",
-    "imessage_outbound": "yes-gated",
-    "router": [
-      "host-script",
-      "local-model",
-      "oc-seat",
-      "imsg-out"
-    ]
-  },
-  "money": {
-    "collected_usd": 0,
-    "burn_usd_mo": 500,
-    "lane": "R1",
-    "paper": "PAUSED",
-    "note": "collected is filed $0 \u2014 do not invent P&L"
-  },
-  "public": [
+  "traffic": [
     {
-      "id": "harness",
-      "label": "Harness HTTPS",
-      "url": "https://cprahill.github.io/command/harness/"
+      "kind": "route",
+      "path": "gemma",
+      "dest": "productivity",
+      "job": "remind milk",
+      "ran": false,
+      "why": "Gemma 12b cheap English \u2014 not Bot grind",
+      "id": "1789269332156286000",
+      "ts": "2026-09-13T03:15:32.156288Z"
     },
     {
-      "id": "phone",
-      "label": "Phone HTTPS",
-      "url": "https://cprahill.github.io/command/phone/"
+      "kind": "route",
+      "path": "host",
+      "job": "status",
+      "ran": false,
+      "why": "ops on Mini clocks",
+      "id": "1789269332402142000",
+      "ts": "2026-09-13T03:15:32.402143Z"
     },
     {
-      "id": "bots",
-      "label": "Bots",
-      "url": "https://cprahill.github.io/command/bots/"
+      "kind": "route",
+      "path": "refuse",
+      "job": "text christopher hi",
+      "ran": false,
+      "why": "cannot iMessage Christopher \u2014 he talks to Grok",
+      "id": "1789269332532662000",
+      "ts": "2026-09-13T03:15:32.532663Z"
     },
     {
-      "id": "paper",
-      "label": "Paper",
-      "url": "https://cprahill.github.io/command/paper/"
+      "kind": "route",
+      "path": "refuse",
+      "job": "spend stripe live",
+      "ran": false,
+      "why": "money/send needs Christopher YES \u2014 not this command",
+      "id": "1789269332559741000",
+      "ts": "2026-09-13T03:15:32.559743Z"
+    },
+    {
+      "kind": "route",
+      "path": "refuse",
+      "job": "",
+      "ran": false,
+      "why": "empty job",
+      "id": "1789269332584456000",
+      "ts": "2026-09-13T03:15:32.584458Z"
+    },
+    {
+      "kind": "route",
+      "path": "gemma",
+      "dest": "productivity",
+      "job": "remind milk",
+      "ran": false,
+      "why": "Gemma 12b cheap English \u2014 not Bot grind",
+      "id": "1789269332610057000",
+      "ts": "2026-09-13T03:15:32.610059Z"
+    },
+    {
+      "kind": "route",
+      "path": "qwen",
+      "dest": "productivity",
+      "job": "draft a plan",
+      "ran": false,
+      "why": "Qwen 27b local brain \u2014 not Bot grind",
+      "id": "1789269332634193000",
+      "ts": "2026-09-13T03:15:32.634195Z"
+    },
+    {
+      "kind": "route",
+      "path": "oc",
+      "job": "oc-team list",
+      "ran": false,
+      "why": "OpenClaw pipe after review \u2014 not inbox",
+      "id": "1789269332658587000",
+      "ts": "2026-09-13T03:15:32.658588Z"
+    },
+    {
+      "kind": "route",
+      "path": "imsg-out",
+      "job": "text bob hello",
+      "ran": false,
+      "why": "third-party text after YES",
+      "id": "1789269332682272000",
+      "ts": "2026-09-13T03:15:32.682273Z"
+    },
+    {
+      "kind": "route",
+      "path": "refuse",
+      "job": "text christopher hello",
+      "ran": false,
+      "why": "cannot iMessage Christopher \u2014 he talks to Grok",
+      "id": "1789269332706014000",
+      "ts": "2026-09-13T03:15:32.706016Z"
+    },
+    {
+      "kind": "brain",
+      "path": "gemma",
+      "job": "ping",
+      "ran": false,
+      "ok": true,
+      "model": "gemma4:12b",
+      "id": "1789270003687379000",
+      "ts": "2026-09-13T03:26:43.687380Z"
+    },
+    {
+      "kind": "brain",
+      "path": "gemma",
+      "job": "ping",
+      "ran": false,
+      "ok": true,
+      "model": "gemma4:12b",
+      "id": "1789270019108145000",
+      "ts": "2026-09-13T03:26:59.108146Z"
+    },
+    {
+      "kind": "brain",
+      "path": "gemma",
+      "job": "ping",
+      "ran": false,
+      "ok": true,
+      "model": "gemma4:12b",
+      "id": "1789270037659751000",
+      "ts": "2026-09-13T03:27:17.659753Z"
+    },
+    {
+      "kind": "brain",
+      "path": "qwen",
+      "job": "draft a one-line plan",
+      "ran": false,
+      "ok": true,
+      "model": "qwen3.6:27b",
+      "id": "1789270037746641000",
+      "ts": "2026-09-13T03:27:17.746642Z"
+    },
+    {
+      "kind": "route",
+      "path": "host",
+      "job": "status",
+      "ran": false,
+      "why": "ops on Mini clocks",
+      "id": "1789270038069696000",
+      "ts": "2026-09-13T03:27:18.069697Z"
+    },
+    {
+      "kind": "route",
+      "path": "refuse",
+      "job": "text christopher hi",
+      "ran": false,
+      "why": "cannot iMessage Christopher \u2014 he talks to Grok",
+      "id": "1789270038187390000",
+      "ts": "2026-09-13T03:27:18.187392Z"
+    },
+    {
+      "kind": "route",
+      "path": "refuse",
+      "job": "spend stripe live",
+      "ran": false,
+      "why": "money/send needs Christopher YES \u2014 not this command",
+      "id": "1789270038209611000",
+      "ts": "2026-09-13T03:27:18.209613Z"
+    },
+    {
+      "kind": "route",
+      "path": "refuse",
+      "job": "",
+      "ran": false,
+      "why": "empty job",
+      "id": "1789270038231467000",
+      "ts": "2026-09-13T03:27:18.231468Z"
+    },
+    {
+      "kind": "route",
+      "path": "gemma",
+      "dest": "productivity",
+      "job": "remind milk",
+      "ran": false,
+      "why": "Gemma 12b cheap English \u2014 not Bot grind",
+      "id": "1789270038253400000",
+      "ts": "2026-09-13T03:27:18.253402Z"
+    },
+    {
+      "kind": "route",
+      "path": "qwen",
+      "dest": "productivity",
+      "job": "draft a plan",
+      "ran": false,
+      "why": "Qwen 27b local brain \u2014 not Bot grind",
+      "id": "1789270038275102000",
+      "ts": "2026-09-13T03:27:18.275103Z"
+    },
+    {
+      "kind": "route",
+      "path": "oc",
+      "job": "oc-team list",
+      "ran": false,
+      "why": "OpenClaw pipe after review \u2014 not inbox",
+      "id": "1789270038296931000",
+      "ts": "2026-09-13T03:27:18.296932Z"
+    },
+    {
+      "kind": "route",
+      "path": "imsg-out",
+      "job": "text bob hello",
+      "ran": false,
+      "why": "third-party text after YES",
+      "id": "1789270038318729000",
+      "ts": "2026-09-13T03:27:18.318730Z"
+    },
+    {
+      "kind": "route",
+      "path": "refuse",
+      "job": "text christopher hello",
+      "ran": false,
+      "why": "cannot iMessage Christopher \u2014 he talks to Grok",
+      "id": "1789270038340583000",
+      "ts": "2026-09-13T03:27:18.340585Z"
+    },
+    {
+      "kind": "brain",
+      "path": "gemma",
+      "job": "ping",
+      "ran": false,
+      "ok": true,
+      "model": "gemma4:12b",
+      "id": "1789270087508507000",
+      "ts": "2026-09-13T03:28:07.508509Z"
     }
   ],
-  "tailscale": {
-    "online": true,
-    "hostname": "Jimothys-Mac-mini-2",
-    "ip": "100.92.162.78",
-    "lan": "192.168.1.127",
-    "urls": [
-      {
-        "id": "dashboard",
-        "label": "MC LAN",
-        "url": "http://100.92.162.78:8790/"
-      },
-      {
-        "id": "twin",
-        "label": "Twin LAN",
-        "url": "http://100.92.162.78:8787/"
-      }
-    ]
+  "work": {
+    "idle": true,
+    "last_120s": 0,
+    "ollama_hot": [],
+    "rh_tick_age_s": 66248
   },
-  "paper_legacy": "PAUSED",
-  "openclaw_agents_live": 1
+  "cuts": {
+    "crew_seq": true,
+    "fury_pollers": true,
+    "paper": true,
+    "print": true,
+    "money_desk_8791": true
+  },
+  "one_in_flight": {
+    "dest": "SYSTEM FIX",
+    "note": "Verify surface + pull Line Dragon (YES). Merch full board paused until system is honest."
+  },
+  "merch": {
+    "line_dragon": "LIVE_FAIL",
+    "note": "Christopher: garbage. Pull in progress (YES login).",
+    "shop": "https://fresh-start-ogz-shop.fourthwall.com/"
+  },
+  "rh": {
+    "markets": "OPEN 24/7 (crypto \u2014 never 'closed')",
+    "agent": "stopped",
+    "why": "process not running \u2014 markets still open"
+  }
 }

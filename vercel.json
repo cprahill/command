@@ -8,8 +8,14 @@
     { "source": "/ctl/", "destination": "/phone/index.html" }
   ],
   "redirects": [
-    { "source": "/harness", "destination": "/neural/", "permanent": true },
-    { "source": "/harness/(.*)", "destination": "/neural/", "permanent": true }
+    { "source": "/harness", "destination": "/phone/", "permanent": false },
+    { "source": "/harness/(.*)", "destination": "/phone/", "permanent": false },
+    { "source": "/paper", "destination": "/phone/", "permanent": false },
+    { "source": "/paper/(.*)", "destination": "/phone/", "permanent": false },
+    { "source": "/bots", "destination": "/phone/", "permanent": false },
+    { "source": "/bots/(.*)", "destination": "/phone/", "permanent": false },
+    { "source": "/neural", "destination": "/phone/", "permanent": false },
+    { "source": "/neural/(.*)", "destination": "/phone/", "permanent": false }
   ],
   "headers": [
     {
@@ -18,10 +24,5 @@
         { "key": "X-Robots-Tag", "value": "noindex" }
       ]
     }
-  ],
-  "functions": {
-    "api/paper-desk.js": {
-      "maxDuration": 10
-    }
-  }
+  ]
 }
