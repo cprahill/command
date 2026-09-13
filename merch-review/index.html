@@ -27,6 +27,7 @@
 html { background: var(--bg); color: var(--text); }
 html, body {
   margin: 0;
+  overflow-x: hidden;
   font: 15px/1.45 "IBM Plex Mono", ui-monospace, monospace;
 }
 img { display: block; max-inline-size: 100%; }
@@ -102,7 +103,7 @@ h2 { margin: 0; font-size: 26px; }
   border-radius: 8px;
 }
 .row { display: flex; gap: 12px; align-items: center; }
-.btns { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 6px; }
+.btns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 6px; }
 button {
   font: 12px/1 "IBM Plex Mono", ui-monospace, monospace;
   letter-spacing: .12em;
