@@ -2,9 +2,9 @@
 **2026-09-13** · Grok Build · silent until this file
 
 ## Open
-- HTTPS: https://cprahill.github.io/command/logo-board/refine/
-- HTTPS (Vercel): https://grok-command.vercel.app/logo-board/refine/
+- HTTPS (live recut): https://cprahill.github.io/command/logo-board/refine/
 - Local: `brand/logo-board/refine/index.html`
+- Vercel (`https://grok-command.vercel.app/logo-board/refine/`) is behind — CLI hit the free-plan daily deploy cap; GitHub Pages is the recut.
 
 ## Checklist (ran=true)
 
