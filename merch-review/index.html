@@ -4,9 +4,9 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <meta name="robots" content="noindex"/>
-<meta name="merch-review-build" content="rev5f-all-2026-09-13"/>
-<title>Rev 5 — all designs (easy + frozen worlds)</title>
-<meta name="description" content="All Rev5 designs: easy-money pack + Night Signal apparel + frozen Pulse Street + Analog Heart."/>
+<meta name="merch-review-build" content="rev6-easyship-2026-09-13"/>
+<title>Rev 6 review — easy-ship scientific line</title>
+<meta name="description" content="Rev6 easy-ship: stickers, keychains, bracelets, bottle opener, two tees. Research-led. Comment Yes/Later/No."/>
 <link rel="canonical" href="https://cprahill.github.io/command/merch-review/"/>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
@@ -20,7 +20,6 @@
   --gold: #ffb020;
   --magenta: #ff2d95;
   --cherry: #c44536;
-  --cream: #f3ead8;
   --ok: #3dff9a;
   --no: #ff5a7a;
 }
@@ -156,11 +155,9 @@ section.theme {
 }
 .card.sticker img.hero,
 .card.sheet img.hero,
-.card.poster img.hero,
 .card.keychain img.hero,
 .card.bracelet img.hero,
-.card.object img.hero { object-fit: contain; object-position: center; background: #0b0e14; }
-.card.object img.hero { aspect-ratio: 1 / 1; }
+.card.opener img.hero { object-fit: contain; object-position: center; background: #0b0e14; }
 .pad { padding: 12px 12px 14px; display: grid; gap: 8px; }
 .pad h3 {
   font-family: "Barlow Condensed", sans-serif;
@@ -237,10 +234,10 @@ footer {
 </head>
 <body>
 <header>
-  <div class="brand">COMMAND <i>//</i> MERCH REVIEW · REV 5f ALL · 2026-09-13</div>
-  <p style="color:#3ce7ff;font:700 12px/1.3 IBM Plex Mono,monospace;letter-spacing:.08em">BUILD rev5f · ALL designs on disk · easy-money first · Pulse + Analog FROZEN (look only) · wrong if you only see Line Dragon (/merch/ ≠ /merch-review/)</p>
-  <h1>All current designs. Easy money first.</h1>
-  <p class="lede">Full Rev5 gallery. Sections 1–2 are the sellable stage path. Pulse Street + Analog Heart are frozen look — comment if you want one unfrozen later. Rev4 stays FAIL. Live Line Dragon checkout stays.</p>
+  <div class="brand">COMMAND <i>//</i> MERCH REVIEW · REV6 · 2026-09-13</div>
+  <p style="color:#3ce7ff;font:700 12px/1.3 IBM Plex Mono,monospace;letter-spacing:.08em">BUILD rev6 · easy-ship scientific line · stickers/keychains first · two tees max · $300 by Fri math in PLAN</p>
+  <h1>Rev 6. Easy-ship only. Comment Yes / Later / No.</h1>
+  <p class="lede">Research-led originals. Shop Moth · Shift Sparrow · Cap Toad. Volume SKUs before tees. Bracelets staged (no cheap silicone POD door). Do not upload live until you YES. Line Dragon checkout stays.</p>
   <div class="tally">
     <span>approve <b id="n-yes">0</b></span>
     <span>later <b id="n-later">0</b></span>
@@ -251,63 +248,50 @@ footer {
     <button type="button" class="export" id="export">Export picks + comments JSON</button>
   </div>
 </header>
-
 <div class="nav-wrap">
   <div class="nav-inner">
     <nav class="themes" aria-label="Themes">
-      <a href="#easy-money">1 Easy money</a>
-      <a href="#night-signal">2 Night Signal</a>
-      <a href="#pulse-street">3 Pulse (frozen)</a>
-      <a href="#analog-heart">4 Analog (frozen)</a>
+      <a href="#shop-moth">1 Shop Moth</a>
+      <a href="#shift-sparrow">2 Shift Sparrow</a>
+      <a href="#cap-toad">3 Cap Toad</a>
     </nav>
   </div>
 </div>
-
 <main id="board"></main>
-
 <div class="global">
   <label for="global-note">Global note (whole board)</label>
-  <textarea id="global-note" placeholder="Overall notes — upload stickers first? skip the bracelet? YES the tee?…"></textarea>
+  <textarea id="global-note" placeholder="Upload stickers first? skip bracelets? YES the sparrow tee?…"></textarea>
 </div>
 <footer>
-  <p>Picks save on this phone in localStorage. Export JSON and Drop-save as <code>merch/review-comments.json</code>. Upload winners only from easy-money / Night Signal: <code>merch/GO-REV5-EASY.md</code>. Frozen sections = look, not stage.</p>
-  <p><a href="https://fresh-start-ogz-shop.fourthwall.com/">Live Fourthwall (do not break)</a> · <a href="https://sh0bvy-v0.myshopify.com/">Shopify</a> · <a href="../merch/">Line Dragon catalog</a></p>
+  <p>Picks save on this phone in localStorage. Export JSON and Drop-save as <code>merch/review-comments.json</code>. Upload winners only from <code>merch/GO-REV6.md</code>.</p>
+  <p><a href="https://fresh-start-ogz-shop.fourthwall.com/">Live Fourthwall (do not break)</a> · <a href="https://sh0bvy-v0.myshopify.com/">Shopify frozen</a></p>
 </footer>
 <script>
-const KEY = "merch-review-rev5f-all-2026-09-13";
+const KEY = "merch-review-rev6-easyship-2026-09-13";
 const SKUS = [
-  {id:"ns-glyph-sticker", theme:"easy-money", door:"A Fourthwall", name:"Signal Glyph", type:"die-cut sticker", price:5, why:"Circular Night Signal badge. Thick contour. Fourthwall die-cut.", cls:"sticker easy"},
-  {id:"ns-visor-sticker", theme:"easy-money", door:"A Fourthwall", name:"Night Visor", type:"die-cut sticker", price:5, why:"Helmet only. Cyan visor, magenta rim. Reads at 2 inches.", cls:"sticker easy"},
-  {id:"ns-rain-sticker", theme:"easy-money", door:"A Fourthwall", name:"Rain Tower", type:"die-cut sticker", price:5, why:"Chrome tower + magenta rain as one silhouette. Die-cut blob.", cls:"sticker easy"},
-  {id:"ns-pack-sheet", theme:"easy-money", door:"A Fourthwall", name:"Night Signal pack", type:"kiss-cut sheet", price:8, why:"Four marks on the 5.83×8.27 Fourthwall template. Impulse add-on.", cls:"sheet easy"},
-  {id:"ns-charm-keychain", theme:"easy-money", door:"Printify", name:"Signal Charm", type:"acrylic keychain", price:12, why:"Custom-shape circle cut of the glyph. Printify acrylic, no min.", cls:"keychain easy"},
-  {id:"ns-charm-bracelet", theme:"easy-money", door:"Printify staged", name:"Signal Charm", type:"bracelet", price:18, why:"STAGED. Printify stone stretch + laser on steel bar.", cls:"bracelet easy"},
-  {id:"ns-rain-tee", theme:"night-signal", door:"A Fourthwall", name:"Rain Field", type:"tee", price:28, why:"Measured 12\" TEE_FRONT, ~3\" below collar. Stage path apparel.", cls:"tee"},
-  {id:"ns-night-visor-hoodie", theme:"night-signal", door:"A Fourthwall", name:"Night Visor", type:"hoodie", price:48, why:"Chest print in HOODIE box — not in the hood. Extra Night Signal apparel.", cls:"hoodie"},
-  {id:"ns-signal-mug", theme:"night-signal", door:"A Fourthwall", name:"Signal Glyph", type:"mug", price:18, why:"Cylinder face left of handle. Measured MUG box.", cls:"mug"},
-  {id:"ns-grid-rain-poster", theme:"night-signal", door:"A Fourthwall", name:"Grid Rain", type:"poster", price:24, why:"Art fills the mat. Measured POSTER box.", cls:"poster"},
-  {id:"ps-pulse-kick-tee", theme:"pulse-street", door:"FROZEN", name:"Pulse Kick", type:"tee", price:28, why:"FROZEN look. Do not stage unless you unfreeze Pulse Street.", cls:"tee"},
-  {id:"ps-chrome-stick-hoodie", theme:"pulse-street", door:"FROZEN", name:"Chrome Stick", type:"hoodie", price:48, why:"FROZEN. Whole stick on chest, clears kangaroo.", cls:"hoodie"},
-  {id:"ps-high-score-shorts", theme:"pulse-street", door:"FROZEN", name:"HIGH SCORE", type:"shorts", price:32, why:"FROZEN. Left thigh below drawstring.", cls:"shorts"},
-  {id:"ps-insert-coin-cap", theme:"pulse-street", door:"FROZEN", name:"INSERT COIN", type:"cap", price:28, why:"FROZEN. Front panels above brim.", cls:"cap"},
-  {id:"ps-chrome-stick-sticker", theme:"pulse-street", door:"FROZEN", name:"Chrome Stick", type:"die-cut sticker", price:5, why:"FROZEN easy SKU for Pulse world.", cls:"sticker"},
-  {id:"ps-pulse-sheet", theme:"pulse-street", door:"FROZEN", name:"Pulse pack", type:"kiss-cut sheet", price:8, why:"FROZEN sheet.", cls:"sheet"},
-  {id:"ps-chrome-keychain", theme:"pulse-street", door:"FROZEN", name:"Chrome Stick", type:"acrylic keychain", price:12, why:"FROZEN.", cls:"keychain"},
-  {id:"ps-chrome-bracelet", theme:"pulse-street", door:"FROZEN", name:"Chrome Stick", type:"bracelet", price:18, why:"FROZEN staged jewelry look.", cls:"bracelet"},
-  {id:"ah-cassette-tee", theme:"analog-heart", door:"FROZEN", name:"Cassette Heart", type:"tee", price:28, why:"FROZEN. Tape from both reels IS the heart.", cls:"tee"},
-  {id:"ah-vhs-hoodie", theme:"analog-heart", door:"FROZEN", name:"VHS Night", type:"hoodie", price:48, why:"FROZEN. Cream ticket on chest.", cls:"hoodie"},
-  {id:"ah-boombox-tote", theme:"analog-heart", door:"FROZEN", name:"Boombox", type:"tote", price:22, why:"FROZEN. Inside pocket print.", cls:"tote"},
-  {id:"ah-analog-poster", theme:"analog-heart", door:"FROZEN", name:"Analog Wall", type:"poster", price:24, why:"FROZEN. Mat fill.", cls:"poster"},
-  {id:"ah-cassette-sticker", theme:"analog-heart", door:"FROZEN", name:"Cassette Heart", type:"die-cut sticker", price:5, why:"FROZEN easy SKU.", cls:"sticker"},
-  {id:"ah-analog-sheet", theme:"analog-heart", door:"FROZEN", name:"Analog pack", type:"kiss-cut sheet", price:8, why:"FROZEN sheet.", cls:"sheet"},
-  {id:"ah-cassette-keychain", theme:"analog-heart", door:"FROZEN", name:"Cassette Heart", type:"acrylic keychain", price:12, why:"FROZEN.", cls:"keychain"},
-  {id:"ah-cassette-bracelet", theme:"analog-heart", door:"FROZEN", name:"Cassette Heart", type:"bracelet", price:18, why:"FROZEN staged jewelry look.", cls:"bracelet"},
-];
+  {id:"sm-moth-sticker", theme:"shop-moth", door:"A Fourthwall", name:"Shop Moth", type:"die-cut sticker", price:6, why:'Thick cream contour. Factory moth with lighter. Reads at thumbnail.', cls:"sticker easy"},
+  {id:"sm-spark-sticker", theme:"shop-moth", door:"A Fourthwall", name:"Spark Lighter", type:"die-cut sticker", price:6, why:'Companion tool mark. Brass striker, not a brand Zippo.', cls:"sticker easy"},
+  {id:"sm-pack-sheet", theme:"shop-moth", door:"A Fourthwall", name:"Shop Moth pack", type:"kiss-cut sheet", price:10, why:'5.83×8.27 Fourthwall template. Two of each mark.', cls:"sheet easy"},
+  {id:"sm-moth-keychain", theme:"shop-moth", door:"A Fourthwall", name:"Shop Moth", type:"acrylic keychain", price:12, why:'Custom-shape acrylic. Hole + ring. Print fills the cut.', cls:"keychain easy"},
+  {id:"sm-moth-bracelet", theme:"shop-moth", door:"Printify staged", name:"Shop Moth", type:"silicone bracelet", price:18, why:'STAGED look. No $1 POD silicone door. Printify jewelry if YES.', cls:"bracelet easy"},
+  {id:"sm-moth-tee", theme:"shop-moth", door:"A Fourthwall", name:"Shop Moth", type:"tee", price:28, why:'Measured TEE_FRONT ~12" wide, ~3" below collar.', cls:"tee"},
+  {id:"ss-sparrow-sticker", theme:"shift-sparrow", door:"A Fourthwall", name:"Shift Sparrow", type:"die-cut sticker", price:6, why:'Commute sparrow, safety vest, pickle bag. Strongest impulse.', cls:"sticker easy"},
+  {id:"ss-bag-sticker", theme:"shift-sparrow", door:"A Fourthwall", name:"Deli Bag", type:"die-cut sticker", price:6, why:'Companion object. Kraft bag + pickle.', cls:"sticker easy"},
+  {id:"ss-pack-sheet", theme:"shift-sparrow", door:"A Fourthwall", name:"Shift pack", type:"kiss-cut sheet", price:10, why:'5.83×8.27. Sparrow + bag, two each.', cls:"sheet easy"},
+  {id:"ss-sparrow-keychain", theme:"shift-sparrow", door:"A Fourthwall", name:"Shift Sparrow", type:"acrylic keychain", price:12, why:'Custom-shape acrylic. Fill the cut.', cls:"keychain easy"},
+  {id:"ss-sparrow-bracelet", theme:"shift-sparrow", door:"Printify staged", name:"Shift Sparrow", type:"silicone bracelet", price:18, why:'STAGED. Wrist-scale enamel icon. Jewelry door if YES.', cls:"bracelet easy"},
+  {id:"ss-sparrow-tee", theme:"shift-sparrow", door:"A Fourthwall", name:"Shift Sparrow", type:"tee", price:28, why:'Second tee only. 12" TEE_FRONT fill.', cls:"tee"},
+  {id:"ct-toad-sticker", theme:"cap-toad", door:"A Fourthwall", name:"Cap Toad", type:"die-cut sticker", price:6, why:'Toad in the cap. Letters stripped. Cream halo.', cls:"sticker easy"},
+  {id:"ct-cap-sticker", theme:"cap-toad", door:"A Fourthwall", name:"Bottle Cap", type:"die-cut sticker", price:6, why:'Companion object. No brand stamp.', cls:"sticker easy"},
+  {id:"ct-toad-keychain", theme:"cap-toad", door:"A Fourthwall", name:"Cap Toad", type:"acrylic keychain", price:12, why:'Custom-shape acrylic of toad-in-cap.', cls:"keychain easy"},
+  {id:"ct-toad-opener", theme:"cap-toad", door:"Printify 649", name:"Cap Toad", type:"bottle opener", price:16, why:'Printify magnetic cap opener. Door exists. Confirm cost at upload.', cls:"opener easy"},
+  {id:"ct-toad-bracelet", theme:"cap-toad", door:"Printify staged", name:"Cap Toad", type:"silicone bracelet", price:18, why:'STAGED green band + brass toad. Not a $1 factory band.', cls:"bracelet easy"}
+]
+;
 const THEMES = [
-  {id:"easy-money", title:"Easy money", door:"A · Fourthwall + Printify", pack:"a", lede:"Sellable stage path. Stickers + keychain first. Bracelet only if you YES Printify jewelry."},
-  {id:"night-signal", title:"Night Signal", door:"A · Fourthwall", pack:"a", lede:"Primary apparel world. Tee is the stage pick; hoodie/mug/poster are extras."},
-  {id:"pulse-street", title:"Pulse Street", door:"FROZEN · look only", pack:"b", lede:"Frozen until easy-money + Night Signal prove out. Comment to unfreeze later."},
-  {id:"analog-heart", title:"Analog Heart", door:"FROZEN · look only", pack:"b", lede:"Frozen. Cassette heart = tape IS the heart. Comment to unfreeze later."},
+  {id:"shop-moth", title:"Shop Moth", door:"A · Fourthwall first", pack:"a", lede:"Factory-cute moth. Stickers + keychain live-path. Tee after volume. Bracelet staged."},
+  {id:"shift-sparrow", title:"Shift Sparrow", door:"A · Fourthwall first", pack:"a", lede:"Commute sparrow. Strongest want-and-buy. Second tee only."},
+  {id:"cap-toad", title:"Cap Toad", door:"A + Printify opener", pack:"a", lede:"Toad in a bottle cap. Opener is the extra SKU. No tee this sprint."},
 ];
 
 const state = JSON.parse(localStorage.getItem(KEY) || '{"picks":{},"notes":{},"global":""}');
@@ -332,13 +316,12 @@ function tally() {
 function cardHTML(s) {
   const pick = state.picks[s.id] || "";
   const note = state.notes[s.id] || "";
-  const doorCls = s.door.startsWith("B") ? "b" : "";
-  const easy = s.cls.includes("easy") ? `<span class="tag">easy money</span>` : "";
+  const easy = s.cls.includes("easy") ? `<span class="tag">easy ship</span>` : "";
   return `<article class="card ${s.cls}" data-id="${s.id}">
-    <img class="hero" src="./img/${s.id}.jpg?v=rev5f" alt="${s.name} ${s.type}" width="800" height="1067"/>
+    <img class="hero" src="./img/${s.id}.jpg?v=rev6" alt="${s.name} ${s.type}" width="800" height="1067"/>
     <div class="pad">
       ${easy}
-      <span class="door ${doorCls}">${s.door} · ${s.type} $${s.price}</span>
+      <span class="door">${s.door} · ${s.type} $${s.price}</span>
       <h3>${s.name}</h3>
       <p class="price">$${s.price} + ship</p>
       <p class="meta">${s.why}</p>
@@ -357,8 +340,7 @@ THEMES.forEach((t) => {
   const sec = document.createElement("section");
   sec.className = "theme";
   sec.id = t.id;
-  const pack = t.pack === "b" ? "b" : "";
-  sec.innerHTML = `<div class="theme-head"><h2>${t.title}</h2><span class="door ${pack}">${t.door}</span></div>
+  sec.innerHTML = `<div class="theme-head"><h2>${t.title}</h2><span class="door">${t.door}</span></div>
     <p class="lede">${t.lede}</p>
     <div class="grid">${SKUS.filter(s => s.theme===t.id).map(cardHTML).join("")}</div>`;
   board.appendChild(sec);
