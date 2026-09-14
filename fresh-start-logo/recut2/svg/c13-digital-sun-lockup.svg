@@ -2,7 +2,7 @@
 
 
     <rect width="1024" height="1024" fill="#F4E8D0"/>
-    <!-- flat circular cream field — NO pin bezel / beads / hardware -->
+    <!-- flat circular cream field — digital lockup -->
     <circle cx="512" cy="400" r="260" fill="#FBF6EA"/>
     <line x1="435.9" y1="434.5" x2="339.8" y2="389.7" stroke="#C9A24A" stroke-width="4.7" stroke-linecap="round"/>
 <line x1="459.1" y1="404.7" x2="392.4" y2="322.3" stroke="#C9A24A" stroke-width="4.7" stroke-linecap="round"/>
