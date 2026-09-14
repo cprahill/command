@@ -4,8 +4,8 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <meta name="robots" content="noindex"/>
-<title>Fresh Start Co. — logo options</title>
-<meta name="description" content="21 distinct logo directions for Fresh Start Co. Pick Yes / Later / No."/>
+<title>Fresh Start Co. — logo RECUT (Woodstock / surf)</title>
+<meta name="description" content="RECUT: 12 Woodstock/surf sun logos for Fresh Start Co. No enamel pins. Yes / Later / No."/>
 <link rel="canonical" href="https://cprahill.github.io/command/fresh-start-logo/"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -230,19 +230,39 @@ footer {
 </head>
 <body>
 <header>
-  <div class="brand">COMMAND <i>//</i> FRESH START CO. · LOGO BOARD · 2026-09-13</div>
-  <h1>21 logo directions. Pick the ones you would actually buy.</h1>
-  <p class="lede">New brand. Stickers&amp;Soap is retired — no soap bar, no S&amp;S. Want-and-buy at sticker size and as an X avatar. Mix an icon with a wordmark if you want. Yes / Later / No on each card.</p>
-  <div class="tally">
-    <span>yes <b id="n-yes">0</b></span>
-    <span>later <b id="n-later">0</b></span>
-    <span>no <b id="n-no">0</b></span>
-    <span>comments <b id="n-notes">0</b></span>
+  <p class="kicker">Fresh Start Co. · <strong style="color:var(--gold)">RECUT</strong> · 2026-09-13</p>
+  <h1>Logo board — Woodstock / surf sun</h1>
+  <p class="sub">Flat digital logos only. Keep the sun thread. No acrylic / enamel pin looks. Tap Yes / Later / No.</p>
+  <div class="stats">
+    <span><b id="n-yes">0</b> Yes</span>
+    <span><b id="n-later">0</b> Later</span>
+    <span><b id="n-no">0</b> No</span>
+    <span><b id="n-notes">0</b> notes</span>
   </div>
-  <div class="tools">
-    <button type="button" id="export">Export picks JSON</button>
+  <div class="actions">
+    <button type="button" id="export">Export JSON</button>
+    <button type="button" id="clear">Clear picks</button>
   </div>
 </header>
+<div class="sticky">
+  <div class="inner">
+    <nav class="board-nav" aria-label="Themes">
+      <a href="#woodstock">Woodstock</a>
+      <a href="#surf">Surf</a>
+      <a href="#mark">Mark</a>
+      <a href="#lockup">Lockup</a>
+    </nav>
+  </div>
+</div>
+<main id="board"></main>
+<div class="global">
+  <label for="global-note">Global note (whole board)</label>
+  <textarea id="global-note" placeholder="Lock this one… mix woodstock poster with shore lock…"></textarea>
+</div>
+<footer>
+  <p><strong>RECUT</strong> — enamel/acrylic pins removed. Source: <code>brand/fresh-start-logo/recut/</code>. Live: <a href="https://cprahill.github.io/command/fresh-start-logo/">github.io/command/fresh-start-logo/</a></p>
+</footer>
+
 <div class="nav-wrap">
   <div class="nav-inner">
     <nav class="themes" aria-label="Lanes">
@@ -262,35 +282,26 @@ footer {
   <p>Picks save on this device in localStorage. Export JSON if you want a Drop copy. Source: <code>brand/fresh-start-logo/</code>.</p>
 </footer>
 <script>
-const KEY = "fs-logo-board-2026-09-13";
+const KEY = "fs-logo-recut-woodstock-2026-09-13";
 const MARKS = [
-  {id:"01-horizon-word", theme:"wordmark", tag:"wordmark", name:"Horizon Word", why:"FRESH START + sunrise. Shop header and sticker sheet. Reads tiny, reads huge."},
-  {id:"01b-horizon-lockup", theme:"wordmark", tag:"icon+word", name:"Horizon Lockup", why:"Sun mark left, name right. The horizontal lockup for a store header."},
-  {id:"02-soft-stack", theme:"wordmark", tag:"wordmark", name:"Soft Stack", why:"Fresh / Start / Co. stacked. Friendly, hopeful, not a bank."},
-  {id:"03-script-dawn", theme:"wordmark", tag:"wordmark", name:"Script Dawn", why:"Shop-sign script. Human indie-premium. Belly band and packing tape."},
-  {id:"04-box-fresh", theme:"wordmark", tag:"wordmark", name:"Box Fresh", why:"Navy rectangle FRESH START CO. Instant merch. Survives one-color print."},
-  {id:"18-split-type", theme:"wordmark", tag:"wordmark", name:"Split Type", why:"FRESH | START split navy/coral. Poster energy. Co. as a pill."},
-  {id:"05-fs-nested", theme:"monogram", tag:"monogram", name:"Nested FS", why:"Navy F holds a coral S. Avatar-ready. The lockable two-letter mark."},
-  {id:"06-fs-tile", theme:"monogram", tag:"monogram", name:"FS Tile", why:"Sunrise squircle, cream FS. Built as an X avatar / app icon."},
-  {id:"07-fs-spark", theme:"monogram", tag:"monogram", name:"FS Spark", why:"FS with a first-light spark. Favicon-simple. Works mono."},
-  {id:"08-fs-horizon", theme:"monogram", tag:"monogram", name:"FS Horizon", why:"Mint F + coral S on a gold horizon. Colorful without neon."},
-  {id:"09-dawn-seal", theme:"badge", tag:"seal", name:"Dawn Seal", why:"Circular FRESH START CO. stamp. Packs, stickers, sealing tape."},
-  {id:"10-gold-seal", theme:"badge", tag:"seal", name:"Gold Seal", why:"Foil wax-seal sunrise. Premium pack. Name pairs with a wordmark."},
-  {id:"11-ink-stamp", theme:"badge", tag:"stamp", name:"Ink Stamp", why:"Oval FRESH START / CO. Packing stamp. One-color, want-and-buy."},
-  {id:"19-ring-badge", theme:"badge", tag:"badge", name:"Ring Badge", why:"Coaster/seal with gold sunrise + FRESH START CO. on the ring."},
-  {id:"17-enamel-pin", theme:"badge", tag:"pin", name:"Enamel Pin", why:"Pin-ready sunrise. Also a clean merch SKU if the mark locks."},
-  {id:"12-peel-dawn", theme:"stronger", tag:"sticker", name:"Peel Dawn", why:"Vinyl peel reveals sunrise. Sticker-native without being soap."},
-  {id:"13-open-window", theme:"stronger", tag:"icon", name:"Open Window", why:"Morning light through an open window. Fresh-start metaphor, no letters."},
-  {id:"14-restart-sun", theme:"stronger", tag:"icon", name:"Restart Sun", why:"Sun + restart arrows. The name as a motion, not a bar of soap."},
-  {id:"15-burst-slap", theme:"stronger", tag:"sticker", name:"Burst Slap", why:"Starburst die-cut with FS. High want-and-buy slap sticker."},
-  {id:"16-drop-ticket", theme:"stronger", tag:"ephemera", name:"Drop Ticket", why:"Limited-drop stub + FRESH START CO. Fits the shop model."},
-  {id:"20-sunrise-mark", theme:"stronger", tag:"icon", name:"Sunrise Mark", why:"The simplest icon. Mix with any wordmark. Survives 16px."}
+  {id:"r01-horizon-ink", theme:"woodstock", tag:"poster", name:"Horizon Ink", why:"Ink sunrise + Fresh Start. Poster energy, flat digital, no pin chrome."},
+  {id:"r10-woodstock-poster", theme:"woodstock", tag:"poster", name:"Woodstock Poster", why:"Concentric sun + stacked wordmark. Psychedelic warm poster vibes."},
+  {id:"r08-smile-sun", theme:"woodstock", tag:"sun", name:"Smile Sun", why:"Classic smile-sun thread Christopher liked. Friendly, want-and-buy."},
+  {id:"r05-fs-burst", theme:"woodstock", tag:"burst", name:"FS Burst", why:"Sunburst FS monogram. Loud poster mark without enamel."},
+  {id:"r02-surf-word", theme:"surf", tag:"wordmark", name:"Surf Word", why:"Surf-shop wordmark sunshine. Reads on a board shop window."},
+  {id:"r03-wavy-word", theme:"surf", tag:"wordmark", name:"Wavy Word", why:"Wavy Fresh Start type. Classic surf sunshine lettering."},
+  {id:"r09-endless-ray", theme:"surf", tag:"sun", name:"Endless Ray", why:"Full-sun icon. Mix with any wordmark. Tiny-size survivor."},
+  {id:"r11-shore-lock", theme:"surf", tag:"lockup", name:"Shore Lock", why:"Sun + wave + exact wordmark. Poster lockup for shop header."},
+  {id:"r04-fs-disc", theme:"mark", tag:"monogram", name:"FS Disc", why:"Circular FS on cream disc. Avatar / favicon digital mark."},
+  {id:"r06-dawn-tile", theme:"mark", tag:"tile", name:"Dawn Tile", why:"Dawn tile icon. App-icon simple. No badge chrome."},
+  {id:"r07-simple-32", theme:"mark", tag:"favicon", name:"Simple 32", why:"32px-ready sun mark. Survives favicon and sticker sheet corner."},
+  {id:"r12-header", theme:"lockup", tag:"header", name:"Shop Header", why:"Horizontal half-sun + Fresh Start Co. Exact shop-header lockup."}
 ];
 const THEMES = [
-  {id:"wordmark", title:"Wordmark", door:"name-first", lede:"Readable at sticker size and as a shop header. Mix with any monogram."},
-  {id:"monogram", title:"FS monogram", door:"avatar · favicon · die-cut", lede:"Two letters. The ones that still read when you squint."},
-  {id:"badge", title:"Badge / seal", door:"stamp · pin · pack", lede:"For packs, tape, and pins. Dawn Seal carries the full name."},
-  {id:"stronger", title:"Stronger ideas", door:"sticker · metaphor · mix", lede:"Peel, window, restart, burst, ticket, bare sunrise. Not soap."}
+  {id:"woodstock", title:"Woodstock / poster sun", door:"psychedelic · warm · flat", lede:"Poster energy. Sun thread. No enamel pins."},
+  {id:"surf", title:"Surf sunshine", door:"shop window · wave · ray", lede:"Classic surf-shop warmth. Wordmarks + sun icons."},
+  {id:"mark", title:"Digital marks", door:"avatar · favicon · tile", lede:"Flat digital only. Squint-test survivors."},
+  {id:"lockup", title:"Lockups", door:"shop header", lede:"Horizontal lockups for store chrome."}
 ];
 
 const state = JSON.parse(localStorage.getItem(KEY) || '{"picks":{},"notes":{},"global":""}');
@@ -298,7 +309,7 @@ state.picks ||= {};
 state.notes ||= {};
 state.global ||= "";
 
-function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
+function save()  { localStorage.setItem(KEY, JSON.stringify(state)); }
 function tally() {
   let y=0,l=0,n=0,c=0;
   for (const v of Object.values(state.picks)) {
@@ -341,7 +352,7 @@ THEMES.forEach((t) => {
   sec.id = t.id;
   sec.innerHTML = `<div class="theme-head"><h2>${t.title}</h2><span class="door">${t.door}</span></div>
     <p class="lede">${t.lede}</p>
-    <div class="grid">${items.map((s, i) => cardHTML(s, t.id==="wordmark" ? i : 9)).join("")}</div>`;
+    <div class="grid">${items.map((s, i) => cardHTML(s, t.id==="woodstock" ? i : 9)).join("")}</div>`;
   board.appendChild(sec);
 });
 

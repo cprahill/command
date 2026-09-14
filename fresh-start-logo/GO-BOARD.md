@@ -1,8 +1,7 @@
-# GO-BOARD — Fresh Start Co. logo options
-**2026-09-13** · Grok Build
+# GO-BOARD — Fresh Start Co. logo **RECUT**
+**2026-09-13 22:42 CT** · Woodstock / surf sun · no enamel pins
 
 Open: https://cprahill.github.io/command/fresh-start-logo/
 
-21 distinct concepts. Want-and-buy Yes / Later / No.
-
-See `brand/GO-FRESH-START-LOGO.md` for the full list.
+12 concepts (r01–r12). Want-and-buy Yes / Later / No.
+Source: `brand/fresh-start-logo/recut/concepts/`.
