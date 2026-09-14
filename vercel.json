@@ -2,40 +2,120 @@
   "cleanUrls": true,
   "trailingSlash": true,
   "rewrites": [
-    { "source": "/phone", "destination": "/phone/index.html" },
-    { "source": "/phone/", "destination": "/phone/index.html" },
-    { "source": "/ctl", "destination": "/phone/index.html" },
-    { "source": "/ctl/", "destination": "/phone/index.html" }
+    {
+      "source": "/live",
+      "destination": "/live/index.html"
+    },
+    {
+      "source": "/live/",
+      "destination": "/live/index.html"
+    },
+    {
+      "source": "/phone",
+      "destination": "/phone/index.html"
+    },
+    {
+      "source": "/phone/",
+      "destination": "/phone/index.html"
+    },
+    {
+      "source": "/ctl",
+      "destination": "/phone/index.html"
+    },
+    {
+      "source": "/ctl/",
+      "destination": "/phone/index.html"
+    }
   ],
   "redirects": [
-    { "source": "/harness", "destination": "/phone/", "permanent": false },
-    { "source": "/harness/(.*)", "destination": "/phone/", "permanent": false },
-    { "source": "/paper", "destination": "/phone/", "permanent": false },
-    { "source": "/paper/(.*)", "destination": "/phone/", "permanent": false },
-    { "source": "/bots", "destination": "/phone/", "permanent": false },
-    { "source": "/bots/(.*)", "destination": "/phone/", "permanent": false },
-    { "source": "/neural", "destination": "/phone/", "permanent": false },
-    { "source": "/neural/(.*)", "destination": "/phone/", "permanent": false }
+    {
+      "source": "/harness",
+      "destination": "/phone/",
+      "permanent": false
+    },
+    {
+      "source": "/harness/(.*)",
+      "destination": "/phone/",
+      "permanent": false
+    },
+    {
+      "source": "/paper",
+      "destination": "/phone/",
+      "permanent": false
+    },
+    {
+      "source": "/paper/(.*)",
+      "destination": "/phone/",
+      "permanent": false
+    },
+    {
+      "source": "/bots",
+      "destination": "/phone/",
+      "permanent": false
+    },
+    {
+      "source": "/bots/(.*)",
+      "destination": "/phone/",
+      "permanent": false
+    },
+    {
+      "source": "/neural",
+      "destination": "/phone/",
+      "permanent": false
+    },
+    {
+      "source": "/neural/(.*)",
+      "destination": "/phone/",
+      "permanent": false
+    }
   ],
   "headers": [
     {
+      "source": "/live/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
       "source": "/truth/(.*)",
       "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex" },
-        { "key": "Cache-Control", "value": "no-store" }
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
       ]
     },
     {
       "source": "/phone/(.*)",
       "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex" },
-        { "key": "Cache-Control", "value": "no-store" }
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
       ]
     },
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex" }
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
       ]
     }
   ]

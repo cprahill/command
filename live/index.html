@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="theme-color" content="#09090b"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="Live Ops"/>
+<meta name="robots" content="noindex"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<title>Live Ops · Mini</title>
+<style>
+:root{--bg:#09090b;--card:#131316;--fg:#f4f4f5;--muted:#a1a1aa;--gold:#e0b143;--ok:#8fba84;--bad:#d47878;--warn:#e0b143;--line:rgba(244,244,245,.12);--build:#7aa2ff;--oc:#c084fc;--local:#34d399}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.4 -apple-system,system-ui,sans-serif}
+body{padding:max(12px,env(safe-area-inset-top)) max(14px,env(safe-area-inset-right)) max(28px,env(safe-area-inset-bottom)) max(14px,env(safe-area-inset-left))}
+h1{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+h2{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;display:flex;justify-content:space-between;align-items:baseline}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:0 0 10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 10px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px}
+.stat .n{font-size:28px;font-weight:700;color:var(--gold);font-variant-numeric:tabular-nums;line-height:1.1}
+.stat .l{font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:4px}
+.row{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.row:last-child{border:0}
+.name{font-weight:600;font-size:14px}.meta{font-size:12px;color:var(--muted);margin-top:2px}
+.right{text-align:right;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:999px;margin-left:6px;vertical-align:middle}
+.WORKING,.HOT{background:rgba(143,186,132,.18);color:var(--ok)}.UP{background:rgba(122,162,255,.15);color:var(--build)}.IDLE,.COLD{background:rgba(224,177,67,.12);color:var(--warn)}
+.etime{font-weight:700;font-size:15px;color:var(--fg)}
+.banner{border-radius:12px;padding:10px 12px;margin:0 0 10px;font-size:13px;font-weight:600}
+.banner.ok{background:#142018;border:1px solid var(--ok);color:#b7e0b0}
+.banner.warn{background:#2a2410;border:1px solid var(--warn);color:#f0d78c}
+.banner.bad{background:#2a1515;border:1px solid var(--bad);color:#ffc9c9}
+svg.chart{width:100%;height:72px;display:block;margin-top:6px}
+.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:11px;color:var(--muted);margin-top:6px}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:4px}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+a.btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 14px;border-radius:999px;background:#1a1a1e;border:1px solid var(--line);color:var(--fg);text-decoration:none;font-weight:600;font-size:13px}
+.foot{font-size:11px;color:var(--muted);margin-top:8px;word-break:break-all}
+.hint{font-size:12px;color:var(--muted);margin:8px 0 0}
+</style>
+</head>
+<body>
+<h1>Live Ops · Mini</h1>
+<div class="banner warn" id="stale">Loading…</div>
+<div class="grid" id="stats"></div>
+<div class="card">
+  <h2><span>Activity</span><span id="graph-meta" style="font-weight:500;letter-spacing:0;text-transform:none;color:var(--muted)">—</span></h2>
+  <svg class="chart" id="chart" viewBox="0 0 300 72" preserveAspectRatio="none"></svg>
+  <div class="legend">
+    <span><i class="dot" style="background:var(--build)"></i>Builds</span>
+    <span><i class="dot" style="background:var(--oc)"></i>OpenClaw</span>
+    <span><i class="dot" style="background:var(--local)"></i>Locals</span>
+    <span><i class="dot" style="background:var(--gold)"></i>TTYs</span>
+  </div>
+</div>
+<div class="card" id="build"><h2><span>Build / Heavy</span><span id="build-n">0</span></h2></div>
+<div class="card" id="oc"><h2><span>OpenClaw</span><span id="oc-n">0</span></h2></div>
+<div class="card" id="locals"><h2><span>Locals</span><span id="locals-n">0</span></h2></div>
+<div class="card" id="terms"><h2>Terminals</h2></div>
+<div class="card">
+  <h2>Add to phone</h2>
+  <p class="hint">Safari → Share → <b>Add to Home Screen</b>. Opens like an app; auto-refreshes.</p>
+  <div class="btns">
+    <a class="btn" href="../phone/">Phone verify</a>
+    <a class="btn" href="../truth/">Truth</a>
+  </div>
+</div>
+<p class="foot" id="foot"></p>
+<script>
+const KEYS=[['builds','#7aa2ff'],['openclaw','#c084fc'],['locals','#34d399'],['ttys','#e0b143']];
+function ageLabel(iso){
+  if(!iso) return {cls:'bad', text:'NO TIMESTAMP'};
+  const t=Date.parse(String(iso).replace('Z','+00:00'));
+  if(!Number.isFinite(t)) return {cls:'bad', text:'BAD TIMESTAMP'};
+  const s=(Date.now()-t)/1000;
+  if(s<45) return {cls:'ok', text:'LIVE · '+Math.round(s)+'s ago'};
+  if(s<180) return {cls:'ok', text:'FRESH · '+Math.round(s)+'s ago'};
+  if(s<900) return {cls:'warn', text:'AGING · '+Math.round(s/60)+'m ago'};
+  return {cls:'bad', text:'STALE · '+Math.round(s/60)+'m ago — Mini tick?'};
+}
+function clear(el){while(el.children.length>1) el.removeChild(el.lastChild);}
+function workerRow(parent,w){
+  const el=document.createElement('div');
+  el.className='row';
+  const st=w.status||'—';
+  el.innerHTML='<div><div class="name">'+esc(w.name)+'<span class="pill '+st+'">'+st+'</span></div>'+
+    '<div class="meta">pid '+ (w.pid||'—') +' · '+esc(w.tty||'—')+(w.pcpu!=null?' · '+w.pcpu+'%':'')+'</div></div>'+
+    '<div class="right"><div class="etime">'+esc(w.etime_human||'—')+'</div><div class="meta">running</div></div>';
+  parent.appendChild(el);
+}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function renderStats(s){
+  const g=document.getElementById('stats');
+  g.innerHTML='';
+  const items=[
+    ['Builds',s.working_builds],
+    ['Terminals',s.terminals_live],
+    ['OpenClaw',s.openclaw],
+    ['Locals',s.locals],
+  ];
+  for(const [l,n] of items){
+    const d=document.createElement('div');
+    d.className='stat';
+    d.innerHTML='<div class="n">'+n+'</div><div class="l">'+l+'</div>';
+    g.appendChild(d);
+  }
+}
+function renderGraph(points){
+  const svg=document.getElementById('chart');
+  svg.innerHTML='';
+  if(!points||!points.length){document.getElementById('graph-meta').textContent='warming up';return;}
+  document.getElementById('graph-meta').textContent=points.length+' samples';
+  const W=300,H=72,pad=4;
+  let max=1;
+  for(const p of points) for(const [k] of KEYS) max=Math.max(max, Number(p[k]||0));
+  function path(key){
+    if(points.length===1){
+      const y=H-pad-((Number(points[0][key]||0)/max)*(H-pad*2));
+      return `M0 ${y} L${W} ${y}`;
+    }
+    return points.map((p,i)=>{
+      const x=pad+(i/(points.length-1))*(W-pad*2);
+      const y=H-pad-((Number(p[key]||0)/max)*(H-pad*2));
+      return (i===0?'M':'L')+x.toFixed(1)+' '+y.toFixed(1);
+    }).join(' ');
+  }
+  for(const [k,color] of KEYS){
+    const p=document.createElementNS('http://www.w3.org/2000/svg','path');
+    p.setAttribute('d',path(k));
+    p.setAttribute('fill','none');
+    p.setAttribute('stroke',color);
+    p.setAttribute('stroke-width','2');
+    p.setAttribute('stroke-linejoin','round');
+    p.setAttribute('stroke-linecap','round');
+    svg.appendChild(p);
+  }
+}
+function renderTeam(id,list,countId){
+  const card=document.getElementById(id);
+  clear(card);
+  document.getElementById(countId).textContent=String((list||[]).length);
+  if(!list||!list.length){
+    const el=document.createElement('div');
+    el.className='meta';el.style.padding='4px 0';
+    el.textContent='none live';
+    card.appendChild(el);
+    return;
+  }
+  list.forEach(w=>workerRow(card,w));
+}
+function renderTerms(t,s){
+  const card=document.getElementById('terms');
+  clear(card);
+  const rows=[
+    ['Live Build TTYs', (t.build_ttys||[]).join(', ')||'—'],
+    ['TTY count', t.build_tty_count],
+    ['Working Builds', t.working_builds],
+    ['Longest run', s.longest_etime_human],
+  ];
+  for(const [k,v] of rows){
+    const el=document.createElement('div');
+    el.className='row';
+    el.innerHTML='<span class="meta">'+esc(k)+'</span><span class="etime" style="font-size:14px">'+esc(v)+'</span>';
+    card.appendChild(el);
+  }
+}
+async function tick(){
+  try{
+    const r=await fetch('status.json?t='+Date.now(),{cache:'no-store'});
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const d=await r.json();
+    const a=ageLabel(d.generated_at);
+    const b=document.getElementById('stale');
+    b.className='banner '+a.cls;
+    b.textContent=a.text+' · '+ (d.host&&d.host.name?d.host.name:'Mini');
+    renderStats(d.summary||{});
+    renderGraph((d.graph&&d.graph.points)||[]);
+    renderTeam('build',(d.teams&&d.teams.build)||[],'build-n');
+    renderTeam('oc',(d.teams&&d.teams.openclaw)||[],'oc-n');
+    renderTeam('locals',(d.teams&&d.teams.locals)||[],'locals-n');
+    renderTerms(d.terminals||{}, d.summary||{});
+    document.getElementById('foot').textContent='updated '+ (d.updated_at_ct||d.generated_at)+' · refresh '+(d.refresh_sec||8)+'s';
+  }catch(e){
+    const b=document.getElementById('stale');
+    b.className='banner bad';
+    b.textContent='Fetch failed — '+e.message;
+  }
+}
+tick();
+setInterval(tick, 8000);
+</script>
+</body>
+</html>

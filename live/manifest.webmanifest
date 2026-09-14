@@ -1,0 +1,9 @@
+{
+  "name": "Live Ops · Mini",
+  "short_name": "Live Ops",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "icons": []
+}
