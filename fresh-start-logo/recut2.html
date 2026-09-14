@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex"/>
+<title>Fresh Start Co. — logo RECUT2 · COLOR · CLEAR</title>
+<meta name="description" content="RECUT2: 12 vivid-color clear-sky sun logos for Fresh Start Co. Woodstock / surf. Yes / Later / No."/>
+<link rel="canonical" href="https://cprahill.github.io/command/fresh-start-logo/"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #07080c;
+  --card: #10141c;
+  --line: #243044;
+  --muted: #7a8aa0;
+  --text: #e8eef6;
+  --gold: #ffb020;
+  --coral: #ff7a59;
+  --ok: #3dff9a;
+  --no: #ff5a7a;
+  --cream: #F4E8D0;
+  --sky: #3BB4F0;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--bg); color: var(--text); }
+html, body {
+  margin: 0;
+  overflow-x: hidden;
+  font: 14px/1.45 "IBM Plex Mono", ui-monospace, monospace;
+}
+img { display: block; max-inline-size: 100%; height: auto; }
+a { color: var(--gold); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+header {
+  max-inline-size: 1100px;
+  margin-inline: auto;
+  padding: 16px 16px 8px;
+}
+.brand { font-family: "Barlow Condensed", sans-serif; font-size: 13px; letter-spacing: .22em; color: var(--muted); }
+.brand i { color: var(--gold); font-style: normal; }
+.recut-pill {
+  display: inline-block;
+  margin: 8px 0 4px;
+  padding: 4px 10px;
+  border: 1px solid var(--sky);
+  color: var(--sky);
+  letter-spacing: .18em;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+h1 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(26px, 6vw, 44px);
+  line-height: 1.08;
+  margin: 8px 0 10px;
+  text-wrap: balance;
+}
+.lede { color: var(--muted); font-size: 13px; max-inline-size: 72ch; }
+.tally {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  margin: 14px 0 6px; font-size: 12px; letter-spacing: .08em;
+}
+.tally b { color: var(--gold); }
+.tools { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 4px; }
+.tools button {
+  font: 12px/1 "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  min-block-size: 44px;
+}
+.tools button:hover { border-color: var(--gold); }
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 8;
+  container-type: scroll-state;
+  container-name: board-nav;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(12px);
+  border-block-end: 1px solid var(--line);
+}
+.nav-inner {
+  max-inline-size: 1100px;
+  margin-inline: auto;
+  padding: 6px 8px;
+}
+@container board-nav scroll-state(stuck: top) {
+  .nav-inner { box-shadow: 0 8px 24px rgb(0 0 0 / 0.35); }
+}
+nav.themes {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+nav.themes a {
+  flex: 0 0 auto;
+  padding: 10px 12px;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-block-end: 2px solid transparent;
+  white-space: nowrap;
+  min-block-size: 44px;
+}
+nav.themes a:hover { text-decoration: none; color: var(--text); }
+nav.themes a:is(:target-current, .is-current) {
+  color: var(--gold);
+  border-color: var(--gold);
+  font-weight: 700;
+}
+section.theme {
+  max-inline-size: 1100px;
+  margin: 0 auto;
+  padding: 18px 16px 8px;
+  overflow-anchor: none;
+}
+.theme-head {
+  display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline;
+  margin-block-end: 12px;
+}
+.theme-head h2 {
+  font-family: "Barlow Condensed", sans-serif;
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.door { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 14px;
+}
+.card {
+  container-type: inline-size;
+  container-name: logo-card;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+.card img.hero {
+  inline-size: 100%;
+  aspect-ratio: 1;
+  min-block-size: 220px;
+  object-fit: contain;
+  object-position: center;
+  background: var(--cream);
+}
+.card.archive img.hero { background: #0b0e14; }
+.chips {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: color-mix(in srgb, var(--cream) 12%, var(--card));
+  border-block-end: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.chips img {
+  background: var(--cream);
+  border-radius: 4px;
+}
+.pad {
+  padding: 12px 12px 14px;
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+.pad h3 {
+  font-family: "Barlow Condensed", sans-serif;
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: .04em;
+}
+.meta { color: var(--muted); font-size: 12px; }
+.btns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.btns button {
+  font: 11px/1 "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 12px 4px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  min-block-size: 44px;
+}
+.btns button:hover { border-color: var(--gold); }
+.btns button.yes.on { background: color-mix(in srgb, var(--ok) 18%, transparent); border-color: var(--ok); color: var(--ok); }
+.btns button.no.on { background: color-mix(in srgb, var(--no) 18%, transparent); border-color: var(--no); color: var(--no); }
+.btns button.later.on { border-color: var(--gold); color: var(--gold); }
+.card textarea, #global-note {
+  field-sizing: content;
+  width: 100%;
+  height: auto;
+  min-block-size: 3lh;
+  max-block-size: 8lh;
+  font: 13px/1.4 "IBM Plex Mono", ui-monospace, monospace;
+  color: var(--text);
+  background: #0b0f16;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+@supports not (field-sizing: content) {
+  .card textarea, #global-note { min-height: 64px; }
+}
+.card textarea:focus, #global-note:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+@container logo-card (max-width: 220px) {
+  .pad h3 { font-size: 18px; }
+  .btns { grid-template-columns: 1fr; }
+}
+.global {
+  max-inline-size: 1100px;
+  margin: 8px auto 0;
+  padding: 8px 16px 28px;
+  display: grid;
+  gap: 8px;
+}
+footer {
+  max-inline-size: 1100px;
+  margin-inline: auto;
+  padding: 8px 16px 40px;
+  color: var(--muted);
+  font-size: 12px;
+}
+@media (max-width: 700px) {
+  header { padding: 10px 16px 4px; }
+  h1 { font-size: 22px; margin: 4px 0 6px; }
+  .lede { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">COMMAND <i>//</i> FRESH START CO. · LOGO BOARD · 2026-09-13</div>
+  <span class="recut-pill">RECUT2 · COLOR · CLEAR</span>
+  <h1>12 sun logos. Clear sky. Vivid color. No rain, no storm.</h1>
+  <p class="lede">Same sun thread — Woodstock poster or classic surf — now gold / coral / sky / teal. Lightning and grey storm are out. Each card shows 32px and 64px. Mix an icon with a wordmark. Yes / Later / No.</p>
+  <div class="tally">
+    <span>yes <b id="n-yes">0</b></span>
+    <span>later <b id="n-later">0</b></span>
+    <span>no <b id="n-no">0</b></span>
+    <span>comments <b id="n-notes">0</b></span>
+  </div>
+  <div class="tools">
+    <button type="button" id="export">Export picks JSON</button>
+    <a href="./" style="font: 12px/1 'IBM Plex Mono', ui-monospace, monospace; letter-spacing: .1em; text-transform: uppercase; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--line); color: var(--text); min-block-size: 48px; display: inline-grid; place-items: center;">Original options</a>
+  </div>
+</header>
+<div class="nav-wrap">
+  <div class="nav-inner">
+    <nav class="themes" aria-label="Lanes">
+      <a href="#word">RECUT2 Wordmark</a>
+      <a href="#mono">RECUT2 Monogram</a>
+      <a href="#icon">RECUT2 Icon</a>
+      <a href="#lock">RECUT2 Lockup</a>
+      <a href="#archive">Archive</a>
+    </nav>
+  </div>
+</div>
+<main id="board">
+<section class="theme" id="word">
+  <div class="theme-head"><h2>RECUT2 · Wordmark</h2><span class="door">sun + name · clear sky</span></div>
+  <p class="lede">Readable at sticker size and as a shop header. Mix with any icon.</p>
+  <div class="grid">
+  <article class="card" data-id="c01-clear-horizon">
+    <img class="hero" src="./recut2/concepts/c01-clear-horizon.png" alt="Clear Horizon" width="1024" height="1024" fetchpriority="high"/>
+    <div class="chips" aria-label="tiny sizes">
+      <img src="./recut2/chips/c01-clear-horizon-32.png" width="32" height="32" alt="" loading="lazy"/>
+      <img src="./recut2/chips/c01-clear-horizon-64.png" width="64" height="64" alt="" loading="lazy"/>
+      <span>32 · 64</span>
+    </div>
+    <div class="pad">
+      <span class="door">wordmark · sun thread</span>
+      <h3>Clear Horizon</h3>
+      <p class="meta">The sun thread on a clear sky. Flat digital wordmark. Shop header and sticker.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="c01-clear-horizon" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  <article class="card" data-id="c02-surf-clear">
+    <img class="hero" src="./recut2/concepts/c02-surf-clear.png" alt="Surf Clear" width="1024" height="1024"/>
+    <div class="chips" aria-label="tiny sizes">
+      <img src="./recut2/chips/c02-surf-clear-32.png" width="32" height="32" alt="" loading="lazy"/>
+      <img src="./recut2/chips/c02-surf-clear-64.png" width="64" height="64" alt="" loading="lazy"/>
+      <span>32 · 64</span>
+    </div>
+    <div class="pad">
+      <span class="door">wordmark · surf</span>
+      <h3>Surf Clear</h3>
+      <p class="meta">California surf-shop sunrise over a blue sky. FRESH START CO. on cream below.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="c02-surf-clear" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  <article class="card" data-id="c03-wavy-color">
+    <img class="hero" src="./recut2/concepts/c03-wavy-color.png" alt="Wavy Color" width="1024" height="1024"/>
+    <div class="chips" aria-label="tiny sizes">
+      <img src="./recut2/chips/c03-wavy-color-32.png" width="32" height="32" alt="" loading="lazy"/>
+      <img src="./recut2/chips/c03-wavy-color-64.png" width="64" height="64" alt="" loading="lazy"/>
+      <span>32 · 64</span>
+    </div>
+    <div class="pad">
+      <span class="door">wordmark · woodstock</span>
+      <h3>Wavy Color</h3>
+      <p class="meta">1969 poster sun, now coral / gold / teal. FRESH START in the disc.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="c03-wavy-color" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  </div>
+</section>
+<section class="theme" id="mono">
+  <div class="theme-head"><h2>RECUT2 · FS monogram</h2><span class="door">avatar · favicon</span></div>
+  <p class="lede">Two letters in a sun. The ones that still read when you squint.</p>
+  <div class="grid">
+  <article class="card" data-id="c04-fs-disc-color">
+    <img class="hero" src="./recut2/concepts/c04-fs-disc-color.png" alt="FS Disc Color" width="1024" height="1024"/>
+    <div class="chips" aria-label="tiny sizes">
+      <img src="./recut2/chips/c04-fs-disc-color-32.png" width="32" height="32" alt="" loading="lazy"/>
+      <img src="./recut2/chips/c04-fs-disc-color-64.png" width="64" height="64" alt="" loading="lazy"/>
+      <span>32 · 64</span>
+    </div>
+    <div class="pad">
+      <span class="door">monogram</span>
+      <h3>FS Disc Color</h3>
+      <p class="meta">FS in a vivid coral sun with a teal ring. Avatar, favicon, die-cut.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="c04-fs-disc-color" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  <article class="card" data-id="c05-fs-burst-clear">
+    <img class="hero" src="./recut2/concepts/c05-fs-burst-clear.png" alt="FS Burst Clear" width="1024" height="1024"/>
+    <div class="chips" aria-label="tiny sizes">
+      <img src="./recut2/chips/c05-fs-burst-clear-32.png" width="32" height="32" alt="" loading="lazy"/>
+      <img src="./recut2/chips/c05-fs-burst-clear-64.png" width="64" height="64" alt="" loading="lazy"/>
+      <span>32 · 64</span>
+    </div>
+    <div class="pad">
+      <span class="door">monogram · woodstock</span>
+      <h3>FS Burst Clear</h3>
+      <p class="meta">Woodstock burst with wavy rays — no lightning. Exact FS in the disc.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="c05-fs-burst-clear" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  <article class="card" data-id="c06-dawn-sky">
+    <img class="hero" src="./recut2/concepts/c06-dawn-sky.png" alt="Dawn Sky" width="1024" height="1024"/>
+    <div class="chips" aria-label="tiny sizes">
+      <img src="./recut2/chips/c06-dawn-sky-32.png" width="32" height="32" alt="" loading="lazy"/>
+      <img src="./recut2/chips/c06-dawn-sky-64.png" width="64" height="64" alt="" loading="lazy"/>
+      <span>32 · 64</span>
+    </div>
+    <div class="pad">
+      <span class="door">monogram · app</span>
+      <h3>Dawn Sky</h3>
+      <p class="meta">Sky-blue app / X-avatar tile. Sun + FS. Clear weather, not navy night.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="c06-dawn-sky" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  </div>
+</section>
+<section class="theme" id="icon">
+  <div class="theme-head"><h2>RECUT2 · Sun icon</h2><span class="door">32px · mix</span></div>
+  <p class="lede">Bare sun. Pair with a wordmark. Simple Clear is the favicon test.</p>
+  <div class="grid">
+  <article class="card" data-id="c07-simple-clear">
+    <img class="hero" src="./recut2/concepts/c07-simple-clear.png" alt="Simple Clear" width="1024" height="1024"/>
+    <div class="chips" aria-label="tiny sizes">
+      <img src="./recut2/chips/c07-simple-clear-32.png" width="32" height="32" alt="" loading="lazy"/>
+      <img src="./recut2/chips/c07-simple-clear-64.png" width="64" height="64" alt="" loading="lazy"/>
+      <span>32 · 64</span>
+    </div>
+    <div class="pad">
+      <span class="door">icon · 32px</span>
+      <h3>Simple Clear</h3>
+      <p class="meta">The cleanest sun on a clear sky. Mix with any wordmark. Favicon test.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="c07-simple-clear" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  <article class="card" data-id="c08-smile-color">
+    <img class="hero" src="./recut2/concepts/c08-smile-color.png" alt="Smile Color" width="1024" height="1024"/>
+    <div class="chips" aria-label="tiny sizes">
+      <img src="./recut2/chips/c08-smile-color-32.png" width="32" height="32" alt="" loading="lazy"/>
+      <img src="./recut2/chips/c08-smile-color-64.png" width="64" height="64" alt="" loading="lazy"/>
+      <span>32 · 64</span>
+    </div>
+    <div class="pad">
+      <span class="door">icon · woodstock</span>
+      <h3>Smile Color</h3>
+      <p class="meta">Concert-poster sun on sky. Icon only — mix with Clear Horizon or Header.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="c08-smile-color" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  <article class="card" data-id="c09-endless-color">
+    <img class="hero" src="./recut2/concepts/c09-endless-color.png" alt="Endless Color" width="1024" height="1024"/>
+    <div class="chips" aria-label="tiny sizes">
+      <img src="./recut2/chips/c09-endless-color-32.png" width="32" height="32" alt="" loading="lazy"/>
+      <img src="./recut2/chips/c09-endless-color-64.png" width="64" height="64" alt="" loading="lazy"/>
+      <span>32 · 64</span>
+    </div>
+    <div class="pad">
+      <span class="door">icon · surf</span>
+      <h3>Endless Color</h3>
+      <p class="meta">Full sun, long rays, gold / coral / teal on sky. Endless-summer mark.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="c09-endless-color" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  </div>
+</section>
+<section class="theme" id="lock">
+  <div class="theme-head"><h2>RECUT2 · Lockup</h2><span class="door">poster · header</span></div>
+  <p class="lede">Woodstock poster, surf-shop window, and the horizontal website header.</p>
+  <div class="grid">
+  <article class="card" data-id="c10-woodstock-color">
+    <img class="hero" src="./recut2/concepts/c10-woodstock-color.png" alt="Woodstock Color" width="1024" height="1024"/>
+    <div class="chips" aria-label="tiny sizes">
+      <img src="./recut2/chips/c10-woodstock-color-32.png" width="32" height="32" alt="" loading="lazy"/>
+      <img src="./recut2/chips/c10-woodstock-color-64.png" width="64" height="64" alt="" loading="lazy"/>
+      <span>32 · 64</span>
+    </div>
+    <div class="pad">
+      <span class="door">lockup · woodstock</span>
+      <h3>Woodstock Color</h3>
+      <p class="meta">Concentric sun in coral / gold / teal + stacked FRESH START CO.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="c10-woodstock-color" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  <article class="card" data-id="c11-shore-clear">
+    <img class="hero" src="./recut2/concepts/c11-shore-clear.png" alt="Shore Clear" width="1024" height="1024"/>
+    <div class="chips" aria-label="tiny sizes">
+      <img src="./recut2/chips/c11-shore-clear-32.png" width="32" height="32" alt="" loading="lazy"/>
+      <img src="./recut2/chips/c11-shore-clear-64.png" width="64" height="64" alt="" loading="lazy"/>
+      <span>32 · 64</span>
+    </div>
+    <div class="pad">
+      <span class="door">lockup · surf</span>
+      <h3>Shore Clear</h3>
+      <p class="meta">Sun over a swell under a clear sky. Surf-shop window + FRESH START CO.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="c11-shore-clear" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  <article class="card" data-id="c12-header-color">
+    <img class="hero" src="./recut2/concepts/c12-header-color.png" alt="Header Color" width="1024" height="1024"/>
+    <div class="chips" aria-label="tiny sizes">
+      <img src="./recut2/chips/c12-header-color-32.png" width="32" height="32" alt="" loading="lazy"/>
+      <img src="./recut2/chips/c12-header-color-64.png" width="64" height="64" alt="" loading="lazy"/>
+      <span>32 · 64</span>
+    </div>
+    <div class="pad">
+      <span class="door">lockup · header</span>
+      <h3>Header Color</h3>
+      <p class="meta">Horizontal shop header on a sky band. Sun left, name right.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="c12-header-color" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  </div>
+</section>
+<section class="theme" id="archive">
+  <div class="theme-head"><h2>Archive · last round</h2><span class="door">compare · no the storm</span></div>
+  <p class="lede">Cream RECUT1 and the lightning burst. Enamel pin stays dead. Do not pick storm or pins.</p>
+  <div class="grid">
+  <article class="card archive" data-id="r01-horizon-ink">
+    <img class="hero" src="./recut/concepts/r01-horizon-ink.png" alt="Horizon Ink (RECUT1)" width="1024" height="1024" loading="lazy"/>
+    <div class="pad">
+      <span class="door">archive · recut1</span>
+      <h3>Horizon Ink (RECUT1)</h3>
+      <p class="meta">Last round cream sun thread. Compare against Clear Horizon.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="r01-horizon-ink" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  <article class="card archive" data-id="r08-smile-sun">
+    <img class="hero" src="./recut/concepts/r08-smile-sun.png" alt="Smile Sun (RECUT1)" width="1024" height="1024" loading="lazy"/>
+    <div class="pad">
+      <span class="door">archive · recut1</span>
+      <h3>Smile Sun (RECUT1)</h3>
+      <p class="meta">Last round cream smile. Compare against Smile Color.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="r08-smile-sun" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  <article class="card archive" data-id="r05-fs-burst">
+    <img class="hero" src="./recut/concepts/r05-fs-burst.png" alt="FS Burst (lightning)" width="1024" height="1024" loading="lazy"/>
+    <div class="pad">
+      <span class="door">archive · storm</span>
+      <h3>FS Burst (lightning)</h3>
+      <p class="meta">Last round had lightning bolts. That look is out. Use FS Burst Clear.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="r05-fs-burst" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  <article class="card archive" data-id="17-enamel-pin">
+    <img class="hero" src="./concepts/17-enamel-pin.png" alt="Enamel Pin" width="1024" height="1024" loading="lazy"/>
+    <div class="pad">
+      <span class="door">archive · KILL</span>
+      <h3>Enamel Pin</h3>
+      <p class="meta">Acrylic / pin / photographed badge. Still No.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="17-enamel-pin" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  </div>
+</section>
+</main>
+<div class="global">
+  <label for="global-note">Global note (whole board)</label>
+  <textarea id="global-note" placeholder="Lock Clear Horizon + FS Disc… smile on sky… header is the shop mark…"></textarea>
+</div>
+<footer>
+  <p>RECUT2 · COLOR · CLEAR 2026-09-13. Picks save on this device. Export JSON for a Drop copy. Last round (cream / lightning burst) lives under Archive. Source: <code>brand/fresh-start-logo/recut2/</code>.</p>
+</footer>
+<script>
+const KEY = "fs-logo-recut2-color-clear-2026-09-13";
+const MARKS = [
+  {id:"c01-clear-horizon", src:"recut2/concepts/c01-clear-horizon.png", chip:"recut2/chips/c01-clear-horizon", theme:"word", tag:"wordmark · sun thread", name:"Clear Horizon", why:"The sun thread on a clear sky. Flat digital wordmark. Shop header and sticker."},
+  {id:"c02-surf-clear", src:"recut2/concepts/c02-surf-clear.png", chip:"recut2/chips/c02-surf-clear", theme:"word", tag:"wordmark · surf", name:"Surf Clear", why:"California surf-shop sunrise over a blue sky. FRESH START CO. on cream below."},
+  {id:"c03-wavy-color", src:"recut2/concepts/c03-wavy-color.png", chip:"recut2/chips/c03-wavy-color", theme:"word", tag:"wordmark · woodstock", name:"Wavy Color", why:"1969 poster sun, now coral / gold / teal. FRESH START in the disc."},
+  {id:"c04-fs-disc-color", src:"recut2/concepts/c04-fs-disc-color.png", chip:"recut2/chips/c04-fs-disc-color", theme:"mono", tag:"monogram", name:"FS Disc Color", why:"FS in a vivid coral sun with a teal ring. Avatar, favicon, die-cut."},
+  {id:"c05-fs-burst-clear", src:"recut2/concepts/c05-fs-burst-clear.png", chip:"recut2/chips/c05-fs-burst-clear", theme:"mono", tag:"monogram · woodstock", name:"FS Burst Clear", why:"Woodstock burst with wavy rays — no lightning. Exact FS in the disc."},
+  {id:"c06-dawn-sky", src:"recut2/concepts/c06-dawn-sky.png", chip:"recut2/chips/c06-dawn-sky", theme:"mono", tag:"monogram · app", name:"Dawn Sky", why:"Sky-blue app / X-avatar tile. Sun + FS. Clear weather, not navy night."},
+  {id:"c07-simple-clear", src:"recut2/concepts/c07-simple-clear.png", chip:"recut2/chips/c07-simple-clear", theme:"icon", tag:"icon · 32px", name:"Simple Clear", why:"The cleanest sun on a clear sky. Mix with any wordmark. Favicon test."},
+  {id:"c08-smile-color", src:"recut2/concepts/c08-smile-color.png", chip:"recut2/chips/c08-smile-color", theme:"icon", tag:"icon · woodstock", name:"Smile Color", why:"Concert-poster sun on sky. Icon only — mix with Clear Horizon or Header."},
+  {id:"c09-endless-color", src:"recut2/concepts/c09-endless-color.png", chip:"recut2/chips/c09-endless-color", theme:"icon", tag:"icon · surf", name:"Endless Color", why:"Full sun, long rays, gold / coral / teal on sky. Endless-summer mark."},
+  {id:"c10-woodstock-color", src:"recut2/concepts/c10-woodstock-color.png", chip:"recut2/chips/c10-woodstock-color", theme:"lock", tag:"lockup · woodstock", name:"Woodstock Color", why:"Concentric sun in coral / gold / teal + stacked FRESH START CO."},
+  {id:"c11-shore-clear", src:"recut2/concepts/c11-shore-clear.png", chip:"recut2/chips/c11-shore-clear", theme:"lock", tag:"lockup · surf", name:"Shore Clear", why:"Sun over a swell under a clear sky. Surf-shop window + FRESH START CO."},
+  {id:"c12-header-color", src:"recut2/concepts/c12-header-color.png", chip:"recut2/chips/c12-header-color", theme:"lock", tag:"lockup · header", name:"Header Color", why:"Horizontal shop header on a sky band. Sun left, name right."},
+  {id:"r01-horizon-ink", src:"recut/concepts/r01-horizon-ink.png", theme:"archive", tag:"archive · recut1", name:"Horizon Ink (RECUT1)", why:"Last round cream sun thread. Compare against Clear Horizon."},
+  {id:"r08-smile-sun", src:"recut/concepts/r08-smile-sun.png", theme:"archive", tag:"archive · recut1", name:"Smile Sun (RECUT1)", why:"Last round cream smile. Compare against Smile Color."},
+  {id:"r05-fs-burst", src:"recut/concepts/r05-fs-burst.png", theme:"archive", tag:"archive · storm", name:"FS Burst (lightning)", why:"Last round had lightning bolts. That look is out. Use FS Burst Clear."},
+  {id:"17-enamel-pin", src:"concepts/17-enamel-pin.png", theme:"archive", tag:"archive · KILL", name:"Enamel Pin", why:"Acrylic / pin / photographed badge. Still No."}
+];
+const THEMES = [
+  {id:"word", title:"RECUT2 · Wordmark", door:"sun + name · clear sky", lede:"Readable at sticker size and as a shop header. Mix with any icon."},
+  {id:"mono", title:"RECUT2 · FS monogram", door:"avatar · favicon", lede:"Two letters in a sun. The ones that still read when you squint."},
+  {id:"icon", title:"RECUT2 · Sun icon", door:"32px · mix", lede:"Bare sun. Pair with a wordmark. Simple Clear is the favicon test."},
+  {id:"lock", title:"RECUT2 · Lockup", door:"poster · header", lede:"Woodstock poster, surf-shop window, and the horizontal website header."},
+  {id:"archive", title:"Archive · last round", door:"compare · no the storm", lede:"Cream RECUT1 and the lightning burst. Enamel pin stays dead. Do not pick storm or pins."}
+];
+
+const state = JSON.parse(localStorage.getItem(KEY) || '{"picks":{},"notes":{},"global":""}');
+state.picks ||= {};
+state.notes ||= {};
+state.global ||= "";
+
+function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
+function tally() {
+  let y=0,l=0,n=0,c=0;
+  for (const v of Object.values(state.picks)) {
+    if (v==="yes") y++; else if (v==="later") l++; else if (v==="no") n++;
+  }
+  for (const v of Object.values(state.notes)) if (v && v.trim()) c++;
+  if (state.global && state.global.trim()) c++;
+  document.getElementById("n-yes").textContent = y;
+  document.getElementById("n-later").textContent = l;
+  document.getElementById("n-no").textContent = n;
+  document.getElementById("n-notes").textContent = c;
+}
+
+const board = document.getElementById("board");
+function applyState() {
+  document.querySelectorAll(".card[data-id]").forEach((card) => {
+    const id = card.dataset.id;
+    const pick = state.picks[id] || "";
+    card.querySelectorAll(".btns button").forEach((b) => {
+      b.classList.toggle("on", (b.classList.contains("yes") && pick==="yes")
+        || (b.classList.contains("no") && pick==="no")
+        || (b.classList.contains("later") && pick==="later"));
+    });
+    const ta = card.querySelector("textarea[data-note]");
+    if (ta) ta.value = state.notes[id] || "";
+  });
+}
+applyState();
+
+board.addEventListener("click", (e) => {
+  const btn = e.target.closest("button");
+  if (!btn) return;
+  const card = btn.closest(".card");
+  if (!card) return;
+  const id = card.dataset.id;
+  const kind = btn.classList.contains("yes") ? "yes" : btn.classList.contains("no") ? "no" : "later";
+  state.picks[id] = state.picks[id] === kind ? "" : kind;
+  save();
+  card.querySelectorAll(".btns button").forEach((b) => {
+    b.classList.toggle("on", (b.classList.contains("yes") && state.picks[id]==="yes")
+      || (b.classList.contains("no") && state.picks[id]==="no")
+      || (b.classList.contains("later") && state.picks[id]==="later"));
+  });
+  tally();
+});
+board.addEventListener("input", (e) => {
+  if (e.target.matches("textarea[data-note]")) {
+    state.notes[e.target.dataset.note] = e.target.value;
+    save(); tally();
+  }
+});
+const g = document.getElementById("global-note");
+g.value = state.global;
+g.addEventListener("input", () => { state.global = g.value; save(); tally(); });
+
+document.getElementById("export").addEventListener("click", () => {
+  const payload = {
+    when: new Date().toISOString(),
+    key: KEY,
+    recut: "recut2-color-clear-2026-09-13",
+    picks: state.picks,
+    notes: state.notes,
+    global: state.global,
+    marks: MARKS.map(s => ({id:s.id, name:s.name, theme:s.theme, pick: state.picks[s.id] || "", note: state.notes[s.id] || ""}))
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "fresh-start-logo-recut2-picks.json";
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+
+tally();
+
+const navLinks = document.querySelectorAll("nav.themes a");
+navLinks[0].classList.add("is-current");
+navLinks[0].setAttribute("aria-current", "true");
+const sections = THEMES.map(t => document.getElementById(t.id));
+const obs = new IntersectionObserver((entries) => {
+  const visible = entries.filter(e => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+  if (!visible) return;
+  const id = visible.target.id;
+  navLinks.forEach((link) => {
+    const on = link.getAttribute("href") === `#${id}`;
+    link.classList.toggle("is-current", on);
+    link.setAttribute("aria-current", on ? "true" : "false");
+  });
+}, { rootMargin: "-25% 0px -55% 0px", threshold: [0, 0.25, 0.5] });
+sections.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
