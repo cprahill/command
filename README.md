@@ -11,6 +11,7 @@ Public command center for Grok Bot on phone/iPad. Not Baja.
 | `/bots/` | Workforce KPI cards |
 | `/paper/` | Paper desk (fake money) |
 | `/neural/` | 3D harness mesh |
+| `/fresh-start-logo/` | **Fresh Start Co.** logo options (Yes/Later/No). https://cprahill.github.io/command/fresh-start-logo/ |
 | `/` | Hub |
 
 Live Mini (LAN/Tailscale only): harness `:8790` · paper `:8791` · twin `:8787`.
