@@ -1,7 +1,7 @@
 {
   "title": "LIVE OPS",
-  "generated_at": "2026-09-14T03:38:32.287585Z",
-  "updated_at_ct": "2026-09-13T22:38:32-0500",
+  "generated_at": "2026-09-14T03:38:47.425440Z",
+  "updated_at_ct": "2026-09-13T22:38:47-0500",
   "host": {
     "name": "Jimothys-Mac-mini-2.local",
     "role": "Grok Mini"
@@ -12,7 +12,7 @@
     "openclaw": 13,
     "locals": 3,
     "terminals_live": 2,
-    "longest_etime_sec": 871874,
+    "longest_etime_sec": 871889,
     "longest_etime_human": "10d 2h",
     "n_workers": 18
   },
@@ -25,11 +25,11 @@
         "status": "WORKING",
         "pid": 15724,
         "tty": "ttys000",
-        "etime": "14:11",
-        "etime_sec": 851,
-        "etime_human": "14m 11s",
-        "pcpu": 0.7,
-        "rss_mb": 30.0
+        "etime": "14:26",
+        "etime_sec": 866,
+        "etime_human": "14m 26s",
+        "pcpu": 3.2,
+        "rss_mb": 30.8
       },
       {
         "id": "build-17363",
@@ -38,11 +38,11 @@
         "status": "WORKING",
         "pid": 17363,
         "tty": "ttys001",
-        "etime": "07:13",
-        "etime_sec": 433,
-        "etime_human": "7m 13s",
+        "etime": "07:28",
+        "etime_sec": 448,
+        "etime_human": "7m 28s",
         "pcpu": 3.1,
-        "rss_mb": 33.2
+        "rss_mb": 38.2
       }
     ],
     "openclaw": [
@@ -53,9 +53,9 @@
         "status": "UP",
         "pid": 19695,
         "tty": "??",
-        "etime": "01:06",
-        "etime_sec": 66,
-        "etime_human": "1m 6s",
+        "etime": "01:21",
+        "etime_sec": 81,
+        "etime_human": "1m 21s",
         "pcpu": 0.0,
         "rss_mb": 0.4
       },
@@ -66,11 +66,11 @@
         "status": "UP",
         "pid": 19701,
         "tty": "??",
-        "etime": "01:06",
-        "etime_sec": 66,
-        "etime_human": "1m 6s",
+        "etime": "01:21",
+        "etime_sec": 81,
+        "etime_human": "1m 21s",
         "pcpu": 0.0,
-        "rss_mb": 1.8
+        "rss_mb": 2.8
       },
       {
         "id": "oc-19704",
@@ -79,11 +79,11 @@
         "status": "UP",
         "pid": 19704,
         "tty": "??",
-        "etime": "01:06",
-        "etime_sec": 66,
-        "etime_human": "1m 6s",
+        "etime": "01:21",
+        "etime_sec": 81,
+        "etime_human": "1m 21s",
         "pcpu": 0.0,
-        "rss_mb": 7.4
+        "rss_mb": 11.5
       },
       {
         "id": "oc-19814",
@@ -92,9 +92,9 @@
         "status": "UP",
         "pid": 19814,
         "tty": "??",
-        "etime": "00:55",
-        "etime_sec": 55,
-        "etime_human": "55s",
+        "etime": "01:10",
+        "etime_sec": 70,
+        "etime_human": "1m 10s",
         "pcpu": 0.0,
         "rss_mb": 0.4
       },
@@ -105,9 +105,9 @@
         "status": "UP",
         "pid": 19867,
         "tty": "??",
-        "etime": "00:49",
-        "etime_sec": 49,
-        "etime_human": "49s",
+        "etime": "01:04",
+        "etime_sec": 64,
+        "etime_human": "1m 4s",
         "pcpu": 0.0,
         "rss_mb": 10.9
       },
@@ -118,9 +118,9 @@
         "status": "UP",
         "pid": 19871,
         "tty": "??",
-        "etime": "00:48",
-        "etime_sec": 48,
-        "etime_human": "48s",
+        "etime": "01:03",
+        "etime_sec": 63,
+        "etime_human": "1m 3s",
         "pcpu": 0.0,
         "rss_mb": 0.5
       },
@@ -131,11 +131,11 @@
         "status": "UP",
         "pid": 19875,
         "tty": "??",
-        "etime": "00:48",
-        "etime_sec": 48,
-        "etime_human": "48s",
+        "etime": "01:03",
+        "etime_sec": 63,
+        "etime_human": "1m 3s",
         "pcpu": 0.0,
-        "rss_mb": 13.4
+        "rss_mb": 18.2
       },
       {
         "id": "oc-19886",
@@ -144,11 +144,11 @@
         "status": "UP",
         "pid": 19886,
         "tty": "??",
-        "etime": "00:47",
-        "etime_sec": 47,
-        "etime_human": "47s",
+        "etime": "01:02",
+        "etime_sec": 62,
+        "etime_human": "1m 2s",
         "pcpu": 0.0,
-        "rss_mb": 11.7
+        "rss_mb": 10.7
       },
       {
         "id": "oc-19893",
@@ -157,24 +157,24 @@
         "status": "UP",
         "pid": 19893,
         "tty": "??",
-        "etime": "00:47",
-        "etime_sec": 47,
-        "etime_human": "47s",
+        "etime": "01:02",
+        "etime_sec": 62,
+        "etime_human": "1m 2s",
         "pcpu": 0.0,
-        "rss_mb": 14.1
+        "rss_mb": 18.1
       },
       {
-        "id": "oc-20150",
+        "id": "oc-20286",
         "team": "openclaw",
         "name": "openclaw",
         "status": "WORKING",
-        "pid": 20150,
+        "pid": 20286,
         "tty": "??",
         "etime": "00:01",
         "etime_sec": 1,
         "etime_human": "1s",
-        "pcpu": 0.9,
-        "rss_mb": 3.1
+        "pcpu": 1.3,
+        "rss_mb": 4.5
       },
       {
         "id": "oc-30436",
@@ -183,11 +183,11 @@
         "status": "UP",
         "pid": 30436,
         "tty": "??",
-        "etime": "01-07:46:38",
-        "etime_sec": 114398,
+        "etime": "01-07:46:53",
+        "etime_sec": 114413,
         "etime_human": "1d 7h",
         "pcpu": 0.0,
-        "rss_mb": 5.3
+        "rss_mb": 6.6
       },
       {
         "id": "oc-53897",
@@ -196,11 +196,11 @@
         "status": "UP",
         "pid": 53897,
         "tty": "??",
-        "etime": "01-06:24:10",
-        "etime_sec": 109450,
+        "etime": "01-06:24:25",
+        "etime_sec": 109465,
         "etime_human": "1d 6h",
-        "pcpu": 0.2,
-        "rss_mb": 40.4
+        "pcpu": 0.1,
+        "rss_mb": 30.9
       },
       {
         "id": "oc-90838",
@@ -209,8 +209,8 @@
         "status": "UP",
         "pid": 90838,
         "tty": "??",
-        "etime": "02:00:33",
-        "etime_sec": 7233,
+        "etime": "02:00:48",
+        "etime_sec": 7248,
         "etime_human": "2h 0m",
         "pcpu": 0.0,
         "rss_mb": 0.4
@@ -224,8 +224,8 @@
         "status": "UP",
         "pid": 1424,
         "tty": "??",
-        "etime": "10-02:11:14",
-        "etime_sec": 871874,
+        "etime": "10-02:11:29",
+        "etime_sec": 871889,
         "etime_human": "10d 2h",
         "pcpu": 0.0,
         "rss_mb": 2.3
@@ -237,11 +237,11 @@
         "status": "UP",
         "pid": 1481,
         "tty": "??",
-        "etime": "10-02:11:12",
-        "etime_sec": 871872,
+        "etime": "10-02:11:27",
+        "etime_sec": 871887,
         "etime_human": "10d 2h",
         "pcpu": 0.0,
-        "rss_mb": 8.0
+        "rss_mb": 8.4
       },
       {
         "id": "local-19727",
@@ -250,11 +250,11 @@
         "status": "UP",
         "pid": 19727,
         "tty": "??",
-        "etime": "01:03",
-        "etime_sec": 63,
-        "etime_human": "1m 3s",
+        "etime": "01:18",
+        "etime_sec": 78,
+        "etime_human": "1m 18s",
         "pcpu": 0.1,
-        "rss_mb": 15779.2
+        "rss_mb": 15964.5
       },
       {
         "id": "local-models",
@@ -286,22 +286,6 @@
   },
   "graph": {
     "points": [
-      {
-        "t": "2026-09-14T03:13:17.739803Z",
-        "builds": 0,
-        "openclaw": 3,
-        "locals": 2,
-        "ttys": 0,
-        "working": 0
-      },
-      {
-        "t": "2026-09-14T03:13:47.895634Z",
-        "builds": 0,
-        "openclaw": 3,
-        "locals": 2,
-        "ttys": 0,
-        "working": 0
-      },
       {
         "t": "2026-09-14T03:14:18.048301Z",
         "builds": 0,
@@ -760,6 +744,22 @@
       },
       {
         "t": "2026-09-14T03:38:32.287585Z",
+        "builds": 2,
+        "openclaw": 13,
+        "locals": 3,
+        "ttys": 2,
+        "working": 2
+      },
+      {
+        "t": "2026-09-14T03:38:46.800729Z",
+        "builds": 2,
+        "openclaw": 13,
+        "locals": 3,
+        "ttys": 2,
+        "working": 2
+      },
+      {
+        "t": "2026-09-14T03:38:47.425440Z",
         "builds": 2,
         "openclaw": 13,
         "locals": 3,
