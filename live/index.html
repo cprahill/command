@@ -15,7 +15,7 @@
   --bg:#03040a;--card:rgba(12,16,28,.88);--fg:#e8eefc;--muted:#8b9bb8;
   --gold:#f5c84c;--ok:#3dff9a;--bad:#ff5c7a;--warn:#ffd166;
   --line:rgba(120,160,255,.12);
-  --build:#4da3ff;--oc:#c77dff;--local:#2ee6a6;--tty:#ffd166;
+  --build:#4da3ff;--oc:#c77dff;--local:#2ee6a6;--tty:#ffd166;--grok:#f5c84c;
   --grid:rgba(90,130,255,.10);
 }
 *{box-sizing:border-box}
@@ -35,7 +35,7 @@ h2{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute
 .stat .n{font-size:32px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1;font-family:ui-monospace,Menlo,monospace}
 .stat.build .n{color:var(--build);text-shadow:0 0 20px rgba(77,163,255,.55)}
 .stat.oc .n{color:var(--oc);text-shadow:0 0 18px rgba(199,125,255,.45)}
-.stat.local .n{color:var(--local)}.stat.tty .n{color:var(--tty)}
+.stat.local .n{color:var(--local)}.stat.tty .n{color:var(--tty)}.stat.grok .n{color:var(--grok);text-shadow:0 0 18px rgba(245,200,76,.45)}
 .stat .l{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:6px}
 .banner{border-radius:14px;padding:10px 12px;margin:0 0 12px;font-size:13px;font-weight:650}
 .banner.ok{background:rgba(10,40,28,.9);border:1px solid rgba(61,255,154,.35);color:#b6ffd9}
@@ -58,7 +58,7 @@ svg.scope{width:100%;height:168px;display:block;border-radius:12px;background:
 .fill.oc{background:linear-gradient(90deg,#6b21a8,#c77dff);box-shadow:0 0 14px rgba(199,125,255,.4)}
 .row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);align-items:flex-start}
 .row:last-child{border:0}
-.name{font-weight:650;font-size:14px}.meta{font-size:12px;color:var(--muted);margin-top:3px}
+.name{font-weight:650;font-size:14px}.meta{font-size:12px;color:var(--muted);margin-top:3px}.on{font-size:12px;color:var(--gold);margin-top:4px;line-height:1.35;max-width:72ch}
 .right{text-align:right;font-variant-numeric:tabular-nums}
 .pill{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.06em;padding:2px 8px;border-radius:999px;margin-left:6px}
 .WORKING,.HOT{background:rgba(61,255,154,.14);color:var(--ok)}.UP{background:rgba(77,163,255,.14);color:var(--build)}.IDLE,.COLD{background:rgba(255,209,102,.12);color:var(--warn)}
@@ -93,6 +93,7 @@ a.btn{display:inline-flex;align-items:center;justify-content:center;min-height:4
   </div>
 </div>
 
+<div class="card" id="grok"><h2><span>Grok Bot</span><span id="grok-n">0</span></h2></div>
 <div class="card" id="build"><h2><span>Build / Heavy</span><span id="build-n">0</span></h2></div>
 <div class="card" id="oc"><h2><span>OpenClaw</span><span id="oc-n">0</span></h2></div>
 <div class="card" id="locals"><h2><span>Locals</span><span id="locals-n">0</span></h2></div>
@@ -129,14 +130,17 @@ function workerRow(parent,w){
   const el=document.createElement('div');
   el.className='row';
   const st=w.status||'—';
-  el.innerHTML='<div><div class="name">'+esc(w.name)+'<span class="pill '+st+'">'+st+'</span></div>'+
+  const onLine=w.on||w.detail||'';
+  const title=w.title?(' · '+esc(w.title)):'';
+  el.innerHTML='<div><div class="name">'+esc(w.name)+title+'<span class="pill '+st+'">'+st+'</span></div>'+
+    (onLine?'<div class="on">'+esc(onLine)+'</div>':'')+
     '<div class="meta">pid '+(w.pid||'—')+' · '+esc(w.tty||'—')+(w.pcpu!=null?' · '+w.pcpu+'%':'')+'</div></div>'+
     '<div class="right"><div class="etime">'+esc(w.etime_human||'—')+'</div><div class="meta">running</div></div>';
   parent.appendChild(el);
 }
 function renderStats(s){
   const g=document.getElementById('stats'); g.innerHTML='';
-  for(const [cls,l,n] of [['build','Builds',s.working_builds],['tty','Terminals',s.terminals_live],['oc','OpenClaw',s.openclaw],['local','Locals',s.locals]]){
+  for(const [cls,l,n] of [['grok','Grok',s.grok||0],['build','Builds',s.working_builds],['oc','OpenClaw',s.openclaw],['local','Locals',s.locals]]){
     const d=document.createElement('div'); d.className='stat '+cls;
     d.innerHTML='<div class="n">'+n+'</div><div class="l">'+l+'</div>'; g.appendChild(d);
   }
@@ -144,6 +148,7 @@ function renderStats(s){
 function renderDurations(d){
   const box=document.getElementById('durations'); box.innerHTML='';
   const items=[];
+  for(const g of (d.teams&&d.teams.grok)||[]) items.push({...g, kind:'build', etime_sec:g.etime_sec||1, etime_human:g.etime_human||'seat'});
   for(const b of (d.teams&&d.teams.build)||[]) items.push({...b, kind:'build'});
   for(const o of (d.teams&&d.teams.openclaw)||[]) if((o.etime_sec||0)>0 && (o.etime_sec||0)<86400*3) items.push({...o, kind:'oc'});
   items.sort((a,b)=>(b.etime_sec||0)-(a.etime_sec||0));
@@ -255,6 +260,7 @@ async function tick(){
     const b=document.getElementById('stale'); b.className='banner '+a.cls; b.textContent=a.text+' · '+(d.host&&d.host.name?d.host.name:'Mini');
     document.getElementById('pulse').style.background=a.cls==='bad'?'var(--bad)':'var(--ok)';
     renderStats(d.summary||{}); renderDurations(d); renderScope((d.graph&&d.graph.points)||[]);
+    renderTeam('grok',(d.teams&&d.teams.grok)||[],'grok-n');
     renderTeam('build',(d.teams&&d.teams.build)||[],'build-n');
     renderTeam('oc',(d.teams&&d.teams.openclaw)||[],'oc-n');
     renderTeam('locals',(d.teams&&d.teams.locals)||[],'locals-n');
