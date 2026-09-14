@@ -1,6 +1,6 @@
 {
   "title": "LIVE OPS",
-  "generated_at": "2026-09-14T02:17:33.003372Z",
+  "generated_at": "2026-09-14T02:17:33.098340Z",
   "updated_at_ct": "2026-09-13T21:17:33-0500",
   "host": {
     "name": "Jimothys-Mac-mini-2.local",
@@ -28,7 +28,7 @@
         "etime": "01:19:45",
         "etime_sec": 4785,
         "etime_human": "1h 19m",
-        "pcpu": 4.6,
+        "pcpu": 4.1,
         "rss_mb": 204.2
       },
       {
@@ -41,7 +41,7 @@
         "etime": "08:29",
         "etime_sec": 509,
         "etime_human": "8m 29s",
-        "pcpu": 3.3,
+        "pcpu": 3.0,
         "rss_mb": 256.2
       }
     ],
@@ -56,7 +56,7 @@
         "etime": "00:01",
         "etime_sec": 1,
         "etime_human": "1s",
-        "pcpu": 2.4,
+        "pcpu": 13.3,
         "rss_mb": 5.4
       },
       {
@@ -123,7 +123,7 @@
         "etime": "10-00:50:13",
         "etime_sec": 867013,
         "etime_human": "10d 0h",
-        "pcpu": 0.0,
+        "pcpu": 0.1,
         "rss_mb": 25.2
       },
       {
@@ -136,7 +136,7 @@
         "etime": "00:01",
         "etime_sec": 1,
         "etime_human": "1s",
-        "pcpu": 2.4,
+        "pcpu": 13.3,
         "rss_mb": 5.4
       }
     ]
@@ -315,6 +315,14 @@
       },
       {
         "t": "2026-09-14T02:17:33.003372Z",
+        "builds": 2,
+        "openclaw": 4,
+        "locals": 3,
+        "ttys": 2,
+        "working": 2
+      },
+      {
+        "t": "2026-09-14T02:17:33.098340Z",
         "builds": 2,
         "openclaw": 4,
         "locals": 3,
