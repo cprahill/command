@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex"/>
+<meta name="merch-review-build" content="fresh-start-wave-series-2026-09-13"/>
+<title>Wave Series — Fresh Start Co.</title>
+<meta name="description" content="Fresh Start Co. wave series: 50 stickers. Wizard, pixel-game, pixel-life, sloth, silly plots. Yes / Later / No."/>
+<link rel="canonical" href="https://cprahill.github.io/command/merch-wave-series/"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #07080c;
+  --card: #10141c;
+  --line: #243044;
+  --muted: #7a8aa0;
+  --text: #e8eef6;
+  --cyan: #3ce7ff;
+  --gold: #ffb020;
+  --ok: #3dff9a;
+  --no: #ff5a7a;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--bg); color: var(--text); }
+html, body {
+  margin: 0;
+  overflow-x: hidden;
+  font: 14px/1.45 "IBM Plex Mono", ui-monospace, monospace;
+}
+img { display: block; max-inline-size: 100%; }
+a { color: var(--cyan); text-decoration: none; }
+a:hover { text-decoration: underline; }
+header {
+  max-inline-size: 1280px;
+  margin-inline: auto;
+  padding: 16px 16px 8px;
+}
+.brand { font-family: "Barlow Condensed", sans-serif; font-size: 13px; letter-spacing: .22em; color: var(--muted); }
+.brand i { color: var(--gold); font-style: normal; }
+h1 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(26px, 6vw, 44px);
+  line-height: 1.08;
+  margin: 8px 0 10px;
+  text-wrap: balance;
+}
+.lede { color: var(--muted); font-size: 13px; max-inline-size: 78ch; }
+.tally {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  margin: 14px 0 6px; font-size: 12px; letter-spacing: .08em;
+}
+.tally b { color: var(--gold); }
+.tools { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 4px; }
+.tools button, .export {
+  font: 12px/1 "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  min-block-size: 44px;
+}
+.tools button:hover, .export:hover { border-color: var(--cyan); }
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 8;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(12px);
+  border-block-end: 1px solid var(--line);
+}
+.nav-inner {
+  max-inline-size: 1280px;
+  margin-inline: auto;
+  padding: 6px 8px;
+}
+nav.themes {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+nav.themes a {
+  flex: 0 0 auto;
+  padding: 10px 12px;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-block-end: 2px solid transparent;
+  white-space: nowrap;
+}
+nav.themes a:hover { text-decoration: none; color: var(--text); }
+nav.themes a.is-current {
+  color: var(--gold);
+  border-color: var(--gold);
+  font-weight: 700;
+}
+section.theme {
+  max-inline-size: 1280px;
+  margin: 0 auto;
+  padding: 18px 16px 8px;
+}
+.theme-head {
+  display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline;
+  margin-block-end: 12px;
+}
+.theme-head h2 {
+  font-family: "Barlow Condensed", sans-serif;
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.door { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--cyan); }
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 700px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1100px) {
+  .grid { grid-template-columns: 1fr 1fr 1fr 1fr; }
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.card img.hero {
+  inline-size: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  object-position: center;
+  background: #0b0e14;
+}
+.pad { padding: 12px 12px 14px; display: grid; gap: 8px; }
+.pad h3 {
+  font-family: "Barlow Condensed", sans-serif;
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: .04em;
+}
+.meta { color: var(--muted); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+.price { color: var(--gold); }
+.btns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.btns button {
+  font: 11px/1 "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 12px 4px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  min-block-size: 44px;
+}
+.btns button:hover { border-color: var(--cyan); }
+.btns button.yes.on { background: color-mix(in srgb, var(--ok) 18%, transparent); border-color: var(--ok); color: var(--ok); }
+.btns button.no.on { background: color-mix(in srgb, var(--no) 18%, transparent); border-color: var(--no); color: var(--no); }
+.btns button.later.on { border-color: var(--gold); color: var(--gold); }
+.card textarea, #global-note {
+  width: 100%;
+  min-block-size: 3lh;
+  max-block-size: 8lh;
+  font: 13px/1.4 "IBM Plex Mono", ui-monospace, monospace;
+  color: var(--text);
+  background: #0b0f16;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+.card textarea:focus, #global-note:focus { outline: 2px solid var(--cyan); outline-offset: 1px; }
+.global {
+  max-inline-size: 1280px;
+  margin: 8px auto 0;
+  padding: 8px 16px 28px;
+  display: grid;
+  gap: 8px;
+}
+footer {
+  max-inline-size: 1280px;
+  margin-inline: auto;
+  padding: 8px 16px 40px;
+  color: var(--muted);
+  font-size: 12px;
+}
+@media (max-width: 700px) {
+  header { padding: 10px 16px 4px; }
+  h1 { font-size: 22px; margin: 4px 0 6px; }
+  .lede { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">COMMAND <i>//</i> MERCH REVIEW · WAVE SERIES · FRESH START CO.</div>
+  <p style="color:#ffb020;font:700 12px/1.3 IBM Plex Mono,monospace;letter-spacing:.08em">BUILD wave-series · 5×10 = 50 stickers · kiss-cut $5 / die-cut $6 · 2/3/4" · no Fourthwall upload until YES</p>
+  <h1>Fresh Start Co. wave series. Pick Yes / Later / No.</h1>
+  <p class="lede">Wizard, pixel-game, pixel life, sloth, silly plots. Fun only — no politics. Original marks. PNG ≥2000px. Upload stays locked until you YES.</p>
+  <div class="tally">
+    <span>approve <b id="n-yes">0</b></span>
+    <span>later <b id="n-later">0</b></span>
+    <span>reject <b id="n-no">0</b></span>
+    <span>comments <b id="n-notes">0</b></span>
+  </div>
+  <div class="tools">
+    <button type="button" class="export" id="export">Export picks + comments JSON</button>
+  </div>
+</header>
+<div class="nav-wrap">
+  <div class="nav-inner">
+    <nav class="themes" aria-label="Series">
+      <a href="#wizard">Wizard</a>
+      <a href="#pixel-game">Pixel game</a>
+      <a href="#pixel-gen">Pixel life</a>
+      <a href="#sloth">Sloth</a>
+      <a href="#conspire">Silly plots</a>
+    </nav>
+  </div>
+</div>
+<main id="board"></main>
+<div class="global">
+  <label for="global-note">Global note (whole board)</label>
+  <textarea id="global-note" placeholder="YES wizard pack? kill conspire? lock sloth 10?…"></textarea>
+</div>
+<footer>
+  <p>Picks save on this phone in localStorage. Export JSON and Drop-save as <code>merch/review-comments-wave-series.json</code>. Upload winners only after YES on <code>merch/GO-WAVE-SERIES.md</code>.</p>
+  <p>Fresh Start Co. · no spend · no ads · REV7-LIVE not touched.</p>
+</footer>
+<script>
+const KEY = "merch-wave-series-2026-09-13";
+const SKUS = [{id:'wizard-hat', theme:'wizard', name:'Hat Peek', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'wizard-cat', theme:'wizard', name:'Cat Mage', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'wizard-frog', theme:'wizard', name:'Frog Mage', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'wizard-tea', theme:'wizard', name:'Tea Brew', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'wizard-star', theme:'wizard', name:'Star Mage', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'wizard-potion', theme:'wizard', name:'Potion Hug', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'wizard-crystal', theme:'wizard', name:'Moon Ball', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'wizard-broom', theme:'wizard', name:'Broom Ride', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'wizard-owl', theme:'wizard', name:'Owl Mage', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'wizard-cookie', theme:'wizard', name:'Cookie Mage', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'pixel-game-slime', theme:'pixel-game', name:'Sparkle Slime', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'pixel-game-heart', theme:'pixel-game', name:'1-Up Heart', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'pixel-game-sword', theme:'pixel-game', name:'Gem Sword', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'pixel-game-potion', theme:'pixel-game', name:'Red Flask', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'pixel-game-coin', theme:'pixel-game', name:'Star Coin', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'pixel-game-chest', theme:'pixel-game', name:'Loot Chest', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'pixel-game-hero', theme:'pixel-game', name:'Pixel Hero', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'pixel-game-ghost', theme:'pixel-game', name:'Blob Ghost', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'pixel-game-castle', theme:'pixel-game', name:'Keep', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'pixel-game-dragon', theme:'pixel-game', name:'Bit Dragon', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'pixel-gen-coffee', theme:'pixel-gen', name:'Pixel Coffee', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'pixel-gen-laptop', theme:'pixel-gen', name:'Pixel Laptop', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'pixel-gen-plant', theme:'pixel-gen', name:'Pixel Plant', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'pixel-gen-bike', theme:'pixel-gen', name:'Pixel Bike', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'pixel-gen-cat', theme:'pixel-gen', name:'Keyboard Cat', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'pixel-gen-ramen', theme:'pixel-gen', name:'Pixel Ramen', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'pixel-gen-alarm', theme:'pixel-gen', name:'Pixel Alarm', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'pixel-gen-shoes', theme:'pixel-gen', name:'Pixel Kicks', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'pixel-gen-rain', theme:'pixel-gen', name:'Rain Cloud', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'pixel-gen-toast', theme:'pixel-gen', name:'Pixel Toast', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'sloth-hammock', theme:'sloth', name:'Hammock', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'sloth-coffee', theme:'sloth', name:'Mug Hug', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'sloth-branch', theme:'sloth', name:'Upside Down', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'sloth-blanket', theme:'sloth', name:'Burrito', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'sloth-headphones', theme:'sloth', name:'Tune Out', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'sloth-pizza', theme:'sloth', name:'Pizza Nap', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'sloth-moon', theme:'sloth', name:'Moon Nap', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'sloth-yoga', theme:'sloth', name:'Almost Yoga', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'sloth-book', theme:'sloth', name:'One Page', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'sloth-float', theme:'sloth', name:'Pool Day', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'conspire-socks', theme:'conspire', name:'Sock Meeting', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'conspire-cats', theme:'conspire', name:'Box Council', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'conspire-toaster', theme:'conspire', name:'Toast Briefing', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'conspire-ducks', theme:'conspire', name:'Duck Huddle', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'conspire-plants', theme:'conspire', name:'Plant Listen', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'conspire-fridge', theme:'conspire', name:'Fridge Watch', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'conspire-remote', theme:'conspire', name:'Remote Hide', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'conspire-goldfish', theme:'conspire', name:'Fish Briefing', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'conspire-pigeons', theme:'conspire', name:'Crumb Case', why:'Die-cut ready. Cream contour. Original. 2/3/4".'},{id:'conspire-cheese', theme:'conspire', name:'Moon Snack', why:'Die-cut ready. Cream contour. Original. 2/3/4".'}]
+;
+const THEMES = [
+  {id:"wizard", title:"Wizards", door:"Fresh Start Co.", lede:"Fun cute wizards. Original faces. Not a movie franchise."},
+  {id:"pixel-game", title:"Pixel Game", door:"Fresh Start Co.", lede:"Original 8/16-bit gaming nostalgia. No licensed IP."},
+  {id:"pixel-gen", title:"Pixel Life", door:"Fresh Start Co.", lede:"Everyday pixel life. Coffee, cats, toast."},
+  {id:"sloth", title:"Sloths", door:"Fresh Start Co.", lede:"Chill humor. Slow is the point."},
+  {id:"conspire", title:"Silly Plots", door:"Fresh Start Co.", lede:"Silly meme only. No politics, no hate."},
+];
+
+const state = JSON.parse(localStorage.getItem(KEY) || '{"picks":{},"notes":{},"global":""}');
+state.picks ||= {};
+state.notes ||= {};
+state.global ||= "";
+
+function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
+function tally() {
+  let y=0,l=0,n=0,c=0;
+  for (const v of Object.values(state.picks)) {
+    if (v==="yes") y++; else if (v==="later") l++; else if (v==="no") n++;
+  }
+  for (const v of Object.values(state.notes)) if (v && v.trim()) c++;
+  if (state.global && state.global.trim()) c++;
+  document.getElementById("n-yes").textContent = y;
+  document.getElementById("n-later").textContent = l;
+  document.getElementById("n-no").textContent = n;
+  document.getElementById("n-notes").textContent = c;
+}
+
+function cardHTML(s) {
+  const pick = state.picks[s.id] || "";
+  const note = state.notes[s.id] || "";
+  return `<article class="card" data-id="${s.id}">
+    <img class="hero" src="./img/${s.id}.jpg?v=wave1" alt="${s.name} sticker" width="800" height="800"/>
+    <div class="pad">
+      <span class="door">${s.theme} · kiss-cut $5 / die-cut $6</span>
+      <h3>${s.name}</h3>
+      <p class="price">$5 / $6 · 2 / 3 / 4"</p>
+      <p class="meta">${s.why}</p>
+      <div class="btns">
+        <button class="yes${pick==="yes"?" on":""}" type="button">Yes</button>
+        <button class="later${pick==="later"?" on":""}" type="button">Later</button>
+        <button class="no${pick==="no"?" on":""}" type="button">No</button>
+      </div>
+      <textarea data-note="${s.id}" placeholder="Comment on this design…">${note.replace(/</g,"&lt;")}</textarea>
+    </div>
+  </article>`;
+}
+
+const board = document.getElementById("board");
+THEMES.forEach((t) => {
+  const sec = document.createElement("section");
+  sec.className = "theme";
+  sec.id = t.id;
+  const rows = SKUS.filter(s => s.theme===t.id);
+  sec.innerHTML = `<div class="theme-head"><h2>${t.title}</h2><span class="door">${t.door} · ${rows.length}</span></div>
+    <p class="lede">${t.lede}</p>
+    <div class="grid">${rows.map(cardHTML).join("")}</div>`;
+  board.appendChild(sec);
+});
+
+board.addEventListener("click", (e) => {
+  const btn = e.target.closest("button");
+  if (!btn) return;
+  const card = btn.closest(".card");
+  if (!card) return;
+  const id = card.dataset.id;
+  const kind = btn.classList.contains("yes") ? "yes" : btn.classList.contains("no") ? "no" : "later";
+  state.picks[id] = state.picks[id] === kind ? "" : kind;
+  save();
+  card.querySelectorAll(".btns button").forEach((b) => {
+    b.classList.toggle("on", (b.classList.contains("yes") && state.picks[id]==="yes")
+      || (b.classList.contains("no") && state.picks[id]==="no")
+      || (b.classList.contains("later") && state.picks[id]==="later"));
+  });
+  tally();
+});
+board.addEventListener("input", (e) => {
+  if (e.target.matches("textarea[data-note]")) {
+    state.notes[e.target.dataset.note] = e.target.value;
+    save(); tally();
+  }
+});
+const g = document.getElementById("global-note");
+g.value = state.global;
+g.addEventListener("input", () => { state.global = g.value; save(); tally(); });
+
+document.getElementById("export").addEventListener("click", () => {
+  const payload = {
+    when: new Date().toISOString(),
+    key: KEY,
+    brand: "Fresh Start Co.",
+    picks: state.picks,
+    notes: state.notes,
+    global: state.global,
+    skus: SKUS.map(s => ({id:s.id, name:s.name, theme:s.theme, pick: state.picks[s.id] || "", note: state.notes[s.id] || ""})),
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "review-comments-wave-series.json";
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+
+tally();
+
+const navLinks = document.querySelectorAll("nav.themes a");
+const sections = THEMES.map(t => document.getElementById(t.id));
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    const id = entry.target.id;
+    navLinks.forEach((link) => {
+      const on = link.getAttribute("href") === `#${id}`;
+      link.classList.toggle("is-current", on);
+    });
+  });
+}, { rootMargin: "-45% 0px -45% 0px", threshold: 0 });
+sections.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
