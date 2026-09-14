@@ -1,7 +1,7 @@
 {
   "title": "LIVE OPS",
-  "generated_at": "2026-09-14T02:12:15.012826Z",
-  "updated_at_ct": "2026-09-13T21:12:15-0500",
+  "generated_at": "2026-09-14T02:13:47.051087Z",
+  "updated_at_ct": "2026-09-13T21:13:47-0500",
   "host": {
     "name": "Jimothys-Mac-mini-2.local",
     "role": "Grok Mini"
@@ -12,7 +12,7 @@
     "openclaw": 3,
     "locals": 2,
     "terminals_live": 2,
-    "longest_etime_sec": 866697,
+    "longest_etime_sec": 866789,
     "longest_etime_human": "10d 0h",
     "n_workers": 7
   },
@@ -25,11 +25,11 @@
         "status": "WORKING",
         "pid": 64962,
         "tty": "ttys000",
-        "etime": "01:14:27",
-        "etime_sec": 4467,
-        "etime_human": "1h 14m",
-        "pcpu": 1.9,
-        "rss_mb": 179.5
+        "etime": "01:15:59",
+        "etime_sec": 4559,
+        "etime_human": "1h 15m",
+        "pcpu": 6.6,
+        "rss_mb": 180.2
       },
       {
         "id": "build-98424",
@@ -38,11 +38,11 @@
         "status": "WORKING",
         "pid": 98424,
         "tty": "ttys001",
-        "etime": "03:11",
-        "etime_sec": 191,
-        "etime_human": "3m 11s",
-        "pcpu": 5.0,
-        "rss_mb": 252.4
+        "etime": "04:43",
+        "etime_sec": 283,
+        "etime_human": "4m 43s",
+        "pcpu": 4.3,
+        "rss_mb": 239.6
       }
     ],
     "openclaw": [
@@ -53,8 +53,8 @@
         "status": "UP",
         "pid": 30436,
         "tty": "??",
-        "etime": "01-06:20:21",
-        "etime_sec": 109221,
+        "etime": "01-06:21:53",
+        "etime_sec": 109313,
         "etime_human": "1d 6h",
         "pcpu": 0.0,
         "rss_mb": 26.8
@@ -63,14 +63,14 @@
         "id": "oc-53897",
         "team": "openclaw",
         "name": "OC gateway :18789",
-        "status": "WORKING",
+        "status": "UP",
         "pid": 53897,
         "tty": "??",
-        "etime": "01-04:57:53",
-        "etime_sec": 104273,
+        "etime": "01-04:59:25",
+        "etime_sec": 104365,
         "etime_human": "1d 4h",
-        "pcpu": 0.4,
-        "rss_mb": 256.4
+        "pcpu": 0.1,
+        "rss_mb": 257.3
       },
       {
         "id": "oc-90838",
@@ -79,9 +79,9 @@
         "status": "UP",
         "pid": 90838,
         "tty": "??",
-        "etime": "34:16",
-        "etime_sec": 2056,
-        "etime_human": "34m 16s",
+        "etime": "35:48",
+        "etime_sec": 2148,
+        "etime_human": "35m 48s",
         "pcpu": 0.0,
         "rss_mb": 4.1
       }
@@ -94,8 +94,8 @@
         "status": "UP",
         "pid": 1424,
         "tty": "??",
-        "etime": "10-00:44:57",
-        "etime_sec": 866697,
+        "etime": "10-00:46:29",
+        "etime_sec": 866789,
         "etime_human": "10d 0h",
         "pcpu": 0.0,
         "rss_mb": 41.8
@@ -107,8 +107,8 @@
         "status": "UP",
         "pid": 1481,
         "tty": "??",
-        "etime": "10-00:44:55",
-        "etime_sec": 866695,
+        "etime": "10-00:46:27",
+        "etime_sec": 866787,
         "etime_human": "10d 0h",
         "pcpu": 0.0,
         "rss_mb": 25.2
@@ -174,6 +174,38 @@
         "locals": 2,
         "ttys": 2,
         "working": 2
+      },
+      {
+        "t": "2026-09-14T02:12:45.172684Z",
+        "builds": 2,
+        "openclaw": 3,
+        "locals": 2,
+        "ttys": 2,
+        "working": 2
+      },
+      {
+        "t": "2026-09-14T02:13:15.886163Z",
+        "builds": 2,
+        "openclaw": 3,
+        "locals": 2,
+        "ttys": 2,
+        "working": 2
+      },
+      {
+        "t": "2026-09-14T02:13:46.065480Z",
+        "builds": 2,
+        "openclaw": 3,
+        "locals": 2,
+        "ttys": 2,
+        "working": 2
+      },
+      {
+        "t": "2026-09-14T02:13:47.051087Z",
+        "builds": 2,
+        "openclaw": 3,
+        "locals": 2,
+        "ttys": 2,
+        "working": 2
       }
     ],
     "labels": [
@@ -186,7 +218,8 @@
   "links": {
     "phone": "https://grok-command.vercel.app/phone/",
     "truth": "https://grok-command.vercel.app/truth/",
-    "self": "https://grok-command.vercel.app/live/",
-    "github": "https://cprahill.github.io/command/live/"
+    "self": "https://cprahill.github.io/command/live/",
+    "github": "https://cprahill.github.io/command/live/",
+    "vercel": "https://grok-command.vercel.app/live/"
   }
 }
