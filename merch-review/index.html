@@ -4,9 +4,9 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <meta name="robots" content="noindex"/>
-<meta name="merch-review-build" content="rev7-fix-sticker-shop-2026-09-13"/>
-<title>Rev 7 FIX — Stickers&Soap Co. sticker shop</title>
-<meta name="description" content="Stickers&Soap Co. Rev7 FIX: YES-only stickers, quotes killed, BYO 10-pack $20. Comment Yes/Later/No."/>
+<meta name="merch-review-build" content="rev7-live-sticker-shop-2026-09-13"/>
+<title>Rev 7 LIVE — Stickers&Soap Co. sticker shop</title>
+<meta name="description" content="Stickers&Soap Co. Rev7 LIVE: YES stickers, dino 10-pack with pachy, BYO 10-pack $20."/>
 <link rel="canonical" href="https://cprahill.github.io/command/merch-review/"/>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
@@ -217,10 +217,10 @@ body.og-only .card:not(.og) { display: none; }
 </head>
 <body>
 <header>
-  <div class="brand">COMMAND <i>//</i> MERCH REVIEW · REV7 FIX · STICKERS&amp;SOAP CO.</div>
-  <p style="color:#ffb020;font:700 12px/1.3 IBM Plex Mono,monospace;letter-spacing:.08em">BUILD rev7-fix · YES-only · quotes/spino killed · singles $5/$6 · genre 10-packs $14 · BYO 10-pack $20 · S&amp;S OG first</p>
-  <h1>Stickers&amp;Soap Co. FIX pass. Comment Yes / Later / No.</h1>
-  <p class="lede">Art fixes: avocado colors, donut frosting, snake one tail, daruma both eyes, kraken beak. Quotes + pack-quote + spino gone. New: Build Your Own 10-pack $20 (pick any 10 YES singles). Gold tag = S&amp;S OG. Do not upload live until you YES this board.</p>
+  <div class="brand">COMMAND <i>//</i> MERCH REVIEW · REV7 LIVE · STICKERS&amp;SOAP CO.</div>
+  <p style="color:#ffb020;font:700 12px/1.3 IBM Plex Mono,monospace;letter-spacing:.08em">BUILD rev7-live · YES-only · dino 10 with pachy · singles $5/$6 · genre 10-packs $14 · BYO 10-pack $20 · S&amp;S OG first</p>
+  <h1>Stickers&amp;Soap Co. LIVE pack. Dino 10 locked.</h1>
+  <p class="lede">Pachycephalosaurus added. Dino 10-pack is trex, raptor, triceratops, stego, ptera, brachio, ankylo, dilo, para, pachy. Quotes + pack-quote + spino stay killed. BYO 10-pack $20. Gold tag = S&amp;S OG.</p>
   <div class="tally">
     <span>approve <b id="n-yes">0</b></span>
     <span>later <b id="n-later">0</b></span>
@@ -319,6 +319,7 @@ const SKUS = [
   {id:'ankylo-dino', theme:'dino', door:'A Fourthwall · B Shopify', name:'Ankylo', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
   {id:'dilo-dino', theme:'dino', door:'A Fourthwall · B Shopify', name:'Dilo', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
   {id:'para-dino', theme:'dino', door:'A Fourthwall · B Shopify', name:'Para', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
+  {id:'pachy-dino', theme:'dino', door:'A Fourthwall · B Shopify', name:'Pachy', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
   {id:'lightning-pin', theme:'pin', door:'A Fourthwall · B Shopify', name:'Lightning', type:'kiss-cut $5 / die-cut $6', price:5, why:'S&S OG pick. Year-round foundation.', og:true},
   {id:'dagger-pin', theme:'pin', door:'A Fourthwall · B Shopify', name:'Dagger', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
   {id:'eye-pin', theme:'pin', door:'A Fourthwall · B Shopify', name:'All-Seeing', type:'kiss-cut $5 / die-cut $6', price:5, why:'Die-cut ready. Cream contour. Original.', og:false},
@@ -366,7 +367,7 @@ const SKUS = [
 ;
 const THEMES = [
   {id:"snack", title:"Snack Crew", door:"A Fourthwall", lede:"Wildcard. Food kawaii. Highest want-and-buy. Wave 1. Avocado colors + donut frosting fixed."},
-  {id:"dino", title:"Dinosaurs", door:"A Fourthwall", lede:"Chunky enamel-pin dinos. Spino killed. Kid + adult impulse."},
+  {id:"dino", title:"Dinosaurs", door:"A Fourthwall", lede:"Chunky enamel-pin dinos. Exactly 10 YES including Pachy dome-head. Spino stays killed."},
   {id:"eighty", title:"80s", door:"A Fourthwall", lede:"Retro objects. Boombox, cassette, walkman."},
   {id:"nineties", title:"90s", door:"A Fourthwall", lede:"Floppy, discman, original pet-egg. No licensed toys."},
   {id:"flag", title:"Flags / state", door:"A Fourthwall", lede:"Flags YES. Parties / candidates NO."},
@@ -402,7 +403,7 @@ function cardHTML(s) {
   const og = s.og ? `<span class="tag">S&S OG</span>` : "";
   const cls = s.og ? "card og" : "card";
   return `<article class="${cls}" data-id="${s.id}">
-    <img class="hero" src="./img/${s.id}.jpg?v=rev7fix" alt="${s.name} ${s.type}" width="800" height="800"/>
+    <img class="hero" src="./img/${s.id}.jpg?v=rev7live" alt="${s.name} ${s.type}" width="800" height="800"/>
     <div class="pad">
       ${og}
       <span class="door">${s.door} · ${s.type} $${s.price}</span>
