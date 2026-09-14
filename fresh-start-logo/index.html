@@ -4,8 +4,8 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <meta name="robots" content="noindex"/>
-<title>Fresh Start Co. — logo RECUT</title>
-<meta name="description" content="RECUT: 12 digital sun logos for Fresh Start Co. Woodstock / surf. Yes / Later / No."/>
+<title>Fresh Start Co. — logo RECUT2 · COLOR · CLEAR</title>
+<meta name="description" content="RECUT2: 12 vivid-color clear-sky sun logos for Fresh Start Co. Woodstock / surf. Yes / Later / No."/>
 <link rel="canonical" href="https://cprahill.github.io/command/fresh-start-logo/"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -22,6 +22,7 @@
   --ok: #3dff9a;
   --no: #ff5a7a;
   --cream: #F4E8D0;
+  --sky: #3BB4F0;
   color-scheme: dark;
 }
 *, *::before, *::after { box-sizing: border-box; }
@@ -49,8 +50,8 @@ header {
   display: inline-block;
   margin: 8px 0 4px;
   padding: 4px 10px;
-  border: 1px solid var(--gold);
-  color: var(--gold);
+  border: 1px solid var(--sky);
+  color: var(--sky);
   letter-spacing: .18em;
   font-size: 11px;
   text-transform: uppercase;
@@ -259,9 +260,9 @@ footer {
 <body>
 <header>
   <div class="brand">COMMAND <i>//</i> FRESH START CO. · LOGO BOARD · 2026-09-13</div>
-  <span class="recut-pill">RECUT · digital logos · woodstock / surf sun</span>
-  <h1>12 sun logos. Real marks — not pins. Pick the ones you would actually buy.</h1>
-  <p class="lede">Kill list this round: acrylic enamel, wax seals, photographed badges. Keep the sun thread. Vibe is Woodstock poster ink or classic California surf sunshine. Each card shows 32px and 64px so you can see favicon / avatar. Mix an icon with a wordmark. Yes / Later / No.</p>
+  <span class="recut-pill">RECUT2 · COLOR · CLEAR</span>
+  <h1>12 sun logos. Clear sky. Vivid color. No rain, no storm.</h1>
+  <p class="lede">Same sun thread — Woodstock poster or classic surf — now gold / coral / sky / teal. Lightning and grey storm are out. Each card shows 32px and 64px. Mix an icon with a wordmark. Yes / Later / No.</p>
   <div class="tally">
     <span>yes <b id="n-yes">0</b></span>
     <span>later <b id="n-later">0</b></span>
@@ -275,10 +276,10 @@ footer {
 <div class="nav-wrap">
   <div class="nav-inner">
     <nav class="themes" aria-label="Lanes">
-      <a href="#word">RECUT Wordmark</a>
-      <a href="#mono">RECUT Monogram</a>
-      <a href="#icon">RECUT Icon</a>
-      <a href="#lock">RECUT Lockup</a>
+      <a href="#word">RECUT2 Wordmark</a>
+      <a href="#mono">RECUT2 Monogram</a>
+      <a href="#icon">RECUT2 Icon</a>
+      <a href="#lock">RECUT2 Lockup</a>
       <a href="#archive">Archive</a>
     </nav>
   </div>
@@ -286,39 +287,37 @@ footer {
 <main id="board"></main>
 <div class="global">
   <label for="global-note">Global note (whole board)</label>
-  <textarea id="global-note" placeholder="Lock Horizon Ink + FS Disc… kill the smile… header is the shop mark…"></textarea>
+  <textarea id="global-note" placeholder="Lock Clear Horizon + FS Disc… smile on sky… header is the shop mark…"></textarea>
 </div>
 <footer>
-  <p>RECUT 2026-09-13. Picks save on this device. Export JSON for a Drop copy. Pins / enamel from the last round live under Archive so you can No them. Source: <code>brand/fresh-start-logo/</code>.</p>
+  <p>RECUT2 · COLOR · CLEAR 2026-09-13. Picks save on this device. Export JSON for a Drop copy. Last round (cream / lightning burst) lives under Archive. Source: <code>brand/fresh-start-logo/recut2/</code>.</p>
 </footer>
 <script>
-const KEY = "fs-logo-recut-woodstock-2026-09-13";
+const KEY = "fs-logo-recut2-color-clear-2026-09-13";
 const MARKS = [
-  {id:"r01-horizon-ink", src:"recut/concepts/r01-horizon-ink.png", chip:"recut/chips/r01-horizon-ink", theme:"word", tag:"wordmark · sun thread", name:"Horizon Ink", why:"The sun thread. Flat digital wordmark. Shop header and sticker. Reads tiny, reads huge."},
-  {id:"r02-surf-word", src:"recut/concepts/r02-surf-word.png", chip:"recut/chips/r02-surf-word", theme:"word", tag:"wordmark · surf", name:"Surf Word", why:"California surf-shop sunrise over FRESH START CO. Classic sunshine lockup."},
-  {id:"r03-wavy-word", src:"recut/concepts/r03-wavy-word.png", chip:"recut/chips/r03-wavy-word", theme:"word", tag:"wordmark · woodstock", name:"Wavy Word", why:"1969 poster sun. FRESH START in the disc. Cream paper, warm ink."},
-  {id:"r04-fs-disc", src:"recut/concepts/r04-fs-disc.png", chip:"recut/chips/r04-fs-disc", theme:"mono", tag:"monogram", name:"FS Disc", why:"FS in a coral sun. Avatar, favicon, die-cut. Built as a digital mark, not a pin."},
-  {id:"r05-fs-burst", src:"recut/concepts/r05-fs-burst.png", chip:"recut/chips/r05-fs-burst", theme:"mono", tag:"monogram · woodstock", name:"FS Burst", why:"Woodstock burst sun with exact FS. Poster energy, still a logo."},
-  {id:"r06-dawn-tile", src:"recut/concepts/r06-dawn-tile.png", chip:"recut/chips/r06-dawn-tile", theme:"mono", tag:"monogram · app", name:"Dawn Tile", why:"Digital app / X-avatar tile. Sun + FS. Not enamel."},
-  {id:"r07-simple-32", src:"recut/concepts/r07-simple-32.png", chip:"recut/chips/r07-simple-32", theme:"icon", tag:"icon · 32px", name:"Simple 32", why:"The cleanest sun. Mix with any wordmark. Survives favicon size."},
-  {id:"r08-smile-sun", src:"recut/concepts/r08-smile-sun.png", chip:"recut/chips/r08-smile-sun", theme:"icon", tag:"icon · woodstock", name:"Smile Sun", why:"Concert-poster sun. Icon only — mix with Horizon Ink or Header."},
-  {id:"r09-endless-ray", src:"recut/concepts/r09-endless-ray.png", chip:"recut/chips/r09-endless-ray", theme:"icon", tag:"icon · surf", name:"Endless Ray", why:"Full sun, long rays. Endless-summer surf mark. Mix with Surf Word."},
-  {id:"r10-woodstock-poster", src:"recut/concepts/r10-woodstock-poster.png", chip:"recut/chips/r10-woodstock-poster", theme:"lock", tag:"lockup · woodstock", name:"Woodstock Poster", why:"Concentric sun + stacked FRESH START CO. Concert-poster lockup."},
-  {id:"r11-shore-lock", src:"recut/concepts/r11-shore-lock.png", chip:"recut/chips/r11-shore-lock", theme:"lock", tag:"lockup · surf", name:"Shore Lock", why:"Sun over a swell + FRESH START CO. Surf-shop window."},
-  {id:"r12-header", src:"recut/concepts/r12-header.png", chip:"recut/chips/r12-header", theme:"lock", tag:"lockup · header", name:"Header", why:"Horizontal shop header. Sun left, name right. The website lockup."},
-  {id:"01-horizon-word", src:"concepts/01-horizon-word.png", theme:"archive", tag:"archive · wordmark", name:"Horizon Word (v1)", why:"Previous round — the sun thread you liked. Kept for compare."},
-  {id:"20-sunrise-mark", src:"concepts/20-sunrise-mark.png", theme:"archive", tag:"archive · icon", name:"Sunrise Mark (v1)", why:"Previous round simple sun."},
-  {id:"17-enamel-pin", src:"concepts/17-enamel-pin.png", theme:"archive", tag:"archive · KILL", name:"Enamel Pin", why:"This look is dead. Acrylic / pin / photographed badge. No."},
-  {id:"10-gold-seal", src:"concepts/10-gold-seal.png", theme:"archive", tag:"archive · KILL", name:"Gold Seal", why:"Wax-seal object. Not a digital logo."},
-  {id:"19-ring-badge", src:"concepts/19-ring-badge.png", theme:"archive", tag:"archive · KILL", name:"Ring Badge", why:"Coaster / badge object from last round."},
-  {id:"15-burst-slap", src:"concepts/15-burst-slap.png", theme:"archive", tag:"archive", name:"Burst Slap", why:"Die-cut sticker photo from last round."}
+  {id:"c01-clear-horizon", src:"recut2/concepts/c01-clear-horizon.png", chip:"recut2/chips/c01-clear-horizon", theme:"word", tag:"wordmark · sun thread", name:"Clear Horizon", why:"The sun thread on a clear sky. Flat digital wordmark. Shop header and sticker."},
+  {id:"c02-surf-clear", src:"recut2/concepts/c02-surf-clear.png", chip:"recut2/chips/c02-surf-clear", theme:"word", tag:"wordmark · surf", name:"Surf Clear", why:"California surf-shop sunrise over a blue sky. FRESH START CO. on cream below."},
+  {id:"c03-wavy-color", src:"recut2/concepts/c03-wavy-color.png", chip:"recut2/chips/c03-wavy-color", theme:"word", tag:"wordmark · woodstock", name:"Wavy Color", why:"1969 poster sun, now coral / gold / teal. FRESH START in the disc."},
+  {id:"c04-fs-disc-color", src:"recut2/concepts/c04-fs-disc-color.png", chip:"recut2/chips/c04-fs-disc-color", theme:"mono", tag:"monogram", name:"FS Disc Color", why:"FS in a vivid coral sun with a teal ring. Avatar, favicon, die-cut."},
+  {id:"c05-fs-burst-clear", src:"recut2/concepts/c05-fs-burst-clear.png", chip:"recut2/chips/c05-fs-burst-clear", theme:"mono", tag:"monogram · woodstock", name:"FS Burst Clear", why:"Woodstock burst with wavy rays — no lightning. Exact FS in the disc."},
+  {id:"c06-dawn-sky", src:"recut2/concepts/c06-dawn-sky.png", chip:"recut2/chips/c06-dawn-sky", theme:"mono", tag:"monogram · app", name:"Dawn Sky", why:"Sky-blue app / X-avatar tile. Sun + FS. Clear weather, not navy night."},
+  {id:"c07-simple-clear", src:"recut2/concepts/c07-simple-clear.png", chip:"recut2/chips/c07-simple-clear", theme:"icon", tag:"icon · 32px", name:"Simple Clear", why:"The cleanest sun on a clear sky. Mix with any wordmark. Favicon test."},
+  {id:"c08-smile-color", src:"recut2/concepts/c08-smile-color.png", chip:"recut2/chips/c08-smile-color", theme:"icon", tag:"icon · woodstock", name:"Smile Color", why:"Concert-poster sun on sky. Icon only — mix with Clear Horizon or Header."},
+  {id:"c09-endless-color", src:"recut2/concepts/c09-endless-color.png", chip:"recut2/chips/c09-endless-color", theme:"icon", tag:"icon · surf", name:"Endless Color", why:"Full sun, long rays, gold / coral / teal on sky. Endless-summer mark."},
+  {id:"c10-woodstock-color", src:"recut2/concepts/c10-woodstock-color.png", chip:"recut2/chips/c10-woodstock-color", theme:"lock", tag:"lockup · woodstock", name:"Woodstock Color", why:"Concentric sun in coral / gold / teal + stacked FRESH START CO."},
+  {id:"c11-shore-clear", src:"recut2/concepts/c11-shore-clear.png", chip:"recut2/chips/c11-shore-clear", theme:"lock", tag:"lockup · surf", name:"Shore Clear", why:"Sun over a swell under a clear sky. Surf-shop window + FRESH START CO."},
+  {id:"c12-header-color", src:"recut2/concepts/c12-header-color.png", chip:"recut2/chips/c12-header-color", theme:"lock", tag:"lockup · header", name:"Header Color", why:"Horizontal shop header on a sky band. Sun left, name right."},
+  {id:"r01-horizon-ink", src:"recut/concepts/r01-horizon-ink.png", theme:"archive", tag:"archive · recut1", name:"Horizon Ink (RECUT1)", why:"Last round cream sun thread. Compare against Clear Horizon."},
+  {id:"r08-smile-sun", src:"recut/concepts/r08-smile-sun.png", theme:"archive", tag:"archive · recut1", name:"Smile Sun (RECUT1)", why:"Last round cream smile. Compare against Smile Color."},
+  {id:"r05-fs-burst", src:"recut/concepts/r05-fs-burst.png", theme:"archive", tag:"archive · storm", name:"FS Burst (lightning)", why:"Last round had lightning bolts. That look is out. Use FS Burst Clear."},
+  {id:"17-enamel-pin", src:"concepts/17-enamel-pin.png", theme:"archive", tag:"archive · KILL", name:"Enamel Pin", why:"Acrylic / pin / photographed badge. Still No."}
 ];
 const THEMES = [
-  {id:"word", title:"RECUT · Wordmark", door:"sun + name", lede:"Readable at sticker size and as a shop header. Mix with any icon."},
-  {id:"mono", title:"RECUT · FS monogram", door:"avatar · favicon", lede:"Two letters in a sun. The ones that still read when you squint."},
-  {id:"icon", title:"RECUT · Sun icon", door:"32px · mix", lede:"Bare sun. Pair with a wordmark. Simple 32 is the favicon test."},
-  {id:"lock", title:"RECUT · Lockup", door:"poster · header", lede:"Woodstock poster, surf-shop window, and the horizontal website header."},
-  {id:"archive", title:"Archive · last round", door:"compare · no the pins", lede:"Previous set. Enamel / seal / badge looks are here so you can No them. Do not pick pins."}
+  {id:"word", title:"RECUT2 · Wordmark", door:"sun + name · clear sky", lede:"Readable at sticker size and as a shop header. Mix with any icon."},
+  {id:"mono", title:"RECUT2 · FS monogram", door:"avatar · favicon", lede:"Two letters in a sun. The ones that still read when you squint."},
+  {id:"icon", title:"RECUT2 · Sun icon", door:"32px · mix", lede:"Bare sun. Pair with a wordmark. Simple Clear is the favicon test."},
+  {id:"lock", title:"RECUT2 · Lockup", door:"poster · header", lede:"Woodstock poster, surf-shop window, and the horizontal website header."},
+  {id:"archive", title:"Archive · last round", door:"compare · no the storm", lede:"Cream RECUT1 and the lightning burst. Enamel pin stays dead. Do not pick storm or pins."}
 ];
 
 const state = JSON.parse(localStorage.getItem(KEY) || '{"picks":{},"notes":{},"global":""}');
@@ -410,7 +409,7 @@ document.getElementById("export").addEventListener("click", () => {
   const payload = {
     when: new Date().toISOString(),
     key: KEY,
-    recut: "woodstock-surf-2026-09-13",
+    recut: "recut2-color-clear-2026-09-13",
     picks: state.picks,
     notes: state.notes,
     global: state.global,
@@ -419,7 +418,7 @@ document.getElementById("export").addEventListener("click", () => {
   const blob = new Blob([JSON.stringify(payload, null, 2)], {type:"application/json"});
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
-  a.download = "fresh-start-logo-recut-picks.json";
+  a.download = "fresh-start-logo-recut2-picks.json";
   a.click();
   URL.revokeObjectURL(a.href);
 });
