@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex"/>
+<meta name="merch-review-build" content="wizards-dragons-cool-2026-09-14"/>
+<title>Wizards + Dragons · Cool — Fresh Start Co.</title>
+<meta name="description" content="Fresh Start Co. Wizards + Dragons cool recut. 10 die-cut stickers. Yes / Later / No."/>
+<link rel="canonical" href="https://cprahill.github.io/command/merch-wizards-dragons/"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #07080c;
+  --card: #10141c;
+  --line: #243044;
+  --muted: #7a8aa0;
+  --text: #e8eef6;
+  --cyan: #3ce7ff;
+  --gold: #ffb020;
+  --ok: #3dff9a;
+  --no: #ff5a7a;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--bg); color: var(--text); }
+html, body {
+  margin: 0;
+  overflow-x: hidden;
+  font: 14px/1.45 "IBM Plex Mono", ui-monospace, monospace;
+}
+img { display: block; max-inline-size: 100%; }
+a { color: var(--cyan); text-decoration: none; }
+a:hover { text-decoration: underline; }
+header {
+  max-inline-size: 1100px;
+  margin-inline: auto;
+  padding: 16px 16px 8px;
+}
+.brand { font-family: "Barlow Condensed", sans-serif; font-size: 13px; letter-spacing: .22em; color: var(--muted); }
+.brand i { color: var(--gold); font-style: normal; }
+h1 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(26px, 6vw, 44px);
+  line-height: 1.08;
+  margin: 8px 0 10px;
+  text-wrap: balance;
+}
+.lede { color: var(--muted); font-size: 13px; max-inline-size: 78ch; }
+.tally {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  margin: 14px 0 6px; font-size: 12px; letter-spacing: .08em;
+}
+.tally b { color: var(--gold); }
+.tools { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 4px; }
+.tools button, .export {
+  font: 12px/1 "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  min-block-size: 44px;
+}
+.tools button:hover, .export:hover { border-color: var(--cyan); }
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 8;
+  container-type: scroll-state;
+  container-name: board-nav;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(12px);
+  border-block-end: 1px solid var(--line);
+}
+@container board-nav scroll-state(stuck: top) {
+  .nav-inner { box-shadow: 0 8px 24px rgb(0 0 0 / 0.35); }
+}
+.nav-inner {
+  max-inline-size: 1100px;
+  margin-inline: auto;
+  padding: 6px 8px;
+}
+nav.themes {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+nav.themes a {
+  flex: 0 0 auto;
+  padding: 10px 12px;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-block-end: 2px solid var(--gold);
+  white-space: nowrap;
+  font-weight: 700;
+}
+nav.themes a:hover { text-decoration: none; }
+section.theme {
+  max-inline-size: 1100px;
+  margin: 0 auto;
+  padding: 18px 16px 8px;
+}
+.theme-head {
+  display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline;
+  margin-block-end: 12px;
+}
+.theme-head h2 {
+  font-family: "Barlow Condensed", sans-serif;
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.door { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--cyan); }
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 700px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.card img.hero {
+  inline-size: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  object-position: center;
+  background: #0b0e14;
+}
+.pad { padding: 12px 12px 14px; display: grid; gap: 8px; }
+.pad h3 {
+  font-family: "Barlow Condensed", sans-serif;
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: .04em;
+}
+.meta { color: var(--muted); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+.price { color: var(--gold); }
+.btns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.btns button {
+  font: 11px/1 "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 12px 4px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  min-block-size: 44px;
+}
+.btns button:hover { border-color: var(--cyan); }
+.btns button.yes.on { background: color-mix(in srgb, var(--ok) 18%, transparent); border-color: var(--ok); color: var(--ok); }
+.btns button.no.on { background: color-mix(in srgb, var(--no) 18%, transparent); border-color: var(--no); color: var(--no); }
+.btns button.later.on { border-color: var(--gold); color: var(--gold); }
+.card textarea, #global-note {
+  width: 100%;
+  min-block-size: 3lh;
+  max-block-size: 8lh;
+  font: 13px/1.4 "IBM Plex Mono", ui-monospace, monospace;
+  color: var(--text);
+  background: #0b0f16;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+.card textarea:focus, #global-note:focus { outline: 2px solid var(--cyan); outline-offset: 1px; }
+.global {
+  max-inline-size: 1100px;
+  margin: 8px auto 0;
+  padding: 8px 16px 28px;
+  display: grid;
+  gap: 8px;
+}
+footer {
+  max-inline-size: 1100px;
+  margin-inline: auto;
+  padding: 8px 16px 40px;
+  color: var(--muted);
+  font-size: 12px;
+}
+@media (max-width: 700px) {
+  header { padding: 10px 16px 4px; }
+  h1 { font-size: 22px; margin: 4px 0 6px; }
+  .lede { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">COMMAND <i>//</i> MERCH REVIEW · WIZARDS + DRAGONS · COOL · FRESH START CO.</div>
+  <p style="color:#ffb020;font:700 12px/1.3 IBM Plex Mono,monospace;letter-spacing:.08em">BUILD wizards-dragons-cool · 10 stickers · kiss-cut $5 / die-cut $6 · 2/3/4" · no Fourthwall until YES</p>
+  <h1>Wizards + Dragons · Cool. Pick Yes / Later / No.</h1>
+  <p class="lede">Recut after the cute wizard set was all NO. Dark fantasy lite — powerful, slightly dangerous, sticker-shop. Original marks. No Line Dragon. PNG ≥2000px. Upload stays locked until you YES.</p>
+  <div class="tally">
+    <span>approve <b id="n-yes">0</b></span>
+    <span>later <b id="n-later">0</b></span>
+    <span>reject <b id="n-no">0</b></span>
+    <span>comments <b id="n-notes">0</b></span>
+  </div>
+  <div class="tools">
+    <button type="button" class="export" id="export">Export picks + comments JSON</button>
+  </div>
+</header>
+<div class="nav-wrap">
+  <div class="nav-inner">
+    <nav class="themes" aria-label="Series">
+      <a href="#wizards-dragons">Wizards + Dragons · Cool</a>
+    </nav>
+  </div>
+</div>
+<main id="board"></main>
+<div class="global">
+  <label for="global-note">Global note (whole board)</label>
+  <textarea id="global-note" placeholder="YES pack of 10? kill any one? recut names?…"></textarea>
+</div>
+<footer>
+  <p>Picks save on this phone in localStorage. Export JSON and Drop-save as <code>merch/picks/wizards-dragons-cool-picks.json</code>. Upload winners only after YES.</p>
+  <p>Fresh Start Co. · no spend · Wave cute wizards dropped · REV7-LIVE not touched.</p>
+</footer>
+<script>
+const KEY = "merch-wizards-dragons-cool-2026-09-14";
+const SKUS = [{id:'wd-gale-cloak', name:'Gale Cloak', why:'Storm wizard. Cloak + lightning staff.'},{id:'wd-ember-maw', name:'Ember Maw', why:'Dragon head profile. Fierce, gold eye.'},{id:'wd-sky-bond', name:'Sky Bond', why:'Wizard riding dragon. Blade-wing silhouette.'},{id:'wd-rift-egg', name:'Rift Egg', why:'Egg crack. Ember glow, one claw.'},{id:'wd-scale-blade', name:'Scale Blade', why:'Rune sword over a dragon-scale shield.'},{id:'wd-wyrm-keep', name:'Wyrm Keep', why:'Tower. Dragon coiled around the spire.'},{id:'wd-gold-iris', name:'Gold Iris', why:'Close dragon eye. Gold iris, slit pupil.'},{id:'wd-arc-duel', name:'Arc Duel', why:'Two wizards. Storm vs ember flash.'},{id:'wd-hoard-watch', name:'Hoard Watch', why:'Adult dragon on gold. One eye open.'},{id:'wd-grimoire-mark', name:'Grimoire Mark', why:'Spell book. Claw slashes, ember leak.'}];
+
+const state = JSON.parse(localStorage.getItem(KEY) || '{"picks":{},"notes":{},"global":""}');
+state.picks ||= {};
+state.notes ||= {};
+state.global ||= "";
+
+function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
+function tally() {
+  let y=0,l=0,n=0,c=0;
+  for (const v of Object.values(state.picks)) {
+    if (v==="yes") y++; else if (v==="later") l++; else if (v==="no") n++;
+  }
+  for (const v of Object.values(state.notes)) if (v && v.trim()) c++;
+  if (state.global && state.global.trim()) c++;
+  document.getElementById("n-yes").textContent = y;
+  document.getElementById("n-later").textContent = l;
+  document.getElementById("n-no").textContent = n;
+  document.getElementById("n-notes").textContent = c;
+}
+
+function cardHTML(s) {
+  const pick = state.picks[s.id] || "";
+  const note = state.notes[s.id] || "";
+  return `<article class="card" data-id="${s.id}">
+    <img class="hero" src="./img/${s.id}.jpg?v=wd1" alt="${s.name} sticker" width="800" height="800"/>
+    <div class="pad">
+      <span class="door">wizards + dragons · kiss-cut $5 / die-cut $6</span>
+      <h3>${s.name}</h3>
+      <p class="price">$5 / $6 · 2 / 3 / 4"</p>
+      <p class="meta">${s.why}</p>
+      <div class="btns">
+        <button class="yes${pick==="yes"?" on":""}" type="button">Yes</button>
+        <button class="later${pick==="later"?" on":""}" type="button">Later</button>
+        <button class="no${pick==="no"?" on":""}" type="button">No</button>
+      </div>
+      <textarea data-note="${s.id}" placeholder="Comment on this design…">${note.replace(/</g,"&lt;")}</textarea>
+    </div>
+  </article>`;
+}
+
+const board = document.getElementById("board");
+const sec = document.createElement("section");
+sec.className = "theme";
+sec.id = "wizards-dragons";
+sec.innerHTML = `<div class="theme-head"><h2>Wizards + Dragons · Cool</h2><span class="door">Fresh Start Co. · ${SKUS.length}</span></div>
+  <p class="lede">Cool / powerful / slightly dangerous. Not camp. Not nursery. Die-cut ready.</p>
+  <div class="grid">${SKUS.map(cardHTML).join("")}</div>`;
+board.appendChild(sec);
+
+board.addEventListener("click", (e) => {
+  const btn = e.target.closest("button");
+  if (!btn) return;
+  const card = btn.closest(".card");
+  if (!card) return;
+  const id = card.dataset.id;
+  const kind = btn.classList.contains("yes") ? "yes" : btn.classList.contains("no") ? "no" : "later";
+  state.picks[id] = state.picks[id] === kind ? "" : kind;
+  save();
+  card.querySelectorAll(".btns button").forEach((b) => {
+    b.classList.toggle("on", (b.classList.contains("yes") && state.picks[id]==="yes")
+      || (b.classList.contains("no") && state.picks[id]==="no")
+      || (b.classList.contains("later") && state.picks[id]==="later"));
+  });
+  tally();
+});
+board.addEventListener("input", (e) => {
+  if (e.target.matches("textarea[data-note]")) {
+    state.notes[e.target.dataset.note] = e.target.value;
+    save(); tally();
+  }
+});
+const g = document.getElementById("global-note");
+g.value = state.global;
+g.addEventListener("input", () => { state.global = g.value; save(); tally(); });
+
+document.getElementById("export").addEventListener("click", () => {
+  const payload = {
+    when: new Date().toISOString(),
+    key: KEY,
+    brand: "Fresh Start Co.",
+    label: "WIZARDS + DRAGONS · COOL",
+    picks: state.picks,
+    notes: state.notes,
+    global: state.global,
+    skus: SKUS.map(s => ({id:s.id, name:s.name, pick: state.picks[s.id] || "", note: state.notes[s.id] || ""})),
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "wizards-dragons-cool-picks.json";
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+
+tally();
+</script>
+</body>
+</html>
