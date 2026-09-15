@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex"/>
+<title>Fresh Start Co. — Imagine logo · 2026-09-14</title>
+<meta name="description" content="Grok Imagine flat digital sun + FRESH START CO. marks. Yes / Later / No. No pin."/>
+<link rel="canonical" href="https://cprahill.github.io/command/fresh-start-logo/imagine.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #07080c;
+  --card: #10141c;
+  --line: #243044;
+  --muted: #7a8aa0;
+  --text: #e8eef6;
+  --gold: #ffb020;
+  --coral: #ff7a59;
+  --ok: #3dff9a;
+  --no: #ff5a7a;
+  --cream: #F4E8D0;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--bg); color: var(--text); }
+html, body {
+  margin: 0;
+  overflow-x: hidden;
+  font: 14px/1.45 "IBM Plex Mono", ui-monospace, monospace;
+}
+img { display: block; max-inline-size: 100%; height: auto; }
+a { color: var(--gold); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+header {
+  max-inline-size: 1100px;
+  margin-inline: auto;
+  padding: 16px 16px 8px;
+}
+.brand { font-family: "Barlow Condensed", sans-serif; font-size: 13px; letter-spacing: .22em; color: var(--muted); }
+.brand i { color: var(--gold); font-style: normal; }
+.recut-pill {
+  display: inline-block;
+  margin: 8px 0 4px;
+  padding: 4px 10px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  letter-spacing: .18em;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+h1 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(26px, 6vw, 44px);
+  line-height: 1.08;
+  margin: 8px 0 10px;
+  text-wrap: balance;
+}
+.lede { color: var(--muted); font-size: 13px; max-inline-size: 72ch; }
+.tally {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  margin: 14px 0 6px; font-size: 12px; letter-spacing: .08em;
+}
+.tally b { color: var(--gold); }
+.tools { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 4px; }
+.tools button, .tools a.tool {
+  font: 12px/1 "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  min-block-size: 44px;
+  display: inline-grid;
+  place-items: center;
+  text-decoration: none;
+}
+.tools button:hover, .tools a.tool:hover { border-color: var(--gold); text-decoration: none; }
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 8;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(12px);
+  border-block-end: 1px solid var(--line);
+}
+.nav-inner {
+  max-inline-size: 1100px;
+  margin-inline: auto;
+  padding: 6px 8px;
+}
+nav.themes {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+nav.themes a {
+  flex: 0 0 auto;
+  padding: 10px 12px;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-block-end: 2px solid transparent;
+  white-space: nowrap;
+  min-block-size: 44px;
+}
+nav.themes a:hover { text-decoration: none; color: var(--text); }
+nav.themes a.is-current {
+  color: var(--gold);
+  border-color: var(--gold);
+  font-weight: 700;
+}
+section.theme {
+  max-inline-size: 1100px;
+  margin: 0 auto;
+  padding: 18px 16px 8px;
+  overflow-anchor: none;
+}
+.theme-head {
+  display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline;
+  margin-block-end: 12px;
+}
+.theme-head h2 {
+  font-family: "Barlow Condensed", sans-serif;
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.door { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 14px;
+}
+.card {
+  container-type: inline-size;
+  container-name: logo-card;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+.card img.hero {
+  inline-size: 100%;
+  aspect-ratio: 1;
+  min-block-size: 220px;
+  object-fit: contain;
+  object-position: center;
+  background: var(--cream);
+}
+.card.wide img.hero { aspect-ratio: 16 / 9; min-block-size: 160px; }
+.chips {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: color-mix(in srgb, var(--cream) 12%, var(--card));
+  border-block-end: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.chips img {
+  background: var(--cream);
+  border-radius: 4px;
+}
+.pad {
+  padding: 12px 12px 14px;
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+.pad h3 {
+  font-family: "Barlow Condensed", sans-serif;
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: .04em;
+}
+.meta { color: var(--muted); font-size: 12px; }
+.btns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.btns button {
+  font: 11px/1 "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 12px 4px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  min-block-size: 44px;
+}
+.btns button:hover { border-color: var(--gold); }
+.btns button.yes.on { background: color-mix(in srgb, var(--ok) 18%, transparent); border-color: var(--ok); color: var(--ok); }
+.btns button.no.on { background: color-mix(in srgb, var(--no) 18%, transparent); border-color: var(--no); color: var(--no); }
+.btns button.later.on { border-color: var(--gold); color: var(--gold); }
+.card textarea, #global-note {
+  field-sizing: content;
+  width: 100%;
+  height: auto;
+  min-block-size: 3lh;
+  max-block-size: 8lh;
+  font: 13px/1.4 "IBM Plex Mono", ui-monospace, monospace;
+  color: var(--text);
+  background: #0b0f16;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+@supports not (field-sizing: content) {
+  .card textarea, #global-note { min-height: 64px; }
+}
+.card textarea:focus, #global-note:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+@container logo-card (max-width: 220px) {
+  .pad h3 { font-size: 18px; }
+  .btns { grid-template-columns: 1fr; }
+}
+.global {
+  max-inline-size: 1100px;
+  margin: 8px auto 0;
+  padding: 8px 16px 28px;
+  display: grid;
+  gap: 8px;
+}
+footer {
+  max-inline-size: 1100px;
+  margin-inline: auto;
+  padding: 8px 16px 40px;
+  color: var(--muted);
+  font-size: 12px;
+}
+@media (max-width: 700px) {
+  header { padding: 10px 16px 4px; }
+  h1 { font-size: 22px; margin: 4px 0 6px; }
+  .lede { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">COMMAND <i>//</i> FRESH START CO. · IMAGINE · 2026-09-14</div>
+  <span class="recut-pill">IMAGINE · FLAT DIGITAL</span>
+  <h1>Sun + FRESH START CO. under. Flat digital. Pick on the phone.</h1>
+  <p class="lede">Grok Imagine only — not the last Digital Sun craft. Coral / gold / cream. No pin, no metal, no dragon. 32px + 64px on every card. Yes / Later / No. Do not apply to X or Fourthwall until a YES.</p>
+  <div class="tally">
+    <span>yes <b id="n-yes">0</b></span>
+    <span>later <b id="n-later">0</b></span>
+    <span>no <b id="n-no">0</b></span>
+    <span>comments <b id="n-notes">0</b></span>
+  </div>
+  <div class="tools">
+    <button type="button" id="export">Export picks JSON</button>
+    <a class="tool" href="./">Original options</a>
+    <a class="tool" href="./recut2.html">RECUT2</a>
+  </div>
+</header>
+<div class="nav-wrap">
+  <div class="nav-inner">
+    <nav class="themes" aria-label="Lanes">
+      <a href="#rise">Rising sun</a>
+      <a href="#smile">Smile sun</a>
+      <a href="#header">Shop header</a>
+      <a href="#badge">Badge</a>
+    </nav>
+  </div>
+</div>
+<main id="board">
+<section class="theme" id="rise">
+  <div class="theme-head"><h2>Rising sun lockup</h2><span class="door">A · sun over name</span></div>
+  <p class="lede">Primary lane. Icon on top, FRESH START CO. under. Sticker + avatar + favicon.</p>
+  <div class="grid">
+  <article class="card" data-id="a3-circle-rise">
+    <img class="hero" src="./imagine-2026-09-14/a3.png" alt="Circle Rise" width="1024" height="1024" fetchpriority="high"/>
+    <div class="chips" aria-label="tiny sizes">
+      <img src="./imagine-2026-09-14/chips/a3-32.png" width="32" height="32" alt=""/>
+      <img src="./imagine-2026-09-14/chips/a3-64.png" width="64" height="64" alt=""/>
+      <span>32 · 64</span>
+    </div>
+    <div class="pad">
+      <span class="door">lockup · full sun</span>
+      <h3>Circle Rise</h3>
+      <p class="meta">Full circular sun, short coral/gold rays, FRESH START CO. under. Cleanest small-size read.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="a3-circle-rise" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  <article class="card" data-id="a4-horizon-rise">
+    <img class="hero" src="./imagine-2026-09-14/a4.png" alt="Horizon Rise" width="1024" height="1024" loading="lazy"/>
+    <div class="chips" aria-label="tiny sizes">
+      <img src="./imagine-2026-09-14/chips/a4-32.png" width="32" height="32" alt="" loading="lazy"/>
+      <img src="./imagine-2026-09-14/chips/a4-64.png" width="64" height="64" alt="" loading="lazy"/>
+      <span>32 · 64</span>
+    </div>
+    <div class="pad">
+      <span class="door">lockup · horizon</span>
+      <h3>Horizon Rise</h3>
+      <p class="meta">Half-sun on a thin line, cream field, bold FRESH START CO. Shop mark shape.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="a4-horizon-rise" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  <article class="card" data-id="a2-fan-lockup">
+    <img class="hero" src="./imagine-2026-09-14/a2.png" alt="Fan Lockup" width="768" height="1152" loading="lazy"/>
+    <div class="chips" aria-label="tiny sizes">
+      <img src="./imagine-2026-09-14/chips/a2-32.png" width="32" height="32" alt="" loading="lazy"/>
+      <img src="./imagine-2026-09-14/chips/a2-64.png" width="64" height="64" alt="" loading="lazy"/>
+      <span>32 · 64</span>
+    </div>
+    <div class="pad">
+      <span class="door">lockup · fan</span>
+      <h3>Fan Lockup</h3>
+      <p class="meta">Coral/cream fan petals, gold outline, FRESH START CO. in one line under the sun.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="a2-fan-lockup" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  </div>
+</section>
+<section class="theme" id="smile">
+  <div class="theme-head"><h2>Smile sun</h2><span class="door">B · friendly</span></div>
+  <p class="lede">Soft smile in the hub. Catchy sticker energy. Still flat digital.</p>
+  <div class="grid">
+  <article class="card" data-id="b3-smile-dawn">
+    <img class="hero" src="./imagine-2026-09-14/b3.png" alt="Smile Dawn" width="1024" height="1024" loading="lazy"/>
+    <div class="chips" aria-label="tiny sizes">
+      <img src="./imagine-2026-09-14/chips/b3-32.png" width="32" height="32" alt="" loading="lazy"/>
+      <img src="./imagine-2026-09-14/chips/b3-64.png" width="64" height="64" alt="" loading="lazy"/>
+      <span>32 · 64</span>
+    </div>
+    <div class="pad">
+      <span class="door">smile · half-sun</span>
+      <h3>Smile Dawn</h3>
+      <p class="meta">Rising sun with a simple smile, coral/gold rays, FRESH START CO. under.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="b3-smile-dawn" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  <article class="card" data-id="b2-smile-rays">
+    <img class="hero" src="./imagine-2026-09-14/b2.png" alt="Smile Rays" width="768" height="1152" loading="lazy"/>
+    <div class="chips" aria-label="tiny sizes">
+      <img src="./imagine-2026-09-14/chips/b2-32.png" width="32" height="32" alt="" loading="lazy"/>
+      <img src="./imagine-2026-09-14/chips/b2-64.png" width="64" height="64" alt="" loading="lazy"/>
+      <span>32 · 64</span>
+    </div>
+    <div class="pad">
+      <span class="door">smile · full sun</span>
+      <h3>Smile Rays</h3>
+      <p class="meta">Round coral hub, gold/cream rays, tiny smile, FRESH START CO. under.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="b2-smile-rays" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  </div>
+</section>
+<section class="theme" id="header">
+  <div class="theme-head"><h2>Shop header</h2><span class="door">C · wide</span></div>
+  <p class="lede">Ecommerce header lockups. Sun over a thin horizon, name beside or under.</p>
+  <div class="grid">
+  <article class="card wide" data-id="c2-header-stack">
+    <img class="hero" src="./imagine-2026-09-14/c2.png" alt="Header Stack" width="1280" height="720" loading="lazy"/>
+    <div class="chips" aria-label="tiny sizes">
+      <img src="./imagine-2026-09-14/chips/c2-32.png" width="32" height="32" alt="" loading="lazy"/>
+      <img src="./imagine-2026-09-14/chips/c2-64.png" width="64" height="64" alt="" loading="lazy"/>
+      <span>32 · 64</span>
+    </div>
+    <div class="pad">
+      <span class="door">header · stacked</span>
+      <h3>Header Stack</h3>
+      <p class="meta">Centered rising sun over a horizon. FRESH START / CO. stacked under. Shop banner.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="c2-header-stack" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  <article class="card wide" data-id="c1-header-side">
+    <img class="hero" src="./imagine-2026-09-14/c1.png" alt="Header Side" width="1280" height="720" loading="lazy"/>
+    <div class="chips" aria-label="tiny sizes">
+      <img src="./imagine-2026-09-14/chips/c1-32.png" width="32" height="32" alt="" loading="lazy"/>
+      <img src="./imagine-2026-09-14/chips/c1-64.png" width="64" height="64" alt="" loading="lazy"/>
+      <span>32 · 64</span>
+    </div>
+    <div class="pad">
+      <span class="door">header · side</span>
+      <h3>Header Side</h3>
+      <p class="meta">Sun left, FRESH START CO. right. Horizontal site header.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="c1-header-side" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  </div>
+</section>
+<section class="theme" id="badge">
+  <div class="theme-head"><h2>Badge</h2><span class="door">D · die-cut</span></div>
+  <p class="lede">Round sticker-friendly marks. Flat sun in a circle. Not a pin.</p>
+  <div class="grid">
+  <article class="card" data-id="d1-arc-badge">
+    <img class="hero" src="./imagine-2026-09-14/d1.png" alt="Arc Badge" width="1024" height="1024" loading="lazy"/>
+    <div class="chips" aria-label="tiny sizes">
+      <img src="./imagine-2026-09-14/chips/d1-32.png" width="32" height="32" alt="" loading="lazy"/>
+      <img src="./imagine-2026-09-14/chips/d1-64.png" width="64" height="64" alt="" loading="lazy"/>
+      <span>32 · 64</span>
+    </div>
+    <div class="pad">
+      <span class="door">badge · arc</span>
+      <h3>Arc Badge</h3>
+      <p class="meta">Sun in the center, FRESH START CO. curved along the bottom ring. Die-cut.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="d1-arc-badge" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  <article class="card" data-id="d2-sticker-badge">
+    <img class="hero" src="./imagine-2026-09-14/d2.png" alt="Sticker Badge" width="1024" height="1024" loading="lazy"/>
+    <div class="chips" aria-label="tiny sizes">
+      <img src="./imagine-2026-09-14/chips/d2-32.png" width="32" height="32" alt="" loading="lazy"/>
+      <img src="./imagine-2026-09-14/chips/d2-64.png" width="64" height="64" alt="" loading="lazy"/>
+      <span>32 · 64</span>
+    </div>
+    <div class="pad">
+      <span class="door">badge · stacked</span>
+      <h3>Sticker Badge</h3>
+      <p class="meta">Sun over stacked FRESH START / CO. inside a thin ring. Pack sticker.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="d2-sticker-badge" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  </div>
+</section>
+</main>
+<div class="global">
+  <label for="global-note">Global note (whole board)</label>
+  <textarea id="global-note" placeholder="Lock Horizon Rise + Header Stack… smile for stickers…"></textarea>
+</div>
+<footer>
+  <p>IMAGINE · FLAT DIGITAL 2026-09-14. Picks save on this device. Export JSON for a Drop copy. Do not apply to @fresh_opx or Fourthwall until Christopher YES. Source: <code>brand/fresh-start-logo/imagine-2026-09-14/</code>.</p>
+</footer>
+<script>
+const KEY = "fs-logo-imagine-2026-09-14";
+const MARKS = [
+  {id:"a3-circle-rise", name:"Circle Rise", theme:"rise"},
+  {id:"a4-horizon-rise", name:"Horizon Rise", theme:"rise"},
+  {id:"a2-fan-lockup", name:"Fan Lockup", theme:"rise"},
+  {id:"b3-smile-dawn", name:"Smile Dawn", theme:"smile"},
+  {id:"b2-smile-rays", name:"Smile Rays", theme:"smile"},
+  {id:"c2-header-stack", name:"Header Stack", theme:"header"},
+  {id:"c1-header-side", name:"Header Side", theme:"header"},
+  {id:"d1-arc-badge", name:"Arc Badge", theme:"badge"},
+  {id:"d2-sticker-badge", name:"Sticker Badge", theme:"badge"}
+];
+const THEMES = [
+  {id:"rise", title:"Rising sun lockup"},
+  {id:"smile", title:"Smile sun"},
+  {id:"header", title:"Shop header"},
+  {id:"badge", title:"Badge"}
+];
+
+const state = JSON.parse(localStorage.getItem(KEY) || '{"picks":{},"notes":{},"global":""}');
+state.picks ||= {};
+state.notes ||= {};
+state.global ||= "";
+
+function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
+function tally() {
+  let y=0,l=0,n=0,c=0;
+  for (const v of Object.values(state.picks)) {
+    if (v==="yes") y++; else if (v==="later") l++; else if (v==="no") n++;
+  }
+  for (const v of Object.values(state.notes)) if (v && v.trim()) c++;
+  if (state.global && state.global.trim()) c++;
+  document.getElementById("n-yes").textContent = y;
+  document.getElementById("n-later").textContent = l;
+  document.getElementById("n-no").textContent = n;
+  document.getElementById("n-notes").textContent = c;
+}
+
+const board = document.getElementById("board");
+function applyState() {
+  document.querySelectorAll(".card[data-id]").forEach((card) => {
+    const id = card.dataset.id;
+    const pick = state.picks[id] || "";
+    card.querySelectorAll(".btns button").forEach((b) => {
+      b.classList.toggle("on", (b.classList.contains("yes") && pick==="yes")
+        || (b.classList.contains("no") && pick==="no")
+        || (b.classList.contains("later") && pick==="later"));
+    });
+    const ta = card.querySelector("textarea[data-note]");
+    if (ta) ta.value = state.notes[id] || "";
+  });
+}
+applyState();
+
+board.addEventListener("click", (e) => {
+  const btn = e.target.closest("button");
+  if (!btn) return;
+  const card = btn.closest(".card");
+  if (!card) return;
+  const id = card.dataset.id;
+  const kind = btn.classList.contains("yes") ? "yes" : btn.classList.contains("no") ? "no" : "later";
+  state.picks[id] = state.picks[id] === kind ? "" : kind;
+  save();
+  card.querySelectorAll(".btns button").forEach((b) => {
+    b.classList.toggle("on", (b.classList.contains("yes") && state.picks[id]==="yes")
+      || (b.classList.contains("no") && state.picks[id]==="no")
+      || (b.classList.contains("later") && state.picks[id]==="later"));
+  });
+  tally();
+});
+board.addEventListener("input", (e) => {
+  if (e.target.matches("textarea[data-note]")) {
+    state.notes[e.target.dataset.note] = e.target.value;
+    save(); tally();
+  }
+});
+const g = document.getElementById("global-note");
+g.value = state.global;
+g.addEventListener("input", () => { state.global = g.value; save(); tally(); });
+
+document.getElementById("export").addEventListener("click", () => {
+  const payload = {
+    when: new Date().toISOString(),
+    key: KEY,
+    recut: "imagine-flat-digital-2026-09-14",
+    picks: state.picks,
+    notes: state.notes,
+    global: state.global,
+    marks: MARKS.map(s => ({id:s.id, name:s.name, theme:s.theme, pick: state.picks[s.id] || "", note: state.notes[s.id] || ""}))
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "fresh-start-logo-imagine-picks.json";
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+
+tally();
+
+const navLinks = document.querySelectorAll("nav.themes a");
+navLinks[0].classList.add("is-current");
+navLinks[0].setAttribute("aria-current", "true");
+const sections = THEMES.map(t => document.getElementById(t.id));
+const obs = new IntersectionObserver((entries) => {
+  const visible = entries.filter(e => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+  if (!visible) return;
+  const id = visible.target.id;
+  navLinks.forEach((link) => {
+    const on = link.getAttribute("href") === `#${id}`;
+    link.classList.toggle("is-current", on);
+    link.setAttribute("aria-current", on ? "true" : "false");
+  });
+}, { rootMargin: "-25% 0px -55% 0px", threshold: [0, 0.25, 0.5] });
+sections.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
