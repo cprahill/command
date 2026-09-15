@@ -258,9 +258,9 @@ footer {
 <body>
 <header>
   <div class="brand">COMMAND <i>//</i> FRESH START CO. · LOGO BOARD · 2026-09-14</div>
-  <span class="recut-pill">OPTIONS · WORD · FS · BADGE</span>
-  <h1>16 logos for Fresh Start Co. Clean, hopeful, versatile. Not soap.</h1>
-  <p class="lede">Stickers&amp;Soap is retired. Pick a wordmark, an FS monogram, a badge — mix if you want. Each card shows 32px and 64px. Yes / Later / No. Sun round (RECUT2) is a later lane, linked below.</p>
+  <span class="recut-pill">LOCK · CHRISTOPHER PICK</span>
+  <h1>LOCK · CHRISTOPHER PICK is the mark. 16 earlier options stay below.</h1>
+  <p class="lede">Christopher’s pick, vectorized: coral sun + tan rays + FRESH START CO. under. Chips on the lock card. Recut2 board has the same lock card plus the sun round. Do not apply X / Fourthwall until YES apply.</p>
   <div class="tally">
     <span>yes <b id="n-yes">0</b></span>
     <span>later <b id="n-later">0</b></span>
@@ -269,12 +269,14 @@ footer {
   </div>
   <div class="tools">
     <button type="button" id="export">Export picks JSON</button>
+    <a class="btn" href="./recut2.html#lockpick">LOCK · CHRISTOPHER PICK</a>
     <a class="btn" href="./recut2.html">Sun round (RECUT2)</a>
   </div>
 </header>
 <div class="nav-wrap">
   <div class="nav-inner">
     <nav class="themes" aria-label="Lanes">
+      <a href="#lockpick">LOCK · Christopher Pick</a>
       <a href="#word">Wordmark</a>
       <a href="#mono">FS monogram</a>
       <a href="#badge">Badge</a>
@@ -282,13 +284,39 @@ footer {
     </nav>
   </div>
 </div>
-<main id="board"></main>
+<main id="board">
+<section class="theme" id="lockpick">
+  <div class="theme-head"><h2>LOCK · CHRISTOPHER PICK</h2><span class="door">vector · his pick</span></div>
+  <p class="lede">Traced from the mark Christopher sent. Coral sun, tan rays, horizon, FRESH START CO. under. Flat digital. Not enamel, not a pin. Apply live only after YES apply.</p>
+  <div class="grid">
+  <article class="card" data-id="lock-christopher-pick">
+    <img class="hero" src="./lock-pick/lock-christopher-pick-1024.png" alt="LOCK · CHRISTOPHER PICK — Fresh Start Co. rising sun lockup" width="1024" height="1024" fetchpriority="high"/>
+    <div class="chips" aria-label="tiny sizes">
+      <img src="./lock-pick/lock-christopher-pick-32.png" width="32" height="32" alt=""/>
+      <img src="./lock-pick/lock-christopher-pick-64.png" width="64" height="64" alt=""/>
+      <span>32 · 64</span>
+    </div>
+    <div class="pad">
+      <span class="door">lock · christopher pick</span>
+      <h3>LOCK · CHRISTOPHER PICK</h3>
+      <p class="meta">Rising sun lockup — coral hub + coral/tan rays + horizon + FRESH START CO. under. SVG + PNG chips in lock-pick/.</p>
+      <div class="btns">
+        <button class="yes" type="button">Yes</button>
+        <button class="later" type="button">Later</button>
+        <button class="no" type="button">No</button>
+      </div>
+      <textarea data-note="lock-christopher-pick" placeholder="Comment…"></textarea>
+    </div>
+  </article>
+  </div>
+</section>
+</main>
 <div class="global">
   <label for="global-note">Global note (whole board)</label>
   <textarea id="global-note" placeholder="Lock Horizon + Nested FS… Clean Line is the shop header… peel is the sticker…"></textarea>
 </div>
 <footer>
-  <p>Fresh Start Co. logo options 2026-09-14. Picks save on this device. Export JSON for a Drop copy. No soap bar. No S&amp;S. Source: <code>brand/fresh-start-logo/v1/</code>.</p>
+  <p>LOCK · CHRISTOPHER PICK 2026-09-14. Vector in <code>brand/fresh-start-logo/lock-pick/</code>. Earlier options stay below. No X / Fourthwall until YES apply.</p>
 </footer>
 <script>
 const KEY = "fs-logo-v1-original-2026-09-14";
@@ -349,6 +377,18 @@ THEMES.forEach((t) => {
     <p class="lede">${t.lede}</p>
     <div class="grid">${items.map((s, i) => cardHTML(s, i)).join("")}</div>`;
   board.appendChild(sec);
+});
+
+document.querySelectorAll(".card[data-id]").forEach((card) => {
+  const id = card.dataset.id;
+  const pick = state.picks[id] || "";
+  card.querySelectorAll(".btns button").forEach((b) => {
+    b.classList.toggle("on", (b.classList.contains("yes") && pick==="yes")
+      || (b.classList.contains("no") && pick==="no")
+      || (b.classList.contains("later") && pick==="later"));
+  });
+  const ta = card.querySelector("textarea[data-note]");
+  if (ta) ta.value = state.notes[id] || "";
 });
 
 board.addEventListener("click", (e) => {
