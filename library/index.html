@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Universal Family Library</title>
+<style>
+  :root { --bg:#f7f1e8; --ink:#1c1917; --muted:#78716c; --coral:#e07a5f; --teal:#3d8b7a; --gold:#c9a227; --card:#fffdf9; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: ui-rounded, system-ui, -apple-system, sans-serif; background:var(--bg); color:var(--ink); }
+  header { padding:28px 20px 12px; text-align:center; }
+  header h1 { margin:0; font-size:1.6rem; letter-spacing:.02em; }
+  header p { margin:8px 0 0; color:var(--muted); font-size:.95rem; }
+  .pill { display:inline-block; margin-top:10px; padding:4px 12px; border-radius:999px; background:#fff; border:1px solid #e7e0d5; font-size:.75rem; color:var(--muted); }
+  main { display:grid; gap:16px; padding:16px; max-width:1100px; margin:0 auto 40px; }
+  @media(min-width:900px){ main { grid-template-columns: 1fr 1fr 1fr; } }
+  section { background:var(--card); border-radius:18px; padding:16px; box-shadow:0 8px 24px rgba(28,25,23,.06); border:1px solid #efe8dc; }
+  section h2 { margin:0 0 12px; font-size:1.05rem; display:flex; align-items:center; gap:8px; }
+  .dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
+  .skills .dot { background:var(--coral); }
+  .tools .dot { background:var(--teal); }
+  .flows .dot { background:var(--gold); }
+  .item { padding:10px 0; border-top:1px solid #f0e9df; }
+  .item:first-of-type { border-top:none; }
+  .name { font-weight:650; font-size:.92rem; }
+  .desc { margin-top:4px; font-size:.8rem; line-height:1.35; color:var(--muted); }
+  .tag { font-size:.65rem; text-transform:uppercase; letter-spacing:.06em; color:#a8a29e; }
+  footer { text-align:center; padding:8px 16px 32px; color:var(--muted); font-size:.8rem; }
+  .pending { opacity:.75; border-style:dashed; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Universal Family Library</h1>
+  <p>Skills · Tools · Workflows — clear names, household-shareable</p>
+  <span class="pill">Mom · Dad · Lindsay · Christopher</span>
+</header>
+<main>
+
+<section class="skills">
+  <h2><span class="dot"></span> Skills</h2>
+
+  <div class="item"><div class="name">Spend and Messages Gate</div><div class="desc">Use before any purchase, email, or iMessage — needs owner YES first.</div></div>
+  <div class="item"><div class="name">Agent passport</div><div class="desc">Full allow / require / deny for send, spend, sign, or new connections.</div></div>
+  <div class="item"><div class="name">Family Skill Library</div><div class="desc">Master index — find or add a shared skill by clear name.</div></div>
+  <div class="item"><div class="name">Family Bot + Build</div><div class="desc">Bot for light asks; Build Mode for apps/tools. Less burn, more finished work.</div></div>
+  <div class="item"><div class="name">Family Grok token saver</div><div class="desc">Short asks, one topic, plan-the-shot — help family use Grok without burning tokens.</div></div>
+  <div class="item"><div class="name">Ship Tools As You Go</div><div class="desc">Same friction twice → ship a named script/skill instead of waiting for a toolkit sprint.</div></div>
+  <div class="item"><div class="name">Continuous improvement</div><div class="desc">Before/after work: review lessons, apply CI, log what worked or failed.</div></div>
+  <div class="item"><div class="name">Extract Run To Library</div><div class="desc">After a live agent run, turn rules/fills/playbooks into reusable family skills/tools.</div></div>
+  <div class="item"><div class="name">Print Quality Check</div><div class="desc">Before POD upload — pixel size, print sizes, ban bad quality settings.</div></div>
+  <div class="item"><div class="name">Upload Ledger No Dupes</div><div class="desc">Ledger product ids so the same design is never uploaded twice.</div></div>
+  <div class="item"><div class="name">Promote Gate Before Go Live</div><div class="desc">Refuse GO until ledger, print checks, and end-fix pass.</div></div>
+  <div class="item"><div class="name">Phillip Mini → Heavy handoff</div><div class="desc">Lindsay’s Phillip drops hard work to Mini inbox; results return in from-mini.</div></div>
+  <div class="item"><div class="name">Phillip done-check (no tokens)</div><div class="desc">Zero-LLM shell check for whether Mini Heavy finished.</div></div>
+  <div class="item"><div class="name">Token efficiency</div><div class="desc">Keep replies, tools, and room posts maximally token-efficient.</div></div>
+  <div class="item"><div class="name">Local-first escalate</div><div class="desc">Locals first; cloud only when locals cannot — improve local path, don’t add cloud bots.</div></div>
+  <div class="item"><div class="name">Multi-agent desk charter</div><div class="desc">Write the lasting charter every agent must obey before creating desk seats.</div></div>
+  <div class="item"><div class="name">Verify live marks</div><div class="desc">Prove prices are live with timestamp/source before any thesis or order.</div></div>
+  <div class="item"><div class="name">Project pass-down</div><div class="desc">When a session stops — completed work, links, lessons.</div></div>
+  <div class="item pending"><div class="tag">Heavy Build in flight</div><div class="name">Trading desk pack (10)</div><div class="desc">Closed pot, clerk rules, sell-to-fund, floor/aim, circuit breaker, cycle log, cash-until-event, dip probe, veto-before-buy + more from DESK-OS.</div></div>
+</section>
+
+<section class="tools">
+  <h2><span class="dot"></span> Tools</h2>
+  <div class="item"><div class="name">check-print-ready.sh</div><div class="desc">PNG size gate before merch upload.</div></div>
+  <div class="item"><div class="name">ledger-init / has / add</div><div class="desc">No-dupe product id ledger.</div></div>
+  <div class="item"><div class="name">inject-steer.sh</div><div class="desc">Drop STEER-NOW.md into a running Build.</div></div>
+  <div class="item"><div class="name">new-build-dest.sh</div><div class="desc">Factory for DEST ticket + start script.</div></div>
+  <div class="item"><div class="name">post-upload-qa.sh</div><div class="desc">End-gate QA report after uploads.</div></div>
+  <div class="item"><div class="name">promote-gate.sh</div><div class="desc">Refuse GO until checklist is green.</div></div>
+  <div class="item"><div class="name">drop-picks-watch.sh</div><div class="desc">New Drop picks → Bot inbox notify.</div></div>
+  <div class="item"><div class="name">fw-catalog-hint.sh</div><div class="desc">Fourthwall catalog snapshot / checklist.</div></div>
+  <div class="item"><div class="name">shop-status.sh</div><div class="desc">One-liner: ledger / go / live status.</div></div>
+  <div class="item"><div class="name">live-ops-tick.sh</div><div class="desc">Collect live ops snapshot (~30s). No spend/coms.</div></div>
+  <div class="item"><div class="name">publish-truth.sh</div><div class="desc">Write process.json → push command/truth → verify HTTPS.</div></div>
+  <div class="item"><div class="name">watch-builds-and-notify.sh</div><div class="desc">Detect Build finish → close terminals → event for Bot.</div></div>
+  <div class="item"><div class="name">close-finished-build-terminals.sh</div><div class="desc">Close finished Build terminals without manual Terminate taps.</div></div>
+  <div class="item"><div class="name">check-from-mini-done.sh</div><div class="desc">One-shot zero-token DONE check (Lindsay from-mini).</div></div>
+  <div class="item"><div class="name">watch-from-mini-done.sh</div><div class="desc">Watch from-mini for DONE.txt — no LLM.</div></div>
+  <div class="item"><div class="name">morning-brief.sh</div><div class="desc">Local morning brief skeleton (no email/spend).</div></div>
+  <div class="item"><div class="name">mail-triage-hint.sh</div><div class="desc">Mail triage hints only — does not read/send.</div></div>
+  <div class="item"><div class="name">household-week.sh</div><div class="desc">Household week skeleton — local text only.</div></div>
+  <div class="item"><div class="name">openclaw-lindsay.sh</div><div class="desc">Launch/hint Lindsay OpenClaw Lite (no send/spend).</div></div>
+  <div class="item"><div class="name">hipot-locals.sh</div><div class="desc">Sequential locals hipot — never dual-load models.</div></div>
+</section>
+
+<section class="flows">
+  <h2><span class="dot"></span> Workflows (routines)</h2>
+  <div class="item"><div class="tag">ON</div><div class="name">Build done watcher</div><div class="desc">Daytime — notify when a Build finishes.</div></div>
+  <div class="item"><div class="tag">ON</div><div class="name">Daily passdown</div><div class="desc">Weekday 8:00 CT — short morning results card.</div></div>
+  <div class="item"><div class="tag">ON</div><div class="name">RH morning strategy desk</div><div class="desc">Weekday 7:00 CT — research → strategy → execute on …4103.</div></div>
+  <div class="item"><div class="tag">ON</div><div class="name">RH Agentic crypto cycle</div><div class="desc">Every 4h — DESK-OS cycle (equities/cash; no BTC reload).</div></div>
+  <div class="item"><div class="tag">ON</div><div class="name">RH day post-mortem</div><div class="desc">Weekday 15:30 CT — fills, P&amp;L vs baseline, lessons.</div></div>
+  <div class="item"><div class="tag">ON</div><div class="name">Heavy project trim</div><div class="desc">Weekday 15:00 CT — improve + cut pass across projects.</div></div>
+  <div class="item"><div class="tag">ON</div><div class="name">Weekly sticker drop</div><div class="desc">Friday 10:00 CT — Fresh Start drop cadence when LIVE.</div></div>
+  <div class="item"><div class="tag">ON</div><div class="name">Soap revisit weekend</div><div class="desc">Sep 20 10:00 CT — reopen soap / MagicSoaps gate.</div></div>
+  <div class="item"><div class="tag">ON</div><div class="name">Lindsay inbox → Heavy</div><div class="desc">LaunchAgent — Phillip tickets → Mini Heavy → from-mini DONE.</div></div>
+  <div class="item"><div class="tag">PAUSED</div><div class="name">Daily project digest · SEED · First principles · OpenClaw hourly · Money desk · Workforce KPI · Ops debrief</div><div class="desc">Parked loops — still in library, not firing.</div></div>
+  <div class="item pending"><div class="tag">Heavy Build in flight</div><div class="name">Agentic desk daily + Grow library from desk</div><div class="desc">Workflow docs landing with DESK-OS → Family Library ticket.</div></div>
+</section>
+
+</main>
+<footer>Disk: Lindsay-Drop/FAMILY-LIBRARY · Phone board also in Christopher-Drop<br/>Trading desk skills packing now via Heavy Build (desk-os-lib)</footer>
+</body>
+</html>
