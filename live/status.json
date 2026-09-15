@@ -1,7 +1,7 @@
 {
   "title": "LIVE OPS",
-  "generated_at": "2026-09-15T16:27:14.708515Z",
-  "updated_at_ct": "2026-09-15T11:27:14-0500",
+  "generated_at": "2026-09-15T16:29:24.016362Z",
+  "updated_at_ct": "2026-09-15T11:29:24-0500",
   "host": {
     "name": "Jimothys-Mac-mini-2.local",
     "role": "Grok Mini"
@@ -13,8 +13,8 @@
     "locals": 2,
     "terminals_live": 1,
     "grok": 1,
-    "longest_etime_sec": 1004396,
-    "longest_etime_human": "11d 14h",
+    "longest_etime_sec": 1004526,
+    "longest_etime_human": "11d 15h",
     "n_workers": 8
   },
   "teams": {
@@ -46,9 +46,9 @@
         "status": "WORKING",
         "pid": 9669,
         "tty": "ttys001",
-        "etime": "13:12:04",
-        "etime_sec": 47524,
-        "etime_human": "13h 12m",
+        "etime": "13:14:14",
+        "etime_sec": 47654,
+        "etime_human": "13h 14m",
         "pcpu": 0.0,
         "rss_mb": 56.5,
         "on": "LINDSAY-HEAVY",
@@ -97,8 +97,8 @@
         "detail": "OC node",
         "pid": 30436,
         "tty": "??",
-        "etime": "02-20:35:20",
-        "etime_sec": 246920,
+        "etime": "02-20:37:30",
+        "etime_sec": 247050,
         "etime_human": "2d 20h",
         "pcpu": 0.0,
         "rss_mb": 24.8
@@ -112,11 +112,11 @@
         "detail": "OC gateway :18789",
         "pid": 53897,
         "tty": "??",
-        "etime": "02-19:12:52",
-        "etime_sec": 241972,
+        "etime": "02-19:15:02",
+        "etime_sec": 242102,
         "etime_human": "2d 19h",
         "pcpu": 0.1,
-        "rss_mb": 282.8
+        "rss_mb": 282.0
       }
     ],
     "locals": [
@@ -127,11 +127,11 @@
         "status": "UP",
         "pid": 1424,
         "tty": "??",
-        "etime": "11-14:59:56",
-        "etime_sec": 1004396,
-        "etime_human": "11d 14h",
+        "etime": "11-15:02:06",
+        "etime_sec": 1004526,
+        "etime_human": "11d 15h",
         "pcpu": 0.0,
-        "rss_mb": 28.5,
+        "rss_mb": 36.1,
         "on": "",
         "detail": "ollama"
       },
@@ -142,9 +142,9 @@
         "status": "UP",
         "pid": 1481,
         "tty": "??",
-        "etime": "11-14:59:54",
-        "etime_sec": 1004394,
-        "etime_human": "11d 14h",
+        "etime": "11-15:02:04",
+        "etime_sec": 1004524,
+        "etime_human": "11d 15h",
         "pcpu": 0.0,
         "rss_mb": 28.8,
         "on": "",
@@ -163,96 +163,6 @@
   },
   "graph": {
     "points": [
-      {
-        "t": "2026-09-15T16:13:20.885712Z",
-        "builds": 1,
-        "openclaw": 4,
-        "locals": 2,
-        "ttys": 1,
-        "grok": 1,
-        "working": 1
-      },
-      {
-        "t": "2026-09-15T16:13:24.638629Z",
-        "builds": 1,
-        "openclaw": 4,
-        "locals": 2,
-        "ttys": 1,
-        "grok": 1,
-        "working": 1
-      },
-      {
-        "t": "2026-09-15T16:13:56.341780Z",
-        "builds": 1,
-        "openclaw": 4,
-        "locals": 2,
-        "ttys": 1,
-        "grok": 1,
-        "working": 1
-      },
-      {
-        "t": "2026-09-15T16:14:24.209665Z",
-        "builds": 1,
-        "openclaw": 4,
-        "locals": 2,
-        "ttys": 1,
-        "grok": 1,
-        "working": 1
-      },
-      {
-        "t": "2026-09-15T16:14:28.001378Z",
-        "builds": 1,
-        "openclaw": 4,
-        "locals": 2,
-        "ttys": 1,
-        "grok": 1,
-        "working": 1
-      },
-      {
-        "t": "2026-09-15T16:14:45.704477Z",
-        "builds": 1,
-        "openclaw": 4,
-        "locals": 2,
-        "ttys": 1,
-        "grok": 1,
-        "working": 1
-      },
-      {
-        "t": "2026-09-15T16:14:59.675968Z",
-        "builds": 1,
-        "openclaw": 4,
-        "locals": 2,
-        "ttys": 1,
-        "grok": 1,
-        "working": 1
-      },
-      {
-        "t": "2026-09-15T16:15:26.150629Z",
-        "builds": 1,
-        "openclaw": 4,
-        "locals": 2,
-        "ttys": 1,
-        "grok": 1,
-        "working": 1
-      },
-      {
-        "t": "2026-09-15T16:15:28.083682Z",
-        "builds": 1,
-        "openclaw": 4,
-        "locals": 2,
-        "ttys": 1,
-        "grok": 1,
-        "working": 1
-      },
-      {
-        "t": "2026-09-15T16:15:30.184367Z",
-        "builds": 1,
-        "openclaw": 4,
-        "locals": 2,
-        "ttys": 1,
-        "grok": 1,
-        "working": 1
-      },
       {
         "t": "2026-09-15T16:15:31.343397Z",
         "builds": 1,
@@ -696,6 +606,96 @@
       },
       {
         "t": "2026-09-15T16:27:14.708515Z",
+        "builds": 1,
+        "openclaw": 4,
+        "locals": 2,
+        "ttys": 1,
+        "grok": 1,
+        "working": 1
+      },
+      {
+        "t": "2026-09-15T16:27:40.562954Z",
+        "builds": 1,
+        "openclaw": 4,
+        "locals": 2,
+        "ttys": 1,
+        "grok": 1,
+        "working": 1
+      },
+      {
+        "t": "2026-09-15T16:28:06.969486Z",
+        "builds": 1,
+        "openclaw": 4,
+        "locals": 2,
+        "ttys": 1,
+        "grok": 1,
+        "working": 1
+      },
+      {
+        "t": "2026-09-15T16:28:12.262637Z",
+        "builds": 1,
+        "openclaw": 4,
+        "locals": 2,
+        "ttys": 1,
+        "grok": 1,
+        "working": 1
+      },
+      {
+        "t": "2026-09-15T16:28:18.024873Z",
+        "builds": 1,
+        "openclaw": 4,
+        "locals": 2,
+        "ttys": 1,
+        "grok": 1,
+        "working": 1
+      },
+      {
+        "t": "2026-09-15T16:28:43.966312Z",
+        "builds": 1,
+        "openclaw": 4,
+        "locals": 2,
+        "ttys": 1,
+        "grok": 1,
+        "working": 1
+      },
+      {
+        "t": "2026-09-15T16:29:09.236944Z",
+        "builds": 1,
+        "openclaw": 4,
+        "locals": 2,
+        "ttys": 1,
+        "grok": 1,
+        "working": 1
+      },
+      {
+        "t": "2026-09-15T16:29:15.632105Z",
+        "builds": 1,
+        "openclaw": 4,
+        "locals": 2,
+        "ttys": 1,
+        "grok": 1,
+        "working": 1
+      },
+      {
+        "t": "2026-09-15T16:29:19.926906Z",
+        "builds": 1,
+        "openclaw": 4,
+        "locals": 2,
+        "ttys": 1,
+        "grok": 1,
+        "working": 1
+      },
+      {
+        "t": "2026-09-15T16:29:21.825548Z",
+        "builds": 1,
+        "openclaw": 4,
+        "locals": 2,
+        "ttys": 1,
+        "grok": 1,
+        "working": 1
+      },
+      {
+        "t": "2026-09-15T16:29:24.016362Z",
         "builds": 1,
         "openclaw": 4,
         "locals": 2,
