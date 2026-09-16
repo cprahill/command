@@ -1,7 +1,7 @@
 {
   "title": "LIVE OPS",
-  "generated_at": "2026-09-16T01:08:28.586406Z",
-  "updated_at_ct": "2026-09-15T20:08:28-0500",
+  "generated_at": "2026-09-16T01:10:37.900134Z",
+  "updated_at_ct": "2026-09-15T20:10:37-0500",
   "host": {
     "name": "Jimothys-Mac-mini-2.local",
     "role": "Grok Mini"
@@ -13,7 +13,7 @@
     "locals": 2,
     "terminals_live": 0,
     "grok": 1,
-    "longest_etime_sec": 1035670,
+    "longest_etime_sec": 1035799,
     "longest_etime_human": "11d 23h",
     "n_workers": 7
   },
@@ -81,11 +81,11 @@
         "detail": "OC node",
         "pid": 30436,
         "tty": "??",
-        "etime": "03-05:16:34",
-        "etime_sec": 278194,
+        "etime": "03-05:18:43",
+        "etime_sec": 278323,
         "etime_human": "3d 5h",
         "pcpu": 0.0,
-        "rss_mb": 25.5
+        "rss_mb": 25.6
       },
       {
         "id": "oc-53897",
@@ -96,11 +96,11 @@
         "detail": "OC gateway :18789",
         "pid": 53897,
         "tty": "??",
-        "etime": "03-03:54:06",
-        "etime_sec": 273246,
+        "etime": "03-03:56:15",
+        "etime_sec": 273375,
         "etime_human": "3d 3h",
-        "pcpu": 0.1,
-        "rss_mb": 293.3
+        "pcpu": 0.2,
+        "rss_mb": 294.1
       }
     ],
     "locals": [
@@ -111,8 +111,8 @@
         "status": "UP",
         "pid": 1424,
         "tty": "??",
-        "etime": "11-23:41:10",
-        "etime_sec": 1035670,
+        "etime": "11-23:43:19",
+        "etime_sec": 1035799,
         "etime_human": "11d 23h",
         "pcpu": 0.0,
         "rss_mb": 41.3,
@@ -126,11 +126,11 @@
         "status": "UP",
         "pid": 1481,
         "tty": "??",
-        "etime": "11-23:41:08",
-        "etime_sec": 1035668,
+        "etime": "11-23:43:17",
+        "etime_sec": 1035797,
         "etime_human": "11d 23h",
         "pcpu": 0.0,
-        "rss_mb": 28.9,
+        "rss_mb": 29.0,
         "on": "",
         "detail": "ollama serve"
       }
@@ -145,96 +145,6 @@
   },
   "graph": {
     "points": [
-      {
-        "t": "2026-09-16T00:55:23.151550Z",
-        "builds": 0,
-        "openclaw": 4,
-        "locals": 2,
-        "ttys": 0,
-        "grok": 1,
-        "working": 0
-      },
-      {
-        "t": "2026-09-16T00:55:28.738610Z",
-        "builds": 0,
-        "openclaw": 4,
-        "locals": 2,
-        "ttys": 0,
-        "grok": 1,
-        "working": 0
-      },
-      {
-        "t": "2026-09-16T00:55:30.641919Z",
-        "builds": 0,
-        "openclaw": 4,
-        "locals": 2,
-        "ttys": 0,
-        "grok": 1,
-        "working": 0
-      },
-      {
-        "t": "2026-09-16T00:55:32.742407Z",
-        "builds": 0,
-        "openclaw": 4,
-        "locals": 2,
-        "ttys": 0,
-        "grok": 1,
-        "working": 0
-      },
-      {
-        "t": "2026-09-16T00:55:54.876531Z",
-        "builds": 0,
-        "openclaw": 4,
-        "locals": 2,
-        "ttys": 0,
-        "grok": 1,
-        "working": 0
-      },
-      {
-        "t": "2026-09-16T00:56:26.568362Z",
-        "builds": 0,
-        "openclaw": 4,
-        "locals": 2,
-        "ttys": 0,
-        "grok": 1,
-        "working": 0
-      },
-      {
-        "t": "2026-09-16T00:56:36.003558Z",
-        "builds": 0,
-        "openclaw": 4,
-        "locals": 2,
-        "ttys": 0,
-        "grok": 1,
-        "working": 0
-      },
-      {
-        "t": "2026-09-16T00:56:58.255045Z",
-        "builds": 0,
-        "openclaw": 4,
-        "locals": 2,
-        "ttys": 0,
-        "grok": 1,
-        "working": 0
-      },
-      {
-        "t": "2026-09-16T00:56:58.595142Z",
-        "builds": 0,
-        "openclaw": 6,
-        "locals": 2,
-        "ttys": 0,
-        "grok": 1,
-        "working": 0
-      },
-      {
-        "t": "2026-09-16T00:57:30.035070Z",
-        "builds": 0,
-        "openclaw": 4,
-        "locals": 2,
-        "ttys": 0,
-        "grok": 1,
-        "working": 0
-      },
       {
         "t": "2026-09-16T00:57:37.901435Z",
         "builds": 0,
@@ -678,6 +588,96 @@
       },
       {
         "t": "2026-09-16T01:08:28.586406Z",
+        "builds": 0,
+        "openclaw": 4,
+        "locals": 2,
+        "ttys": 0,
+        "grok": 1,
+        "working": 0
+      },
+      {
+        "t": "2026-09-16T01:08:35.869968Z",
+        "builds": 0,
+        "openclaw": 4,
+        "locals": 2,
+        "ttys": 0,
+        "grok": 1,
+        "working": 0
+      },
+      {
+        "t": "2026-09-16T01:09:07.603355Z",
+        "builds": 0,
+        "openclaw": 4,
+        "locals": 2,
+        "ttys": 0,
+        "grok": 1,
+        "working": 0
+      },
+      {
+        "t": "2026-09-16T01:09:17.298382Z",
+        "builds": 0,
+        "openclaw": 4,
+        "locals": 2,
+        "ttys": 0,
+        "grok": 1,
+        "working": 0
+      },
+      {
+        "t": "2026-09-16T01:09:31.859255Z",
+        "builds": 0,
+        "openclaw": 4,
+        "locals": 2,
+        "ttys": 0,
+        "grok": 1,
+        "working": 0
+      },
+      {
+        "t": "2026-09-16T01:09:39.309842Z",
+        "builds": 0,
+        "openclaw": 4,
+        "locals": 2,
+        "ttys": 0,
+        "grok": 1,
+        "working": 0
+      },
+      {
+        "t": "2026-09-16T01:10:10.983687Z",
+        "builds": 0,
+        "openclaw": 4,
+        "locals": 2,
+        "ttys": 0,
+        "grok": 1,
+        "working": 0
+      },
+      {
+        "t": "2026-09-16T01:10:19.576791Z",
+        "builds": 0,
+        "openclaw": 4,
+        "locals": 2,
+        "ttys": 0,
+        "grok": 1,
+        "working": 0
+      },
+      {
+        "t": "2026-09-16T01:10:33.790971Z",
+        "builds": 0,
+        "openclaw": 4,
+        "locals": 2,
+        "ttys": 0,
+        "grok": 1,
+        "working": 0
+      },
+      {
+        "t": "2026-09-16T01:10:35.729678Z",
+        "builds": 0,
+        "openclaw": 4,
+        "locals": 2,
+        "ttys": 0,
+        "grok": 1,
+        "working": 0
+      },
+      {
+        "t": "2026-09-16T01:10:37.900134Z",
         "builds": 0,
         "openclaw": 4,
         "locals": 2,
